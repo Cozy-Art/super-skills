@@ -1,0 +1,53 @@
+# Local secrets & environment
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs & scratch files
+*.log
+*.tmp
+*.temp
+*~
+*.bak
+*.swp
+*.swo
+
+# Node / frontend tooling (if you add it later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+# Python (if you add scripts or tooling later)
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# IDE / editor (personal state — keep .claude/ skills tracked; not listed here)
+.idea/
+*.sublime-workspace
+
+# Coverage & misc caches
+.coverage
+htmlcov/
+.cache/
