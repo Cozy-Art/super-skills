@@ -130,7 +130,7 @@ A practical production stance:
    `<Subject N>` reference tokens with explicit retention markers; `seedance-v2-5` has `@Image 1`
    tokens and accepts up to 30 reference images; `veo-v3` has numbered reference images. Recommending a
    different model is the right answer here, not a failure of this one.
-5. **Revisit when Omni Reference lands.** At that point this file, the the reference-token convention capability, and
+5. **Revisit when Omni Reference lands.** At that point this file, the reference-token convention capability, and
    the "no cross-generation identity mechanism" section in `SKILL.md` all change together.
 
 ---

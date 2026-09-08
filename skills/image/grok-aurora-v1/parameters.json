@@ -1,0 +1,311 @@
+{
+  "model_family": "xAI Grok Aurora",
+  "model_identifier": "grok-imagine-image",
+  "technology_stack": {
+    "architecture": "Autoregressive Mixture-of-Experts (MoE) network",
+    "training_data": "Billions of text and image examples",
+    "developer": "xAI (in-house)",
+    "predecessor": "FLUX.1 (Black Forest Labs, replaced December 2024)"
+  },
+
+  "api_parameters": {
+    "text_to_image": {
+      "prompt": {
+        "type": "string",
+        "required": true,
+        "description": "Natural language image description. No special syntax, flags, or markup.",
+        "recommended_length": "2-5 sentences",
+        "notes": "Detailed prompts outperform short ones. Cover subject, style, environment, lighting, mood, and technical details."
+      },
+      "model": {
+        "type": "string",
+        "required": true,
+        "value": "grok-imagine-image",
+        "description": "Model identifier"
+      },
+      "n": {
+        "type": "integer",
+        "required": false,
+        "range": "1-10",
+        "default": 1,
+        "description": "Number of images to generate per request. UI generates 4 by default."
+      },
+      "aspect_ratio": {
+        "type": "string",
+        "required": false,
+        "default": "1:1",
+        "description": "Output aspect ratio. See aspect_ratios table."
+      },
+      "resolution": {
+        "type": "string",
+        "required": false,
+        "options": ["1k", "2k"],
+        "default": "1k",
+        "description": "Output resolution. 1k (~1024px), 2k (~2048px, up to 2 megapixels)."
+      },
+      "response_format": {
+        "type": "string",
+        "required": false,
+        "options": ["url", "b64_json"],
+        "default": "url",
+        "description": "How the image is returned. URLs are temporary — download promptly."
+      }
+    },
+    "image_editing": {
+      "prompt": {
+        "type": "string",
+        "required": true,
+        "description": "Edit instruction describing desired modifications"
+      },
+      "image_url": {
+        "type": "string",
+        "required": false,
+        "description": "Single source image URL or base64 data URI for editing. Output aspect ratio follows input."
+      },
+      "image_urls": {
+        "type": "array",
+        "required": false,
+        "max_items": 3,
+        "description": "Up to 3 source images for multi-image editing. Output follows first image's aspect ratio unless overridden."
+      },
+      "aspect_ratio": {
+        "type": "string",
+        "required": false,
+        "description": "Override output aspect ratio (default follows input image)"
+      },
+      "resolution": {
+        "type": "string",
+        "required": false,
+        "options": ["1k", "2k"],
+        "default": "1k"
+      }
+    }
+  },
+
+  "aspect_ratios": {
+    "square": {
+      "value": "1:1",
+      "use_case": "Social media posts, thumbnails, profile images"
+    },
+    "widescreen": {
+      "value": "16:9",
+      "inverse": "9:16",
+      "use_case": "Widescreen landscapes, desktop wallpapers (16:9); mobile stories, TikTok (9:16)"
+    },
+    "standard": {
+      "value": "4:3",
+      "inverse": "3:4",
+      "use_case": "Presentations, standard landscape (4:3); portraits (3:4)"
+    },
+    "photography": {
+      "value": "3:2",
+      "inverse": "2:3",
+      "use_case": "Professional photography (3:2); Pinterest, editorial portrait (2:3)"
+    },
+    "banner": {
+      "value": "2:1",
+      "inverse": "1:2",
+      "use_case": "Banners, headers (2:1); tall vertical (1:2)"
+    },
+    "smartphone": {
+      "value": "19.5:9",
+      "inverse": "9:19.5",
+      "use_case": "Modern smartphone display dimensions"
+    },
+    "ultra_wide": {
+      "value": "20:9",
+      "inverse": "9:20",
+      "use_case": "Ultra-wide displays"
+    },
+    "auto": {
+      "value": "auto",
+      "use_case": "Model auto-selects best ratio for the prompt content"
+    }
+  },
+
+  "platform_aspect_recommendations": {
+    "twitter_x_header": "2:1",
+    "instagram_square": "1:1",
+    "instagram_story": "9:16",
+    "tiktok": "9:16",
+    "youtube_thumbnail": "16:9",
+    "desktop_wallpaper": "16:9",
+    "phone_wallpaper": "9:16",
+    "pinterest": "2:3",
+    "professional_photography": "3:2",
+    "cinematic_widescreen": "16:9"
+  },
+
+  "prompt_limits": {
+    "hard_limit": "No published character limit for image generation text prompts",
+    "image_input_tokens": "256-1792 tokens per image (size-dependent)",
+    "recommended_length": "2-5 sentences covering all prompt elements",
+    "best_practice": "Detailed prompts outperform short ones; Aurora handles longer descriptions well"
+  },
+
+  "special_syntax": {
+    "seed_parameter": {
+      "syntax": "--s [integer]",
+      "purpose": "Seed number for visual reproducibility (NOT style — changed from Flux era)",
+      "usage": "Same seed + same prompt = visually consistent results",
+      "critical_note": "In FLUX.1 era, --s was a style reference. In Aurora, it is a seed. Update existing workflows."
+    },
+    "negative_guidance": {
+      "syntax": "Inline 'avoid:' list at end of prompt",
+      "example": "avoid: cartoon, anime, illustration, distorted features, extra fingers",
+      "notes": "No separate negative_prompt parameter. Include within main prompt text."
+    },
+    "conversational_refinement": {
+      "description": "Within a single Grok chat session, model retains previous prompt context",
+      "examples": [
+        "Regenerate that but with darker lighting",
+        "Keep everything but change the background to a forest",
+        "Same composition but in oil painting style"
+      ],
+      "notes": "Only works within the same chat session. New sessions have no memory."
+    }
+  },
+
+  "resolution_and_output": {
+    "1k": {
+      "approximate_pixels": "~1024px on longest side",
+      "use_case": "Standard quality, faster generation"
+    },
+    "2k": {
+      "approximate_pixels": "~2048px, up to 2 megapixels",
+      "use_case": "High quality, detailed output"
+    },
+    "output_format": "JPEG (URL); PNG and WebP available via third-party hosts",
+    "url_expiration": "Generated URLs are temporary — download images promptly",
+    "ui_batch_size": "4 variations per prompt in Grok UI",
+    "api_batch_size": "1-10 images per request via n parameter"
+  },
+
+  "video_generation": {
+    "model": "grok-imagine-video",
+    "resolution": ["720p", "480p"],
+    "frame_rate": "24 fps",
+    "duration": "1-15 seconds",
+    "aspect_ratios": ["1:1", "16:9", "9:16", "4:3", "3:4", "3:2", "2:3"],
+    "input_types": ["text", "image URL", "video URL"],
+    "audio": "Native audio generation (auto-synchronized)",
+    "max_input_video": "8.7 seconds for editing",
+    "pricing": {
+      "480p": "$0.05/second",
+      "720p": "$0.07/second"
+    },
+    "negative_prompts": "NOT supported for video generation",
+    "notes": "This SKILL focuses on image generation. Video generation covered in separate SKILL."
+  },
+
+  "access_tiers": {
+    "free_x": {
+      "limit": "~3 image generations per day",
+      "notes": "Very limited"
+    },
+    "x_premium": {
+      "limit": "~50 prompts every 2 hours",
+      "notes": "Generous for regular use"
+    },
+    "x_premium_plus": {
+      "limit": "Higher limits (varies)",
+      "notes": "Highest consumer tier"
+    },
+    "api": {
+      "limit": "Pay-per-image, up to 10 per request",
+      "notes": "No subscription required for API access"
+    }
+  },
+
+  "rate_limits": {
+    "image_input_tokens": "256-1792 per image depending on size",
+    "context_window": "Total text + image tokens must fit within model context",
+    "api_rate": "Subject to xAI rate limit policies"
+  },
+
+  "recommended_parameter_combinations": {
+    "photorealistic_portrait": {
+      "resolution": "2k",
+      "aspect_ratio": "3:4",
+      "n": 4,
+      "prompt_emphasis": "Camera model, lens, aperture, lighting setup, skin texture"
+    },
+    "cinematic_concept_art": {
+      "resolution": "2k",
+      "aspect_ratio": "16:9",
+      "n": 4,
+      "prompt_emphasis": "Lean into Aurora's cinematic default. Add composition and mood."
+    },
+    "product_photography": {
+      "resolution": "2k",
+      "aspect_ratio": "1:1 or 4:3",
+      "n": 4,
+      "prompt_emphasis": "Studio lighting specs, surface materials, brand-style references"
+    },
+    "social_media_content": {
+      "resolution": "1k",
+      "aspect_ratio": "1:1 (feed) or 9:16 (stories)",
+      "n": 4,
+      "prompt_emphasis": "Quick, punchy prompts. Specify platform aesthetic."
+    },
+    "character_consistency_series": {
+      "resolution": "2k",
+      "aspect_ratio": "consistent across series",
+      "seed": "lock --s value",
+      "prompt_emphasis": "Copy-paste identical character description. Change only scene/action."
+    },
+    "editorial_illustration": {
+      "resolution": "2k",
+      "aspect_ratio": "3:2",
+      "n": 4,
+      "prompt_emphasis": "EXPLICITLY override cinematic default with target style name"
+    },
+    "image_editing_refinement": {
+      "resolution": "match source",
+      "aspect_ratio": "auto (follows input)",
+      "reference_images": 1,
+      "prompt_emphasis": "Describe changes relative to source image. Be specific about what to keep vs change."
+    }
+  },
+
+  "common_issues": {
+    "cinematic_bias": {
+      "problem": "All output looks like Hollywood movie stills regardless of prompt intent",
+      "cause": "Aurora's default aesthetic is cinematic blockbuster",
+      "solution": "Explicitly name alternative style: 'documentary photography, natural light only,' or 'minimalist illustration, flat colors'"
+    },
+    "hand_finger_distortion": {
+      "problem": "Hands have wrong number of fingers or unnatural poses",
+      "cause": "Common AI generation artifact",
+      "solution": "Add 'anatomically correct hands' to prompt, or frame the shot to hide hands"
+    },
+    "url_expiration": {
+      "problem": "Generated image URLs stop working after some time",
+      "cause": "Grok uses temporary storage URLs",
+      "solution": "Download images immediately after generation"
+    },
+    "contradictory_instructions": {
+      "problem": "Output is confused, trying to satisfy two competing directives",
+      "cause": "Prompt contains contradictory style or subject instructions",
+      "solution": "Choose one coherent direction per prompt. Split contradictions into separate generations."
+    },
+    "seed_confusion": {
+      "problem": "Using --s expecting style control (Flux-era behavior)",
+      "cause": "--s parameter changed meaning from style (Flux) to seed (Aurora)",
+      "solution": "Use --s for reproducibility/consistency. Describe style in prompt text."
+    },
+    "flat_default_lighting": {
+      "problem": "Image has generic, flat lighting despite detailed prompt",
+      "cause": "No lighting direction specified in prompt",
+      "solution": "Add specific lighting: 'Rembrandt lighting from upper left,' 'backlit rim light,' 'volumetric fog'"
+    }
+  },
+
+  "aurora_vs_flux_migration": {
+    "seed_parameter": "In Flux: --s = style reference. In Aurora: --s = seed number for reproducibility.",
+    "default_aesthetic": "Aurora defaults to cinematic. Flux was more neutral. Add explicit style direction.",
+    "batch_output": "Aurora UI generates 4 images per prompt vs Flux's 1. Adjust selection workflow.",
+    "negative_prompts": "Use inline 'avoid:' phrasing. Video generation ignores negative prompts entirely.",
+    "general_tip": "Existing Flux prompts work but may look more cinematic than expected."
+  }
+}

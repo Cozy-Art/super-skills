@@ -1,0 +1,176 @@
+{
+  "model_id": "gemini-3-pro-image-preview",
+  "nickname": "Nano Banana Pro",
+  "primary_use": "Professional asset production with advanced features",
+  
+  "aspect_ratios": {
+    "supported": [
+      "1:1",
+      "2:3",
+      "3:2",
+      "3:4",
+      "4:3",
+      "4:5",
+      "5:4",
+      "9:16",
+      "16:9",
+      "21:9"
+    ],
+    "default": "1:1",
+    "use_cases": {
+      "1:1": "Social media posts, profile pictures",
+      "2:3": "Portrait photography",
+      "3:2": "Landscape photography",
+      "3:4": "Standard photo format (portrait)",
+      "4:3": "Standard photo format (landscape)",
+      "4:5": "Instagram posts (portrait)",
+      "5:4": "Instagram posts (landscape)",
+      "9:16": "Vertical video format, stories",
+      "16:9": "Horizontal video format, wide screens",
+      "21:9": "Ultrawide, cinematic"
+    },
+    "configuration_format": "Exact format like '16:9' in API config, not in prompt text"
+  },
+  
+  "resolutions": {
+    "supported": ["1K", "2K", "4K"],
+    "default": "1K",
+    "specifications": {
+      "1K": {
+        "description": "Default, fastest generation",
+        "use_case": "Rapid iteration, concept development",
+        "generation_time": "Fast"
+      },
+      "2K": {
+        "description": "Higher detail, balanced quality/speed",
+        "use_case": "Production assets, client review",
+        "generation_time": "Medium"
+      },
+      "4K": {
+        "description": "Maximum quality, longest generation",
+        "use_case": "Final assets, print-ready materials",
+        "generation_time": "Slow"
+      }
+    },
+    "note": "Use uppercase 'K' (e.g., '4K' not '4k') in configuration"
+  },
+  
+  "reference_images": {
+    "max_total": 14,
+    "breakdown": {
+      "humans": 5,
+      "objects": 6,
+      "general": "Remaining slots for style/composition references"
+    },
+    "naming_convention": "Image 1, Image 2, Image 3, etc.",
+    "note": "Significantly higher than Gemini 2.5 Flash (3 total)"
+  },
+  
+  "token_limits": {
+    "context_window_free": 32000,
+    "context_window_pro": 1000000,
+    "token_conversion": "~4 characters per token",
+    "image_token_cost": "258 tokens per image (≤384px) or per 768×768 tile",
+    "output_tokens_per_image": 1290
+  },
+  
+  "special_features": {
+    "google_search_grounding": {
+      "availability": "Gemini 3 Pro only",
+      "description": "Generate images based on real-time web information",
+      "use_cases": [
+        "Current weather visualizations",
+        "Recent event imagery",
+        "Up-to-date product information",
+        "Trending topic illustrations"
+      ],
+      "configuration": "tools=[{'google_search': {}}]"
+    },
+    "thinking_mode": {
+      "availability": "Gemini 3 Pro only",
+      "description": "Automatic reasoning for complex compositions",
+      "behavior": "Model internally plans composition before generation",
+      "impact": "Slower generation but higher quality for complex scenes"
+    },
+    "text_rendering": {
+      "quality": "Excellent (advanced)",
+      "syntax": "Always use quotation marks for exact text",
+      "character_limit": "Keep text under 25 characters for best results",
+      "best_practices": [
+        "Specify font style clearly",
+        "Use quoted strings for exact rendering",
+        "Avoid excessive text length",
+        "Provide context for text placement"
+      ]
+    },
+    "synthid_watermark": {
+      "status": "Mandatory on all outputs",
+      "visibility": "Invisible to human eye",
+      "purpose": "Content traceability and provenance",
+      "removal": "Cannot be removed"
+    }
+  },
+  
+  "api_configuration": {
+    "response_modalities": ["TEXT", "IMAGE"],
+    "default_modalities": ["TEXT", "IMAGE"],
+    "image_config_params": {
+      "aspect_ratio": "String from supported list",
+      "image_size": "1K | 2K | 4K"
+    },
+    "tools": {
+      "google_search": "Object | undefined",
+      "description": "Enable Google Search grounding for real-time data"
+    }
+  },
+  
+  "output_specifications": {
+    "file_format": "PNG (base64 encoded)",
+    "max_resolution": "4K",
+    "watermark": "SynthID on all outputs"
+  },
+  
+  "rate_limits": {
+    "free_tier": {
+      "requests_per_minute": 15,
+      "requests_per_day": 1500
+    },
+    "paid_tiers": "Higher limits based on subscription"
+  },
+  
+  "usage_limits_web_app": {
+    "free": {
+      "daily_prompts": "~5 (2.5 Pro model)",
+      "daily_images": 100,
+      "context": "32K tokens"
+    },
+    "ai_pro": {
+      "daily_prompts": "Higher limits",
+      "daily_images": "Higher limits",
+      "context": "Extended"
+    },
+    "ai_ultra": {
+      "daily_prompts": "Highest limits",
+      "daily_images": "Highest limits",
+      "context": "1M+ tokens"
+    }
+  },
+  
+  "limitations": {
+    "character_consistency": "Not 100% reliable across many generations - use multi-turn chat",
+    "small_faces": "Struggles with very small faces - use close-up compositions",
+    "text_spelling": "Complex spelling can have errors - keep text simple",
+    "nsfw_content": "No NSFW content generation",
+    "watermark": "SynthID watermark cannot be removed"
+  },
+  
+  "comparison_to_flash": {
+    "speed": "Slower (due to thinking mode)",
+    "quality": "Higher quality for complex compositions",
+    "max_references": "14 vs 3",
+    "google_search": "Supported vs Not supported",
+    "thinking_mode": "Yes vs No",
+    "resolution_options": "1K/2K/4K vs Fixed per aspect ratio",
+    "text_rendering": "Excellent vs Good"
+  }
+}

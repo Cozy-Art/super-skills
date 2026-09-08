@@ -1,0 +1,486 @@
+{
+  "model_family": "ByteDance Seedream",
+  "technology_stack": {
+    "architecture": "Diffusion Transformer",
+    "reasoning": "Chain of Thought (5.0 only)",
+    "web_search": "Real-time visual reference retrieval (5.0 only)",
+    "output_pipeline": "Native 2K-4K generation"
+  },
+
+  "production_variants": {
+    "seedream_5_lite": {
+      "api_model": "seedream-v5-lite",
+      "release": "February 2026",
+      "generation_speed": "2-3 seconds",
+      "strengths": [
+        "Chain of Thought reasoning",
+        "Real-time web search integration",
+        "JSON structured prompts with per-subject positioning",
+        "HEX color control in prompts",
+        "Near-perfect bilingual text rendering (EN/CN)",
+        "Example-based editing (before/after transformation learning)",
+        "Multi-image generation with consistency",
+        "Native 2K-4K output",
+        "Stronger 3D spatial awareness and depth understanding"
+      ],
+      "limitations": [
+        "No negative_prompt parameter exposed",
+        "No guidance_scale via fal.ai/Replicate (5.5 default via BytePlus)",
+        "No scheduler or inference step control",
+        "No LoRA/Custom Character support"
+      ],
+      "best_for": [
+        "Complex multi-subject compositions",
+        "Text rendering and typography",
+        "Product photography and commercial art direction",
+        "Multi-image storyboards",
+        "Brand-accurate work with HEX colors",
+        "Example-based editing workflows"
+      ]
+    },
+    "seedream_4_5": {
+      "api_model": "seedream-v4.5",
+      "release": "Late 2025",
+      "generation_speed": "1-2 seconds (512px preview)",
+      "strengths": [
+        "Negative prompt support for explicit exclusion",
+        "Guidance scale control (1.0-12+)",
+        "Scheduler selection (DPM++ 2M Karras, Euler A)",
+        "Inference step control",
+        "Edit strength parameter",
+        "Visual marker editing (arrows, boxes, doodles)",
+        "Reference-based generation",
+        "Multi-image input compositing"
+      ],
+      "limitations": [
+        "No CoT reasoning layer",
+        "No web search integration",
+        "No JSON structured prompts",
+        "No HEX color control",
+        "No example-based editing",
+        "Default output 768x768 (lower than 5.0)"
+      ],
+      "best_for": [
+        "Iterative refinement with fine parameter control",
+        "Scenarios requiring explicit negative prompts",
+        "Legacy pipeline compatibility",
+        "Image editing with precise strength control",
+        "Visual marker-based editing workflows"
+      ]
+    }
+  },
+
+  "api_parameters": {
+    "seedream_5_lite": {
+      "text_to_image": {
+        "prompt": {
+          "type": "string",
+          "required": true,
+          "description": "Natural language or JSON structured prompt",
+          "recommended_length": "30-100 words optimal, up to 200+ for complex scenes",
+          "notes": "Use double quotation marks for text rendering. Coherent sentences outperform keyword lists."
+        },
+        "image_size": {
+          "type": "enum or object",
+          "required": false,
+          "default": "auto_2K",
+          "enum_values": [
+            "square",
+            "square_hd",
+            "portrait_4_3",
+            "portrait_16_9",
+            "landscape_4_3",
+            "landscape_16_9",
+            "auto_2K",
+            "auto_3K"
+          ],
+          "custom_format": {"width": "integer (1440-4096)", "height": "integer (1440-4096)"},
+          "description": "Output dimensions. Use presets or custom {width, height}."
+        },
+        "num_images": {
+          "type": "integer",
+          "required": false,
+          "default": 1,
+          "description": "Number of separate generations to run"
+        },
+        "max_images": {
+          "type": "integer",
+          "required": false,
+          "default": 1,
+          "description": "Number of images per generation run. Enables multi-image output with style/character consistency."
+        },
+        "enable_safety_checker": {
+          "type": "boolean",
+          "required": false,
+          "default": true,
+          "description": "Content safety filter"
+        },
+        "sync_mode": {
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "description": "When true, returns data URI instead of URL"
+        }
+      },
+      "image_edit": {
+        "prompt": {
+          "type": "string",
+          "required": true,
+          "description": "Edit instruction in natural language"
+        },
+        "image_url": {
+          "type": "string",
+          "required": true,
+          "description": "Source image URL or base64 for editing. Up to 10 reference images supported."
+        },
+        "image_size": {
+          "type": "enum or object",
+          "required": false,
+          "default": "auto_2K",
+          "description": "Same presets as text-to-image"
+        },
+        "num_images": {
+          "type": "integer",
+          "required": false,
+          "default": 1
+        },
+        "max_images": {
+          "type": "integer",
+          "required": false,
+          "default": 1
+        }
+      },
+      "byteplus_additional": {
+        "guidance_scale": {
+          "type": "float",
+          "range": "1.0-10.0",
+          "default": 5.5,
+          "recommended": "3.0-7.0",
+          "description": "Only available via BytePlus ModelArk API",
+          "notes": "Shifted from 7.0 (4.5) to 5.5 (5.0)"
+        },
+        "seed": {
+          "type": "integer",
+          "default": "random",
+          "description": "For reproducibility. Returned in output for reuse."
+        }
+      }
+    },
+    "seedream_4_5": {
+      "prompt": {
+        "type": "string",
+        "required": true,
+        "description": "Natural language prompt. Concise, precise sentences preferred over keyword stacking."
+      },
+      "negative_prompt": {
+        "type": "string",
+        "required": false,
+        "description": "Elements to exclude from generation",
+        "examples": [
+          "blurry, low quality, distorted faces, extra fingers",
+          "cartoon, oversaturated, artificial lighting"
+        ]
+      },
+      "width": {
+        "type": "integer",
+        "default": 768,
+        "description": "Image width in pixels"
+      },
+      "height": {
+        "type": "integer",
+        "default": 768,
+        "description": "Image height in pixels"
+      },
+      "num_inference_steps": {
+        "type": "integer",
+        "default": 30,
+        "description": "Generation quality steps. Higher = better quality, slower."
+      },
+      "guidance_scale": {
+        "type": "float",
+        "range": "1.0-12+",
+        "default": 7.0,
+        "recommended": "7-9 for most use cases",
+        "warnings": "Values >10 cause oversaturation in ~40% of generations"
+      },
+      "seed": {
+        "type": "integer",
+        "default": "random",
+        "description": "For reproducibility"
+      },
+      "scheduler": {
+        "type": "string",
+        "options": ["DPM++ 2M Karras", "Euler A"],
+        "description": "Diffusion sampling method"
+      },
+      "strength": {
+        "type": "float",
+        "default": 0.7,
+        "range": "0.0-1.0",
+        "description": "Edit intensity for image editing mode. Lower = closer to original."
+      }
+    },
+    "replicate_api": {
+      "prompt": {
+        "type": "string",
+        "required": true
+      },
+      "size": {
+        "type": "string",
+        "options": ["2K", "4K"],
+        "description": "Output resolution tier"
+      },
+      "aspect_ratio": {
+        "type": "string",
+        "options": ["1:1", "16:9", "9:16", "4:3", "3:4"],
+        "description": "Aspect ratio preset"
+      },
+      "image_input": {
+        "type": "array of URLs",
+        "description": "Reference images for editing or style transfer"
+      }
+    }
+  },
+
+  "aspect_ratios": {
+    "square": {
+      "preset": "square",
+      "dimensions": "1024x1024",
+      "use_case": "Social media feeds, profile images"
+    },
+    "square_hd": {
+      "preset": "square_hd",
+      "dimensions": "2048x2048",
+      "use_case": "High-resolution square"
+    },
+    "landscape_4_3": {
+      "preset": "landscape_4_3",
+      "dimensions": "auto",
+      "use_case": "Standard landscape photography"
+    },
+    "landscape_16_9": {
+      "preset": "landscape_16_9",
+      "dimensions": "2730x1536",
+      "use_case": "YouTube thumbnails, presentations, widescreen"
+    },
+    "portrait_4_3": {
+      "preset": "portrait_4_3",
+      "dimensions": "auto",
+      "use_case": "Standard portrait"
+    },
+    "portrait_16_9": {
+      "preset": "portrait_16_9",
+      "dimensions": "1536x2730",
+      "use_case": "TikTok, Instagram Stories, vertical video frames"
+    },
+    "auto_2K": {
+      "preset": "auto_2K",
+      "dimensions": "auto-scaled to 2K total",
+      "use_case": "Default — recommended starting point",
+      "note": "5.0 Lite default"
+    },
+    "auto_3K": {
+      "preset": "auto_3K",
+      "dimensions": "auto-scaled to 3K total",
+      "use_case": "Maximum quality output"
+    },
+    "custom": {
+      "format": {"width": "1440-4096", "height": "1440-4096"},
+      "use_case": "Brand-specific requirements, non-standard deliverables"
+    }
+  },
+
+  "prompt_limits": {
+    "seedream_5_lite": {
+      "official_limit": "No documented character/token limit",
+      "recommended_length": "30-100 words optimal",
+      "extended_length": "200+ words supported without degradation for complex structured scenes",
+      "text_rendering": "Double quotation marks required around literal text",
+      "json_mode": "JSON objects accepted for multi-subject positioning",
+      "hex_colors": "HEX codes with paired color names accepted inline"
+    },
+    "seedream_4_5": {
+      "prompt": "Natural language, concise preferred over keyword stacking",
+      "negative_prompt": "Supported — explicit exclusion list",
+      "best_practice": "Concise, precise natural language"
+    }
+  },
+
+  "special_syntax": {
+    "text_rendering": {
+      "syntax": "Double quotation marks around literal text",
+      "correct": "A poster with the title \"Seedream 5.0\"",
+      "incorrect": "A poster titled Seedream 5.0",
+      "note": "Without quotes, text becomes descriptive keywords rather than rendered text",
+      "compatibility": "Both 5.0 Lite and 4.5"
+    },
+    "json_structured_prompt": {
+      "syntax": "JSON object with scene, subjects array, style, lighting, camera fields",
+      "subject_fields": {
+        "description": "string — natural language description of the subject",
+        "position": "string — spatial placement (e.g., 'upper left', 'lower right third', 'center')",
+        "color": "string — optional HEX code (e.g., '#FF006E')"
+      },
+      "when_to_use": [
+        "Multi-subject scenes requiring precise placement",
+        "Per-element color control for brand work",
+        "Commercial art direction with specific composition",
+        "Product flat lays with defined spatial arrangement"
+      ],
+      "when_not_to_use": [
+        "Single subject, creatively open prompts",
+        "When model freedom is desired",
+        "Simple scenes that don't need positional control"
+      ],
+      "compatibility": "5.0 Lite only"
+    },
+    "hex_color_control": {
+      "syntax": "color #HEXCODE color_name",
+      "example": "color #FF006E hot pink",
+      "note": "Pair HEX code with a descriptive color name for best results",
+      "compatibility": "5.0 Lite only"
+    },
+    "multi_image_generation": {
+      "trigger_phrases": ["a series", "a set", "a storyboard", "four variations"],
+      "parameter": "max_images",
+      "note": "Style and character consistency maintained across images in same generation",
+      "compatibility": "Both 5.0 Lite and 4.5"
+    },
+    "web_search_trigger": {
+      "trigger": "Include dates, product names, or trending terms",
+      "examples": ["latest iPhone model", "2026 Super Bowl", "current Nike Air Max"],
+      "note": "Model automatically retrieves current visual references",
+      "compatibility": "5.0 Lite only"
+    }
+  },
+
+  "resolution_and_output": {
+    "seedream_5_lite": {
+      "native_range": "1440-4096px per side",
+      "default": "auto_2K",
+      "maximum": "auto_3K (approximately 4K resolution)",
+      "output_format": "PNG/JPEG",
+      "generation_speed": "2-3 seconds"
+    },
+    "seedream_4_5": {
+      "default": "768x768",
+      "maximum": "Up to 4K with flexible sizing",
+      "output_format": "PNG/JPEG",
+      "generation_speed": "1-2 seconds (512px preview)"
+    }
+  },
+
+  "cost_estimates": {
+    "wavespeed_ai": "$0.035 per image (estimated)",
+    "fal_ai": "Per-image pricing not published; usage-based billing",
+    "replicate": "Per-prediction pricing; varies by compute time",
+    "byteplus": "Enterprise pricing via ModelArk"
+  },
+
+  "recommended_parameter_combinations": {
+    "photorealistic_portrait": {
+      "variant": "seedream_5_lite",
+      "prompt_mode": "plain_text",
+      "image_size": "auto_2K",
+      "prompt_formula": "Subject (person, expression, clothing) > Setting (environment) > Style (camera model, film stock) > Lighting (direction, quality) > Technical (lens, aperture, depth of field)"
+    },
+    "product_photography": {
+      "variant": "seedream_5_lite",
+      "prompt_mode": "json_structured",
+      "image_size": "auto_3K",
+      "notes": "Use JSON for precise product placement. Include HEX colors for brand accuracy."
+    },
+    "typography_poster": {
+      "variant": "seedream_5_lite",
+      "prompt_mode": "plain_text",
+      "image_size": "portrait_16_9 or custom",
+      "notes": "Wrap all rendered text in double quotation marks. Specify font style, hierarchy, and layout."
+    },
+    "multi_panel_storyboard": {
+      "variant": "seedream_5_lite",
+      "prompt_mode": "plain_text",
+      "image_size": "landscape_16_9",
+      "max_images": "4+",
+      "notes": "Lock character description word-for-word. Use 'cinematic storyboard grid' framing."
+    },
+    "iterative_refinement": {
+      "variant": "seedream_4_5",
+      "guidance_scale": "7-9",
+      "num_inference_steps": 30,
+      "negative_prompt": "Required for artifact control",
+      "notes": "Use when fine-tuning requires guidance_scale and negative prompt iteration."
+    },
+    "style_transfer_editing": {
+      "variant": "seedream_5_lite",
+      "prompt_mode": "example_based",
+      "notes": "Provide before/after pair + target image. Model learns transformation and applies to new image."
+    },
+    "brand_identity_package": {
+      "variant": "seedream_5_lite",
+      "prompt_mode": "json_structured",
+      "image_size": "auto_2K",
+      "max_images": "4-6",
+      "notes": "Use HEX codes for brand colors. Request 'a set' for style consistency across outputs."
+    }
+  },
+
+  "common_issues": {
+    "text_not_rendering": {
+      "problem": "Text appears as visual noise or doesn't appear at all",
+      "cause": "Missing double quotation marks around literal text",
+      "solution": "Wrap all text that should render in double quotation marks: \"OPEN 24 HOURS\""
+    },
+    "spatial_confusion": {
+      "problem": "Subjects overlapping or misplaced in multi-subject scenes",
+      "cause": "Plain text prompt too complex for spatial reasoning",
+      "solution": "Switch to JSON structured prompt with explicit position fields per subject"
+    },
+    "color_drift": {
+      "problem": "Colors don't match brand specification",
+      "cause": "Relying on descriptive color names alone",
+      "solution": "Use HEX codes with paired color names: 'color #FF006E hot pink'"
+    },
+    "contradictory_results": {
+      "problem": "Output doesn't match prompt intent",
+      "cause": "Prompt too long (>200 words) without JSON structure, or contradictory style references",
+      "solution": "Simplify prompt, split into JSON fields, or remove contradictory descriptors"
+    },
+    "inconsistent_characters": {
+      "problem": "Character appearance changes between related images",
+      "cause": "Character description varies between prompts",
+      "solution": "Copy-paste identical character description word-for-word. Use multi-image generation for batch consistency."
+    },
+    "oversaturation_4_5": {
+      "problem": "Colors appear oversaturated and unnatural",
+      "cause": "guidance_scale set too high (>10)",
+      "solution": "Keep guidance_scale between 7-9 for most use cases"
+    },
+    "negative_prompt_not_working": {
+      "problem": "Attempting negative prompt with 5.0 Lite",
+      "cause": "negative_prompt parameter not exposed in 5.0 Lite API",
+      "solution": "Describe desired end state more precisely. Use 4.5 if explicit exclusion control is required."
+    }
+  },
+
+  "variant_selection_guide": {
+    "choose_5_lite_when": [
+      "Complex compositions with multiple subjects",
+      "Text rendering needed (posters, signs, branding)",
+      "Product photography or commercial art direction",
+      "Multi-image storyboards with character consistency",
+      "Example-based editing (material swaps, style transfers)",
+      "Prompts reference current events or products (web search)",
+      "JSON structured prompts with HEX color control",
+      "Maximum resolution matters (native 2K-4K)"
+    ],
+    "choose_4_5_when": [
+      "Need explicit negative prompt control",
+      "Iterative refinement with guidance_scale tuning",
+      "Pipeline requires scheduler or inference step control",
+      "Image editing with precise strength parameter",
+      "Legacy integration where 4.5 API is configured",
+      "Simpler scenes where reasoning overhead is unnecessary",
+      "Visual marker editing workflows (arrows, boxes, doodles)"
+    ]
+  }
+}

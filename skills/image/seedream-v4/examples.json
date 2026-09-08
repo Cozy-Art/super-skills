@@ -1,0 +1,316 @@
+{
+  "model": "seedream-4.5",
+  "skill_version": "1.0.0",
+  "last_updated": "2026-02-25",
+  "description": "Example input/output pairs for Seedream 4.5 prompt generation. Each example shows structured shot data as input and the expected output in both human-readable and JSON formats.",
+  "examples": [
+    {
+      "id": "ex_01_portrait",
+      "name": "Character Reference — Lead Portrait",
+      "complexity": "simple",
+      "generation_intent": "character_reference",
+      "description": "Generating a character reference portrait for the lead character. Simple, focused on establishing the character's look.",
+      "input": {
+        "shot": {
+          "shotType": "close-up",
+          "cameraMovement": "static",
+          "description": "Establishing shot of Sarah, the protagonist",
+          "duration": null
+        },
+        "character": {
+          "name": "Sarah Chen",
+          "age": "early 30s",
+          "physicalDescription": "East Asian woman, shoulder-length black hair with subtle auburn highlights, warm brown eyes, high cheekbones, small scar above left eyebrow",
+          "wardrobe": "Worn olive field jacket over a black henley, silver pendant necklace",
+          "emotionalState": "determined but weary"
+        },
+        "scene": {
+          "location": "Studio — neutral background",
+          "timeOfDay": "n/a",
+          "mood": "neutral, clean reference"
+        },
+        "project": {
+          "genre": "thriller",
+          "visualStyle": "photorealistic",
+          "colorPalette": ["muted earth tones", "desaturated greens"]
+        }
+      },
+      "output": {
+        "prompt": "Photorealistic portrait of an East Asian woman in her early 30s with shoulder-length black hair that has subtle auburn highlights, warm brown eyes, high cheekbones, and a small scar above her left eyebrow. She has a determined but weary expression. She wears a worn olive field jacket over a black henley shirt, with a silver pendant necklace visible at her collar. Shot with an 85mm portrait lens at f/2.0, creating a smooth, neutral studio background with soft bokeh. Clean, even studio lighting with a gentle key light from the upper left and subtle fill from the right. Muted earth tones, desaturated palette. The subject's face is the primary focus.",
+        "json": {
+          "prompt": "Photorealistic portrait of an East Asian woman in her early 30s with shoulder-length black hair that has subtle auburn highlights, warm brown eyes, high cheekbones, and a small scar above her left eyebrow. She has a determined but weary expression. She wears a worn olive field jacket over a black henley shirt, with a silver pendant necklace visible at her collar. Shot with an 85mm portrait lens at f/2.0, creating a smooth, neutral studio background with soft bokeh. Clean, even studio lighting with a gentle key light from the upper left and subtle fill from the right. Muted earth tones, desaturated palette. The subject's face is the primary focus.",
+          "negative_prompt": "distorted anatomy, blurry, extra fingers, asymmetric eyes, text, watermark, low quality",
+          "size": "2K",
+          "aspect_ratio": "3:4",
+          "guidance_scale": 8.5,
+          "steps": 40,
+          "seed": null,
+          "max_images": 1,
+          "watermark": false,
+          "metadata": {
+            "shot_id": "shot_01_01",
+            "character_ids": ["char_sarah_chen"],
+            "continuity_anchor": true,
+            "skill_version": "1.0.0",
+            "generation_intent": "character_reference"
+          }
+        }
+      }
+    },
+    {
+      "id": "ex_02_cinematic_scene",
+      "name": "Cinematic Scene — Moody Environment with Character",
+      "complexity": "medium",
+      "generation_intent": "storyboard_frame",
+      "description": "A cinematic storyboard frame combining character and environment for a key dramatic beat.",
+      "input": {
+        "shot": {
+          "shotType": "wide",
+          "cameraMovement": "static",
+          "description": "Sarah arrives at the abandoned warehouse district. She stands alone, small against the massive industrial backdrop.",
+          "duration": null
+        },
+        "character": {
+          "name": "Sarah Chen",
+          "age": "early 30s",
+          "physicalDescription": "East Asian woman, shoulder-length black hair with auburn highlights, worn olive field jacket, black henley, silver pendant necklace",
+          "wardrobe": "Same as character reference — olive field jacket, black henley",
+          "emotionalState": "cautious, alert"
+        },
+        "scene": {
+          "location": "Abandoned warehouse district — rust-streaked corrugated metal buildings, cracked asphalt, weeds pushing through concrete",
+          "timeOfDay": "late afternoon, golden hour fading to blue hour",
+          "weather": "overcast with breaks in clouds letting golden light through",
+          "mood": "isolation, tension, foreboding"
+        },
+        "project": {
+          "genre": "thriller",
+          "visualStyle": "cinematic, inspired by Sicario and Wind River",
+          "colorPalette": ["desaturated blue-grays", "rusty oranges", "muted gold"]
+        }
+      },
+      "output": {
+        "prompt": "A lone woman stands in a vast abandoned warehouse district, dwarfed by massive rust-streaked corrugated metal buildings on either side. She is an East Asian woman in her early 30s with shoulder-length black hair, wearing a worn olive field jacket over a black henley. Her posture is alert, cautious. Cracked asphalt stretches before her with weeds pushing through the concrete. The late afternoon sky is overcast with dramatic breaks in the clouds, allowing golden hour light to stream through in shafts, catching the rust on the buildings and casting long shadows. The color palette is desaturated blue-grays and rusty oranges with touches of muted gold. Wide-angle cinematic composition shot on a 24mm lens, deep depth of field, anamorphic quality. Inspired by the cinematography of Sicario. The industrial isolation and scale is the primary focus.",
+        "json": {
+          "prompt": "A lone woman stands in a vast abandoned warehouse district, dwarfed by massive rust-streaked corrugated metal buildings on either side. She is an East Asian woman in her early 30s with shoulder-length black hair, wearing a worn olive field jacket over a black henley. Her posture is alert, cautious. Cracked asphalt stretches before her with weeds pushing through the concrete. The late afternoon sky is overcast with dramatic breaks in the clouds, allowing golden hour light to stream through in shafts, catching the rust on the buildings and casting long shadows. The color palette is desaturated blue-grays and rusty oranges with touches of muted gold. Wide-angle cinematic composition shot on a 24mm lens, deep depth of field, anamorphic quality. Inspired by the cinematography of Sicario. The industrial isolation and scale is the primary focus.",
+          "negative_prompt": "cartoon, anime, bright saturated colors, cheerful, text, watermark, low resolution",
+          "size": "2K",
+          "aspect_ratio": "21:9",
+          "guidance_scale": 8.0,
+          "steps": 45,
+          "seed": null,
+          "max_images": 1,
+          "watermark": false,
+          "metadata": {
+            "shot_id": "shot_04_01",
+            "scene_id": "scene_04",
+            "character_ids": ["char_sarah_chen"],
+            "continuity_anchor": false,
+            "skill_version": "1.0.0",
+            "generation_intent": "storyboard_frame"
+          }
+        }
+      }
+    },
+    {
+      "id": "ex_03_location_reference",
+      "name": "Location Reference — Interior Environment",
+      "complexity": "simple",
+      "generation_intent": "location_reference",
+      "description": "Generating a location reference image without characters, establishing the visual identity of a key set.",
+      "input": {
+        "shot": {
+          "shotType": "wide",
+          "cameraMovement": "static",
+          "description": "Establishing shot of Marcus's office — the nerve center of operations",
+          "duration": null
+        },
+        "character": null,
+        "scene": {
+          "location": "High-rise corner office, 40th floor. Floor-to-ceiling windows on two walls overlooking a city skyline at night. Minimal furniture — glass desk, leather chair, two monitors. One wall covered in pinned photographs and red string connections. Whiskey decanter on a side table. Clean but obsessive.",
+          "timeOfDay": "night",
+          "mood": "controlled tension, obsessive order"
+        },
+        "project": {
+          "genre": "thriller",
+          "visualStyle": "cinematic, inspired by Michael Mann's nocturnal aesthetics",
+          "colorPalette": ["deep midnight blue", "warm amber accents", "cold steel gray"]
+        }
+      },
+      "output": {
+        "prompt": "A high-rise corner office on the 40th floor at night. Floor-to-ceiling windows on two walls reveal a sprawling city skyline glittering with distant lights. The office is minimally furnished — a sleek glass desk holds two active monitors casting a cool blue glow, a black leather executive chair sits pushed back slightly. One entire wall is covered in pinned photographs, documents, and red string connecting them in a web of connections. A crystal whiskey decanter and a single glass sit on a dark wood side table, amber liquid catching the light. The space is immaculate but radiates obsessive energy. The lighting is primarily the cold blue of the city through the windows, mixed with warm amber from a single desk lamp. Deep midnight blue shadows, steel gray surfaces, warm amber accents. Shot on a 24mm wide-angle lens, deep focus, cinematic interior photography style inspired by Michael Mann.",
+        "json": {
+          "prompt": "A high-rise corner office on the 40th floor at night. Floor-to-ceiling windows on two walls reveal a sprawling city skyline glittering with distant lights. The office is minimally furnished — a sleek glass desk holds two active monitors casting a cool blue glow, a black leather executive chair sits pushed back slightly. One entire wall is covered in pinned photographs, documents, and red string connecting them in a web of connections. A crystal whiskey decanter and a single glass sit on a dark wood side table, amber liquid catching the light. The space is immaculate but radiates obsessive energy. The lighting is primarily the cold blue of the city through the windows, mixed with warm amber from a single desk lamp. Deep midnight blue shadows, steel gray surfaces, warm amber accents. Shot on a 24mm wide-angle lens, deep focus, cinematic interior photography style inspired by Michael Mann.",
+          "negative_prompt": "people, characters, blurry, low quality, daylight, bright colors, messy",
+          "size": "2K",
+          "aspect_ratio": "16:9",
+          "guidance_scale": 7.5,
+          "steps": 40,
+          "seed": null,
+          "max_images": 1,
+          "watermark": false,
+          "metadata": {
+            "shot_id": "shot_08_01",
+            "scene_id": "scene_08",
+            "character_ids": [],
+            "continuity_anchor": true,
+            "skill_version": "1.0.0",
+            "generation_intent": "location_reference"
+          }
+        }
+      }
+    },
+    {
+      "id": "ex_04_multi_view",
+      "name": "Multi-View Character Sheet — Multiple Angles",
+      "complexity": "complex",
+      "generation_intent": "multi_view",
+      "description": "Generating a multi-view character sheet showing the character from multiple angles for consistency reference across the production.",
+      "input": {
+        "shot": {
+          "shotType": "medium",
+          "cameraMovement": "static",
+          "description": "Character turnaround sheet for Marcus — front, three-quarter, profile, and back views",
+          "duration": null
+        },
+        "character": {
+          "name": "Marcus Webb",
+          "age": "late 40s",
+          "physicalDescription": "African American man, tall and lean, close-cropped salt-and-pepper hair, clean-shaven, sharp jaw, deep-set dark eyes with crow's feet, carries himself with military precision",
+          "wardrobe": "Tailored charcoal three-piece suit, white dress shirt with subtle texture, dark burgundy silk tie, polished black oxford shoes",
+          "emotionalState": "composed, unreadable"
+        },
+        "scene": {
+          "location": "Neutral light gray studio background",
+          "timeOfDay": "n/a",
+          "mood": "clean reference sheet"
+        },
+        "project": {
+          "genre": "thriller",
+          "visualStyle": "photorealistic",
+          "colorPalette": ["neutral grays", "charcoal", "burgundy accent"]
+        }
+      },
+      "output": {
+        "prompt": "A series of four photorealistic images showing the same man from different angles: front-facing, three-quarter view, side profile, and back view. The subject is an African American man in his late 40s, tall and lean with close-cropped salt-and-pepper hair, clean-shaven with a sharp jaw, deep-set dark eyes with crow's feet. He carries himself with military precision, standing straight with a composed, unreadable expression. He wears a tailored charcoal three-piece suit, white dress shirt with subtle texture, dark burgundy silk tie, and polished black oxford shoes. Neutral light gray studio background. Even, clean studio lighting with soft key light from the front. Don't change the character's appearance and outfit between views. Photorealistic, 85mm lens, clean composition.",
+        "json": {
+          "prompt": "A series of four photorealistic images showing the same man from different angles: front-facing, three-quarter view, side profile, and back view. The subject is an African American man in his late 40s, tall and lean with close-cropped salt-and-pepper hair, clean-shaven with a sharp jaw, deep-set dark eyes with crow's feet. He carries himself with military precision, standing straight with a composed, unreadable expression. He wears a tailored charcoal three-piece suit, white dress shirt with subtle texture, dark burgundy silk tie, and polished black oxford shoes. Neutral light gray studio background. Even, clean studio lighting with soft key light from the front. Don't change the character's appearance and outfit between views. Photorealistic, 85mm lens, clean composition.",
+          "negative_prompt": "different clothing between views, inconsistent face, distorted anatomy, blurry, different backgrounds, text",
+          "size": "2K",
+          "aspect_ratio": "16:9",
+          "guidance_scale": 9.0,
+          "steps": 50,
+          "seed": 8675309,
+          "max_images": 4,
+          "sequential_image_generation": "auto",
+          "watermark": false,
+          "metadata": {
+            "character_ids": ["char_marcus_webb"],
+            "continuity_anchor": true,
+            "skill_version": "1.0.0",
+            "generation_intent": "multi_view"
+          }
+        }
+      }
+    },
+    {
+      "id": "ex_05_product_prop",
+      "name": "Prop Reference — Key Story Object",
+      "complexity": "simple",
+      "generation_intent": "prop_reference",
+      "description": "Generating a hero prop that appears multiple times throughout the film. Needs to be detailed enough to maintain consistency.",
+      "input": {
+        "shot": {
+          "shotType": "extreme close-up",
+          "cameraMovement": "static",
+          "description": "The encrypted thumb drive — the MacGuffin of the story. Needs to look distinctive and memorable.",
+          "duration": null
+        },
+        "character": null,
+        "scene": {
+          "location": "Dark surface, dramatic lighting",
+          "timeOfDay": "n/a",
+          "mood": "ominous, significant"
+        },
+        "prop": {
+          "name": "The Cipher Drive",
+          "description": "A custom-built USB thumb drive with a matte black anodized aluminum casing, slightly larger than standard, with a small etched circuit pattern on one side and a faintly glowing amber LED indicator",
+          "significance": "Central MacGuffin — appears in 12 scenes"
+        },
+        "project": {
+          "genre": "thriller",
+          "visualStyle": "cinematic product photography",
+          "colorPalette": ["matte black", "amber glow", "dark gray"]
+        }
+      },
+      "output": {
+        "prompt": "Extreme close-up of a custom USB thumb drive resting on a dark matte surface. The drive has a matte black anodized aluminum casing, slightly larger than a standard USB drive, with an intricate etched circuit pattern visible on its top surface. A small amber LED indicator glows faintly on one end, casting a subtle warm light onto the surrounding dark surface. The lighting is dramatic — a single focused light source from the upper right creates sharp highlights along the aluminum edges and deep shadows beneath. The background fades to pure black. Shot with a macro lens at f/4, extreme shallow depth of field with only the circuit pattern in sharp focus. Cinematic product photography style. The drive is the sole focus, rendered with ultra-fine detail on the metal texture and etching.",
+        "json": {
+          "prompt": "Extreme close-up of a custom USB thumb drive resting on a dark matte surface. The drive has a matte black anodized aluminum casing, slightly larger than a standard USB drive, with an intricate etched circuit pattern visible on its top surface. A small amber LED indicator glows faintly on one end, casting a subtle warm light onto the surrounding dark surface. The lighting is dramatic — a single focused light source from the upper right creates sharp highlights along the aluminum edges and deep shadows beneath. The background fades to pure black. Shot with a macro lens at f/4, extreme shallow depth of field with only the circuit pattern in sharp focus. Cinematic product photography style. The drive is the sole focus, rendered with ultra-fine detail on the metal texture and etching.",
+          "negative_prompt": "blurry, low detail, bright background, text, hands, fingers, standard USB drive, cheap plastic",
+          "size": "4K",
+          "aspect_ratio": "16:9",
+          "guidance_scale": 9.0,
+          "steps": 50,
+          "seed": null,
+          "max_images": 1,
+          "watermark": false,
+          "metadata": {
+            "continuity_anchor": true,
+            "skill_version": "1.0.0",
+            "generation_intent": "prop_reference"
+          }
+        }
+      }
+    },
+    {
+      "id": "ex_06_mood_board",
+      "name": "Mood Board — Visual Tone Exploration",
+      "complexity": "medium",
+      "generation_intent": "mood_board",
+      "description": "Generating a set of mood images to establish the visual language for a sequence. Multiple images with consistent style but varied subjects.",
+      "input": {
+        "shot": {
+          "shotType": "various",
+          "cameraMovement": "static",
+          "description": "Mood board for the 'Night Chase' sequence — 4 images establishing the visual palette and atmosphere",
+          "duration": null
+        },
+        "character": null,
+        "scene": {
+          "location": "Urban nightscape — mix of back alleys, neon-lit streets, rain-soaked overpasses, industrial underbelly",
+          "timeOfDay": "late night, 2-3 AM",
+          "weather": "recent rain, wet surfaces everywhere, light fog",
+          "mood": "urgent, dangerous, electric"
+        },
+        "project": {
+          "genre": "thriller",
+          "visualStyle": "cinematic, inspired by Nicolas Winding Refn's Drive and Collateral",
+          "colorPalette": ["electric cyan", "hot magenta", "deep shadow black", "wet chrome silver"]
+        },
+        "sequence_notes": "Image 1: Empty rain-soaked alley with neon reflections. Image 2: Overhead view of a wet intersection with light trails. Image 3: Close-up of rain on a car windshield with blurred neon behind. Image 4: Steam rising from a subway grate with magenta light spill."
+      },
+      "output": {
+        "prompt": "A set of four cinematic images establishing the visual mood for a nighttime urban chase sequence. All images share a consistent color palette of electric cyan, hot magenta, deep black shadows, and wet chrome silver reflections.\n\nImage 1: A narrow back alley at 2 AM after rain, the wet cobblestones reflecting neon signs in streaks of cyan and magenta, steam drifting from a vent, deep shadows between buildings. Image 2: High overhead view of a wet urban intersection, car headlight trails smeared across the frame, traffic lights creating color pools on the slick asphalt. Image 3: Close-up through a rain-beaded car windshield, the neon cityscape beyond rendered as beautiful bokeh circles of cyan and magenta, water droplets sharp in the foreground. Image 4: Steam rising from a subway grate at street level, backlit by hot magenta light from a nearby sign, swirling against the dark night sky.\n\nAll shot in cinematic photography style inspired by the visual language of Drive and Collateral. Atmospheric, moody, wet, electric.",
+        "json": {
+          "prompt": "A set of four cinematic images establishing the visual mood for a nighttime urban chase sequence. All images share a consistent color palette of electric cyan, hot magenta, deep black shadows, and wet chrome silver reflections. Image 1: A narrow back alley at 2 AM after rain, wet cobblestones reflecting neon signs in streaks of cyan and magenta, steam drifting from a vent, deep shadows. Image 2: High overhead view of a wet urban intersection, car headlight trails smeared across the frame, traffic lights creating color pools on slick asphalt. Image 3: Close-up through a rain-beaded car windshield, neon cityscape rendered as beautiful bokeh circles of cyan and magenta, water droplets sharp in foreground. Image 4: Steam rising from a subway grate at street level, backlit by hot magenta light, swirling against the dark night sky. Cinematic photography inspired by Drive and Collateral. Atmospheric, moody, wet, electric.",
+          "negative_prompt": "daylight, bright, cheerful, dry surfaces, cartoon, anime, text, people, characters",
+          "size": "2K",
+          "aspect_ratio": "16:9",
+          "guidance_scale": 7.5,
+          "steps": 45,
+          "seed": 2001,
+          "max_images": 4,
+          "sequential_image_generation": "auto",
+          "watermark": false,
+          "metadata": {
+            "scene_id": "scene_12",
+            "continuity_anchor": true,
+            "skill_version": "1.0.0",
+            "generation_intent": "mood_board"
+          }
+        }
+      }
+    }
+  ]
+}

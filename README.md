@@ -8,13 +8,13 @@ Skills are a practical way to keep tooling and conventions consistent across rep
 
 ## What's here
 
-### [Model prompting skills](skills/) — 16 video models
+### [Model prompting skills](skills/) — 16 video + 15 image models
 
-Prompt-generation skills for Veo 3.1, Sora 2, Kling 3.0, Seedance, LTX-2, MiniMax H3, FLUX 3 Video and nine more. Each one teaches the syntax a given model actually parses, the parameters it actually exposes, and the traps that look like features.
+Prompt-generation skills for Veo 3.1, Sora 2, Kling 3.0, Seedance, LTX-2, MiniMax H3, FLUX 3 Video and nine more video models—plus Midjourney v7, GPT Image 2, Gemini 3 Pro Image, FLUX.2, Ideogram 3.0, Seedream, Qwen-Image, Stable Diffusion 3.5 and seven more on the image side. Each one teaches the syntax a given model actually parses, the parameters it actually exposes, and the traps that look like features.
 
 They are researched against **first-party vendor documentation**. Where a widely repeated claim turned out to be wrong, the correction is recorded with its source in that skill's build notes—because several of these models are surrounded by confident third-party guidance that is simply invented.
 
-Image, audio and 3D skills follow. → **[Browse the collection](skills/)**
+Audio and 3D skills follow. → **[Browse the collection](skills/)**
 
 ### Code documentation standards
 
