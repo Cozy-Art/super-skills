@@ -1,0 +1,429 @@
+{
+  "model": "wan-v2.5",
+  "skill_version": "1.0",
+  "last_updated": "2026-03-03",
+  "description": "Example input/output pairs for WAN 2.5 prompt generation. Each example shows structured shot data (input) converted to both human-readable description and structured JSON (output). Examples span multiple project types to demonstrate versatility.",
+  "examples": [
+    {
+      "id": "wan25-ex-001",
+      "title": "Film Noir — Establishing Shot with Audio",
+      "project_type": "short_film",
+      "generation_mode": "text-to-video",
+      "audio_enabled": true,
+      "notes": "Demonstrates the full 4-Dimensional formula with all audio layers. Film noir aesthetic with atmospheric mood. Uses quality_mode='off' for hero shot quality.",
+      "input": {
+        "shot_id": "shot_noir_001",
+        "scene_id": "scene_noir_01",
+        "project_id": "proj_noir_detective",
+        "shot_number": 1,
+        "shot_type": "wide",
+        "camera_movement": "dolly_in",
+        "description": "Opening establishing shot of the detective's office building at night. Rain. Neon signs. 1940s period.",
+        "duration": 5,
+        "characters": [],
+        "scene_context": {
+          "location": "Exterior — Detective office building, downtown",
+          "time_of_day": "night",
+          "weather": "rain",
+          "period": "1940s",
+          "mood": "mysterious, foreboding"
+        },
+        "dialogue": null,
+        "continuity_notes": "First shot of the film. Establishes visual tone for entire project.",
+        "brand_guidelines": null,
+        "style_modifiers": ["film noir", "high contrast", "wet reflections"]
+      },
+      "output": {
+        "human_readable": "A wide establishing shot of a 1940s downtown office building at night. Heavy rain cascades past glowing neon signs — red and amber — their light pooling in reflections across the wet pavement. Steam rises from a manhole cover in the foreground. The building's third-floor window glows with a single warm light behind frosted glass. The camera slowly dollies in from across the street, gradually tightening the frame toward the lit window. Sound: Rain hammering on metal awnings, distant thunder rolling, a muted trumpet melody drifting from a nearby club.",
+        "json": {
+          "prompt": "A wide shot of a 1940s downtown office building exterior at night, heavy rain cascading past glowing neon signs in red and amber, light pooling in reflections across wet pavement. Steam rises from a manhole cover in the foreground. A single warm light glows behind frosted glass on the third floor. Camera slowly dollies in from across the street toward the lit window. Film noir aesthetic, high contrast lighting, deep shadows. Rain hammering on metal awnings, distant thunder, muted trumpet melody from a nearby club.",
+          "negative_prompt": "blurry, distorted, flickering, low quality, watermark, modern elements, cars, daylight, bright colors, cartoon",
+          "resolution": "720P",
+          "aspect_ratio": "16:9",
+          "duration": 5,
+          "seed": 48291,
+          "enhance_prompt": false,
+          "audio": true,
+          "guidance_scale": 6.0,
+          "sample_steps": 28,
+          "quality_mode": "off",
+          "generation_mode": "text-to-video",
+          "source_image_url": null,
+          "audio_description": {
+            "voice": null,
+            "sfx": "Heavy rain hammering on metal awnings, distant thunder rolling slowly",
+            "music": "Muted trumpet melody, smoky jazz, drifting from a nearby club"
+          },
+          "camera": {
+            "movement": "dolly_in",
+            "speed": "slow",
+            "intensity": "moderate"
+          },
+          "metadata": {
+            "shot_id": "shot_noir_001",
+            "scene_id": "scene_noir_01",
+            "project_id": "proj_noir_detective",
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T10:00:00Z",
+            "continuity_anchor": true
+          }
+        }
+      }
+    },
+    {
+      "id": "wan25-ex-002",
+      "title": "Music Video — Performance Shot with Dynamic Camera",
+      "project_type": "music_video",
+      "generation_mode": "text-to-video",
+      "audio_enabled": true,
+      "notes": "Demonstrates energetic camera work for a music video performance. Uses orbit movement for dynamism. Audio focuses on music + ambient SFX. Higher guidance for precise choreography.",
+      "input": {
+        "shot_id": "shot_mv_003",
+        "scene_id": "scene_mv_warehouse",
+        "project_id": "proj_music_neon",
+        "shot_number": 3,
+        "shot_type": "medium",
+        "camera_movement": "orbit",
+        "description": "Lead singer performing in an abandoned warehouse. Neon light bars scattered around. Energetic, confident body language.",
+        "duration": 5,
+        "characters": [
+          {
+            "name": "Mira",
+            "description": "Lead vocalist, early 20s, shaved head, silver earrings, black leather jacket over mesh top, combat boots",
+            "action": "Singing directly to camera with confident, aggressive energy"
+          }
+        ],
+        "scene_context": {
+          "location": "Interior — Abandoned industrial warehouse",
+          "time_of_day": "night",
+          "weather": "none (interior)",
+          "period": "contemporary",
+          "mood": "electric, rebellious, powerful"
+        },
+        "dialogue": null,
+        "continuity_notes": "Warehouse set appears in shots 2-7. Same neon color scheme (magenta, cyan, amber). Mira's wardrobe consistent throughout.",
+        "brand_guidelines": null,
+        "style_modifiers": ["high energy", "neon aesthetic", "music video", "lens flare"]
+      },
+      "output": {
+        "human_readable": "A medium shot of a young woman with a shaved head and silver earrings, wearing a black leather jacket over a mesh top. She stands in an abandoned industrial warehouse, performing with fierce, confident energy — chin raised, one hand gripping an unseen microphone. Scattered neon light bars in magenta, cyan, and amber cast dramatic colored shadows across concrete walls. The camera orbits slowly around her from left to right, catching lens flares from the neon sources. Pulsing electronic bass, muffled echoes bouncing off warehouse walls.",
+        "json": {
+          "prompt": "Medium shot of a young woman with a shaved head and silver earrings, black leather jacket over mesh top, standing in an abandoned industrial warehouse. She performs with fierce confident energy, chin raised, one hand gripping a microphone. Neon light bars in magenta, cyan, and amber cast dramatic colored shadows across concrete walls and dusty floor. Camera slowly orbits around her from left to right, catching lens flares from the neon sources. Electric, rebellious mood. Music video aesthetic, high energy.",
+          "negative_prompt": "blurry, distorted, flickering, low quality, watermark, static pose, dull lighting, daylight, clean modern interior",
+          "resolution": "720P",
+          "aspect_ratio": "16:9",
+          "duration": 5,
+          "seed": 77412,
+          "enhance_prompt": false,
+          "audio": true,
+          "guidance_scale": 6.5,
+          "sample_steps": 25,
+          "quality_mode": "balanced",
+          "generation_mode": "text-to-video",
+          "source_image_url": null,
+          "audio_description": {
+            "voice": null,
+            "sfx": "Muffled echoes bouncing off warehouse walls, faint hum of neon lights",
+            "music": "Pulsing electronic bass, driving beat, dark synth atmosphere"
+          },
+          "camera": {
+            "movement": "orbit",
+            "speed": "slow",
+            "intensity": "moderate"
+          },
+          "metadata": {
+            "shot_id": "shot_mv_003",
+            "scene_id": "scene_mv_warehouse",
+            "project_id": "proj_music_neon",
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T10:15:00Z",
+            "continuity_anchor": false
+          }
+        }
+      }
+    },
+    {
+      "id": "wan25-ex-003",
+      "title": "Sci-Fi Short — Image-to-Video Character Animation",
+      "project_type": "short_film",
+      "generation_mode": "image-to-video",
+      "audio_enabled": false,
+      "notes": "Demonstrates image-to-video mode where the prompt focuses ONLY on motion and camera — the source image defines the character's appearance. Audio disabled for a silent atmospheric shot. Uses enhance_prompt=false for precise control.",
+      "input": {
+        "shot_id": "shot_scifi_012",
+        "scene_id": "scene_scifi_bridge",
+        "project_id": "proj_stellar_drift",
+        "shot_number": 12,
+        "shot_type": "close-up",
+        "camera_movement": "static",
+        "description": "Close-up of Captain Reva reading a holographic display. Her eyes track data scrolling across the display. Subtle light play from the hologram on her face.",
+        "duration": 5,
+        "characters": [
+          {
+            "name": "Captain Reva",
+            "description": "Mid-40s, South Asian, grey-streaked dark hair pulled back, angular features, cybernetic implant visible at left temple",
+            "action": "Eyes scanning holographic data, slight narrowing of eyes as she reads something concerning"
+          }
+        ],
+        "scene_context": {
+          "location": "Interior — Starship bridge, command station",
+          "time_of_day": "n/a (space)",
+          "weather": "n/a",
+          "period": "far future",
+          "mood": "tense, focused, quiet dread"
+        },
+        "dialogue": null,
+        "continuity_notes": "Source image already approved as Continuity Anchor for Captain Reva. Use image-to-video to preserve exact appearance. Holographic blue-green light palette established in shots 8-11.",
+        "brand_guidelines": null,
+        "style_modifiers": ["cinematic sci-fi", "holographic lighting", "shallow depth of field"],
+        "source_image": "assets/characters/reva_bridge_closeup_v3.png"
+      },
+      "output": {
+        "human_readable": "Starting from the approved reference frame of Captain Reva at her command station. Her eyes slowly track from left to right, following data scrolling across an unseen holographic display. Her expression subtly shifts — a slight narrowing of the eyes, jaw tightening — as she reads something troubling. Holographic blue-green light flickers gently across her face, casting shifting shadows. Camera holds static — fixed shot, no movement. The only motion is her eye movement, facial micro-expressions, and the dancing holographic light reflections.",
+        "json": {
+          "prompt": "The character's eyes slowly track from left to right, following data on an unseen holographic display. Expression subtly shifts, eyes narrowing slightly, jaw tightening as she reads something troubling. Holographic blue-green light flickers gently across her face, casting shifting shadows. Static shot, fixed camera, no movement. Subtle facial micro-expressions, dancing holographic light reflections on skin.",
+          "negative_prompt": "blurry, distorted, flickering, camera movement, zoom, pan, full body shot, different face, different clothing",
+          "resolution": "720P",
+          "aspect_ratio": "16:9",
+          "duration": 5,
+          "seed": 33109,
+          "enhance_prompt": false,
+          "audio": false,
+          "guidance_scale": 6.0,
+          "sample_steps": 28,
+          "quality_mode": "off",
+          "generation_mode": "image-to-video",
+          "source_image_url": "assets/characters/reva_bridge_closeup_v3.png",
+          "audio_description": null,
+          "camera": {
+            "movement": "static",
+            "speed": "slow",
+            "intensity": "subtle"
+          },
+          "metadata": {
+            "shot_id": "shot_scifi_012",
+            "scene_id": "scene_scifi_bridge",
+            "project_id": "proj_stellar_drift",
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T10:30:00Z",
+            "continuity_anchor": false
+          }
+        }
+      }
+    },
+    {
+      "id": "wan25-ex-004",
+      "title": "Commercial — Product Beauty Shot with Precise Camera",
+      "project_type": "commercial",
+      "generation_mode": "text-to-video",
+      "audio_enabled": true,
+      "notes": "Demonstrates a polished commercial/product shot. Clean aesthetic with controlled lighting. Uses higher guidance_scale (7.0) for precision. 10-second duration for a smooth, complete camera move around the product.",
+      "input": {
+        "shot_id": "shot_comm_002",
+        "scene_id": "scene_comm_hero",
+        "project_id": "proj_aurelia_fragrance",
+        "shot_number": 2,
+        "shot_type": "close-up",
+        "camera_movement": "orbit",
+        "description": "Hero product shot of the Aurelia perfume bottle. Rotating beauty shot on reflective surface. Luxury aesthetic.",
+        "duration": 10,
+        "characters": [],
+        "scene_context": {
+          "location": "Studio — Infinity cove, dark background",
+          "time_of_day": "n/a (studio)",
+          "weather": "n/a",
+          "period": "contemporary",
+          "mood": "luxurious, elegant, aspirational"
+        },
+        "dialogue": null,
+        "continuity_notes": "Bottle design: tall rectangular glass with gold cap, amber liquid, 'AURELIA' embossed in gold serif font. Consistent with brand color palette: black, gold, amber.",
+        "brand_guidelines": {
+          "colors": ["black", "gold", "amber"],
+          "style": "luxury minimalist",
+          "avoid": ["bright colors", "busy backgrounds", "casual aesthetic"]
+        },
+        "style_modifiers": ["luxury", "product photography", "studio lighting", "reflective surfaces"]
+      },
+      "output": {
+        "human_readable": "A ten-second beauty shot of a tall rectangular glass perfume bottle with a gold cap, filled with amber liquid, sitting on a polished black reflective surface. The word 'AURELIA' is embossed in gold serif lettering on the glass. Studio lighting: a single key light from above-right creates a clean specular highlight down the bottle's edge, with a soft fill from the left. The background is a seamless dark gradient. The camera orbits smoothly and slowly around the bottle through a complete 180-degree arc, revealing the embossed text and the amber liquid catching the light from different angles. Audio: subtle crystalline chime, soft ambient drone, elegant and minimal.",
+        "json": {
+          "prompt": "Close-up of a tall rectangular glass perfume bottle with a gold cap, filled with amber liquid, the word AURELIA embossed in gold serif lettering. Bottle sits on a polished black reflective surface. Single key light from above-right creates a clean specular highlight along the bottle's edge, soft fill from left. Seamless dark gradient background. Camera orbits smoothly and slowly around the bottle through a 180-degree arc, revealing the embossed text and amber liquid catching light from different angles. Luxury product photography, studio lighting, minimalist elegance.",
+          "negative_prompt": "blurry, distorted, flickering, low quality, watermark, fingerprints, dust, scratches, busy background, bright colors, hand visible",
+          "resolution": "480P",
+          "aspect_ratio": "16:9",
+          "duration": 10,
+          "seed": 91055,
+          "enhance_prompt": false,
+          "audio": true,
+          "guidance_scale": 7.0,
+          "sample_steps": 30,
+          "quality_mode": "off",
+          "generation_mode": "text-to-video",
+          "source_image_url": null,
+          "audio_description": {
+            "voice": null,
+            "sfx": "Subtle crystalline chime, a single resonant tone",
+            "music": "Soft ambient drone, elegant and minimal, barely perceptible"
+          },
+          "camera": {
+            "movement": "orbit",
+            "speed": "slow",
+            "intensity": "moderate"
+          },
+          "metadata": {
+            "shot_id": "shot_comm_002",
+            "scene_id": "scene_comm_hero",
+            "project_id": "proj_aurelia_fragrance",
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T10:45:00Z",
+            "continuity_anchor": true
+          }
+        }
+      }
+    },
+    {
+      "id": "wan25-ex-005",
+      "title": "Documentary — Interview Setup with Dialogue",
+      "project_type": "documentary",
+      "generation_mode": "text-to-video",
+      "audio_enabled": true,
+      "notes": "Demonstrates dialogue/voice audio in a realistic documentary setting. Static camera for interview framing. Uses moderate guidance for natural, less-controlled feel. Audio includes spoken dialogue.",
+      "input": {
+        "shot_id": "shot_doc_008",
+        "scene_id": "scene_doc_interview",
+        "project_id": "proj_forgotten_waters",
+        "shot_number": 8,
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "description": "Interview with elderly fisherman in his workshop. He speaks about the old days. Warm, nostalgic. Documentary interview framing.",
+        "duration": 5,
+        "characters": [
+          {
+            "name": "Hiro",
+            "description": "Elderly Japanese fisherman, late 70s, deeply weathered face, white stubble, worn blue work shirt, calloused hands",
+            "action": "Speaking to an interviewer off-camera, gesturing gently with one hand, warm expression"
+          }
+        ],
+        "scene_context": {
+          "location": "Interior — Fishing workshop, coastal village",
+          "time_of_day": "afternoon",
+          "weather": "n/a (interior, but warm light suggests clear day outside)",
+          "period": "contemporary",
+          "mood": "warm, nostalgic, intimate"
+        },
+        "dialogue": "The sea remembers everything. Every storm, every calm morning.",
+        "continuity_notes": "Workshop background consistent across interview shots 6-12. Fishing nets, wooden tools, and a small window with afternoon light visible behind Hiro.",
+        "brand_guidelines": null,
+        "style_modifiers": ["documentary", "natural light", "shallow depth of field", "warm tones"]
+      },
+      "output": {
+        "human_readable": "A medium close-up of an elderly Japanese fisherman in his late 70s, deeply weathered face with white stubble, wearing a worn blue work shirt. He sits in his fishing workshop surrounded by nets, wooden tools, and coiled rope. Warm afternoon sunlight streams through a small window behind him, backlighting wisps of dust in the air. He speaks to someone off-camera with a gentle, knowing expression, gesturing slowly with one calloused hand. The camera holds perfectly still in documentary interview framing. Shallow depth of field softens the workshop background. Audio: His voice speaking warmly, 'The sea remembers everything. Every storm, every calm morning.' Ambient workshop sounds — faint creaking of wood, distant seabirds outside.",
+        "json": {
+          "prompt": "Medium close-up of an elderly Japanese fisherman in his late 70s with deeply weathered face and white stubble, wearing a worn blue work shirt. He sits in a fishing workshop surrounded by nets, wooden tools, and coiled rope. Warm afternoon sunlight streams through a small window behind him, backlighting dust in the air. He speaks to someone off-camera with a gentle knowing expression, gesturing slowly with one calloused hand. Fixed shot, static camera, documentary interview framing. Shallow depth of field, warm tones, natural light, intimate mood.",
+          "negative_prompt": "blurry, distorted, flickering, low quality, camera movement, zoom, modern clothing, clean studio, artificial lighting, young person",
+          "resolution": "720P",
+          "aspect_ratio": "16:9",
+          "duration": 5,
+          "seed": 62840,
+          "enhance_prompt": false,
+          "audio": true,
+          "guidance_scale": 5.5,
+          "sample_steps": 25,
+          "quality_mode": "off",
+          "generation_mode": "text-to-video",
+          "source_image_url": null,
+          "audio_description": {
+            "voice": "Elderly male voice speaking warmly and slowly: 'The sea remembers everything. Every storm, every calm morning.'",
+            "sfx": "Faint creaking of wood, distant seabirds calling outside",
+            "music": null
+          },
+          "camera": {
+            "movement": "static",
+            "speed": "slow",
+            "intensity": "subtle"
+          },
+          "metadata": {
+            "shot_id": "shot_doc_008",
+            "scene_id": "scene_doc_interview",
+            "project_id": "proj_forgotten_waters",
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T11:00:00Z",
+            "continuity_anchor": false
+          }
+        }
+      }
+    },
+    {
+      "id": "wan25-ex-006",
+      "title": "Fantasy Short — Action Sequence with Dynamic Camera",
+      "project_type": "short_film",
+      "generation_mode": "text-to-video",
+      "audio_enabled": true,
+      "notes": "Demonstrates an action-oriented shot with fast camera movement. Uses 5-second duration to keep quality high despite dynamic motion. Limited to 2 clear actions. Aesthetic control keywords for fantasy genre.",
+      "input": {
+        "shot_id": "shot_fan_019",
+        "scene_id": "scene_fan_bridge_battle",
+        "project_id": "proj_iron_crown",
+        "shot_number": 19,
+        "shot_type": "wide to medium",
+        "camera_movement": "push_in",
+        "description": "The knight charges across the stone bridge toward the enemy. Cloak billowing. Sword raised. We push in fast as she closes the distance.",
+        "duration": 5,
+        "characters": [
+          {
+            "name": "Ser Kael",
+            "description": "Female knight, mid-30s, scarred face, silver-streaked dark hair tied back, battered plate armor with a crimson cloak, longsword",
+            "action": "Running at full sprint across a stone bridge, crimson cloak billowing behind, longsword raised overhead"
+          }
+        ],
+        "scene_context": {
+          "location": "Exterior — Ancient stone bridge over a misty gorge",
+          "time_of_day": "dawn",
+          "weather": "fog/mist rising from gorge below",
+          "period": "medieval fantasy",
+          "mood": "epic, desperate, heroic"
+        },
+        "dialogue": null,
+        "continuity_notes": "Bridge established in wide shot (shot 17). Ser Kael's armor and cloak consistent with character sheet. Dawn lighting with golden rim light from camera-right.",
+        "brand_guidelines": null,
+        "style_modifiers": ["epic fantasy", "cinematic", "golden hour", "dramatic lighting"]
+      },
+      "output": {
+        "human_readable": "Wide shot rapidly pushing in to medium: A female knight in battered plate armor and a crimson cloak sprints at full speed across an ancient stone bridge. Thick mist rises from the gorge below, curling around the bridge's weathered pillars. Her silver-streaked dark hair streams behind her as the cloak billows dramatically. She raises a longsword overhead as she charges. Dawn light breaks through the mist from camera-right, creating a golden rim light along her armor's edges. The camera pushes in quickly from a wide establishing angle to a medium shot as she closes the distance, building urgency. Audio: Heavy armored footsteps pounding stone, cloak snapping in the wind, the metallic ring of armor plates, a rising orchestral swell.",
+        "json": {
+          "prompt": "Wide shot pushing in to medium: A female knight in battered plate armor with a crimson cloak sprints across an ancient stone bridge. Thick mist rises from a gorge below, curling around weathered stone pillars. Silver-streaked dark hair streams behind her, crimson cloak billowing dramatically. She raises a longsword overhead as she charges forward. Dawn light breaks through mist from camera-right, golden rim light along armor edges. Camera pushes in quickly from wide to medium shot, building urgency. Epic fantasy, cinematic, dramatic lighting, golden hour mist.",
+          "negative_prompt": "blurry, distorted, flickering, low quality, watermark, modern elements, static pose, clean armor, night time, rain",
+          "resolution": "720P",
+          "aspect_ratio": "16:9",
+          "duration": 5,
+          "seed": 15738,
+          "enhance_prompt": false,
+          "audio": true,
+          "guidance_scale": 6.5,
+          "sample_steps": 25,
+          "quality_mode": "balanced",
+          "generation_mode": "text-to-video",
+          "source_image_url": null,
+          "audio_description": {
+            "voice": null,
+            "sfx": "Heavy armored footsteps pounding on stone, cloak snapping in wind, metallic ring of plate armor",
+            "music": "Rising orchestral swell, brass and strings building tension, epic heroic theme"
+          },
+          "camera": {
+            "movement": "push_in",
+            "speed": "fast",
+            "intensity": "dramatic"
+          },
+          "metadata": {
+            "shot_id": "shot_fan_019",
+            "scene_id": "scene_fan_bridge_battle",
+            "project_id": "proj_iron_crown",
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T11:15:00Z",
+            "continuity_anchor": false
+          }
+        }
+      }
+    }
+  ]
+}

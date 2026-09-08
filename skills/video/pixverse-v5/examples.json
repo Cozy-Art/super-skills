@@ -1,0 +1,394 @@
+{
+  "model": "pixverse-v5.5",
+  "skill_version": "1.0",
+  "last_updated": "2026-03-03",
+  "description": "Example input/output pairs for PixVerse V5.5 prompt generation. Each example shows structured shot data (input) converted to both human-readable description and structured JSON (output). Examples emphasize PixVerse V5.5's differentiating features: multi-shot cinematic mode, native audio with lip sync, thinking type optimization, and style presets across diverse project types.",
+  "examples": [
+    {
+      "id": "pv55-ex-001",
+      "title": "Film Noir — Multi-Shot Establishing Sequence with Audio",
+      "project_type": "short_film",
+      "generation_mode": "text-to-video",
+      "notes": "Demonstrates multi-shot cinematic mode for automatic camera coverage. PixVerse will break this into 1-3 shots (establishing → medium → detail). Audio enabled for atmospheric ambiance. thinking_type='disabled' for precise prompt control. 10-second duration at 720p.",
+      "input": {
+        "shot_id": "shot_noir_003",
+        "scene_id": "scene_noir_02",
+        "project_id": "proj_noir_detective",
+        "shot_number": 3,
+        "shot_type": "multi-shot sequence",
+        "description": "The detective enters his office for the first time. We need establishing context of the room, then him settling in. Multi-shot coverage would serve this well — wide room, then him at the desk, then a close detail.",
+        "duration": 10,
+        "characters": [
+          {
+            "name": "Jack",
+            "description": "Detective, mid-50s, fedora, rumpled grey suit, tired expression, five o'clock shadow",
+            "action": "Enters his cluttered office, removes fedora, drops it on the desk, slumps into the chair"
+          }
+        ],
+        "scene_context": {
+          "location": "Interior — Detective's private office, 3rd floor",
+          "time_of_day": "night",
+          "mood": "weary, melancholy, noir",
+          "period": "1940s"
+        },
+        "dialogue": null,
+        "continuity_notes": "Office established in overhead shot (shot 1). Desk, filing cabinet, venetian blinds, bottle of whiskey visible.",
+        "style_modifiers": ["film noir", "high contrast", "venetian blind shadows"]
+      },
+      "output": {
+        "human_readable": "A tired detective in his mid-50s wearing a fedora and rumpled grey suit pushes open the door to his cluttered 1940s office. Venetian blind shadows stripe across the walls in harsh contrast. He removes his fedora wearily, drops it onto the paper-strewn desk, and slumps heavily into the creaking leather chair. A half-empty whiskey bottle and stained glass sit on the corner of the desk. Night light from the window casts long shadows. Film noir atmosphere, high contrast, melancholy and weary mood. Multi-shot mode will automatically create establishing coverage of the room, a medium shot of him at the desk, and a close detail.",
+        "json": {
+          "prompt": "A tired detective in his mid-50s wearing a fedora and rumpled grey suit pushes open the door to his cluttered 1940s office. Venetian blind shadows stripe across the walls in harsh contrast. He removes his fedora wearily, drops it onto the paper-strewn desk, and slumps heavily into the creaking leather chair. A half-empty whiskey bottle and stained glass sit on the desk corner. Night light casting long shadows. Film noir atmosphere, high contrast, melancholy and weary mood.",
+          "negative_prompt": "blurry, distorted faces, extra limbs, watermark, low quality, jerky motion, morphing, flickering, bright colors, modern furniture, daylight, smiling",
+          "model": "v5.5",
+          "aspect_ratio": "16:9",
+          "quality": "720p",
+          "duration": 10,
+          "style": null,
+          "motion_mode": "normal",
+          "seed": 48291,
+          "generate_audio_switch": true,
+          "generate_multi_clip_switch": true,
+          "thinking_type": "disabled",
+          "camera_movement": null,
+          "template_id": null,
+          "generation_mode": "text-to-video",
+          "source_image": null,
+          "frame_references": null,
+          "audio_intent": {
+            "dialogue": null,
+            "sfx_expectation": "Door creaking open, footsteps on wooden floor, hat dropping on paper, chair creaking under weight",
+            "music_mood": "Slow melancholy jazz, muted trumpet, smoky atmosphere"
+          },
+          "metadata": {
+            "shot_id": "shot_noir_003",
+            "scene_id": "scene_noir_02",
+            "project_id": "proj_noir_detective",
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T18:00:00Z",
+            "continuity_anchor": false,
+            "source_image_skill": null
+          }
+        }
+      }
+    },
+    {
+      "id": "pv55-ex-002",
+      "title": "Sci-Fi Short — Dialogue Scene with Lip Sync",
+      "project_type": "short_film",
+      "generation_mode": "text-to-video",
+      "notes": "Demonstrates PixVerse V5.5's dialogue lip sync capability. Audio enabled with explicit dialogue in the prompt. thinking_type='disabled' because dialogue text must be preserved exactly. Single-shot mode (multi_clip off) for controlled framing. 8s at 1080p for quality.",
+      "input": {
+        "shot_id": "shot_scifi_018",
+        "scene_id": "scene_scifi_briefing",
+        "project_id": "proj_stellar_drift",
+        "shot_number": 18,
+        "shot_type": "medium close-up",
+        "description": "Captain Reva delivers a brief order to her crew. She speaks directly to camera (or to an officer off-screen). Short, authoritative dialogue with lip sync.",
+        "duration": 8,
+        "characters": [
+          {
+            "name": "Captain Reva",
+            "description": "Mid-40s woman, dark hair pulled back, angular features, navy blue command uniform",
+            "action": "Speaking directly with calm authority, slight head tilt, making eye contact"
+          }
+        ],
+        "scene_context": {
+          "location": "Interior — Starship bridge, command station",
+          "time_of_day": "n/a (space)",
+          "mood": "tense, authoritative, urgent"
+        },
+        "dialogue": "Set condition two throughout the ship. All hands to stations.",
+        "continuity_notes": "Bridge lighting: cool blue with amber instrument glow. Same as shots 12-17."
+      },
+      "output": {
+        "human_readable": "A woman in her mid-40s with dark hair pulled back and angular features stands at a starship command station in a navy blue uniform. She speaks with calm authority, slight head tilt, making direct eye contact: 'Set condition two throughout the ship. All hands to stations.' Cool blue bridge lighting with amber instrument glow reflects off her face. Tense, urgent atmosphere. Medium close-up framing, shallow depth of field with blurred bridge instruments in background. Audio enabled for dialogue lip sync.",
+        "json": {
+          "prompt": "A woman in her mid-40s with dark hair pulled back tightly and angular features stands at a starship command station in a navy blue uniform. She speaks with calm authority, making direct eye contact and says 'Set condition two throughout the ship. All hands to stations.' Cool blue bridge lighting with amber instrument glow on her face. Tense and urgent atmosphere. Medium close-up, shallow depth of field.",
+          "negative_prompt": "blurry, distorted faces, extra limbs, watermark, low quality, jerky motion, morphing, flickering, smiling, laughing, wrong lip sync, modern clothing",
+          "model": "v5.5",
+          "aspect_ratio": "16:9",
+          "quality": "1080p",
+          "duration": 8,
+          "style": null,
+          "motion_mode": "normal",
+          "seed": 33109,
+          "generate_audio_switch": true,
+          "generate_multi_clip_switch": false,
+          "thinking_type": "disabled",
+          "camera_movement": null,
+          "template_id": null,
+          "generation_mode": "text-to-video",
+          "source_image": null,
+          "frame_references": null,
+          "audio_intent": {
+            "dialogue": "Set condition two throughout the ship. All hands to stations.",
+            "sfx_expectation": "Low ship engine hum, distant alert tone beginning at end of dialogue",
+            "music_mood": null
+          },
+          "metadata": {
+            "shot_id": "shot_scifi_018",
+            "scene_id": "scene_scifi_briefing",
+            "project_id": "proj_stellar_drift",
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T18:15:00Z",
+            "continuity_anchor": false,
+            "source_image_skill": null
+          }
+        }
+      }
+    },
+    {
+      "id": "pv55-ex-003",
+      "title": "Music Video — Image-to-Video with Style Preset",
+      "project_type": "music_video",
+      "generation_mode": "image-to-video",
+      "notes": "Demonstrates image-to-video mode where the prompt describes ONLY motion — not the visual content of the source image. Uses the cyberpunk style preset to enhance the neon aesthetic. thinking_type='disabled' since the motion direction is specific.",
+      "input": {
+        "shot_id": "shot_mv_005",
+        "scene_id": "scene_mv_warehouse",
+        "project_id": "proj_music_neon",
+        "shot_number": 5,
+        "shot_type": "medium",
+        "description": "Animate the approved storyboard frame of Mira in the warehouse. She should sway to the music and turn toward camera. Neon lights pulse. Source frame generated from Ideogram v3.",
+        "duration": 5,
+        "characters": [
+          {
+            "name": "Mira",
+            "action": "Swaying to music rhythm, turning head toward camera, one hand rises to grip microphone"
+          }
+        ],
+        "source_frame": "assets/frames/mv_warehouse_mira_frame05_v2.png",
+        "style_modifiers": ["cyberpunk", "neon", "music video"],
+        "continuity_notes": "Source frame matches approved neon color palette (magenta, cyan, amber). Mira's wardrobe locked."
+      },
+      "output": {
+        "human_readable": "Animating the approved storyboard frame. Motion only — the source image defines all visual elements. The performer sways rhythmically to music, turning her head slowly toward camera with confident energy. Her hand rises to grip the microphone. Neon lights pulse and flicker in the background, casting shifting colored shadows. Subtle lens flare drifts across frame. Camera holds steady. Cyberpunk style preset applied to enhance the neon aesthetic.",
+        "json": {
+          "prompt": "The performer sways rhythmically to music, turning her head slowly toward camera with confident energy. Her hand rises to grip the microphone. Neon lights pulse and flicker in the background, casting shifting colored shadows. Subtle lens flare drifts across frame. Camera holds steady.",
+          "negative_prompt": "blurry, distorted faces, extra limbs, watermark, low quality, jerky motion, morphing, flickering, static pose, no movement",
+          "model": "v5.5",
+          "aspect_ratio": "16:9",
+          "quality": "720p",
+          "duration": 5,
+          "style": "cyberpunk",
+          "motion_mode": "normal",
+          "seed": 77412,
+          "generate_audio_switch": false,
+          "generate_multi_clip_switch": false,
+          "thinking_type": "disabled",
+          "camera_movement": null,
+          "template_id": null,
+          "generation_mode": "image-to-video",
+          "source_image": {
+            "img_id": null,
+            "image_url": "assets/frames/mv_warehouse_mira_frame05_v2.png"
+          },
+          "frame_references": null,
+          "audio_intent": null,
+          "metadata": {
+            "shot_id": "shot_mv_005",
+            "scene_id": "scene_mv_warehouse",
+            "project_id": "proj_music_neon",
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T18:30:00Z",
+            "continuity_anchor": false,
+            "source_image_skill": "ideogram-v3"
+          }
+        }
+      }
+    },
+    {
+      "id": "pv55-ex-004",
+      "title": "Commercial — Product Shot with Multi-Clip and Audio",
+      "project_type": "commercial",
+      "generation_mode": "text-to-video",
+      "notes": "Demonstrates multi-clip mode for product coverage — PixVerse will automatically generate establishing, detail, and beauty angles. Audio enabled for ambient luxury sound. thinking_type='enabled' to let the model optimize the product description. 8s at 1080p for maximum quality.",
+      "input": {
+        "shot_id": "shot_comm_004",
+        "scene_id": "scene_comm_hero",
+        "project_id": "proj_aurelia_fragrance",
+        "shot_number": 4,
+        "shot_type": "multi-shot product",
+        "description": "Hero product shot of the Aurelia perfume bottle. Multi-angle coverage: establishing the bottle, detail on the glass and liquid, beauty shot of the gold cap. Luxury aesthetic.",
+        "duration": 8,
+        "characters": [],
+        "scene_context": {
+          "location": "Studio — Dark background, reflective surface",
+          "mood": "luxurious, elegant, aspirational"
+        },
+        "brand_guidelines": {
+          "colors": ["black", "gold", "amber"],
+          "style": "luxury minimalist"
+        }
+      },
+      "output": {
+        "human_readable": "A premium glass perfume bottle with a sculptural gold cap rotates slowly on a reflective black surface. Soft rim lighting creates elegant highlights along the glass edges, revealing amber liquid catching the light with warm refraction. Luxury brand aesthetic with minimal dark background and macro lens detail on the glass surface. Multi-clip mode will automatically create establishing, detail, and beauty angles with smooth transitions. Audio adds subtle ambient elegance.",
+        "json": {
+          "prompt": "A premium glass perfume bottle with a sculptural gold cap rotates slowly on a reflective black surface. Soft rim lighting creates elegant highlights along the glass edges, revealing amber liquid catching warm light. Luxury brand aesthetic, minimal dark background, macro lens detail on glass surface textures. Elegant and aspirational mood.",
+          "negative_prompt": "blurry, distorted, watermark, low quality, jerky motion, flickering, fingerprints, dust, scratches, bright colors, busy background, human hands, text",
+          "model": "v5.5",
+          "aspect_ratio": "16:9",
+          "quality": "1080p",
+          "duration": 8,
+          "style": null,
+          "motion_mode": "normal",
+          "seed": 91055,
+          "generate_audio_switch": true,
+          "generate_multi_clip_switch": true,
+          "thinking_type": "enabled",
+          "camera_movement": null,
+          "template_id": null,
+          "generation_mode": "text-to-video",
+          "source_image": null,
+          "frame_references": null,
+          "audio_intent": {
+            "dialogue": null,
+            "sfx_expectation": "Subtle crystalline chime, soft ambient tone",
+            "music_mood": "Minimal, elegant, luxury brand ambient"
+          },
+          "metadata": {
+            "shot_id": "shot_comm_004",
+            "scene_id": "scene_comm_hero",
+            "project_id": "proj_aurelia_fragrance",
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T18:45:00Z",
+            "continuity_anchor": true,
+            "source_image_skill": null
+          }
+        }
+      }
+    },
+    {
+      "id": "pv55-ex-005",
+      "title": "Fantasy Short — Action Sequence with Fast Motion",
+      "project_type": "short_film",
+      "generation_mode": "text-to-video",
+      "notes": "Demonstrates fast motion mode for an action-intensive shot. motion_mode='fast' is constrained: 5-second duration only, below 1080p. Single-shot mode for controlled framing. thinking_type='disabled' for precise action description.",
+      "input": {
+        "shot_id": "shot_fan_021",
+        "scene_id": "scene_fan_bridge_battle",
+        "project_id": "proj_iron_crown",
+        "shot_number": 21,
+        "shot_type": "wide",
+        "description": "Wide shot of the bridge battle in full chaos. Multiple combatants clashing. Fast, intense action. Debris falling. Dawn mist swirling.",
+        "duration": 5,
+        "characters": [
+          {
+            "name": "Ser Kael",
+            "description": "Female knight in plate armor with crimson cloak",
+            "action": "Engaged in close combat at the center of the bridge"
+          }
+        ],
+        "scene_context": {
+          "location": "Exterior — Ancient stone bridge, misty gorge",
+          "time_of_day": "dawn",
+          "weather": "mist",
+          "period": "medieval fantasy",
+          "mood": "epic, chaotic, intense"
+        },
+        "style_modifiers": ["epic fantasy", "cinematic", "dynamic action"]
+      },
+      "output": {
+        "human_readable": "A female knight in battered plate armor and a crimson cloak clashes swords fiercely with an armored opponent at the center of an ancient stone bridge. Other combatants fight around them — steel ringing, sparks flying. Stone debris crumbles from the bridge parapets. Dawn mist swirls through the bridge pillars below, golden light breaking through from camera-right. Wide shot capturing the full chaos of the battle. Fast motion mode for intense, high-energy pacing. Epic fantasy cinematic atmosphere.",
+        "json": {
+          "prompt": "A female knight in battered plate armor and a crimson cloak clashes swords fiercely with an armored opponent at the center of an ancient stone bridge. Other combatants fight around them with steel ringing and sparks flying. Stone debris crumbles from bridge parapets. Dawn mist swirls through bridge pillars below, golden light breaking through from the right. Wide shot capturing full battle chaos. Epic fantasy cinematic atmosphere, intense and dynamic action.",
+          "negative_prompt": "blurry, distorted faces, extra limbs, watermark, low quality, jerky motion, morphing, flickering, modern elements, static poses, peaceful, night",
+          "model": "v5.5",
+          "aspect_ratio": "16:9",
+          "quality": "720p",
+          "duration": 5,
+          "style": null,
+          "motion_mode": "fast",
+          "seed": 15738,
+          "generate_audio_switch": true,
+          "generate_multi_clip_switch": false,
+          "thinking_type": "disabled",
+          "camera_movement": null,
+          "template_id": null,
+          "generation_mode": "text-to-video",
+          "source_image": null,
+          "frame_references": null,
+          "audio_intent": {
+            "dialogue": null,
+            "sfx_expectation": "Sword clashes, armor clanking, stone crumbling, battle shouts, wind rushing",
+            "music_mood": "Epic orchestral battle theme, driving percussion, brass fanfares"
+          },
+          "metadata": {
+            "shot_id": "shot_fan_021",
+            "scene_id": "scene_fan_bridge_battle",
+            "project_id": "proj_iron_crown",
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T19:00:00Z",
+            "continuity_anchor": false,
+            "source_image_skill": null
+          }
+        }
+      }
+    },
+    {
+      "id": "pv55-ex-006",
+      "title": "Documentary — Start/End Frame Transition with Thinking Mode",
+      "project_type": "documentary",
+      "generation_mode": "text-to-video",
+      "notes": "Demonstrates frame reference usage (start and end frames) combined with thinking_type='enabled' for a simple, exploratory prompt that the model optimizes. This creates a smooth time-lapse-style transition between two visual states. No multi-clip — single smooth transition.",
+      "input": {
+        "shot_id": "shot_doc_timelapse_01",
+        "scene_id": "scene_doc_village_exterior",
+        "project_id": "proj_forgotten_waters",
+        "shot_number": null,
+        "shot_type": "wide",
+        "description": "A time-lapse-style transition from the fishing village harbor at dawn to the same view at golden hour sunset. Boats come and go, shadows shift, light warms. Simple evocative prompt that the model can optimize.",
+        "duration": 10,
+        "characters": [],
+        "scene_context": {
+          "location": "Exterior — Fishing village harbor",
+          "time_of_day": "dawn → golden hour (transition)",
+          "mood": "peaceful, contemplative, passage of time"
+        },
+        "start_frame": "assets/frames/doc_harbor_dawn.png",
+        "end_frame": "assets/frames/doc_harbor_golden_hour.png",
+        "intended_use": "Atmospheric transition between interview segments"
+      },
+      "output": {
+        "human_readable": "A smooth time-lapse transition of a small fishing harbor from cool dawn light to warm golden hour sunset. Boats drift in and out of frame, shadows rotate across the stone harbor wall, the light gradually warms from blue to amber. The composition remains anchored on the harbor view. Start frame: dawn with cool blue tones. End frame: golden hour with warm amber light. The AI interpolates the passage of time between the two states. Thinking mode enabled to let the model optimize and expand this evocative concept.",
+        "json": {
+          "prompt": "A small fishing harbor transitions from cool dawn light to warm golden hour sunset. Boats drift in and out, shadows shift across the stone harbor wall, light gradually warms from blue to amber. Peaceful passage of time, contemplative documentary feel.",
+          "negative_prompt": "blurry, distorted, watermark, low quality, jerky motion, flickering, modern buildings, people close to camera, text",
+          "model": "v5.5",
+          "aspect_ratio": "16:9",
+          "quality": "720p",
+          "duration": 10,
+          "style": null,
+          "motion_mode": "normal",
+          "seed": null,
+          "generate_audio_switch": true,
+          "generate_multi_clip_switch": false,
+          "thinking_type": "enabled",
+          "camera_movement": null,
+          "template_id": null,
+          "generation_mode": "text-to-video",
+          "source_image": null,
+          "frame_references": {
+            "start_frame_url": "assets/frames/doc_harbor_dawn.png",
+            "end_frame_url": "assets/frames/doc_harbor_golden_hour.png"
+          },
+          "audio_intent": {
+            "dialogue": null,
+            "sfx_expectation": "Gentle waves, distant boat engines, seabirds calling, rope creaking",
+            "music_mood": "Soft ambient, contemplative, warm acoustic undertone"
+          },
+          "metadata": {
+            "shot_id": "shot_doc_timelapse_01",
+            "scene_id": "scene_doc_village_exterior",
+            "project_id": "proj_forgotten_waters",
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T19:15:00Z",
+            "continuity_anchor": false,
+            "source_image_skill": "ideogram-v3"
+          }
+        }
+      }
+    }
+  ]
+}

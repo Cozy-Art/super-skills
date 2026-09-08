@@ -1,0 +1,311 @@
+{
+  "model_versions": {
+    "kling_3_0": "Standard model with multi-shot and native audio",
+    "kling_3_0_omni": "Multimodal with visual reasoning and enhanced consistency"
+  },
+  "release_date": "2026-02-04",
+  "platform": "Kuaishou / klingai.com",
+  
+  "prompt_limits": {
+    "image_prompts": "~900 characters (free tier confirmed)",
+    "text_prompts": "~2500 characters (estimated)",
+    "optimal_length": "3-6 well-structured sentences",
+    "max_visual_elements": "5-7 distinct elements per generation"
+  },
+  
+  "five_layer_template": {
+    "required_layers": [
+      "Scene/Context (Anchor)",
+      "Characters/Subject",
+      "Action Timeline (Sequential)",
+      "Camera Movement",
+      "Audio & Style"
+    ],
+    "order": "Scene → Characters → Action → Camera → Audio/Style",
+    "note": "Anchor scene first, then introduce subjects and movement"
+  },
+  
+  "resolution_and_duration": {
+    "resolution_options": ["720p", "1080p"],
+    "default_resolution": "1080p (Pro/Omni)",
+    "frame_rate": "30fps (fixed)",
+    "duration_options": [3, 5, 6, 10, 15],
+    "native_max": "15 seconds",
+    "extended_max": "Up to 3 minutes via continuation",
+    "notes": {
+      "720p": "Available on all plans",
+      "1080p": "Pro/Omni default, higher quality",
+      "4k": "Rumored for future release"
+    }
+  },
+  
+  "aspect_ratios": {
+    "16:9": "Landscape, YouTube, cinema",
+    "9:16": "Vertical, TikTok, Reels",
+    "1:1": "Square, Instagram",
+    "21:9": "Cinematic widescreen"
+  },
+  
+  "style_modes": {
+    "normal": "Standard generation",
+    "fun": "More playful, stylized output",
+    "spicy": "Higher creativity and variation"
+  },
+  
+  "cfg_scale": {
+    "parameter": "Classifier Free Guidance",
+    "range": "0-1",
+    "default": 0.5,
+    "high_values": "Closer adherence to prompt",
+    "low_values": "More creative freedom",
+    "note": "Controls balance between prompt fidelity and model creativity"
+  },
+  
+  "camera_control_presets": {
+    "available": [
+      "Static",
+      "Pan left",
+      "Pan right",
+      "Tilt up",
+      "Tilt down",
+      "Zoom in",
+      "Zoom out",
+      "Dolly in",
+      "Dolly out",
+      "Handheld/shake"
+    ],
+    "access": "Via API parameters",
+    "note": "Can also be specified in text prompt"
+  },
+  
+  "elements_system": {
+    "max_reference_images": 4,
+    "reference_types": {
+      "face_only": "Maintains facial identity, allows clothing variation",
+      "subject": "Includes body, pose, clothing consistency",
+      "entire_image": "Preserves full composition and style"
+    },
+    "face_adherence": {
+      "range": "0-100",
+      "default": 42,
+      "recommended": {
+        "42": "Similar face with natural variation",
+        "70-100": "Strict likeness, copy-paste effect"
+      }
+    },
+    "supported_formats": ["JPEG", "PNG", "WEBP"],
+    "max_file_size": "10MB per image",
+    "workflow": [
+      "Generate initial character shot with detailed description",
+      "Extract frames showing different angles/expressions",
+      "Upload 1-4 best frames as Elements references",
+      "Set face adherence based on consistency needs",
+      "Use same references across related shots"
+    ]
+  },
+  
+  "multi_shot_storyboard": {
+    "availability": "Kling 3.0 Omni",
+    "max_cuts": 6,
+    "features": [
+      "Automatic camera angle adjustment",
+      "Scene coverage understanding",
+      "Style continuity across shots"
+    ],
+    "syntax": {
+      "format": "**Shot N (Xs):** [Camera] [Description] @Character: \"[dialogue]\"",
+      "example": "**Shot 1 (6s):** Wide shot. Detective enters office. @Detective: \"Someone's been here.\""
+    }
+  },
+  
+  "dialogue_attribution": {
+    "syntax": "@Character name says, \"dialogue\"",
+    "purpose": "Ensures correct lip-sync assignment",
+    "examples": [
+      "@Detective murmurs, \"This must be it.\"",
+      "@Woman responds calmly: \"I know what you're thinking.\""
+    ],
+    "best_practices": [
+      "Always attribute dialogue to specific character",
+      "Specify tone/emotion with verb",
+      "Keep dialogue natural and concise"
+    ]
+  },
+  
+  "temporal_markers": {
+    "purpose": "Structure sequential actions within shots",
+    "keywords": ["First", "Then", "Next", "Finally", "After", "While"],
+    "example": "First, she slows her pace, then looks back briefly, finally continues walking forward."
+  },
+  
+  "negative_prompts": {
+    "importance": "Critical for Kling 3.0 quality",
+    "common_issues": {
+      "smiling_default": "Kling tends toward happy expressions",
+      "hand_morphing": "Hands and faces can deform",
+      "physics_errors": "Unrealistic object interactions"
+    },
+    "recommended_negatives": [
+      "smiling",
+      "laughing",
+      "cartoonish",
+      "bright colors",
+      "morphing",
+      "disfigured hands",
+      "extra fingers",
+      "blurry text",
+      "low resolution",
+      "robotic movement"
+    ],
+    "template": "smiling, laughing, cartoonish, bright colors, morphing, disfigured hands, extra fingers, blurry text, low resolution, robotic movement"
+  },
+  
+  "cinematic_terminology": {
+    "camera_movements": [
+      "dolly push",
+      "dolly out",
+      "pan left/right",
+      "tilt up/down",
+      "whip-pan",
+      "crash zoom",
+      "rack focus",
+      "handheld",
+      "tracking shot",
+      "crane shot",
+      "shoulder-cam drift",
+      "snap focus"
+    ],
+    "shot_types": [
+      "wide shot",
+      "medium shot",
+      "close-up",
+      "extreme close-up",
+      "POV (point of view)",
+      "over-the-shoulder",
+      "two-shot",
+      "establishing shot"
+    ],
+    "texture_details": [
+      "film grain",
+      "lens flare",
+      "bokeh",
+      "shallow depth of field",
+      "reflections",
+      "condensation",
+      "fabric sheen",
+      "smoke wisps",
+      "sweat",
+      "dust particles"
+    ],
+    "lighting_terms": [
+      "golden hour",
+      "neon signs",
+      "candlelight",
+      "LED panels",
+      "flickering fluorescent",
+      "harsh overhead",
+      "soft window light",
+      "rim lighting",
+      "backlit"
+    ]
+  },
+  
+  "image_to_video": {
+    "supported": true,
+    "formats": ["JPEG", "PNG", "WEBP"],
+    "max_file_size": "10MB",
+    "best_practices": [
+      "Use high-quality reference image as starting frame",
+      "Detailed prompt describing desired motion",
+      "CFG scale controls adherence to source image"
+    ]
+  },
+  
+  "video_continuation": {
+    "base_generation": "Up to 15 seconds native",
+    "extension": "Can extend to 3 minutes via continuation",
+    "workflow": [
+      "Generate initial 15s clip",
+      "Use continuation feature",
+      "Describe next action/movement",
+      "Maintains seamless transitions"
+    ]
+  },
+  
+  "output_specifications": {
+    "video_codec": "H.264/H.265",
+    "container": "MP4",
+    "frame_rate": "30fps",
+    "watermark": "Removed on Pro/Max plans",
+    "audio": "Native generation with lip-sync"
+  },
+  
+  "consistency_strategies": {
+    "elements_feature": "Use up to 4 reference images",
+    "seed_values": "Maintain same seed when iterating",
+    "lighting_uniformity": "Keep lighting and color grading consistent",
+    "end_frame_matching": "For seamless transitions between generations",
+    "shot_progression": "Plan wide → medium → close-up flow"
+  },
+  
+  "common_mistakes": {
+    "generic_motion": {
+      "problem": "Uses vague words like 'moves', 'goes', 'walks'",
+      "solution": "Use specific motion verbs with descriptors"
+    },
+    "keyword_spam": {
+      "problem": "Image-style prompting with comma-separated terms",
+      "solution": "Write structured sentences following 5-layer template"
+    },
+    "stacked_actions": {
+      "problem": "Listing everything in compressed paragraph",
+      "solution": "Break into sequential steps with temporal markers"
+    },
+    "too_many_elements": {
+      "problem": ">7 distinct visuals causes failures",
+      "solution": "Combine items into categories, focus on 5-7 max"
+    },
+    "vague_spatial": {
+      "problem": "Unclear positioning leads to physics errors",
+      "solution": "Explicit spatial language: 'hand gripping', 'making contact with'"
+    }
+  },
+  
+  "model_comparison": {
+    "kling_1_6": {
+      "complexity": "3-4 elements max",
+      "use_case": "Basic, reliable generation"
+    },
+    "kling_2_5_turbo_pro": {
+      "complexity": "3-4 elements",
+      "use_case": "Speed-optimized, quick iterations"
+    },
+    "kling_2_6": {
+      "complexity": "5-7 elements",
+      "use_case": "Detailed scenes"
+    },
+    "kling_3_0": {
+      "complexity": "High complexity",
+      "use_case": "Multi-shot, native audio, 15s generation"
+    },
+    "kling_3_0_omni": {
+      "complexity": "Highest",
+      "use_case": "Complex narratives, visual reasoning, multimodal input"
+    }
+  },
+  
+  "kling_3_0_vs_3_0_omni": {
+    "omni_additions": [
+      "Unified multimodal input (text + image + video + audio)",
+      "Visual chain-of-thought reasoning",
+      "Enhanced object consistency",
+      "Better camera move coherence"
+    ],
+    "when_to_use_omni": [
+      "Complex multi-shot narratives",
+      "Scenes requiring logical reasoning",
+      "Advanced object/character consistency",
+      "Multimodal input combinations"
+    ]
+  }
+}

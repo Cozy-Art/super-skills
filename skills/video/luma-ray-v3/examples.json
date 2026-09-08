@@ -1,0 +1,437 @@
+{
+  "model": "luma-ray3",
+  "skill_version": "1.0",
+  "last_updated": "2026-03-03",
+  "description": "Example input/output pairs for Luma Ray 3 prompt generation. Each example shows structured shot data (input) converted to both human-readable description and structured JSON (output). Examples span multiple project types and generation modes, with emphasis on Ray 3's differentiating features: multimodal reasoning, @character consistency, keyframe transitions, and complex action sequences.",
+  "examples": [
+    {
+      "id": "ray3-ex-001",
+      "title": "Film Noir — Establishing Wide Shot (Enhanced Mode)",
+      "project_type": "short_film",
+      "generation_mode": "text-to-video",
+      "prompt_mode": "enhanced",
+      "notes": "Demonstrates Enhanced mode for an atmospheric establishing shot. Short, evocative prompt that lets Ray 3's reasoning system expand the atmosphere. HDR on for post-production grading. No character consistency needed — pure environment.",
+      "input": {
+        "shot_id": "shot_noir_002",
+        "scene_id": "scene_noir_01",
+        "project_id": "proj_noir_detective",
+        "shot_number": 2,
+        "shot_type": "wide",
+        "camera_movement": "crane_down",
+        "description": "Wide shot looking down into the rain-soaked street below the detective's window. We crane down from the window to street level, revealing the neon-lit world below.",
+        "duration": 5,
+        "characters": [],
+        "scene_context": {
+          "location": "Exterior — Street below detective's office, downtown 1940s",
+          "time_of_day": "night",
+          "weather": "rain",
+          "period": "1940s",
+          "mood": "mysterious, atmospheric, voyeuristic"
+        },
+        "dialogue": null,
+        "continuity_notes": "Continues from shot 1 (establishing building exterior). Same neon color palette (red, amber). Same rain intensity.",
+        "style_modifiers": ["film noir", "high contrast", "wet reflections", "neon"]
+      },
+      "output": {
+        "human_readable": "Wide shot looking down from a third-floor window into a rain-soaked 1940s street below. The camera cranes slowly downward, revealing the neon-lit world — red and amber signs reflecting in puddles on wet cobblestones, figures with umbrellas hurrying through the rain, steam rising from manholes. Film noir atmosphere, high contrast, dramatic shadows. Moody, atmospheric, mysterious.",
+        "json": {
+          "prompt": "Wide shot craning down from a third-floor window into a rain-soaked 1940s street below. Neon signs in red and amber reflect in puddles on wet cobblestones. Figures with umbrellas hurry through the rain. Film noir atmosphere, dramatic shadows, moody and mysterious.",
+          "resolution": "1080p",
+          "aspect_ratio": "16:9",
+          "duration": 5,
+          "prompt_mode": "enhanced",
+          "hdr": true,
+          "loop": false,
+          "generation_mode": "text-to-video",
+          "start_frame_url": null,
+          "end_frame_url": null,
+          "character_tag": null,
+          "character_references": null,
+          "reference_settings": null,
+          "modify_settings": null,
+          "camera": {
+            "primary_movement": "crane_down",
+            "secondary_movement": null,
+            "speed": "slow"
+          },
+          "audio": {
+            "audio_prompt": "Heavy rain on pavement, distant car horn, muffled jazz from a doorway",
+            "generate_audio": true
+          },
+          "metadata": {
+            "shot_id": "shot_noir_002",
+            "scene_id": "scene_noir_01",
+            "project_id": "proj_noir_detective",
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T14:00:00Z",
+            "continuity_anchor": false,
+            "source_image_skill": null
+          }
+        }
+      }
+    },
+    {
+      "id": "ray3-ex-002",
+      "title": "Sci-Fi Short — Character Consistency with @Character Tag (Unenhanced)",
+      "project_type": "short_film",
+      "generation_mode": "text-to-video",
+      "prompt_mode": "unenhanced",
+      "notes": "Demonstrates the @character tagging system combined with Character Reference mode for identity consistency. Unenhanced mode for precise control over the action. Image V2 reference model (not Photon). 3-4 sentence prompt structure required for Unenhanced mode.",
+      "input": {
+        "shot_id": "shot_scifi_015",
+        "scene_id": "scene_scifi_corridor",
+        "project_id": "proj_stellar_drift",
+        "shot_number": 15,
+        "shot_type": "medium",
+        "camera_movement": "track_subject",
+        "description": "Captain Reva walks briskly through a starship corridor, reading a data tablet, expression concerned. Camera tracks alongside her. Must maintain her established face and appearance.",
+        "duration": 5,
+        "characters": [
+          {
+            "name": "Captain Reva",
+            "description": "Mid-40s, South Asian, grey-streaked dark hair pulled back, angular features, cybernetic implant at left temple, navy command uniform",
+            "action": "Walking briskly through corridor, reading data tablet, brow furrowed in concern",
+            "character_reference_images": [
+              "assets/characters/reva_portrait_anchor_v3.png"
+            ]
+          }
+        ],
+        "scene_context": {
+          "location": "Interior — Starship corridor, dim emergency lighting",
+          "time_of_day": "n/a (space)",
+          "mood": "tense, urgent, focused"
+        },
+        "continuity_notes": "Captain Reva established in shots 8-14. Same uniform, same cybernetic implant. Emergency lighting introduced in shot 13 (red accent lights along corridor floor).",
+        "style_modifiers": ["cinematic sci-fi", "emergency lighting", "handheld feel"]
+      },
+      "output": {
+        "human_readable": "Medium shot tracking alongside @reva as she walks briskly through a dimly lit starship corridor. Keep the character's face, hair, and features the same. She holds a data tablet in one hand, her eyes scanning it intently, brow furrowed with concern. Red emergency accent lights line the floor, casting harsh shadows upward across the corridor's metallic walls. The camera tracks smoothly at her pace, maintaining the medium framing as she moves. Tense, urgent atmosphere with the hum of the ship beneath the emergency ambiance. Cinematic sci-fi, slightly desaturated cool tones.",
+        "json": {
+          "prompt": "Medium shot tracking alongside @reva as she walks briskly through a dimly lit starship corridor. Keep the character's face, hair, and features the same. She holds a data tablet, eyes scanning it intently, brow furrowed with concern. Red emergency accent lights line the corridor floor, casting harsh upward shadows on metallic walls. The camera tracks smoothly beside her maintaining medium framing. Tense and urgent atmosphere, cinematic sci-fi, desaturated cool tones.",
+          "resolution": "1080p",
+          "aspect_ratio": "16:9",
+          "duration": 5,
+          "prompt_mode": "unenhanced",
+          "hdr": true,
+          "loop": false,
+          "generation_mode": "text-to-video",
+          "start_frame_url": null,
+          "end_frame_url": null,
+          "character_tag": "@reva",
+          "character_references": [
+            {
+              "image_url": "assets/characters/reva_portrait_anchor_v3.png",
+              "character_name": "reva"
+            }
+          ],
+          "reference_settings": {
+            "reference_mode": "character",
+            "reference_model": "image_v2"
+          },
+          "modify_settings": null,
+          "camera": {
+            "primary_movement": "track_subject",
+            "secondary_movement": null,
+            "speed": "medium"
+          },
+          "audio": {
+            "audio_prompt": "Brisk footsteps on metal floor, low ship engine hum, distant alarm tone",
+            "generate_audio": true
+          },
+          "metadata": {
+            "shot_id": "shot_scifi_015",
+            "scene_id": "scene_scifi_corridor",
+            "project_id": "proj_stellar_drift",
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T14:15:00Z",
+            "continuity_anchor": false,
+            "source_image_skill": "ideogram-v3"
+          }
+        }
+      }
+    },
+    {
+      "id": "ray3-ex-003",
+      "title": "Fantasy Short — Complex Action Sequence (Unenhanced, Multi-Stage)",
+      "project_type": "short_film",
+      "generation_mode": "image-to-video",
+      "prompt_mode": "unenhanced",
+      "notes": "Demonstrates Ray 3's strength: complex multi-stage action with a start frame. Uses image-to-video mode with an Ideogram-generated reference frame as the start frame. Multi-beat action described step-by-step. Character preservation phrases included.",
+      "input": {
+        "shot_id": "shot_fan_020",
+        "scene_id": "scene_fan_bridge_battle",
+        "project_id": "proj_iron_crown",
+        "shot_number": 20,
+        "shot_type": "medium",
+        "camera_movement": "track_subject",
+        "description": "Ser Kael reaches the enemy at the bridge center. She deflects a strike, spins, and delivers a counter-blow. Three-beat action sequence. Source frame shows her mid-charge from the Ideogram reference.",
+        "duration": 5,
+        "characters": [
+          {
+            "name": "Ser Kael",
+            "description": "Female knight, mid-30s, scarred face, silver-streaked dark hair, battered plate armor, crimson cloak, longsword",
+            "action": "Three-beat combat: deflects incoming strike with her sword, pivots on her back foot spinning 180 degrees, delivers a powerful counter-slash"
+          }
+        ],
+        "scene_context": {
+          "location": "Exterior — Center of the ancient stone bridge, misty gorge",
+          "time_of_day": "dawn",
+          "weather": "mist",
+          "period": "medieval fantasy",
+          "mood": "epic, violent, desperate"
+        },
+        "continuity_notes": "Continues from shot 19 (the charge). Ser Kael's armor and cloak established. Dawn rim lighting from camera-right. Bridge established in previous shots.",
+        "source_frame": "assets/frames/kael_bridge_charge_endframe_v2.png",
+        "style_modifiers": ["epic fantasy", "cinematic action", "golden hour"]
+      },
+      "output": {
+        "human_readable": "Starting from the approved reference frame of Ser Kael mid-charge on the stone bridge. Keep the character's face, hair, and armor the same. In a three-beat action sequence: first, she raises her longsword to deflect an incoming overhead strike — sparks fly from the clash of steel. Second, she pivots sharply on her back foot, spinning 180 degrees, her crimson cloak whipping around her. Third, she completes the spin and delivers a powerful horizontal counter-slash. The camera tracks with her movement, maintaining medium framing throughout the spin. Dawn light catches the blade and armor. Mist swirls around the bridge pillars. Epic, desperate, visceral.",
+        "json": {
+          "prompt": "Starting from the reference frame. Keep the character's face, hair, and armor the same. Three-beat action: she raises her longsword to deflect an incoming overhead strike, sparks flying from clashing steel. She pivots sharply on her back foot, spinning 180 degrees, crimson cloak whipping around her body. She completes the spin delivering a powerful horizontal counter-slash. Camera tracks with her movement, medium framing through the spin. Dawn light on blade and armor, mist swirling around bridge pillars. Epic, desperate, visceral.",
+          "resolution": "1080p",
+          "aspect_ratio": "16:9",
+          "duration": 5,
+          "prompt_mode": "unenhanced",
+          "hdr": true,
+          "loop": false,
+          "generation_mode": "image-to-video",
+          "start_frame_url": "assets/frames/kael_bridge_charge_endframe_v2.png",
+          "end_frame_url": null,
+          "character_tag": null,
+          "character_references": null,
+          "reference_settings": null,
+          "modify_settings": null,
+          "camera": {
+            "primary_movement": "track_subject",
+            "secondary_movement": null,
+            "speed": "fast"
+          },
+          "audio": {
+            "audio_prompt": "Sword clash with metallic ring, cloak snapping in wind, armored boots scraping stone, gasping breath",
+            "generate_audio": true
+          },
+          "metadata": {
+            "shot_id": "shot_fan_020",
+            "scene_id": "scene_fan_bridge_battle",
+            "project_id": "proj_iron_crown",
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T14:30:00Z",
+            "continuity_anchor": false,
+            "source_image_skill": "ideogram-v3"
+          }
+        }
+      }
+    },
+    {
+      "id": "ray3-ex-004",
+      "title": "Commercial — Keyframe Transition (Product Reveal)",
+      "project_type": "commercial",
+      "generation_mode": "keyframe",
+      "prompt_mode": "unenhanced",
+      "notes": "Demonstrates the Keyframe transition workflow: Start Frame (dark, mysterious) → End Frame (lit product beauty shot). Ray 3 generates the smooth transition between the two visual states. Unenhanced for precise control over the reveal moment.",
+      "input": {
+        "shot_id": "shot_comm_003",
+        "scene_id": "scene_comm_reveal",
+        "project_id": "proj_aurelia_fragrance",
+        "shot_number": 3,
+        "shot_type": "close-up",
+        "camera_movement": "static",
+        "description": "Dramatic product reveal transition. Start: near-black frame with only the faintest silhouette of the bottle. End: fully lit beauty shot of the Aurelia bottle. The light gradually 'finds' the bottle. Elegant transition.",
+        "duration": 5,
+        "characters": [],
+        "scene_context": {
+          "location": "Studio — Dark void transitioning to lit beauty setup",
+          "mood": "mysterious → luxurious, dramatic reveal"
+        },
+        "continuity_notes": "Bottle appearance must match hero shot from shot 2. Same gold cap, amber liquid, AURELIA embossing.",
+        "start_frame": "assets/frames/aurelia_silhouette_dark.png",
+        "end_frame": "assets/frames/aurelia_beauty_lit.png",
+        "style_modifiers": ["luxury", "dramatic reveal", "studio lighting"]
+      },
+      "output": {
+        "human_readable": "A dramatic product reveal transition using keyframes. Start frame: the Aurelia perfume bottle is barely visible as a faint silhouette against a near-black void, only the faintest edge of gold catching a distant light. End frame: the bottle is fully illuminated in a beauty shot — studio key light revealing the glass, amber liquid, and gold AURELIA embossing. The transition: light gradually 'finds' the bottle, building from a single specular highlight on the gold cap, spreading down the glass surface, until the full product is revealed in warm, luxurious illumination. Static camera throughout. Elegant, slow, dramatic reveal.",
+        "json": {
+          "prompt": "Dramatic product reveal. Light gradually finds a perfume bottle in darkness, building from a single specular highlight on the gold cap, spreading slowly down the glass surface revealing amber liquid and gold embossing, until the full product is illuminated in warm luxurious studio lighting. Static camera, no movement. Elegant, slow, dramatic luxury reveal.",
+          "resolution": "1080p",
+          "aspect_ratio": "16:9",
+          "duration": 5,
+          "prompt_mode": "unenhanced",
+          "hdr": true,
+          "loop": false,
+          "generation_mode": "keyframe",
+          "start_frame_url": "assets/frames/aurelia_silhouette_dark.png",
+          "end_frame_url": "assets/frames/aurelia_beauty_lit.png",
+          "character_tag": null,
+          "character_references": null,
+          "reference_settings": null,
+          "modify_settings": null,
+          "camera": {
+            "primary_movement": "static",
+            "secondary_movement": null,
+            "speed": "slow"
+          },
+          "audio": {
+            "audio_prompt": "Deep resonant tone building slowly, crystalline chime at full reveal, elegant silence",
+            "generate_audio": true
+          },
+          "metadata": {
+            "shot_id": "shot_comm_003",
+            "scene_id": "scene_comm_reveal",
+            "project_id": "proj_aurelia_fragrance",
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T14:45:00Z",
+            "continuity_anchor": false,
+            "source_image_skill": "ideogram-v3"
+          }
+        }
+      }
+    },
+    {
+      "id": "ray3-ex-005",
+      "title": "Music Video — Modify (V2V) with Character Swap",
+      "project_type": "music_video",
+      "generation_mode": "modify",
+      "prompt_mode": "unenhanced",
+      "notes": "Demonstrates the Modify (video-to-video) feature. Takes an existing generated video and replaces the character while maintaining the same choreography. Uses cref/image1 syntax for character reference and image2 for target frame. Flex 1 strength for face consistency.",
+      "input": {
+        "shot_id": "shot_mv_003_v2",
+        "scene_id": "scene_mv_warehouse",
+        "project_id": "proj_music_neon",
+        "shot_number": 3,
+        "shot_type": "medium",
+        "camera_movement": "orbit",
+        "description": "Re-generate the warehouse performance shot but with a different character performing the same choreography. Use the Modify feature to swap in the backup dancer character while keeping the same camera orbit and neon lighting.",
+        "duration": 5,
+        "characters": [
+          {
+            "name": "Zara",
+            "description": "Backup dancer, mid-20s, long braided hair, silver body chain over black crop top, high-waisted pants",
+            "action": "Same performance choreography as original shot — confident energy, gripping microphone",
+            "character_reference_images": [
+              "assets/characters/zara_reference_v1.png"
+            ]
+          }
+        ],
+        "scene_context": {
+          "location": "Interior — Abandoned industrial warehouse (same as original)",
+          "mood": "electric, rebellious (same energy)"
+        },
+        "source_video": "assets/renders/mv_warehouse_shot03_mira_v1.mp4",
+        "continuity_notes": "Same warehouse, same neon lights, same camera orbit. Only the character changes."
+      },
+      "output": {
+        "human_readable": "Using the Modify feature to swap the performer in the existing warehouse shot. The input video (Mira's performance with the orbiting neon lights) serves as the motion and camera template. The character reference image of Zara (image1/cref) replaces the performer while maintaining the same confident energy, choreography, and camera orbit. Keep the warehouse background, neon magenta/cyan/amber lighting, and all environmental elements from the original video. Replace only the character. Flex 1 strength for face consistency.",
+        "json": {
+          "prompt": "Replace the character in image2 with the person in image1. Keep the same performance choreography, confident energy, and poses. Maintain the warehouse background with neon magenta, cyan, and amber lighting. Keep the same camera orbit movement. Same female face as the reference throughout.",
+          "resolution": "1080p",
+          "aspect_ratio": "16:9",
+          "duration": 5,
+          "prompt_mode": "unenhanced",
+          "hdr": true,
+          "loop": false,
+          "generation_mode": "modify",
+          "start_frame_url": null,
+          "end_frame_url": null,
+          "character_tag": null,
+          "character_references": [
+            {
+              "image_url": "assets/characters/zara_reference_v1.png",
+              "character_name": "zara"
+            }
+          ],
+          "reference_settings": {
+            "reference_mode": "character",
+            "reference_model": "image_v2"
+          },
+          "modify_settings": {
+            "input_video_url": "assets/renders/mv_warehouse_shot03_mira_v1.mp4",
+            "modify_start_frame": true,
+            "modify_end_frame": true,
+            "frame_strength": "flex_1",
+            "character_reference_url": "assets/characters/zara_reference_v1.png"
+          },
+          "camera": {
+            "primary_movement": "orbit_left",
+            "secondary_movement": null,
+            "speed": "slow"
+          },
+          "audio": null,
+          "metadata": {
+            "shot_id": "shot_mv_003_v2",
+            "scene_id": "scene_mv_warehouse",
+            "project_id": "proj_music_neon",
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T15:00:00Z",
+            "continuity_anchor": false,
+            "source_image_skill": null
+          }
+        }
+      }
+    },
+    {
+      "id": "ray3-ex-006",
+      "title": "Documentary — Seamless Loop Background (Enhanced Mode)",
+      "project_type": "documentary",
+      "generation_mode": "text-to-video",
+      "prompt_mode": "enhanced",
+      "notes": "Demonstrates the loop feature for creating a seamless ambient background. Enhanced mode with a short evocative prompt — perfect for atmospheric establishing loops that play behind interview segments or title cards. Simple, no characters, no complex action.",
+      "input": {
+        "shot_id": "shot_doc_bg_loop_01",
+        "scene_id": "scene_doc_village_exterior",
+        "project_id": "proj_forgotten_waters",
+        "shot_number": null,
+        "shot_type": "wide",
+        "camera_movement": "static",
+        "description": "Seamless looping background plate: ocean waves gently rolling onto the shore near the fishing village. Golden hour light. This loop will play behind the interview lower-thirds and title cards.",
+        "duration": 5,
+        "characters": [],
+        "scene_context": {
+          "location": "Exterior — Shoreline near the fishing village",
+          "time_of_day": "golden hour",
+          "weather": "clear, gentle breeze",
+          "mood": "peaceful, meditative, timeless"
+        },
+        "continuity_notes": "Must match the warm golden palette established in the village exterior shots.",
+        "style_modifiers": ["documentary", "golden hour", "natural", "contemplative"],
+        "intended_use": "Background loop for lower-thirds, title cards, and transition plates"
+      },
+      "output": {
+        "human_readable": "A seamless looping wide shot of gentle ocean waves rolling onto a sandy shore at golden hour. Warm light gilds the wave crests as they curl and foam across the sand. The camera holds perfectly still. Peaceful, meditative, timeless. Documentary feel with natural color grading.",
+        "json": {
+          "prompt": "Gentle ocean waves rolling onto a sandy shore at golden hour. Warm golden light on wave crests, foam spreading across wet sand. Peaceful, meditative, timeless. Documentary natural color grading.",
+          "resolution": "1080p",
+          "aspect_ratio": "16:9",
+          "duration": 5,
+          "prompt_mode": "enhanced",
+          "hdr": true,
+          "loop": true,
+          "generation_mode": "text-to-video",
+          "start_frame_url": null,
+          "end_frame_url": null,
+          "character_tag": null,
+          "character_references": null,
+          "reference_settings": null,
+          "modify_settings": null,
+          "camera": {
+            "primary_movement": "static",
+            "secondary_movement": null,
+            "speed": "slow"
+          },
+          "audio": {
+            "audio_prompt": "Gentle waves lapping shore, soft breeze, distant seabirds",
+            "generate_audio": true
+          },
+          "metadata": {
+            "shot_id": "shot_doc_bg_loop_01",
+            "scene_id": "scene_doc_village_exterior",
+            "project_id": "proj_forgotten_waters",
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T15:15:00Z",
+            "continuity_anchor": false,
+            "source_image_skill": null
+          }
+        }
+      }
+    }
+  ]
+}

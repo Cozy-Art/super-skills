@@ -1,0 +1,123 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Sora 2 Prompt Schema",
+  "description": "JSON schema for validating Sora 2 video generation prompts produced by this skill. Supports both Standard and Pro variants.",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["prompt", "model"],
+  "properties": {
+    "prompt": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 15000,
+      "description": "Natural language shot description. Structure like a storyboard: camera, subject, action, lighting, physics, audio. First 500 characters carry the most weight. Standard: max ~2,000 chars. Pro: up to 15,000+ chars. NEVER include duration instructions here."
+    },
+    "model": {
+      "type": "string",
+      "enum": ["sora-2", "sora-2-pro"],
+      "default": "sora-2",
+      "description": "Sora 2 variant. Standard for iteration (720p, lower cost). Pro for final renders (1080p, max quality, MARS-LSP support)."
+    },
+    "size": {
+      "type": "string",
+      "enum": ["1280x720", "720x1280"],
+      "default": "1280x720",
+      "description": "Output resolution. 1280x720=landscape, 720x1280=portrait. Source reference images must match."
+    },
+    "seconds": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 20,
+      "default": 5,
+      "description": "Video duration in seconds. 1-20s. This is the ONLY way to control duration — prompt text duration instructions are ignored."
+    },
+    "input_reference": {
+      "type": ["string", "null"],
+      "format": "uri",
+      "default": null,
+      "description": "Reference image or video URL for image-to-video transformation. Resolution must match output size. When used, prompt should describe ONLY the desired motion, not re-describe the image."
+    },
+    "n": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4,
+      "default": 1,
+      "description": "Number of variants to generate. Max 1 at 1080p, 2 at 720p, 4 at lower res."
+    },
+    "audio": {
+      "type": "object",
+      "description": "Audio direction metadata for pipeline tracking. Audio cues should be embedded in the prompt text for Sora 2, but this field captures structured audio intent for production planning.",
+      "properties": {
+        "ambient": {
+          "type": ["string", "null"],
+          "description": "Ambient sound description: 'rain on glass, distant city hum'"
+        },
+        "sfx": {
+          "type": ["string", "null"],
+          "description": "Sound effects: 'footsteps on gravel, door creaking'"
+        },
+        "dialogue": {
+          "type": ["string", "null"],
+          "description": "Spoken lines: 'she says: I am not leaving'"
+        },
+        "music_mood": {
+          "type": ["string", "null"],
+          "description": "Music direction: 'low tension drone building'"
+        }
+      }
+    },
+    "exclusions": {
+      "type": ["string", "null"],
+      "maxLength": 500,
+      "default": null,
+      "description": "Elements to exclude. Place at END of prompt: 'No text on signs; avoid lens flares; no unnatural colors.' Keep minimal."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Pipeline metadata. Not sent to the Sora 2 API.",
+      "properties": {
+        "project_id": { "type": "string" },
+        "shot_id": { "type": "string" },
+        "scene_id": { "type": "string" },
+        "character_ids": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "continuity_anchor": {
+          "type": "boolean",
+          "default": false
+        },
+        "skill_version": { "type": "string" },
+        "generation_intent": {
+          "type": "string",
+          "enum": [
+            "hero_shot",
+            "establishing_shot",
+            "action_sequence",
+            "dialogue_scene",
+            "transition",
+            "mood_piece",
+            "character_intro",
+            "climax",
+            "denouement",
+            "b_roll",
+            "iteration_test"
+          ]
+        },
+        "variant_rationale": {
+          "type": "string",
+          "description": "Why this variant and duration were selected"
+        },
+        "sequential_shot_number": {
+          "type": ["integer", "null"],
+          "description": "Position in a multi-shot sequence for continuity tracking"
+        },
+        "continuity_notes": {
+          "type": ["string", "null"],
+          "description": "Notes for maintaining consistency with adjacent shots: character descriptions, lighting state, props present"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
