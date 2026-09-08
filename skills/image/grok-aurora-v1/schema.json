@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Grok Aurora Prompt Output Schema",
+  "description": "Validation schema for prompt generation output targeting Grok Aurora (grok-imagine-image). Supports text-to-image, single-image editing, and multi-image editing modes.",
+  "type": "object",
+  "required": ["prompt", "model", "resolution", "aspect_ratio", "generation_mode"],
+  "properties": {
+    "generation_mode": {
+      "type": "string",
+      "enum": ["text_to_image", "image_edit_single", "image_edit_multi"],
+      "description": "Which generation mode this prompt targets"
+    },
+    "prompt": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Natural language prompt. 2-5 sentences recommended. May include inline negative guidance ('avoid: ...'). No special syntax, flags, or JSON — plain English only."
+    },
+    "negative_guidance": {
+      "type": ["string", "null"],
+      "description": "Optional inline exclusion list. Included at the end of the prompt or as a separate field for tracking. Format: 'avoid: cartoon, anime, distorted features'."
+    },
+    "model": {
+      "type": "string",
+      "const": "grok-imagine-image",
+      "description": "Model identifier — always grok-imagine-image for Aurora"
+    },
+    "resolution": {
+      "type": "string",
+      "enum": ["1k", "2k"],
+      "description": "Output resolution. 1k (~1024px) or 2k (~2048px, up to 2MP)."
+    },
+    "aspect_ratio": {
+      "type": "string",
+      "enum": [
+        "1:1",
+        "16:9", "9:16",
+        "4:3", "3:4",
+        "3:2", "2:3",
+        "2:1", "1:2",
+        "19.5:9", "9:19.5",
+        "20:9", "9:20",
+        "auto"
+      ],
+      "description": "Output aspect ratio. 'auto' lets the model choose based on prompt content."
+    },
+    "n": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10,
+      "default": 1,
+      "description": "Number of images to generate per request. UI default is 4."
+    },
+    "seed": {
+      "type": ["integer", "null"],
+      "description": "Seed value for reproducibility (Aurora --s parameter). Same seed + same prompt = visually consistent results. Null for random. NOTE: In Aurora this is a SEED, not a style reference (changed from Flux era)."
+    },
+    "response_format": {
+      "type": "string",
+      "enum": ["url", "b64_json"],
+      "default": "url",
+      "description": "How the image is returned. URLs are temporary."
+    },
+    "reference_images": {
+      "type": ["array", "null"],
+      "items": {
+        "type": "object",
+        "required": ["url", "purpose"],
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "Image URL or base64 data URI"
+          },
+          "purpose": {
+            "type": "string",
+            "enum": [
+              "edit_source",
+              "character_reference",
+              "style_reference",
+              "environment_reference",
+              "product_reference",
+              "composite_element"
+            ],
+            "description": "How this reference image is used in the generation"
+          }
+        }
+      },
+      "maxItems": 3,
+      "description": "Reference images for editing modes. Single edit: 1 image via image_url. Multi-edit: up to 3 images via image_urls."
+    },
+    "directors_notes": {
+      "type": "string",
+      "description": "Human-readable explanation of prompt decisions for director review"
+    }
+  },
+
+  "allOf": [
+    {
+      "if": {
+        "properties": { "generation_mode": { "const": "text_to_image" } }
+      },
+      "then": {
+        "properties": {
+          "reference_images": { "type": "null" }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "generation_mode": { "const": "image_edit_single" } }
+      },
+      "then": {
+        "properties": {
+          "reference_images": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 1
+          }
+        },
+        "required": ["reference_images"]
+      }
+    },
+    {
+      "if": {
+        "properties": { "generation_mode": { "const": "image_edit_multi" } }
+      },
+      "then": {
+        "properties": {
+          "reference_images": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 3
+          }
+        },
+        "required": ["reference_images"]
+      }
+    }
+  ]
+}

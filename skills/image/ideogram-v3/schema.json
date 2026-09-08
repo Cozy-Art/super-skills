@@ -1,0 +1,269 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Ideogram 3 Image Generation Prompt Schema",
+  "description": "Schema for validating Ideogram 3 image generation prompts produced by this skill.",
+  "type": "object",
+  "required": ["prompt", "aspect_ratio"],
+  "properties": {
+    "prompt": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 1500,
+      "description": "Image description following the weighted structure: Image Summary first, then details. The first sentence carries the most weight. Effective limit ~150-160 words / ~200 tokens. Content beyond this may be deprioritized."
+    },
+    "negative_prompt": {
+      "type": ["string", "null"],
+      "maxLength": 500,
+      "description": "Comma-separated list of elements to exclude. Be precise without excessive detail. Main prompt always takes priority over negative prompts. NOTE: Cannot be used when character_reference is active.",
+      "default": null
+    },
+    "aspect_ratio": {
+      "type": "string",
+      "enum": [
+        "1:1",
+        "1:2",
+        "1:3",
+        "2:1",
+        "2:3",
+        "3:1",
+        "3:2",
+        "3:4",
+        "4:3",
+        "4:5",
+        "5:4",
+        "9:16",
+        "9:21",
+        "16:9",
+        "21:9"
+      ],
+      "default": "16:9",
+      "description": "Frame aspect ratio. 16:9 for widescreen storyboards. 2:3 for character portraits. 1:1 for social. 9:16 for vertical/mobile. 21:9 for cinematic ultra-wide."
+    },
+    "resolution": {
+      "type": ["string", "null"],
+      "description": "Resolved output dimensions based on aspect_ratio. Not a direct parameter — determined by ratio selection.",
+      "enum": [
+        "1024x1024",
+        "1344x768",
+        "768x1344",
+        "832x1248",
+        "1248x832",
+        "864x1184",
+        "1184x864",
+        "1152x864",
+        "864x1152",
+        "1024x1280",
+        "1280x1024",
+        "672x1536",
+        "1536x672",
+        null
+      ],
+      "default": null
+    },
+    "magic_prompt": {
+      "type": "string",
+      "enum": ["auto", "on", "off"],
+      "default": "auto",
+      "description": "AI-powered prompt expansion. 'auto'=AI decides based on prompt length. 'on'=always expand all 4 images. 'off'=use exact prompt without modification. Set to 'off' for precision work, text rendering, or brand-critical images."
+    },
+    "render_speed": {
+      "type": "string",
+      "enum": ["default", "quality"],
+      "default": "default",
+      "description": "Generation quality. 'quality' mode improves text rendering accuracy. Always use 'quality' when the image contains text."
+    },
+    "style_type": {
+      "type": ["string", "null"],
+      "description": "Artistic style preset. Use to quickly set an overall aesthetic direction. Combined with prompt details for fine-tuning.",
+      "default": null
+    },
+    "color_palette": {
+      "type": ["string", "null"],
+      "description": "Mood and tone control preset. Influences overall color grading. NOTE: Cannot be used when character_reference is active.",
+      "default": null
+    },
+    "seed": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "description": "Random seed for reproducibility. Use the same seed to maintain consistency across variations. NOTE: Cannot be used when character_reference is active.",
+      "default": null
+    },
+    "style_reference": {
+      "type": ["object", "null"],
+      "description": "Style reference configuration for maintaining visual consistency. Upload 1-3 images to define aesthetic direction. NOTE: Disabled when character_reference is active.",
+      "default": null,
+      "properties": {
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "minItems": 1,
+          "maxItems": 3,
+          "description": "URLs or paths to 1-3 style reference images. Images sharing similar look/mood/composition produce unified style. Diverse images produce creative blends."
+        },
+        "style_code": {
+          "type": ["string", "null"],
+          "description": "Saved style configuration code from a previous successful generation. 4.3 billion possible combinations.",
+          "default": null
+        }
+      },
+      "additionalProperties": false
+    },
+    "character_reference": {
+      "type": ["object", "null"],
+      "description": "Character reference for maintaining identity across generations. When active, negative_prompt, color_palette, seed, and style_reference are DISABLED.",
+      "default": null,
+      "properties": {
+        "character_id": {
+          "type": "string",
+          "description": "Character identifier for tracking."
+        },
+        "reference_images": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "minItems": 1,
+          "maxItems": 3,
+          "description": "URLs or paths to character reference images."
+        },
+        "rendering_style": {
+          "type": "string",
+          "enum": ["auto", "realistic", "fiction"],
+          "default": "auto",
+          "description": "'auto'=AI determines optimal. 'realistic'=lifelike photography with natural colors. 'fiction'=artistic interpretation with stylized elements."
+        }
+      },
+      "required": ["character_id", "reference_images"],
+      "additionalProperties": false
+    },
+    "text_rendering": {
+      "type": ["object", "null"],
+      "description": "Structured text rendering metadata. Supplements the prompt — the prompt MUST also contain the quoted text. This object is for pipeline tracking and validation.",
+      "default": null,
+      "properties": {
+        "text_content": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "The exact text to be rendered in the image. Must match the quoted text in the prompt."
+        },
+        "word_count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30,
+          "description": "Number of words in the rendered text. 3-5 = high reliability, 6-10 = good, 10+ = verify output."
+        },
+        "font_style": {
+          "type": "string",
+          "description": "Descriptive font style (e.g., 'bold sans-serif', 'elegant serif', 'hand-drawn script')."
+        },
+        "text_color": {
+          "type": ["string", "null"],
+          "description": "Specified color of the text (e.g., 'white', 'gold', 'neon pink').",
+          "default": null
+        },
+        "background_contrast": {
+          "type": ["string", "null"],
+          "description": "Background against which text appears (e.g., 'dark wall', 'white paper', 'transparent glass').",
+          "default": null
+        }
+      },
+      "required": ["text_content", "word_count", "font_style"],
+      "additionalProperties": false
+    },
+    "composition": {
+      "type": ["object", "null"],
+      "description": "Structured composition data. Supplements the prompt with shot framing details from the source shot record.",
+      "default": null,
+      "properties": {
+        "shot_type": {
+          "type": "string",
+          "enum": [
+            "extreme_wide",
+            "wide",
+            "full",
+            "medium_wide",
+            "medium",
+            "medium_close_up",
+            "close_up",
+            "extreme_close_up",
+            "birds_eye",
+            "overhead",
+            "low_angle",
+            "high_angle",
+            "dutch_angle",
+            "pov"
+          ],
+          "description": "Camera shot type / framing."
+        },
+        "focal_length": {
+          "type": ["string", "null"],
+          "description": "Lens focal length hint (e.g., '85mm portrait lens', '24mm wide angle', '200mm telephoto').",
+          "default": null
+        },
+        "depth_of_field": {
+          "type": ["string", "null"],
+          "enum": ["shallow", "moderate", "deep", null],
+          "description": "Depth of field preference. 'shallow' = strong bokeh background, 'deep' = everything in focus.",
+          "default": null
+        }
+      },
+      "additionalProperties": false
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Pipeline tracking metadata. Not sent to Ideogram API — used for internal tracking and continuity management.",
+      "properties": {
+        "asset_id": {
+          "type": "string",
+          "description": "Asset identifier (character sheet, location concept, prop, storyboard frame)."
+        },
+        "asset_type": {
+          "type": "string",
+          "enum": [
+            "character_portrait",
+            "character_sheet",
+            "location_concept",
+            "prop_design",
+            "storyboard_frame",
+            "title_card",
+            "poster",
+            "mood_board",
+            "wardrobe_concept",
+            "vfx_reference"
+          ],
+          "description": "Type of production asset being generated."
+        },
+        "project_id": {
+          "type": "string",
+          "description": "Parent project identifier."
+        },
+        "scene_id": {
+          "type": ["string", "null"],
+          "description": "Associated scene identifier, if applicable.",
+          "default": null
+        },
+        "skill_version": {
+          "type": "string",
+          "description": "SKILL version that generated this prompt.",
+          "const": "1.0"
+        },
+        "generation_timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When this prompt was generated."
+        },
+        "intended_pipeline": {
+          "type": ["string", "null"],
+          "description": "If this image will feed into a video generation pipeline, note the target model (e.g., 'wan-v2.5', 'luma-ray3').",
+          "default": null
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

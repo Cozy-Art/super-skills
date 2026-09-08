@@ -30,7 +30,27 @@ confident third-party guidance that is simply invented.
 | [`wan-v2`](video/wan-v2) | WAN 2.5 | Alibaba |
 | [`happyhorse-v1`](video/happyhorse-v1) | HappyHorse 1.0 | HappyHorse |
 
-Image, audio and 3D skills follow.
+## Image (15)
+
+| Skill | Model | Vendor |
+|---|---|---|
+| [`midjourney-v7`](image/midjourney-v7) | Midjourney v7 | Midjourney |
+| [`gpt-image-v2`](image/gpt-image-v2) | GPT Image 2 | OpenAI |
+| [`gemini-v3-pro`](image/gemini-v3-pro) | Gemini 3 Pro Image (Nano Banana Pro) | Google |
+| [`flux-v2`](image/flux-v2) | FLUX.2 (Pro, Max, Flex, Klein, Kontext) | Black Forest Labs |
+| [`ideogram-v3`](image/ideogram-v3) | Ideogram 3.0 | Ideogram |
+| [`seedream-v5`](image/seedream-v5) | Seedream 5.0 Lite | ByteDance |
+| [`seedream-v4`](image/seedream-v4) | Seedream 4.5 | ByteDance |
+| [`qwen-image-v3`](image/qwen-image-v3) | Qwen-Image 3.0 | Alibaba |
+| [`qwen-image-v2`](image/qwen-image-v2) | Qwen-Image 2.0 | Alibaba |
+| [`stable-diffusion-v3-5`](image/stable-diffusion-v3-5) | Stable Diffusion 3.5 | Stability AI |
+| [`luma-uni-v1`](image/luma-uni-v1) | Uni-1.1 | Luma AI |
+| [`krea-v2`](image/krea-v2) | Krea 2 | Krea AI |
+| [`grok-aurora-v1`](image/grok-aurora-v1) | Grok Image (Aurora) | xAI |
+| [`mystic-v2`](image/mystic-v2) | Mystic 2.5 | Freepik |
+| [`phota-v1`](image/phota-v1) | Phota | PhotaLabs |
+
+Audio and 3D skills follow.
 
 ## Installing
 
@@ -53,9 +73,9 @@ else to wire up.
 |---|---|
 | `SKILL.md` | The prompt-craft itself. Frontmatter + body; the body is the instruction set. |
 | `best-practices.md` | Longer-form craft guidance, loaded on demand. |
-| `examples.md` / `examples.json` | Worked prompts with annotations. |
+| `examples.md` / `examples.json` / `examples/` | Worked prompts with annotations, sometimes split by mode. |
 | `parameters.md` / `parameters.json` | The model's real API surface — enums, ceilings, defaults. |
-| `continuity-and-references.md` | How the model holds a character or a look across shots. |
+| `continuity-and-*.md` | How the model holds a character or a look across shots. |
 | `schema.json` | Structured-output shape, where the vendor documents one. |
 | `README.md` | Build notes: what was researched, what was corrected, what is still open. |
 

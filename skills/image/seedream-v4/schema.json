@@ -1,0 +1,158 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Seedream 4.5 Prompt Schema",
+  "description": "JSON schema for validating Seedream 4.5 image generation prompts produced by this skill.",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["prompt"],
+  "properties": {
+    "prompt": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 5000,
+      "description": "Natural language scene description. Recommended 50-200 words. Maximum 600 words per BytePlus documentation. Write in coherent sentences, not keyword lists."
+    },
+    "negative_prompt": {
+      "type": ["string", "null"],
+      "maxLength": 1000,
+      "description": "Elements to exclude from generation. Use sparingly. Examples: 'distorted anatomy, blurry, low quality, text artifacts, extra fingers'",
+      "default": null
+    },
+    "size": {
+      "type": "string",
+      "enum": ["1K", "2K", "4K", "custom"],
+      "default": "2K",
+      "description": "Resolution preset. 1K=~1024px, 2K=~2048px, 4K=~4096px. Use 'custom' with width/height for exact dimensions."
+    },
+    "width": {
+      "type": ["integer", "null"],
+      "minimum": 512,
+      "maximum": 4096,
+      "description": "Custom output width in pixels. Only used when size='custom'. Max 4096.",
+      "default": null
+    },
+    "height": {
+      "type": ["integer", "null"],
+      "minimum": 512,
+      "maximum": 4096,
+      "description": "Custom output height in pixels. Only used when size='custom'. Max 4096.",
+      "default": null
+    },
+    "aspect_ratio": {
+      "type": "string",
+      "enum": ["1:1", "16:9", "9:16", "4:3", "3:4", "21:9", "auto"],
+      "default": "16:9",
+      "description": "Output aspect ratio. 'auto' matches input image aspect ratio. For cinematic stills, default to 16:9."
+    },
+    "guidance_scale": {
+      "type": "number",
+      "minimum": 1.0,
+      "maximum": 20.0,
+      "default": 8.0,
+      "description": "Controls how closely the output follows the prompt. Higher values = more literal interpretation. Typical range 6-10. Default 8.0."
+    },
+    "steps": {
+      "type": "integer",
+      "minimum": 10,
+      "maximum": 100,
+      "default": 40,
+      "description": "Number of inference steps. More steps = higher quality but slower generation. 40 is a good balance."
+    },
+    "seed": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "description": "Seed for reproducible results. Use same seed with identical prompt to reproduce output. Use nearby seeds (±1-5) for minor variations.",
+      "default": null
+    },
+    "max_images": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 15,
+      "default": 1,
+      "description": "Number of images to generate per request. For multi-image consistency, use with sequential_image_generation='auto'."
+    },
+    "image_urls": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "maxItems": 14,
+      "default": [],
+      "description": "Reference image URLs for character consistency, style matching, or image editing. Max 14 images."
+    },
+    "sequential_image_generation": {
+      "type": "string",
+      "enum": ["disabled", "auto"],
+      "default": "disabled",
+      "description": "Batch generation mode. Set to 'auto' for multi-image consistency (story steps, character angles, variations)."
+    },
+    "watermark": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to add a watermark to the output image."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Pipeline metadata for tracking and continuity. Not sent to the API.",
+      "properties": {
+        "project_id": {
+          "type": "string",
+          "description": "Project identifier"
+        },
+        "shot_id": {
+          "type": "string",
+          "description": "Shot identifier"
+        },
+        "scene_id": {
+          "type": "string",
+          "description": "Scene identifier"
+        },
+        "character_ids": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Character identifiers referenced in this prompt"
+        },
+        "continuity_anchor": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether this image serves as a continuity reference for other shots"
+        },
+        "skill_version": {
+          "type": "string",
+          "description": "Version of the SKILL that generated this prompt"
+        },
+        "generation_intent": {
+          "type": "string",
+          "enum": [
+            "concept_art",
+            "character_reference",
+            "location_reference",
+            "storyboard_frame",
+            "production_still",
+            "mood_board",
+            "prop_reference",
+            "wardrobe_reference",
+            "multi_view",
+            "style_test"
+          ],
+          "description": "What this generation is being used for in the production pipeline"
+        }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "examples": [
+    {
+      "prompt": "A confident woman in her early 30s with auburn shoulder-length hair, warm brown eyes, and light freckles across her nose, wearing a navy wool peacoat over a cream turtleneck. She stands at the edge of a rain-soaked city bridge at dusk, looking out at the glowing skyline. Cinematic photography style, 35mm lens, neon city lights reflected in wet pavement, moody blue-orange color palette, atmospheric fog.",
+      "negative_prompt": "distorted anatomy, blurry, low quality, extra fingers, text",
+      "size": "2K",
+      "aspect_ratio": "16:9",
+      "guidance_scale": 8.0,
+      "steps": 40,
+      "seed": 42,
+      "max_images": 1,
+      "watermark": false
+    }
+  ]
+}

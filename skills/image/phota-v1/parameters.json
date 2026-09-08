@@ -1,0 +1,295 @@
+{
+  "model_family": "PhotaLabs Phota",
+  "model_type": "Identity-preserving AI photo generation and editing",
+  "output_type": "2D photographs with preserved real-person identity",
+  "technology_stack": {
+    "foundation": "Identity-preserving diffusion model (Nano Banana / Gemini 3 Pro Image)",
+    "core_mechanic": "Private per-person profile training from 30-50 photos",
+    "identity_preservation": "Bone structure, expressions, features locked via profile_id",
+    "developer": "PhotaLabs (founded by former Adobe researchers)",
+    "funding": "$5.6M seed led by Andreessen Horowitz"
+  },
+
+  "operating_modes": {
+    "generate": {
+      "description": "Create new photographs from text prompt + profile references",
+      "inputs": ["text prompt", "profile references"],
+      "outputs": ["new photograph with preserved identity"],
+      "use_cases": [
+        "Professional headshots",
+        "Creative portraits",
+        "Environmental portraits",
+        "Multi-person group shots",
+        "Character concept photography"
+      ]
+    },
+    "edit": {
+      "description": "Modify existing photographs while preserving identity",
+      "inputs": ["1+ input images", "text prompt", "optional profile references"],
+      "outputs": ["modified photograph with preserved identity"],
+      "use_cases": [
+        "Expression fixes",
+        "Lighting adjustments",
+        "Background changes",
+        "Adding/removing people from frame",
+        "Group shot compositing from separate photos",
+        "Reframing and cropping",
+        "Memory rescue (restoring degraded photos)"
+      ]
+    },
+    "enhance": {
+      "description": "Automatic quality improvement with no prompt required",
+      "inputs": ["image only"],
+      "outputs": ["quality-improved photograph"],
+      "prompt_required": false,
+      "improvements": [
+        "Lighting and exposure correction",
+        "Noise and blur reduction",
+        "Color grading consistency",
+        "Compression artifact removal",
+        "Sharpness improvement"
+      ],
+      "use_cases": [
+        "Album-wide quality consistency",
+        "Old photo restoration",
+        "Social media cleanup"
+      ]
+    }
+  },
+
+  "api_parameters": {
+    "generation_and_edit": {
+      "prompt": {
+        "type": "string",
+        "required": true,
+        "description": "Text prompt with [[profile_id]] references inline. In Generate mode: full creative brief. In Edit mode: what to keep + what to change.",
+        "profile_syntax": "[[profile_id]] — double brackets around the trained profile identifier",
+        "multi_profile": "[[id1]] and [[id2]] for multi-person generations",
+        "critical_note": "Profile must be explicitly referenced in prompt text. Uploading a profile does NOT activate it."
+      },
+      "aspect_ratio": {
+        "type": "enum",
+        "required": false,
+        "default": "auto",
+        "options": ["auto", "1:1", "16:9", "4:3", "3:4", "9:16"],
+        "notes": "Auto derives from input image in Edit mode"
+      },
+      "resolution": {
+        "type": "enum",
+        "required": false,
+        "default": "1K",
+        "options": ["1K", "4K"],
+        "notes": "4K available for premium output; must be explicitly set"
+      },
+      "num_images": {
+        "type": "integer",
+        "required": false,
+        "default": 1,
+        "description": "Number of images to generate per request"
+      },
+      "output_format": {
+        "type": "enum",
+        "required": false,
+        "default": "jpeg",
+        "options": ["jpeg", "png", "webp"],
+        "notes": "PNG recommended for editing workflows (lossless)"
+      },
+      "sync_mode": {
+        "type": "boolean",
+        "required": false,
+        "default": false,
+        "notes": "True returns data URI; output won't appear in history"
+      }
+    },
+    "edit_mode_additional": {
+      "input_images": {
+        "type": "array of image URLs or base64",
+        "required": true,
+        "description": "1+ source images for editing or compositing"
+      }
+    },
+    "enhance_mode": {
+      "input_image": {
+        "type": "image URL or base64",
+        "required": true
+      },
+      "prompt": {
+        "required": false,
+        "notes": "No prompt needed for Enhance mode"
+      }
+    }
+  },
+
+  "profile_training": {
+    "training_images": {
+      "count": "30-50 photos recommended",
+      "format": "ZIP archive uploaded via image_data_url parameter",
+      "subjects": "People and pets (cats and dogs)",
+      "training_time": "~15 minutes",
+      "cost_fal_ai": "$2.90 per training run",
+      "privacy": "Private — not shared with other users or used for public model training",
+      "persistence": "Permanent — train once, use indefinitely"
+    },
+    "photo_requirements": {
+      "include": [
+        "Multiple angles: full frontal, 3/4 turn, profile view",
+        "Multiple lighting: natural daylight, indoor, overcast, studio",
+        "Multiple expressions: neutral, smiling, pensive, animated",
+        "Varied framing: tight headshots, shoulder-up, waist-up",
+        "Sharp, well-exposed faces"
+      ],
+      "avoid": [
+        "Heavy filters or strong color grading",
+        "Deep shadow on face or strong backlight obscuring features",
+        "Sunglasses, hats, or accessories covering the face",
+        "Extremely distant shots where face is tiny in frame",
+        "Identical photos of same pose/lighting — variety is critical"
+      ],
+      "group_photos_note": "Acceptable — Phota trains on the person who appears most often across uploaded images. For best results, upload solo photos only."
+    }
+  },
+
+  "special_syntax": {
+    "profile_reference": {
+      "syntax": "[[profile_id]]",
+      "description": "Double-bracket reference to trained identity profile. MUST be included in prompt text for identity preservation to activate.",
+      "multi_person": "[[id1]] and [[id2]] — reference multiple profiles in one prompt for group shots",
+      "critical_rule": "Uploading a profile does NOT activate it. Must be called with [[profile_id]] in every request."
+    },
+    "identity_lock_phrases": {
+      "prevent_face_drift": "Preserve identity and facial features exactly",
+      "lock_pose": "Keep camera angle and crop the same",
+      "lock_composition": "Preserve the original framing and background",
+      "lock_expression": "Keep the same expression, modify only [X]",
+      "lock_clothing": "Clothing and hairstyle unchanged",
+      "natural_output": "Photoreal, no plastic smoothing, no over-retouching"
+    },
+    "negative_prompts": {
+      "supported": false,
+      "alternative": "Use positive constraint language instead of negative exclusions"
+    }
+  },
+
+  "prompt_structure": {
+    "generate_mode": {
+      "formula": "[Portrait style] + [[profile_id]] + [framing] + [expression/pose] + [lighting] + [background/setting] + [technical/lens look]",
+      "example": "Professional studio headshot of [[profile_id_1]], chest up. Soft key light from upper left, subtle rim light on hair. Confident expression, direct gaze. 85mm lens look, shallow depth of field. Clean neutral gray background."
+    },
+    "edit_mode": {
+      "formula": "Keep [identity/pose/framing] unchanged. [Change only this specific thing.]",
+      "example": "Keep the same person and identity exactly. Adjust only the facial expression: soften into a natural relaxed smile. Preserve lighting and background."
+    },
+    "enhance_mode": {
+      "formula": "No prompt required",
+      "notes": "Automatic quality improvement"
+    }
+  },
+
+  "platform_access": {
+    "phota_studio": {
+      "url": "studio.photalabs.com",
+      "access": "Free tier + paid plans",
+      "notes": "Starter credits free"
+    },
+    "photalabs_api": {
+      "url": "api.photalabs.com/v1/phota",
+      "access": "API key required",
+      "pricing": "Per-generation + per-training"
+    },
+    "fal_ai": {
+      "model_id": "fal-ai/phota",
+      "profile_endpoint": "fal-ai/phota/create-profile",
+      "training_cost": "$2.90 per run",
+      "generation_cost": "Standard fal.ai pricing"
+    },
+    "wavespeed_ai": {
+      "access": "API",
+      "notes": "Same schema as fal.ai"
+    },
+    "genaintel": {
+      "access": "Web playground",
+      "notes": "50 free credits on sign-up"
+    }
+  },
+
+  "recommended_configurations": {
+    "professional_headshot": {
+      "mode": "generate",
+      "resolution": "4K",
+      "aspect_ratio": "3:4",
+      "output_format": "png",
+      "prompt_emphasis": "Studio lighting recipe, 85mm lens feel, clean background, expression"
+    },
+    "social_media_portrait": {
+      "mode": "generate",
+      "resolution": "1K",
+      "aspect_ratio": "1:1",
+      "output_format": "jpeg",
+      "prompt_emphasis": "Environmental setting, natural light, lifestyle feel"
+    },
+    "expression_fix": {
+      "mode": "edit",
+      "resolution": "match source",
+      "aspect_ratio": "auto",
+      "output_format": "png",
+      "prompt_emphasis": "Lock everything, change only expression. One fix per pass."
+    },
+    "group_shot_composite": {
+      "mode": "edit",
+      "resolution": "4K",
+      "aspect_ratio": "16:9",
+      "output_format": "png",
+      "prompt_emphasis": "Reference both profiles. Match lighting of primary image. Natural integration."
+    },
+    "memory_rescue": {
+      "mode": "edit",
+      "resolution": "4K",
+      "output_format": "png",
+      "prompt_emphasis": "Profile locks identity from degraded source. Fix quality issues in prompt."
+    },
+    "album_consistency": {
+      "mode": "enhance",
+      "resolution": "4K",
+      "output_format": "jpeg",
+      "prompt_emphasis": "No prompt — auto quality improvement across entire album"
+    }
+  },
+
+  "common_issues": {
+    "identity_not_preserved": {
+      "problem": "Output doesn't look like the person",
+      "cause": "Profile not referenced in prompt",
+      "solution": "Add [[profile_id]] explicitly to prompt text"
+    },
+    "wrong_person_generated": {
+      "problem": "Profile generates a different person than intended",
+      "cause": "Training photos were group shots — Phota trained on majority person",
+      "solution": "Retrain with solo photos of the intended subject only"
+    },
+    "identity_drift_between_edits": {
+      "problem": "Person's appearance shifts across multiple edits",
+      "cause": "Too many changes stacked in one prompt",
+      "solution": "One change per pass. Always include identity lock phrases."
+    },
+    "generic_output": {
+      "problem": "Output looks generic, not like professional photography",
+      "cause": "Vague style words without photographic specifics",
+      "solution": "Replace 'cinematic' with actual lighting recipe: direction, quality, color temperature"
+    },
+    "awkward_expression": {
+      "problem": "Expression looks forced or unnatural",
+      "cause": "Expression not specified in prompt",
+      "solution": "Add explicit expression: 'warm natural smile,' 'confident, direct gaze'"
+    },
+    "composited_group_looks_fake": {
+      "problem": "Multi-person shot looks like people were pasted together",
+      "cause": "Missing lighting match instruction",
+      "solution": "Add 'Match lighting and perspective of Image 1' to edit prompt"
+    },
+    "resolution_too_low": {
+      "problem": "Output is 1K when 4K was expected",
+      "cause": "Default resolution is 1K",
+      "solution": "Explicitly set resolution to '4K' in API call"
+    }
+  }
+}

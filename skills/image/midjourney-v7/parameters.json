@@ -1,0 +1,275 @@
+{
+  "_note": "Reference only. As of SKILL v1.1 (2026-07-23), generated prompts OMIT all --parameters (aspect ratio, stylize, quality, chaos, references) — output is pure descriptive prose and the director sets parameters in Midjourney. This file documents the parameter space; it does not instruct parameter appending.",
+  "model_version": "v7",
+  "release_date": "2025-04-03",
+  "default_since": "2025-06-17",
+  "platform": "Discord",
+  
+  "prompt_limits": {
+    "maximum_characters": 6000,
+    "discord_platform_limit": true,
+    "optimal_word_count": "20-60 words",
+    "sweet_spot": "20-30 words",
+    "effective_limit_note": "Beyond ~60 words, influence drops off significantly"
+  },
+  
+  "syntax_rules": {
+    "parameter_placement": "Always at end of prompt, after descriptive text",
+    "space_before_dashes": "Add space between text and --",
+    "no_space_between_dashes": "Write --ar not -- ar or - - ar",
+    "no_punctuation_in_parameters": "Avoid commas or periods within parameter values",
+    "word_order_matters": "Place key subjects at beginning of prompt"
+  },
+  
+  "core_parameters": {
+    "stylize": {
+      "shorthand": "--s",
+      "range": "0-1000",
+      "default": 100,
+      "purpose": "Controls artistic interpretation vs. prompt adherence",
+      "recommended_ranges": {
+        "literal": "0-100 for technical illustrations, specific compositions",
+        "balanced": "100-500 for general creative work",
+        "artistic": "500-1000 for abstract art, experimental visuals"
+      }
+    },
+    "chaos": {
+      "shorthand": "--c",
+      "range": "0-100",
+      "default": 0,
+      "purpose": "Variety between the 4 generated images",
+      "recommended_ranges": {
+        "consistent": "0-20 for similar variations",
+        "moderate": "20-50 for moderate diversity",
+        "exploratory": "50-100 for wild exploration"
+      }
+    },
+    "weird": {
+      "shorthand": "--w",
+      "range": "0-3000",
+      "default": 0,
+      "purpose": "Adds quirky, unconventional qualities"
+    },
+    "quality": {
+      "shorthand": "--q",
+      "options": [1, 2, 4],
+      "default": 1,
+      "note": "No --q 3 in V7",
+      "purpose": "GPU time spent on detail",
+      "cost_multiplier": {
+        "1": "1x standard cost",
+        "2": "2x cost, more detail",
+        "4": "4x cost, maximum detail"
+      }
+    },
+    "aspect_ratio": {
+      "shorthand": "--ar",
+      "format": "width:height",
+      "default": "1:1",
+      "examples": ["16:9", "3:4", "2:3", "21:9"],
+      "note": "Any ratio supported"
+    },
+    "seed": {
+      "shorthand": "--seed",
+      "range": "0-4294967295",
+      "default": "random",
+      "purpose": "Reproducible results with same seed and prompt"
+    },
+    "no": {
+      "shorthand": "--no",
+      "format": "--no [comma-separated items]",
+      "purpose": "Excludes specified elements",
+      "example": "--no people, cars, buildings"
+    },
+    "raw": {
+      "shorthand": "--raw",
+      "type": "boolean",
+      "default": false,
+      "purpose": "Reduces Midjourney's auto-styling for more literal results"
+    },
+    "tile": {
+      "shorthand": "--tile",
+      "type": "boolean",
+      "default": false,
+      "purpose": "Creates seamless repeating patterns"
+    },
+    "draft": {
+      "shorthand": "--draft",
+      "type": "boolean",
+      "default": false,
+      "speed": "10x faster than standard",
+      "cost": "0.5x (half GPU cost)",
+      "resolution": "Lower than standard",
+      "use_cases": [
+        "Rapid concept exploration",
+        "Testing multiple variations",
+        "Thumbnail previews",
+        "Budget-conscious iteration"
+      ],
+      "limitations": [
+        "Not suitable for final deliverables",
+        "Lower resolution",
+        "Less detail",
+        "Not recommended for text rendering"
+      ]
+    }
+  },
+  
+  "image_reference_parameters": {
+    "image_weight": {
+      "shorthand": "--iw",
+      "range": "0-3",
+      "default": 1,
+      "purpose": "Image prompt weight vs. text prompt",
+      "note": "Higher values = stronger image reference influence"
+    },
+    "style_reference": {
+      "shorthand": "--sref",
+      "format": "URL or sref code",
+      "default": null,
+      "purpose": "Style reference image or code",
+      "related_parameters": {
+        "style_weight": {
+          "shorthand": "--sw",
+          "range": "0-1000",
+          "default": 100,
+          "purpose": "Style reference weight/strength"
+        },
+        "style_version": {
+          "shorthand": "--sv",
+          "options": [4, 6],
+          "default": 6,
+          "purpose": "Style reference version",
+          "values": {
+            "4": "Legacy behavior for old sref codes (V4/V6)",
+            "6": "V7 native style reference behavior"
+          }
+        }
+      }
+    },
+    "omni_reference": {
+      "shorthand": "--oref",
+      "format": "URL",
+      "default": null,
+      "purpose": "Character/object consistency (V7 only, replaces --cref)",
+      "v7_exclusive": true,
+      "related_parameters": {
+        "omni_weight": {
+          "shorthand": "--ow",
+          "range": "1-1000",
+          "default": 100,
+          "recommended_max": 400,
+          "note": "Keep below 400 for best results"
+        }
+      },
+      "use_cases": [
+        "Character consistency across generations",
+        "Object consistency",
+        "Vehicle consistency",
+        "Non-human creature consistency"
+      ]
+    }
+  },
+  
+  "video_motion_parameters": {
+    "motion_low": {
+      "format": "--motion low",
+      "description": "Subtle, smooth movement"
+    },
+    "motion_high": {
+      "format": "--motion high",
+      "description": "Dynamic, intense camera motion"
+    },
+    "loop": {
+      "shorthand": "--loop",
+      "type": "boolean",
+      "default": false,
+      "purpose": "Creates looping video"
+    },
+    "video": {
+      "shorthand": "--video",
+      "type": "boolean",
+      "default": false,
+      "purpose": "Generate video in Discord"
+    }
+  },
+  
+  "video_specifications": {
+    "default_duration": "5 seconds (~90 frames at 30fps)",
+    "maximum_duration": "21 seconds (4 × 4-second extensions)",
+    "resolution": "480p SD",
+    "gpu_cost": "8x regular image generation"
+  },
+  
+  "multi_prompt_syntax": {
+    "equal_weight": {
+      "syntax": "concept1:: concept2",
+      "example": "forest:: ocean",
+      "description": "Both concepts have equal weight"
+    },
+    "weighted": {
+      "syntax": "concept1::2 concept2",
+      "example": "ancient temple::2 futuristic city",
+      "description": "Concept1 has 2x weight of concept2"
+    },
+    "negative_weight": {
+      "syntax": "subject:: unwanted::-0.5",
+      "example": "portrait:: background::-0.5",
+      "description": "Reduce emphasis on unwanted element"
+    }
+  },
+  
+  "upscaling": {
+    "base_resolution": "1024x1024 pixels (1:1 aspect ratio)",
+    "upscale_methods": [
+      "Subtle Upscale (2x)",
+      "Creative Upscale (2x)"
+    ],
+    "note": "V7 improved upscaling process with higher fidelity"
+  },
+  
+  "v7_improvements_from_v6": {
+    "natural_language_understanding": "Interprets conversational, sentence-based prompts more accurately",
+    "prompt_adherence": "Better adherence to descriptions, less keyword stuffing needed",
+    "anatomical_accuracy": "Significantly improved hands and body proportions",
+    "text_rendering": "Enhanced text generation quality",
+    "omni_reference": "New feature replacing Character Reference",
+    "draft_mode": "New rapid iteration feature",
+    "style_reference_versioning": "Added --sv parameter for version control"
+  },
+  
+  "aspect_ratio_common_uses": {
+    "1:1": "Square - social media, profile pictures",
+    "3:4": "Portrait - standard portrait photography",
+    "4:3": "Landscape - standard landscape photography",
+    "16:9": "Widescreen - cinematic, YouTube thumbnails",
+    "21:9": "Ultrawide - cinematic, dramatic scenes",
+    "2:3": "Tall portrait - magazine covers, posters",
+    "9:16": "Vertical - mobile, Instagram stories"
+  },
+  
+  "gpu_cost_reference": {
+    "draft_mode": "0.5x (half standard)",
+    "standard": "1x",
+    "quality_2": "2x",
+    "quality_4": "4x",
+    "video_generation": "8x"
+  },
+  
+  "content_policy": {
+    "prohibited": [
+      "NSFW content",
+      "Violent imagery",
+      "Copyrighted character reproductions",
+      "Banned artist name references"
+    ],
+    "note": "Strict content policy enforced; violations may result in ban"
+  },
+  
+  "platform_requirements": {
+    "platform": "Discord",
+    "access": "Requires Discord account and Midjourney server access",
+    "interaction": "Commands typed in Discord channels",
+    "subscription_required": true
+  }
+}

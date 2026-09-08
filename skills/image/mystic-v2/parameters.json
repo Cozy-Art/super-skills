@@ -1,0 +1,426 @@
+{
+  "model_family": "Freepik Mystic 2.5",
+  "platform": "Freepik Studio / Freepik API",
+  "technology_stack": {
+    "foundation": "Flux (Black Forest Labs, 12 billion parameters)",
+    "processes": "Stable Diffusion",
+    "upscaling": "Magnific.ai technology",
+    "architecture": "Multimodal and parallel diffusion transformer blocks using flow matching"
+  },
+  
+  "primary_variants": {
+    "standard_realism": {
+      "ui_name": "Mystic 2.5",
+      "api_model": "realism",
+      "credits_per_image": 50,
+      "strengths": [
+        "Most versatile",
+        "Natural color palette",
+        "Less AI look",
+        "LoRA compatible (Custom Characters/Styles)"
+      ],
+      "weaknesses": [
+        "May not follow fantastical prompts as well as Flexible"
+      ],
+      "best_for": [
+        "Photography",
+        "Natural scenes",
+        "Illustrations with LoRA",
+        "Character consistency projects"
+      ],
+      "lora_support": true
+    },
+    "flexible": {
+      "ui_name": "Mystic 2.5 Flexible",
+      "api_model": "flexible",
+      "credits_per_image": 80,
+      "strengths": [
+        "Best prompt adherence overall",
+        "Vivid, saturated colors",
+        "HDR aesthetic"
+      ],
+      "weaknesses": [
+        "More saturated/HDR look may not suit all use cases",
+        "No LoRA support"
+      ],
+      "best_for": [
+        "Illustrations",
+        "Fantasy scenes",
+        "Branding assets",
+        "Specific visual styles"
+      ],
+      "lora_support": false
+    },
+    "fluid": {
+      "ui_name": "Mystic 2.5 Fluid",
+      "api_model": "fluid",
+      "credits_per_image": 80,
+      "strengths": [
+        "Fast generation",
+        "Smooth, consistent visuals",
+        "Excellent for cinematic frames",
+        "Best prompt adherence among video-ready models"
+      ],
+      "weaknesses": [
+        "Over-moderated (Google Imagen 3 backend)",
+        "Words like 'war' may be flagged",
+        "No LoRA support"
+      ],
+      "best_for": [
+        "Cinematic storyboards",
+        "Visual campaigns",
+        "High-volume production",
+        "Image sequences for video conversion"
+      ],
+      "lora_support": false
+    }
+  },
+  
+  "api_only_submodels": {
+    "zen": {
+      "api_model": "zen",
+      "strengths": [
+        "Smoother, cleaner results",
+        "Fewer objects in composition",
+        "Less intricate detail"
+      ],
+      "best_for": [
+        "Minimalist compositions",
+        "Soft aesthetics",
+        "Clean, simple scenes"
+      ]
+    },
+    "super_real": {
+      "api_model": "super_real",
+      "strengths": [
+        "Hyper-realism",
+        "Sharp details",
+        "Photographic quality"
+      ],
+      "weaknesses": [
+        "Not as strong for close-ups as editorial_portraits"
+      ],
+      "best_for": [
+        "Medium shots",
+        "Realistic photography",
+        "Product photography"
+      ]
+    },
+    "editorial_portraits": {
+      "api_model": "editorial_portraits",
+      "strengths": [
+        "Unmatched realism for close-up portraits",
+        "Professional photography quality"
+      ],
+      "weaknesses": [
+        "Anatomical problems in wide/distant shots",
+        "Only excels at close/medium portraits"
+      ],
+      "best_for": [
+        "Close-up portrait photography",
+        "Medium portrait shots",
+        "Professional headshots"
+      ],
+      "prompting_note": "Use the longest and most explanatory prompts possible"
+    }
+  },
+  
+  "prompt_limits": {
+    "official_recommendation": "~500 characters should be sufficient",
+    "ui_maximum": "~1400 characters reported by community",
+    "api_range": "Simple ('a cat') to detailed multi-sentence descriptions",
+    "editorial_portraits_recommendation": "Longest and most explanatory prompts possible",
+    "best_practice": "Concise and direct, avoid lengthy descriptions"
+  },
+  
+  "special_syntax": {
+    "character_references": {
+      "basic": "@character_name",
+      "with_strength": "@character_name::strength",
+      "example": "@john::200",
+      "note": "Higher numbers = stronger character presence",
+      "recommended_strength": 80,
+      "compatibility": "Only works with realism model (LoRA-compatible)"
+    },
+    "permutation_prompts": {
+      "syntax": "option1|option2|option3",
+      "example": "a black cat|a red cat|a yellow cat",
+      "description": "Generates multiple variants in one request"
+    },
+    "ai_prompt_enhancement": {
+      "toggle": "AI prompt toggle in UI",
+      "function": "Auto-expands short prompts",
+      "example_input": "A dog",
+      "example_output": "A black German Shepherd standing alert on a rocky hilltop with a panoramic view of a valley during sunset",
+      "when_to_avoid": "When prompt is already detailed"
+    }
+  },
+  
+  "resolution_and_timing": {
+    "1K": {
+      "pixel_size": "1024px",
+      "generation_time": "10-20 seconds"
+    },
+    "2K": {
+      "pixel_size": "2048px",
+      "generation_time": "20-40 seconds",
+      "note": "Recommended default"
+    },
+    "4K": {
+      "pixel_size": "4096px",
+      "generation_time": "40-90 seconds"
+    },
+    "output_format": "PNG"
+  },
+  
+  "aspect_ratios": {
+    "square_1_1": {"ratio": "1:1", "orientation": "Square (default)"},
+    "classic_4_3": {"ratio": "4:3", "orientation": "Landscape"},
+    "traditional_3_4": {"ratio": "3:4", "orientation": "Portrait"},
+    "widescreen_16_9": {"ratio": "16:9", "orientation": "Widescreen landscape"},
+    "social_story_9_16": {"ratio": "9:16", "orientation": "Vertical/Stories"},
+    "smartphone_horizontal_20_9": {"ratio": "20:9", "orientation": "Ultra-wide horizontal"},
+    "smartphone_vertical_9_20": {"ratio": "9:20", "orientation": "Ultra-tall vertical"},
+    "standard_3_2": {"ratio": "3:2", "orientation": "Standard landscape"},
+    "portrait_2_3": {"ratio": "2:3", "orientation": "Standard portrait"},
+    "horizontal_2_1": {"ratio": "2:1", "orientation": "Wide horizontal"},
+    "vertical_1_2": {"ratio": "1:2", "orientation": "Tall vertical"},
+    "social_5_4": {"ratio": "5:4", "orientation": "Social media landscape"},
+    "social_post_4_5": {"ratio": "4:5", "orientation": "Social media portrait"},
+    "note": "Fluid model supports all aspect ratios"
+  },
+  
+  "engines": {
+    "automatic": {
+      "api_value": "automatic",
+      "description": "Default, system selects best engine",
+      "recommendation": "Use for general purposes"
+    },
+    "illusio": {
+      "api_value": "magnific_illusio",
+      "description": "Smoother illustrations, landscapes, nature",
+      "aesthetic": "Softer look",
+      "best_for": ["Illustrations", "Landscapes", "Soft aesthetics"]
+    },
+    "sharpy": {
+      "api_value": "magnific_sharpy",
+      "description": "Sharpest, most detailed",
+      "aesthetic": "Grainy photographic look",
+      "best_for": ["Photographs", "Product shots", "High detail"]
+    },
+    "sparkle": {
+      "api_value": "magnific_sparkle",
+      "description": "Middle ground between Illusio and Sharpy",
+      "aesthetic": "Balanced",
+      "best_for": ["Realism", "Versatile use"]
+    }
+  },
+  
+  "numeric_parameters": {
+    "creative_detailing": {
+      "range": "0-100",
+      "default": 33,
+      "description": "Higher = more detail per pixel but more HDR/artificial",
+      "warnings": "Very high values cause artifacts like misplaced eyes",
+      "recommendations": {
+        "photorealism": "33-50",
+        "fantasy_illustration": "40-60",
+        "minimalist": "20-40"
+      }
+    },
+    "adherence": {
+      "range": "0-100",
+      "default": 50,
+      "description": "Prompt adherence vs style transfer balance",
+      "high_values": "More faithful to prompt, less style transfer",
+      "low_values": "More creative, closer to style reference",
+      "use_case": "Adjust when using style references"
+    },
+    "hdr": {
+      "range": "0-100",
+      "default": 50,
+      "description": "Detail level vs natural look balance",
+      "high_values": "More detailed but more 'AI look'",
+      "low_values": "More natural/artistic but may increase artifacts",
+      "recommendation": "Balance with creative_detailing"
+    },
+    "structure_strength": {
+      "range": "0-100",
+      "default": 50,
+      "description": "How closely to maintain structure of reference image",
+      "use_case": "Image-to-image generation"
+    },
+    "styling_styles_strength": {
+      "range": "0-100",
+      "default": 100,
+      "description": "LoRA style intensity",
+      "compatibility": "Only with realism model"
+    },
+    "styling_characters_strength": {
+      "range": "0-100",
+      "default": 100,
+      "description": "LoRA character intensity",
+      "compatibility": "Only with realism model",
+      "recommended": 80
+    },
+    "styling_colors_weight": {
+      "range": "0-1",
+      "default": 0.5,
+      "description": "Color palette influence"
+    }
+  },
+  
+  "boolean_parameters": {
+    "fixed_generation": {
+      "default": false,
+      "description": "When enabled, identical settings produce identical images",
+      "use_case": "Essential for iterative fine-tuning"
+    },
+    "filter_nsfw": {
+      "default": true,
+      "description": "NSFW content filtering",
+      "note": "Always on for standard API usage, cannot be disabled without special authorization"
+    }
+  },
+  
+  "official_best_practices": {
+    "do": [
+      "Use concise, direct prompts",
+      "Omit contradictory terms",
+      "Use negative prompts for intricate details",
+      "Fix faces/hands with Retouch or Upscale tools",
+      "Include camera specs for photorealism (Canon EOS R5, ARRI Alexa LF)",
+      "Use Character reference strength around 80%"
+    ],
+    "dont": [
+      "Don't use lengthy descriptions",
+      "Don't specify styles in prompts (use UI selector)",
+      "Don't specify pixels, sizes, or quality in text",
+      "Don't mention final usage (e.g., 'for website header')",
+      "Don't use Prompt Enhancer when prompt is already detailed",
+      "Don't use words ending in '-tly' unless necessary",
+      "Don't use the word 'background' (causes blurriness)"
+    ]
+  },
+  
+  "recommended_parameter_combinations": {
+    "photorealistic_photography": {
+      "model": "realism or super_real",
+      "engine": "magnific_sharpy",
+      "creative_detailing": "33-50",
+      "resolution": "2K or 4K",
+      "fixed_generation": true
+    },
+    "soft_illustrations_landscapes": {
+      "model": "zen or realism",
+      "engine": "magnific_illusio",
+      "creative_detailing": "20-40",
+      "resolution": "2K"
+    },
+    "fantasy_creative": {
+      "model": "flexible",
+      "engine": "automatic or magnific_sparkle",
+      "creative_detailing": "40-60",
+      "resolution": "2K"
+    },
+    "editorial_portraits": {
+      "model": "editorial_portraits",
+      "engine": "magnific_sharpy",
+      "creative_detailing": "33-50",
+      "resolution": "4K",
+      "prompt_style": "Extremely detailed, long prompts"
+    },
+    "fast_cinematic_production": {
+      "model": "fluid",
+      "engine": "automatic",
+      "creative_detailing": 33,
+      "resolution": "2K",
+      "note": "Best combined with video generation tools post-creation"
+    },
+    "style_transfer": {
+      "model": "realism",
+      "style_reference": "Provide reference image",
+      "adherence": "30-50 (lower = closer to style reference)",
+      "hdr": "30-50 (lower = more natural artistic look)"
+    }
+  },
+  
+  "common_issues": {
+    "face_hand_distortion": {
+      "problem": "Anatomical errors in faces and hands",
+      "solution": "Use Retouch or Upscale tools, not re-prompting",
+      "expectation": "May need multiple regenerations"
+    },
+    "lora_compatibility": {
+      "problem": "LoRAs silently disabled when switching variants",
+      "solution": "Only use realism model for Custom Characters/Styles",
+      "affected_variants": ["flexible", "fluid", "zen", "super_real", "editorial_portraits"]
+    },
+    "background_blurriness": {
+      "problem": "Using word 'background' causes blur",
+      "solution": "Avoid the word, describe environment differently"
+    },
+    "fluid_overmoderation": {
+      "problem": "Words like 'war' flagged due to Google Imagen 3 backend",
+      "solution": "Use alternative phrasing or switch to different variant"
+    }
+  },
+  
+  "post_generation_tools": {
+    "upscale": {
+      "function": "Enhance resolution, adjust style",
+      "imagination_levels": ["subtle", "vivid", "wild"]
+    },
+    "reimagine": {
+      "function": "Create variations preserving composition"
+    },
+    "expand": {
+      "function": "Outpaint/extend image boundaries"
+    },
+    "retouch": {
+      "function": "Selectively edit portions"
+    },
+    "video": {
+      "function": "Convert to AI video"
+    },
+    "mockup": {
+      "function": "Place on product mockups"
+    }
+  },
+  
+  "variant_selection_guide": {
+    "choose_standard_when": [
+      "Need photorealism with natural colors",
+      "Using Custom Characters or Custom Styles (LoRA)",
+      "Want 'less AI look'",
+      "General-purpose photography or illustrations"
+    ],
+    "choose_flexible_when": [
+      "Need best prompt adherence",
+      "Want vivid, saturated colors",
+      "Creating fantasy or branding assets",
+      "Specific visual styles required"
+    ],
+    "choose_fluid_when": [
+      "Need fast generation for volume work",
+      "Creating cinematic frame sequences",
+      "Consistency across multiple related images",
+      "Visual campaigns or storyboards"
+    ],
+    "choose_zen_when": [
+      "Want minimalist aesthetic",
+      "Prefer soft, clean compositions",
+      "Fewer objects in scene"
+    ],
+    "choose_super_real_when": [
+      "Need hyper-realistic medium shots",
+      "Product photography",
+      "Sharp photographic detail"
+    ],
+    "choose_editorial_portraits_when": [
+      "Professional close-up portraits needed",
+      "Editorial quality headshots",
+      "Willing to write very long, detailed prompts"
+    ]
+  }
+}

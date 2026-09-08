@@ -1,0 +1,337 @@
+{
+  "model": "flux-2",
+  "skill_version": "1.0.0",
+  "last_updated": "2026-02-25",
+  "description": "Example input/output pairs for Flux 2 prompt generation. Each example demonstrates variant selection rationale and shows both natural language and JSON structured prompt approaches.",
+  "examples": [
+    {
+      "id": "ex_01_character_ref_pro",
+      "name": "Character Reference — Lead Portrait (Pro)",
+      "complexity": "simple",
+      "variant_used": "pro",
+      "generation_intent": "character_reference",
+      "description": "Establishing a character reference portrait using Pro variant for best quality-to-cost ratio. Short, front-loaded prompt.",
+      "input": {
+        "shot": {
+          "shotType": "close-up",
+          "cameraMovement": "static",
+          "description": "Establishing portrait of Detective Reyes"
+        },
+        "character": {
+          "name": "Detective Elena Reyes",
+          "age": "late 30s",
+          "physicalDescription": "Latina woman, dark wavy hair pulled back loosely, sharp brown eyes, angular jaw, thin scar across left cheek",
+          "wardrobe": "Rumpled dark gray blazer over a white crew neck tee, detective badge on belt",
+          "emotionalState": "quietly intense"
+        },
+        "scene": {
+          "location": "Studio — neutral background",
+          "timeOfDay": "n/a",
+          "mood": "clean reference"
+        },
+        "project": {
+          "genre": "crime drama",
+          "visualStyle": "photorealistic, gritty, natural",
+          "colorPalette": ["muted grays", "warm skin tones", "steel blue"]
+        }
+      },
+      "output": {
+        "prompt": "Photorealistic portrait of a Latina woman in her late 30s, dark wavy hair pulled back loosely, sharp brown eyes, angular jaw, thin scar across left cheek. Quietly intense expression. Rumpled dark gray blazer over white crew neck tee, detective badge visible on belt. Shot on Sony A7IV, 85mm f/1.4, shallow depth of field, neutral studio background. Clean even lighting with subtle warmth.\n\n[Variant: Flux 2 Pro — production character reference, best quality-to-cost]",
+        "json": {
+          "prompt": "Photorealistic portrait of a Latina woman in her late 30s, dark wavy hair pulled back loosely, sharp brown eyes, angular jaw, thin scar across left cheek. Quietly intense expression. Rumpled dark gray blazer over white crew neck tee, detective badge visible on belt. Shot on Sony A7IV, 85mm f/1.4, shallow depth of field, neutral studio background. Clean even lighting with subtle warmth.",
+          "variant": "pro",
+          "width": 1024,
+          "height": 1365,
+          "seed": null,
+          "metadata": {
+            "character_ids": ["char_elena_reyes"],
+            "continuity_anchor": true,
+            "skill_version": "1.0.0",
+            "generation_intent": "character_reference",
+            "variant_rationale": "Pro provides best quality-to-cost for establishing character reference portraits. Multi-reference not needed for initial anchor."
+          }
+        }
+      }
+    },
+    {
+      "id": "ex_02_cinematic_max",
+      "name": "Hero Storyboard Frame — Cinematic Wide (Max)",
+      "complexity": "medium",
+      "variant_used": "max",
+      "generation_intent": "storyboard_frame",
+      "description": "A hero frame that will define the visual language of the project. Using Max for absolute best quality and character consistency with reference images.",
+      "input": {
+        "shot": {
+          "shotType": "wide",
+          "cameraMovement": "static",
+          "description": "Elena walks alone through the rain-soaked crime scene at night. Police tape. Flashing lights. She's the only one still here.",
+          "duration": null
+        },
+        "character": {
+          "name": "Detective Elena Reyes",
+          "physicalDescription": "Latina woman, late 30s, dark wavy hair, gray blazer, white tee, badge on belt",
+          "emotionalState": "focused, solitary"
+        },
+        "scene": {
+          "location": "Urban crime scene — back alley behind a bodega, police tape, two squad cars with flashing red and blue lights, evidence markers on wet asphalt",
+          "timeOfDay": "2 AM",
+          "weather": "light rain, everything wet and reflective",
+          "mood": "isolation, determination, noir"
+        },
+        "project": {
+          "genre": "crime drama",
+          "visualStyle": "cinematic, inspired by Zodiac and Se7en",
+          "colorPalette": ["deep navy", "red-blue police lights", "sickly yellow streetlight", "wet black"]
+        },
+        "reference_images": ["char_elena_reyes_anchor.png"]
+      },
+      "output": {
+        "prompt": "A lone woman detective walks through a rain-soaked back alley crime scene at 2 AM. Police tape cordons the area, two squad cars cast flashing red and blue light across wet asphalt. Yellow evidence markers dot the ground. She wears a rumpled gray blazer, white tee, badge on belt. She's the only person remaining. Sickly yellow streetlight overhead, rain visible in the light beams, everything reflective and glistening. Shot on Arri Alexa, 24mm anamorphic, deep focus, cinematic wide composition. Color palette: deep navy shadows, red-blue light spill, sickly yellow streetlight.\n\n[Variant: Flux 2 Max — hero frame, maximum quality, reference image for character consistency]",
+        "json": {
+          "prompt": "A lone woman detective walks through a rain-soaked back alley crime scene at 2 AM. Police tape cordons the area, two squad cars cast flashing red and blue light across wet asphalt. Yellow evidence markers dot the ground. She wears a rumpled gray blazer, white tee, badge on belt. She's the only person remaining. Sickly yellow streetlight overhead, rain visible in the light beams, everything reflective and glistening. Shot on Arri Alexa, 24mm anamorphic, deep focus, cinematic wide composition. Color palette: deep navy shadows, red-blue light spill, sickly yellow streetlight.",
+          "variant": "max",
+          "width": 1820,
+          "height": 1024,
+          "seed": null,
+          "image_urls": ["char_elena_reyes_anchor.png"],
+          "metadata": {
+            "shot_id": "shot_02_01",
+            "scene_id": "scene_02",
+            "character_ids": ["char_elena_reyes"],
+            "continuity_anchor": true,
+            "skill_version": "1.0.0",
+            "generation_intent": "storyboard_frame",
+            "variant_rationale": "Max for hero frame that defines the project's visual language. Character reference image ensures Elena's face matches anchor. Maximum quality justified for this key shot."
+          }
+        }
+      }
+    },
+    {
+      "id": "ex_03_typography_flex",
+      "name": "Evidence Board with Text — Typography (Flex)",
+      "complexity": "medium",
+      "variant_used": "flex",
+      "generation_intent": "prop_reference",
+      "description": "A prop that requires legible text rendering — the investigation evidence board. Flex variant selected specifically for typography strength.",
+      "input": {
+        "shot": {
+          "shotType": "medium",
+          "cameraMovement": "static",
+          "description": "The evidence board in Elena's office — pinned photos, red string connections, handwritten notes, newspaper clippings"
+        },
+        "character": null,
+        "scene": {
+          "location": "Elena's office — evidence board fills the frame",
+          "timeOfDay": "late night, desk lamp lighting",
+          "mood": "obsessive, methodical"
+        },
+        "prop": {
+          "name": "Evidence Board",
+          "description": "Large corkboard covered with pinned crime scene photographs, handwritten index cards with dates and names, newspaper clippings with headlines, red string connecting related items. Center card reads 'MISSING: JULY 4'. Newspaper headline visible: 'Third Body Found in Marina District'.",
+          "significance": "Appears in 8 scenes, text must be legible"
+        },
+        "project": {
+          "genre": "crime drama",
+          "visualStyle": "photorealistic, gritty",
+          "colorPalette": ["warm cork brown", "white paper", "red string", "yellowed newspaper"]
+        }
+      },
+      "output": {
+        "prompt": "Large corkboard evidence board filling the frame, covered with pinned crime scene photographs, handwritten index cards, and yellowed newspaper clippings. Red string connects related items across the board. A central index card reads 'MISSING: JULY 4' in bold handwriting. A visible newspaper clipping headline reads 'Third Body Found in Marina District'. Warm desk lamp lighting from the lower right casts dramatic shadows across the board. Shot on Canon 5D Mark IV, 50mm f/2.8, sharp focus across the entire board. Photorealistic, gritty, detail-rich.\n\n[Variant: Flux 2 Flex — typography required for legible text on evidence cards and newspaper clippings. Steps: 50, Guidance: 8.0]",
+        "json": {
+          "prompt": "Large corkboard evidence board filling the frame, covered with pinned crime scene photographs, handwritten index cards, and yellowed newspaper clippings. Red string connects related items across the board. A central index card reads 'MISSING: JULY 4' in bold handwriting. A visible newspaper clipping headline reads 'Third Body Found in Marina District'. Warm desk lamp lighting from the lower right casts dramatic shadows across the board. Shot on Canon 5D Mark IV, 50mm f/2.8, sharp focus across the entire board. Photorealistic, gritty, detail-rich.",
+          "variant": "flex",
+          "width": 1456,
+          "height": 1024,
+          "guidance": 8.0,
+          "steps": 50,
+          "seed": null,
+          "metadata": {
+            "continuity_anchor": true,
+            "skill_version": "1.0.0",
+            "generation_intent": "prop_reference",
+            "variant_rationale": "Flex selected for typography rendering. Evidence board requires legible text on index cards and newspaper headlines. High steps (50) and guidance (8.0) for maximum text clarity."
+          }
+        }
+      }
+    },
+    {
+      "id": "ex_04_iteration_klein",
+      "name": "Quick Concept Exploration — Location Variations (Klein 9B)",
+      "complexity": "simple",
+      "variant_used": "klein_9b",
+      "generation_intent": "quick_iteration",
+      "description": "Rapid exploration of location concepts. Using Klein for sub-second generation to test 20+ variations quickly before committing to a final render.",
+      "input": {
+        "shot": {
+          "shotType": "wide",
+          "cameraMovement": "static",
+          "description": "Exploring concepts for the climax location — abandoned industrial pier"
+        },
+        "character": null,
+        "scene": {
+          "location": "Abandoned industrial pier — need to explore: time of day, weather, decay level, lighting mood",
+          "timeOfDay": "exploring options",
+          "mood": "exploring — menacing vs melancholic vs desolate"
+        },
+        "project": {
+          "genre": "crime drama",
+          "visualStyle": "cinematic",
+          "colorPalette": ["cold industrial tones"]
+        }
+      },
+      "output": {
+        "prompt": "Abandoned industrial pier stretching into dark water, rusted metal structures, broken concrete, fog rolling in from the bay. Cold blue twilight, distant city lights on the horizon. Cinematic wide shot, 24mm lens.\n\n[Variant: Flux 2 Klein 9B — rapid concept exploration, sub-second generation for testing 20+ variations of time/weather/mood before committing to a Max render]",
+        "json": {
+          "prompt": "Abandoned industrial pier stretching into dark water, rusted metal structures, broken concrete, fog rolling in from the bay. Cold blue twilight, distant city lights on the horizon. Cinematic wide shot, 24mm lens.",
+          "variant": "klein_9b",
+          "width": 1024,
+          "height": 576,
+          "seed": 5000,
+          "metadata": {
+            "scene_id": "scene_18_climax",
+            "continuity_anchor": false,
+            "skill_version": "1.0.0",
+            "generation_intent": "quick_iteration",
+            "variant_rationale": "Klein 9B for rapid iteration. Generate 20+ variations (seeds 5000-5020) at sub-second speed to explore time of day, weather, and mood before committing to Max/Pro for final renders."
+          }
+        }
+      }
+    },
+    {
+      "id": "ex_05_kontext_consistency",
+      "name": "Character Across Scenes — Identity Preservation (Kontext)",
+      "complexity": "medium",
+      "variant_used": "kontext_pro",
+      "generation_intent": "storyboard_frame",
+      "description": "Placing an established character into a new scene while preserving their exact appearance. Kontext variant for identity preservation.",
+      "input": {
+        "shot": {
+          "shotType": "medium",
+          "cameraMovement": "static",
+          "description": "Elena at the marina, morning after the climax. She's exhausted but resolved. The pier is behind her."
+        },
+        "character": {
+          "name": "Detective Elena Reyes",
+          "physicalDescription": "Latina woman, late 30s, dark wavy hair, gray blazer, white tee — NOW disheveled, blazer unbuttoned, hair loose",
+          "emotionalState": "exhausted, resolved, morning-after stillness"
+        },
+        "scene": {
+          "location": "Marina dock, morning. Calm water. The damaged pier visible in the background.",
+          "timeOfDay": "early morning, 6 AM, golden hour beginning",
+          "weather": "clear, still, mist on the water",
+          "mood": "quiet resolution, earned exhaustion"
+        },
+        "reference_images": ["char_elena_reyes_anchor.png"]
+      },
+      "output": {
+        "prompt": "Same woman from reference image, now standing on a marina dock at early morning golden hour. Her blazer is unbuttoned, hair loose and slightly disheveled. She looks out over calm misty water, the damaged industrial pier visible in the background. Exhausted but resolved expression. Warm golden light breaking across the water's surface, long shadows. Shot on Fujifilm X-T5, 50mm f/2, soft natural light with warm tones. Quiet, contemplative mood.\n\n[Variant: Flux 2 Kontext Pro — character identity preservation from reference image, placing established character in new scene]",
+        "json": {
+          "prompt": "Same woman from reference image, now standing on a marina dock at early morning golden hour. Her blazer is unbuttoned, hair loose and slightly disheveled. She looks out over calm misty water, the damaged industrial pier visible in the background. Exhausted but resolved expression. Warm golden light breaking across the water's surface, long shadows. Shot on Fujifilm X-T5, 50mm f/2, soft natural light with warm tones. Quiet, contemplative mood.",
+          "variant": "kontext_pro",
+          "width": 1456,
+          "height": 1024,
+          "image_prompt": "char_elena_reyes_anchor.png",
+          "seed": null,
+          "metadata": {
+            "shot_id": "shot_19_03",
+            "scene_id": "scene_19",
+            "character_ids": ["char_elena_reyes"],
+            "continuity_anchor": false,
+            "skill_version": "1.0.0",
+            "generation_intent": "storyboard_frame",
+            "variant_rationale": "Kontext Pro preserves Elena's exact face and identity from the anchor reference while placing her in a completely new environment and emotional state."
+          }
+        }
+      }
+    },
+    {
+      "id": "ex_06_json_structured_complex",
+      "name": "Complex Multi-Subject Scene — JSON Structured (Pro)",
+      "complexity": "complex",
+      "variant_used": "pro",
+      "generation_intent": "storyboard_frame",
+      "description": "A complex scene with multiple subjects requiring precise positioning. Uses JSON structured prompt for spatial control with hex brand colors.",
+      "input": {
+        "shot": {
+          "shotType": "medium-wide",
+          "cameraMovement": "static",
+          "description": "The interrogation room. Elena faces suspect across the table. Lawyer sits beside suspect. One-way mirror behind Elena. Harsh overhead fluorescent."
+        },
+        "character": {
+          "name": "Detective Elena Reyes",
+          "physicalDescription": "Latina woman, late 30s, dark wavy hair pulled back, gray blazer, white tee, badge on belt"
+        },
+        "scene": {
+          "location": "Police interrogation room — small, gray concrete walls, metal table bolted to floor, two chairs each side, one-way mirror, harsh overhead fluorescent",
+          "timeOfDay": "irrelevant — windowless room",
+          "mood": "confrontational, claustrophobic, tense"
+        },
+        "additional_characters": [
+          {
+            "name": "Victor Salazar",
+            "physicalDescription": "Latino man, mid-50s, heavy-set, expensive navy suit now rumpled, thinning gray hair, calculating eyes",
+            "emotionalState": "calm, controlled, faintly amused"
+          },
+          {
+            "name": "Lawyer",
+            "physicalDescription": "Sharp-featured man, 40s, black suit, rectangular glasses, notepad open",
+            "emotionalState": "watchful, protective"
+          }
+        ],
+        "project": {
+          "genre": "crime drama",
+          "visualStyle": "cinematic, inspired by Prisoners and Mindhunter",
+          "colorPalette": ["#808080 gray walls", "#E8E8E8 fluorescent white", "#1B2A4A navy suit"]
+        }
+      },
+      "output": {
+        "prompt": "Police interrogation room with harsh overhead fluorescent lighting. A Latina woman detective in her late 30s sits on the left side of a metal table, leaning forward with intensity — gray blazer, white tee, badge visible. Across from her, a heavy-set Latino man in his mid-50s in a rumpled navy suit sits back with calm amusement — calculating eyes, thinning gray hair. Beside him, a sharp-featured lawyer in a black suit and rectangular glasses watches carefully, notepad open. Gray concrete walls, one-way mirror behind the detective reflecting the fluorescent light. The room is claustrophobic and tense. Shot at eye level, 35mm lens, deep focus, inspired by the cinematography of Prisoners.\n\n[Variant: Flux 2 Pro — multi-subject scene with precise positioning, JSON structured prompt recommended for spatial control]",
+        "json": {
+          "prompt": null,
+          "variant": "pro",
+          "width": 1456,
+          "height": 1024,
+          "seed": null,
+          "structured_prompt": {
+            "scene": "Police interrogation room, small claustrophobic space with #808080 gray concrete walls, metal table bolted to the floor, harsh #E8E8E8 overhead fluorescent lighting, one-way mirror on the back wall",
+            "subjects": [
+              {
+                "description": "Latina woman detective, late 30s, dark wavy hair pulled back, gray blazer, white crew neck tee, detective badge on belt, leaning forward with quiet intensity",
+                "position": "left side of table, facing camera at slight angle",
+                "action": "leaning forward, hands on table, direct eye contact across the table"
+              },
+              {
+                "description": "Heavy-set Latino man, mid-50s, expensive #1B2A4A navy suit now rumpled, thinning gray hair, calculating eyes with faint amusement",
+                "position": "right side of table, opposite the detective",
+                "action": "sitting back in chair, calm and controlled, arms relaxed"
+              },
+              {
+                "description": "Sharp-featured man, 40s, black suit, rectangular glasses, open notepad and pen",
+                "position": "right side of table, beside the suspect",
+                "action": "watching the detective carefully, pen poised over notepad"
+              }
+            ],
+            "style": "cinematic photography inspired by Prisoners and Mindhunter, gritty realism",
+            "lighting": "Harsh overhead fluorescent casting flat unflattering light, deep shadows under brows, slight green-white color cast typical of institutional lighting",
+            "mood": "confrontational, claustrophobic, tense, psychological",
+            "camera": {
+              "angle": "eye level, slightly off-center favoring the detective",
+              "lens": "35mm",
+              "depth_of_field": "deep focus, everything sharp"
+            }
+          },
+          "metadata": {
+            "shot_id": "shot_14_01",
+            "scene_id": "scene_14",
+            "character_ids": ["char_elena_reyes", "char_victor_salazar"],
+            "continuity_anchor": false,
+            "skill_version": "1.0.0",
+            "generation_intent": "storyboard_frame",
+            "variant_rationale": "Pro for multi-subject scene. JSON structured prompt used for precise spatial positioning of three characters. Hex colors used for brand-consistent wall color and suit color."
+          }
+        }
+      }
+    }
+  ]
+}

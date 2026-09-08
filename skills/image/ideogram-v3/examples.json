@@ -1,0 +1,367 @@
+{
+  "model": "ideogram-v3",
+  "skill_version": "1.0",
+  "last_updated": "2026-03-03",
+  "description": "Example input/output pairs for Ideogram 3 prompt generation. Each example shows structured asset data (input) converted to both human-readable description and structured JSON (output). Examples span multiple project types and asset categories to demonstrate the full range of Ideogram 3 capabilities within a film production pipeline.",
+  "examples": [
+    {
+      "id": "ideo3-ex-001",
+      "title": "Film Noir — Title Card with Typography",
+      "project_type": "short_film",
+      "asset_type": "title_card",
+      "notes": "Demonstrates Ideogram 3's core strength: accurate text rendering. Multiple text elements at different sizes. Uses magic_prompt='off' and render_speed='quality' for maximum text accuracy. 21:9 cinematic ultra-wide ratio for the title card format.",
+      "input": {
+        "asset_id": "asset_noir_title_001",
+        "asset_type": "title_card",
+        "project_id": "proj_noir_detective",
+        "description": "Opening title card for the noir detective short film. Title 'HOLLOW CITY' large and prominent, tagline 'Where shadows keep secrets' below in smaller text. Dark, atmospheric, 1940s noir feel.",
+        "text_requirements": {
+          "primary_text": "HOLLOW CITY",
+          "secondary_text": "Where shadows keep secrets",
+          "style": "Art deco / 1940s film noir title treatment"
+        },
+        "scene_context": {
+          "mood": "dark, mysterious, atmospheric",
+          "period": "1940s noir",
+          "color_palette": "black, gold, deep amber"
+        },
+        "brand_guidelines": {
+          "colors": ["black", "gold", "amber"],
+          "avoid": ["bright colors", "modern fonts", "playful aesthetic"]
+        },
+        "intended_use": "Film opening title frame, will be animated in post"
+      },
+      "output": {
+        "human_readable": "A cinematic title card in 1940s film noir style. The title \"HOLLOW CITY\" dominates the frame in large, elegant art deco gold lettering with subtle embossing, centered against a deep black background with faint amber fog drifting across the lower third. Below the title, the tagline \"Where shadows keep secrets\" appears in smaller, clean serif italic text in a muted gold tone. The overall composition evokes classic Hollywood noir title treatments — dramatic, restrained, and timeless. Ultra-wide cinematic format. Dark gradient background with subtle film grain texture.",
+        "json": {
+          "prompt": "A cinematic film noir title card. The title \"HOLLOW CITY\" in large elegant art deco gold lettering with subtle embossing, centered against a deep black background with faint amber fog drifting across the lower third. Below the title, \"Where shadows keep secrets\" in smaller clean serif italic text in muted gold. 1940s Hollywood noir title treatment style, dramatic and restrained. Dark gradient background, subtle film grain texture, ultra-wide cinematic format. 8K, highly detailed typography.",
+          "negative_prompt": "bright colors, modern fonts, playful, cartoon, blurry text, misspelled, low quality, watermark, busy background",
+          "aspect_ratio": "21:9",
+          "magic_prompt": "off",
+          "render_speed": "quality",
+          "seed": 48291,
+          "style_type": null,
+          "color_palette": null,
+          "style_reference": null,
+          "character_reference": null,
+          "text_rendering": {
+            "text_content": "HOLLOW CITY / Where shadows keep secrets",
+            "word_count": 6,
+            "font_style": "art deco gold lettering (title), clean serif italic (tagline)",
+            "text_color": "gold",
+            "background_contrast": "deep black with amber fog"
+          },
+          "composition": {
+            "shot_type": "full",
+            "focal_length": null,
+            "depth_of_field": null
+          },
+          "metadata": {
+            "asset_id": "asset_noir_title_001",
+            "asset_type": "title_card",
+            "project_id": "proj_noir_detective",
+            "scene_id": null,
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T12:00:00Z",
+            "intended_pipeline": null
+          }
+        }
+      }
+    },
+    {
+      "id": "ideo3-ex-002",
+      "title": "Sci-Fi Short — Character Portrait for Video Pipeline",
+      "project_type": "short_film",
+      "asset_type": "character_portrait",
+      "notes": "Demonstrates generating a character reference portrait that will feed into the WAN 2.5 or Luma Ray 3 video pipeline as a source frame for image-to-video. Front-facing, clear features, good lighting — optimized for downstream video generation. No text rendering needed. Uses Character Reference mode for a second-pass generation.",
+      "input": {
+        "asset_id": "asset_scifi_reva_portrait",
+        "asset_type": "character_portrait",
+        "project_id": "proj_stellar_drift",
+        "description": "Primary reference portrait of Captain Reva for use as a video generation source frame. Must clearly show face, cybernetic implant, and uniform. Front-facing with slight three-quarter turn.",
+        "characters": [
+          {
+            "name": "Captain Reva",
+            "description": "Mid-40s, South Asian, grey-streaked dark hair pulled back tightly, angular cheekbones, calm intensity in dark brown eyes, small silver cybernetic implant at left temple, navy blue starship command uniform with subtle silver rank insignia at collar",
+            "expression": "Calm authority, slight tension in the jaw"
+          }
+        ],
+        "scene_context": {
+          "location": "Starship bridge ambient lighting",
+          "mood": "authoritative, composed, quietly intense",
+          "period": "far future sci-fi"
+        },
+        "style_modifiers": ["cinematic portrait", "sci-fi realism", "studio-quality lighting"],
+        "intended_use": "Character reference anchor — will feed into WAN 2.5 and Luma Ray 3 image-to-video pipeline"
+      },
+      "output": {
+        "human_readable": "A photorealistic cinematic portrait of a South Asian woman in her mid-40s with angular cheekbones and calm, intense dark brown eyes. Her dark hair is streaked with grey and pulled back tightly. A small silver cybernetic implant sits at her left temple, glowing faintly with a blue indicator light. She wears a navy blue starship command uniform with subtle silver rank insignia at the collar. Slight three-quarter angle, her expression conveys calm authority with a hint of tension in the jaw. Soft key light from camera-right with cool blue fill light from the left suggesting bridge instrument panels. 85mm portrait lens, shallow depth of field with a softly blurred dark background suggesting starship interior.",
+        "json": {
+          "prompt": "A photorealistic cinematic portrait of a South Asian woman in her mid-40s with angular cheekbones and calm intense dark brown eyes. Dark hair streaked with grey pulled back tightly. A small silver cybernetic implant at her left temple glowing faintly blue. Navy blue starship command uniform with subtle silver rank insignia at collar. Slight three-quarter angle, expression of calm authority with tension in the jaw. Soft key light from camera-right, cool blue fill from left. 85mm portrait lens, shallow depth of field, softly blurred dark starship interior background. Cinematic sci-fi realism, highly detailed skin texture, 8K.",
+          "negative_prompt": "cartoon, anime, illustration, blurry, deformed, extra limbs, bad anatomy, low quality, oversaturated, fantasy armor, smiling",
+          "aspect_ratio": "2:3",
+          "magic_prompt": "off",
+          "render_speed": "quality",
+          "seed": 33109,
+          "style_type": null,
+          "color_palette": null,
+          "style_reference": null,
+          "character_reference": null,
+          "text_rendering": null,
+          "composition": {
+            "shot_type": "medium_close_up",
+            "focal_length": "85mm portrait lens",
+            "depth_of_field": "shallow"
+          },
+          "metadata": {
+            "asset_id": "asset_scifi_reva_portrait",
+            "asset_type": "character_portrait",
+            "project_id": "proj_stellar_drift",
+            "scene_id": null,
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T12:15:00Z",
+            "intended_pipeline": "wan-v2.5"
+          }
+        }
+      }
+    },
+    {
+      "id": "ideo3-ex-003",
+      "title": "Fantasy Short — Location Concept Art",
+      "project_type": "short_film",
+      "asset_type": "location_concept",
+      "notes": "Demonstrates location concept art generation for pre-production. Widescreen aspect ratio for establishing shot reference. Uses Magic Prompt 'on' to allow AI to add atmospheric detail to a moderately detailed prompt. This image may later serve as style reference for the project.",
+      "input": {
+        "asset_id": "asset_fan_bridge_concept",
+        "asset_type": "location_concept",
+        "project_id": "proj_iron_crown",
+        "scene_id": "scene_fan_bridge_battle",
+        "description": "The ancient stone bridge where the climactic battle takes place. Massive construction spanning a deep misty gorge. Dawn light. Weathered stone with moss. Fantasy medieval world.",
+        "scene_context": {
+          "location": "Exterior — Ancient stone bridge spanning a vast gorge",
+          "time_of_day": "dawn",
+          "weather": "morning mist rising from gorge",
+          "period": "medieval fantasy",
+          "mood": "epic, ancient, foreboding"
+        },
+        "style_modifiers": ["epic fantasy concept art", "matte painting style", "atmospheric perspective"],
+        "intended_use": "Location reference for bridge battle sequence (shots 17-25). May be used as style reference for the entire project."
+      },
+      "output": {
+        "human_readable": "An epic fantasy concept painting of a massive ancient stone bridge spanning a deep gorge shrouded in morning mist. Dawn light breaks through clouds on the right, casting long golden rays across weathered stone surfaces covered in patches of dark moss and lichen. The bridge features thick stone pillars rising from the fog below, with crumbling parapets and carved archways hinting at a lost civilization. The gorge drops away into swirling white mist hundreds of feet below. Distant mountain peaks catch the first light on the horizon. Matte painting style with rich atmospheric perspective — warm golden light in the foreground transitioning to cool blue-grey in the distant depths. Wide establishing shot, cinematic scope.",
+        "json": {
+          "prompt": "An epic fantasy concept painting of a massive ancient stone bridge spanning a deep gorge shrouded in morning mist. Dawn light breaks through clouds from the right, casting golden rays across weathered stone covered in dark moss and lichen. Thick stone pillars rise from fog below, crumbling parapets and carved archways of a lost civilization. The gorge drops into swirling white mist hundreds of feet below. Distant mountain peaks catch first light on the horizon. Matte painting style, rich atmospheric perspective, warm golden foreground to cool blue-grey depths. Wide establishing shot, cinematic scope, highly detailed.",
+          "negative_prompt": "people, characters, modern elements, text, watermark, photographic, low detail, flat lighting",
+          "aspect_ratio": "21:9",
+          "magic_prompt": "on",
+          "render_speed": "default",
+          "seed": 15738,
+          "style_type": null,
+          "color_palette": null,
+          "style_reference": null,
+          "character_reference": null,
+          "text_rendering": null,
+          "composition": {
+            "shot_type": "extreme_wide",
+            "focal_length": "24mm wide angle",
+            "depth_of_field": "deep"
+          },
+          "metadata": {
+            "asset_id": "asset_fan_bridge_concept",
+            "asset_type": "location_concept",
+            "project_id": "proj_iron_crown",
+            "scene_id": "scene_fan_bridge_battle",
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T12:30:00Z",
+            "intended_pipeline": null
+          }
+        }
+      }
+    },
+    {
+      "id": "ideo3-ex-004",
+      "title": "Music Video — Storyboard Frame with Neon Aesthetic",
+      "project_type": "music_video",
+      "asset_type": "storyboard_frame",
+      "notes": "Demonstrates a storyboard frame that establishes the visual look for a specific scene. Uses Style Reference to lock in the neon aesthetic. 16:9 widescreen matches the video output. This frame will serve as I2V source for WAN 2.5.",
+      "input": {
+        "asset_id": "asset_mv_warehouse_frame03",
+        "asset_type": "storyboard_frame",
+        "project_id": "proj_music_neon",
+        "scene_id": "scene_mv_warehouse",
+        "shot_number": 3,
+        "description": "Storyboard frame for the warehouse performance shot. Mira standing center-frame, neon light bars surrounding her, industrial setting. This frame will be animated in WAN 2.5.",
+        "characters": [
+          {
+            "name": "Mira",
+            "description": "Lead vocalist, early 20s, shaved head, silver earrings, black leather jacket over mesh top, combat boots",
+            "action": "Standing with fierce confident energy, chin raised, one hand gripping microphone"
+          }
+        ],
+        "scene_context": {
+          "location": "Interior — Abandoned industrial warehouse",
+          "time_of_day": "night",
+          "mood": "electric, rebellious, powerful"
+        },
+        "style_modifiers": ["neon aesthetic", "music video", "high contrast", "lens flare"],
+        "style_reference_images": [
+          "assets/style_refs/neon_warehouse_ref_01.jpg",
+          "assets/style_refs/neon_portrait_ref_02.jpg"
+        ],
+        "intended_use": "Storyboard frame + I2V source for WAN 2.5 video generation"
+      },
+      "output": {
+        "human_readable": "A young woman with a shaved head and silver earrings stands center-frame in an abandoned industrial warehouse, wearing a black leather jacket over a mesh top and combat boots. She grips a microphone with one hand, chin raised defiantly, exuding fierce confidence. Scattered neon light bars in magenta, cyan, and amber surround her, casting dramatic colored shadows across raw concrete walls and dusty floor. The light bars create lens flares that streak across the frame. Deep shadows in the background reveal industrial steel beams and broken windows. High contrast, vivid neon colors against dark industrial textures. Shot at medium distance, centered composition, 16:9 widescreen framing. Music video aesthetic with cinematic lighting.",
+        "json": {
+          "prompt": "A young woman with a shaved head and silver earrings stands center-frame in an abandoned industrial warehouse, black leather jacket over mesh top, combat boots. She grips a microphone defiantly, chin raised with fierce confidence. Neon light bars in magenta, cyan, and amber cast dramatic colored shadows across concrete walls and dusty floor. Lens flares streak from the neon sources. Deep shadows reveal industrial steel beams and broken windows. High contrast neon colors against dark industrial textures, centered composition. Music video aesthetic, cinematic neon lighting, 8K detail.",
+          "negative_prompt": "blurry, low quality, watermark, daylight, clean modern interior, smiling, passive pose, text",
+          "aspect_ratio": "16:9",
+          "magic_prompt": "off",
+          "render_speed": "quality",
+          "seed": 77412,
+          "style_type": null,
+          "color_palette": null,
+          "style_reference": {
+            "images": [
+              "assets/style_refs/neon_warehouse_ref_01.jpg",
+              "assets/style_refs/neon_portrait_ref_02.jpg"
+            ],
+            "style_code": null
+          },
+          "character_reference": null,
+          "text_rendering": null,
+          "composition": {
+            "shot_type": "medium",
+            "focal_length": "50mm standard",
+            "depth_of_field": "moderate"
+          },
+          "metadata": {
+            "asset_id": "asset_mv_warehouse_frame03",
+            "asset_type": "storyboard_frame",
+            "project_id": "proj_music_neon",
+            "scene_id": "scene_mv_warehouse",
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T12:45:00Z",
+            "intended_pipeline": "wan-v2.5"
+          }
+        }
+      }
+    },
+    {
+      "id": "ideo3-ex-005",
+      "title": "Commercial — Product/Prop Design with Text",
+      "project_type": "commercial",
+      "asset_type": "prop_design",
+      "notes": "Demonstrates product/prop visualization with text rendering for a brand element. The perfume bottle label requires accurate text. Uses quality render mode and magic_prompt='off' for text precision. 1:1 square format for product catalog use.",
+      "input": {
+        "asset_id": "asset_comm_bottle_design",
+        "asset_type": "prop_design",
+        "project_id": "proj_aurelia_fragrance",
+        "description": "Hero product design for the Aurelia perfume bottle. The bottle needs the brand name 'AURELIA' clearly visible. Luxury minimalist aesthetic matching the brand guidelines. Will also be used for marketing materials.",
+        "text_requirements": {
+          "primary_text": "AURELIA",
+          "style": "Gold embossed serif lettering on glass"
+        },
+        "scene_context": {
+          "mood": "luxurious, elegant, aspirational",
+          "color_palette": "black, gold, amber"
+        },
+        "brand_guidelines": {
+          "colors": ["black", "gold", "amber"],
+          "style": "luxury minimalist",
+          "avoid": ["bright colors", "busy backgrounds", "casual aesthetic"]
+        },
+        "intended_use": "Product design reference for commercial shoot. Also used in marketing collateral."
+      },
+      "output": {
+        "human_readable": "A minimalist product photograph of a tall rectangular glass perfume bottle with the text \"AURELIA\" embossed in gold serif lettering on the front face. The bottle has a sculptural gold cap and contains amber liquid that catches the light with warm refraction. The bottle sits on a polished black marble surface with subtle gold veining. Clean studio lighting: a single soft key light from above-right creates a defined specular highlight along the glass edge, with gentle fill from the left. Seamless dark gradient background. The gold embossing catches the light, creating subtle dimensionality. Square format for product catalog. Luxury product photography, sharp detail, high-end commercial aesthetic.",
+        "json": {
+          "prompt": "A minimalist product photograph of a tall rectangular glass perfume bottle with the text \"AURELIA\" embossed in gold serif lettering on the front. Sculptural gold cap, amber liquid catching warm light with refraction. Bottle on a polished black marble surface with subtle gold veining. Single soft key light from above-right creating specular highlight along glass edge, gentle fill from left. Seamless dark gradient background. Gold embossing catching the light with dimensionality. Luxury product photography, sharp detail, high-end commercial aesthetic, 8K.",
+          "negative_prompt": "blurry, fingerprints, dust, scratches, bright colors, busy background, human hands, casual, misspelled text, low quality",
+          "aspect_ratio": "1:1",
+          "magic_prompt": "off",
+          "render_speed": "quality",
+          "seed": 91055,
+          "style_type": null,
+          "color_palette": null,
+          "style_reference": null,
+          "character_reference": null,
+          "text_rendering": {
+            "text_content": "AURELIA",
+            "word_count": 1,
+            "font_style": "gold embossed serif lettering",
+            "text_color": "gold",
+            "background_contrast": "clear glass with amber liquid"
+          },
+          "composition": {
+            "shot_type": "close_up",
+            "focal_length": "100mm macro",
+            "depth_of_field": "moderate"
+          },
+          "metadata": {
+            "asset_id": "asset_comm_bottle_design",
+            "asset_type": "prop_design",
+            "project_id": "proj_aurelia_fragrance",
+            "scene_id": null,
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T13:00:00Z",
+            "intended_pipeline": null
+          }
+        }
+      }
+    },
+    {
+      "id": "ideo3-ex-006",
+      "title": "Documentary — Location Scout Reference",
+      "project_type": "documentary",
+      "asset_type": "location_concept",
+      "notes": "Demonstrates a realistic location reference for documentary pre-production. Uses Magic Prompt 'auto' for natural, photorealistic results. No text rendering needed. 4:3 standard landscape for a natural documentary feel. Intended to establish the visual tone of the fishing village sequences.",
+      "input": {
+        "asset_id": "asset_doc_village_ref",
+        "asset_type": "location_concept",
+        "project_id": "proj_forgotten_waters",
+        "scene_id": "scene_doc_village_exterior",
+        "description": "Reference image for the fishing village exterior. Small Japanese coastal village with wooden buildings, fishing boats, nets drying. Late afternoon golden light. Authentic, lived-in feel — not tourist-postcard pretty.",
+        "scene_context": {
+          "location": "Exterior — Small Japanese coastal fishing village",
+          "time_of_day": "late afternoon / golden hour",
+          "weather": "clear sky, warm light",
+          "period": "contemporary but traditional architecture",
+          "mood": "warm, nostalgic, quietly beautiful, authentic"
+        },
+        "style_modifiers": ["documentary photography", "natural light", "warm tones", "lived-in authenticity"],
+        "intended_use": "Location mood reference for the fishing village sequences. Sets visual tone for documentary."
+      },
+      "output": {
+        "human_readable": "A documentary-style photograph of a small Japanese coastal fishing village in late afternoon golden hour light. Weathered wooden buildings with faded blue and grey paint line a narrow path leading to a stone harbor wall. Small fishing boats — some wooden, some fiberglass — rest at the dock with coiled ropes and stacked crates. Fishing nets hang drying from wooden frames, their mesh casting intricate shadows. An elderly bicycle leans against a wall. Warm golden sunlight creates long shadows across the stone path and catches dust particles in the air. The sea is visible beyond the harbor, glinting in the afternoon light. The scene feels lived-in and authentic — not pristine or tourist-postcard perfect. Natural documentary photography, warm color grading, Kodak Portra film tones.",
+        "json": {
+          "prompt": "A documentary photograph of a small Japanese coastal fishing village in late afternoon golden hour. Weathered wooden buildings with faded blue and grey paint line a narrow path to a stone harbor wall. Small fishing boats rest at the dock with coiled ropes and stacked crates. Fishing nets hang drying from wooden frames casting intricate shadows. Warm golden sunlight creates long shadows, catching dust in the air. The sea glints beyond the harbor. Lived-in and authentic, not pristine. Documentary photography, warm color grading, Kodak Portra film tones, natural light.",
+          "negative_prompt": "people, tourists, modern buildings, cars, neon signs, night, rain, cartoon, illustration, oversaturated",
+          "aspect_ratio": "4:3",
+          "magic_prompt": "auto",
+          "render_speed": "default",
+          "seed": null,
+          "style_type": null,
+          "color_palette": null,
+          "style_reference": null,
+          "character_reference": null,
+          "text_rendering": null,
+          "composition": {
+            "shot_type": "wide",
+            "focal_length": "35mm standard wide",
+            "depth_of_field": "deep"
+          },
+          "metadata": {
+            "asset_id": "asset_doc_village_ref",
+            "asset_type": "location_concept",
+            "project_id": "proj_forgotten_waters",
+            "scene_id": "scene_doc_village_exterior",
+            "skill_version": "1.0",
+            "generation_timestamp": "2026-03-03T13:15:00Z",
+            "intended_pipeline": null
+          }
+        }
+      }
+    }
+  ]
+}
