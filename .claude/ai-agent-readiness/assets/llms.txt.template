@@ -1,0 +1,39 @@
+# Project or Site Name
+
+> One or two sentences of essential context. An agent that reads only this
+> blockquote should understand what this site is and who it's for. This is the
+> highest-leverage line in the file.
+
+Optional freeform notes go here — caveats, versioning, anything an agent would
+otherwise get wrong. Paragraphs and lists are fine. Headings are not: the spec
+reserves H2 for the link sections below, and prose after the first H2 breaks
+parsers that follow the spec.
+
+## Docs
+
+- [Quickstart](https://example.com/docs/quickstart.md): What it covers, in a clause
+- [API reference](https://example.com/docs/api.md): Endpoints, auth, rate limits
+
+## Product
+
+- [Pricing](https://example.com/pricing.md): Plans and what separates them
+- [About](https://example.com/about.md): Who builds this and why
+
+## Optional
+
+- [Changelog](https://example.com/changelog.md): Release history
+
+<!--
+Delete this block before shipping.
+
+Easy to get wrong:
+  1. H1 first. It is the only required section.
+  2. Blockquote second, then optional prose, then H2 sections. That exact order.
+  3. Link to the .md versions of pages, not the HTML, wherever you have them.
+  4. Every link gets a ": short note". Undescribed links waste the agent's fetch.
+  5. Curate. Twenty good links beat four hundred generated ones — the whole
+     point is fitting inside a context window.
+  6. Test it: hand an agent ONLY this file and ask real questions about the
+     site. If it can't answer them, the file is decorative.
+  7. Check that nothing here links to a URL your robots.txt or WAF blocks.
+-->
