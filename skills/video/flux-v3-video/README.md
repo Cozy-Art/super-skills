@@ -84,7 +84,7 @@ tool it has.
 this today. Prefer `minimax-h3` (`<Subject N>` typed reference tokens), `seedance-v2-5` (`@Image 1`),
 or `veo-v3` (numbered reference images) when cross-shot identity is the requirement.
 
-**Against `ltx-v2`**, the other single-pass audio-video model in the catalogue: LTX requires a single
+**Against `ltx-v2`**, the other single-pass audio-video model here: LTX requires a single
 flowing paragraph and has no reference mechanism either, but no keyframe timing. FLUX 3 wins where
 timing matters; LTX wins where duration >20s is needed.
 

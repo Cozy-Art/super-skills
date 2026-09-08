@@ -32,8 +32,8 @@ Placement carries meaning; don't collect the tags at the front.
 
 **`<IMAGE_REF_0>` is the first reference image.**
 
-Every other numbered-reference model in the catalogue starts at 1 — `@Image1` on Veo and Seedance,
-`<IMAGE_1>` on Grok video, `<Subject 1>` on MiniMax H3. Omni Flash starts at 0.
+Numbered references elsewhere start at 1 — `@Image1` on Veo and Seedance, `<IMAGE_1>` on Grok video,
+`<Subject 1>` on MiniMax H3. Omni Flash starts at 0.
 
 Worse, Google's **declaration-block** form mixes the two bases in one line:
 
@@ -163,5 +163,5 @@ separate clips in an edit, with all the continuity risk that implies.
 - **Legible on-screen text** — a stated model limitation
 
 **Reach for Omni Flash when** the piece is short, the look needs to be found rather than specified, and
-iteration is the workflow. Conversational refinement of a 3–10 second clip is something no other model
-in the catalogue offers, and for that job it is the right choice.
+iteration is the workflow. Conversational refinement of a 3–10 second clip is what it is for, and for
+that job it is the right choice.

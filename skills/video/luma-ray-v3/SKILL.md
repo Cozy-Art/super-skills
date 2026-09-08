@@ -1,6 +1,6 @@
 ---
 name: luma-ray-3-prompts
-description: Generate optimized prompts for Luma Ray 3 (Dream Machine) video generation, covering text-to-video, image-to-video, keyframe interpolation and video extension. Use this skill whenever a user mentions Luma Ray, Ray 3, or Dream Machine video, or wants prompts for cinematic camera motion and physically coherent movement on this model. Always use this skill instead of guessing at Ray 3 prompt structure from general knowledge — audio is generated in a SEPARATE step on this model and must not be written into the video prompt, which is the opposite of most video models in the catalogue.
+description: Generate optimized prompts for Luma Ray 3 (Dream Machine) video generation, covering text-to-video, image-to-video, keyframe interpolation and video extension. Use this skill whenever a user mentions Luma Ray, Ray 3, or Dream Machine video, or wants prompts for cinematic camera motion and physically coherent movement on this model. Always use this skill instead of guessing at Ray 3 prompt structure from general knowledge — audio is generated in a SEPARATE step on this model and must not be written into the video prompt.
 ---
 
 # Luma Ray 3 (Dream Machine) Video Generation Prompt Formatter

@@ -1,6 +1,6 @@
 ---
 name: gemini-3-pro-image-prompts
-description: Generate optimized prompts for Gemini 3 Pro Image, nicknamed Nano Banana Pro, Google's professional image model with multi-reference support, Google Search grounding and strong in-image text rendering. Use this skill whenever a user mentions Gemini 3 Pro Image, Nano Banana, or Nano Banana Pro, or wants prompts involving up to fourteen reference images, thinking-mode reasoning, or search-grounded generation of real-world subjects. Always use this skill instead of guessing at its prompt structure from general knowledge — references are described in natural language with no token syntax at all, which is unlike most models in the catalogue.
+description: Generate optimized prompts for Gemini 3 Pro Image, nicknamed Nano Banana Pro, Google's professional image model with multi-reference support, Google Search grounding and strong in-image text rendering. Use this skill whenever a user mentions Gemini 3 Pro Image, Nano Banana, or Nano Banana Pro, or wants prompts involving up to fourteen reference images, thinking-mode reasoning, or search-grounded generation of real-world subjects. Always use this skill instead of guessing at its prompt structure from general knowledge — references are described in natural language with no token syntax at all.
 ---
 
 # Gemini 3 Pro Image (Nano Banana Pro) - Prompt Generation Skill

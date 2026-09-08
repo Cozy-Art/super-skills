@@ -102,9 +102,9 @@ prompt text, which Google's own guidance directs.
 
 **Numbered reference tokens** — see the token-form section above.
 
-**Slug: `gemini-omni-flash`.** The only skill here that cannot take a `-vN` suffix, because the
-model carries no version number (`gemini-omni-flash-preview`; `-preview` is transient state, not a
-version). Note that Gemini 3 Pro Image is a separate model line, not a version of this one.
+**Slug: `gemini-omni-flash`.** No `-vN` suffix, because the model carries no version number
+(`gemini-omni-flash-preview`; `-preview` is transient state, not a version). Note that Gemini 3 Pro
+Image is a separate model line, not a version of this one.
 
 **No storefronts named.**
 
@@ -114,8 +114,7 @@ version). Note that Gemini 3 Pro Image is a separate model line, not a version o
 
 **Reach for Omni Flash when the piece is short and the look needs to be found rather than specified.**
 Conversational refinement of a 3–10 second clip — generate roughly, then converge across short
-single-change edit turns — is something no other model in the catalogue offers. For that job it is
-clearly the right choice.
+single-change edit turns — is what it is built for. For that job it is clearly the right choice.
 
 Its continuity model is also genuinely different and worth understanding: continuity comes from
 **staying in the conversation**, not from re-binding assets. Within a chain it is free and drift-proof,

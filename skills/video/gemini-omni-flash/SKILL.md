@@ -10,7 +10,7 @@ and video and returns short video with natively synchronized sound. Its distinct
 **conversational editing**: a generated clip can be refined across turns, each edit building on the
 last, without re-specifying the whole scene.
 
-It is also the most tightly bounded video model in the catalogue: **3 to 10 seconds, 720p, 24 fps,
+Its output envelope is tight and fixed: **3 to 10 seconds, 720p, 24 fps,
 landscape or portrait only.** Those limits are not settings to negotiate — they are the model.
 
 **This skill produces prompt text, not API calls.** The output goes to a person, who pastes it into
@@ -76,8 +76,8 @@ Written inline, in the position where the reference applies:
 in the style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking
 ```
 
-**Image references start from 0.** `<IMAGE_REF_0>` is the first reference image. This differs from
-every other numbered-reference model in the catalogue, which start at 1.
+**Image references start from 0.** `<IMAGE_REF_0>` is the first reference image. Numbered references
+elsewhere start at 1.
 
 ### Declaration blocks
 

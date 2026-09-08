@@ -150,8 +150,8 @@ speaker labels throughout ByteDance's own examples.
 **No negative-prompt parameter** — no `negative_prompt` field exists. But note the body's
 framing changed between versions: v1.0 called in-prompt negation "a working technique, not documented
 behaviour"; it is now **documented, for subtitles and audio specifically**, with broader use noted as
-outside the guarantee. Three models in this batch, three defensible positions on negation — FLUX 3
-endorsed, Seedance scoped, MiniMax H3 undocumented.
+outside the guarantee. Three models, three defensible positions on negation — FLUX 3 endorsed,
+Seedance scoped, MiniMax H3 undocumented.
 
 **No storefronts named.** BytePlus, ModelArk, Dreamina and Jimeng appear in
 `parameters.md` and this README only as **sourcing labels**, never as destinations.
@@ -165,7 +165,7 @@ clean joins.**
 
 - **Long** — 30 s single-pass, double the 2.0 family
 - **Crowded** — 50 reference assets against `minimax-h3`'s 12 and `veo-v3`'s 3
-- **Previz'd** — 3D clay-model reference has no equivalent in the catalogue
+- **Previz'd** — 3D clay-model reference, with no equivalent elsewhere here
 - **Editable** — timestamp-scoped editing of picture *and* audio independently, with `mov` joins
 
 **Route away when:**

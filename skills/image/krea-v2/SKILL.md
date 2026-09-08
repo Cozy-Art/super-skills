@@ -68,8 +68,8 @@ rendered."*
 A hand-painted shop sign reading "COLD BEER" above a doorway.
 ```
 
-This is one of the few first-party-documented quoting conventions in the catalogue — most models where
-this technique circulates have no vendor statement behind it. Here it does.
+The quoting convention is first-party documented: Krea states it outright, rather than it circulating
+as community folklore.
 
 ## The Controls That Do the Work
 
