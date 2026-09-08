@@ -1,0 +1,338 @@
+{
+  "model": "sora-2",
+  "skill_version": "1.0.0",
+  "last_updated": "2026-02-25",
+  "description": "Example input/output pairs for Sora 2 video prompt generation. Examples demonstrate the five essential elements (camera, depth of field, action, lighting, color anchors), audio sync, MARS-LSP timestamping, and sequential character consistency.",
+  "examples": [
+    {
+      "id": "ex_01_establishing_shot",
+      "name": "Establishing Shot — Environment with Physics (Standard)",
+      "complexity": "simple",
+      "variant_used": "sora-2",
+      "generation_intent": "establishing_shot",
+      "description": "A simple establishing shot focused on environment, atmosphere, and physical interactions. No characters. Standard variant for iteration.",
+      "input": {
+        "shot": {
+          "shotType": "wide",
+          "cameraMovement": "slow dolly push-in",
+          "description": "Open on the empty pier at night. Set the tone for the entire film.",
+          "duration": 8
+        },
+        "character": null,
+        "scene": {
+          "location": "Abandoned industrial pier extending over dark water. Rusted metal pilings, broken wooden planks, a single flickering sodium lamp at the far end.",
+          "timeOfDay": "night, 11 PM",
+          "weather": "light fog rolling off the water, still air",
+          "mood": "foreboding, lonely, noir"
+        },
+        "project": {
+          "genre": "crime drama",
+          "visualStyle": "cinematic, Fincher-esque",
+          "colorPalette": ["deep black water", "sickly sodium amber", "cold steel gray", "fog white"]
+        }
+      },
+      "output": {
+        "prompt": "Slow dolly push-in, 24mm wide-angle lens, low angle from water level. An abandoned industrial pier stretches into darkness over black water. Rusted metal pilings rise from the surface, broken wooden planks gap along the walkway. A single sodium lamp at the far end flickers with sickly amber light, casting long shadows down the pier. Light fog rolls slowly off the water's surface, curling around the pilings. The fog catches the amber light, creating a hazy glow. Deep depth of field — everything sharp from the foreground pilings to the distant lamp. Dominant colors: deep black water, sickly sodium amber, cold steel gray, fog white. Water laps gently against the pilings. Distant foghorn. The creak of old wood shifting. No dialogue, no music — just the pier breathing.\n\n[Variant: Sora 2 Standard | Duration: 8 seconds | Iteration pass — test atmosphere before Pro render]",
+        "json": {
+          "prompt": "Slow dolly push-in, 24mm wide-angle lens, low angle from water level. An abandoned industrial pier stretches into darkness over black water. Rusted metal pilings rise from the surface, broken wooden planks gap along the walkway. A single sodium lamp at the far end flickers with sickly amber light, casting long shadows down the pier. Light fog rolls slowly off the water's surface, curling around the pilings. The fog catches the amber light, creating a hazy glow. Deep depth of field — everything sharp from the foreground pilings to the distant lamp. Dominant colors: deep black water, sickly sodium amber, cold steel gray, fog white. Water laps gently against the pilings. Distant foghorn. The creak of old wood shifting.",
+          "model": "sora-2",
+          "size": "1280x720",
+          "seconds": 8,
+          "n": 2,
+          "audio": {
+            "ambient": "water lapping against pilings, distant foghorn",
+            "sfx": "creak of old wood shifting, flicker buzz from sodium lamp",
+            "dialogue": null,
+            "music_mood": null
+          },
+          "metadata": {
+            "shot_id": "shot_01_01",
+            "scene_id": "scene_01",
+            "continuity_anchor": true,
+            "skill_version": "1.0.0",
+            "generation_intent": "establishing_shot",
+            "variant_rationale": "Standard for iteration — testing atmosphere, fog physics, and lighting before committing to Pro. Generating 2 variants to compare fog density.",
+            "sequential_shot_number": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "ex_02_character_intro",
+      "name": "Character Introduction — Action + Audio (Pro)",
+      "complexity": "medium",
+      "variant_used": "sora-2-pro",
+      "generation_intent": "character_intro",
+      "description": "First appearance of the protagonist. Character action with synchronized audio. Pro variant for hero shot quality.",
+      "input": {
+        "shot": {
+          "shotType": "medium",
+          "cameraMovement": "steadicam following from behind, then orbits to reveal face",
+          "description": "We follow Mara from behind as she walks toward the pier. Camera orbits to reveal her face. This is her introduction — the audience meets her here.",
+          "duration": 10
+        },
+        "character": {
+          "name": "Mara Okafor",
+          "age": "mid 30s",
+          "physicalDescription": "Nigerian-British woman, tall and lean, close-cropped natural hair, strong jaw, deep brown eyes with tired circles beneath, small gold hoop earrings",
+          "wardrobe": "Long dark navy wool overcoat over a black turtleneck, dark jeans, worn leather boots",
+          "emotionalState": "determined, weary, steeling herself"
+        },
+        "scene": {
+          "location": "Waterfront walkway approaching the pier from Scene 01",
+          "timeOfDay": "night, 11 PM",
+          "weather": "same light fog, damp pavement",
+          "mood": "purposeful solitude"
+        },
+        "project": {
+          "genre": "crime drama",
+          "visualStyle": "cinematic, Fincher-esque",
+          "colorPalette": ["deep navy coat", "amber sodium light", "wet black pavement", "fog gray"]
+        }
+      },
+      "output": {
+        "prompt": "Steadicam following from behind, 35mm lens, slight low angle. A tall, lean woman in a long dark navy wool overcoat walks with deliberate purpose along a damp waterfront walkway at night. She is a Nigerian-British woman in her mid-30s with close-cropped natural hair, small gold hoop earrings catching the light. Worn leather boots on wet pavement. The camera slowly orbits from behind to her left side, revealing her profile — strong jaw, deep brown eyes with tired circles beneath, an expression of weary determination. She doesn't flinch. Sodium amber light from overhead lamps creates warm pools on the wet black pavement. Light fog curls at ankle level. Shallow depth of field — she is sharp, the background pier lights softly blurred. Dominant colors: deep navy, sodium amber, wet black, fog gray. Her boots on wet pavement — measured, deliberate footsteps. Distant water. Her breathing, steady and controlled. No music.\n\n[Variant: Sora 2 Pro | Duration: 10 seconds | Hero character introduction — maximum quality]",
+        "json": {
+          "prompt": "Steadicam following from behind, 35mm lens, slight low angle. A tall, lean woman in a long dark navy wool overcoat walks with deliberate purpose along a damp waterfront walkway at night. She is a Nigerian-British woman in her mid-30s with close-cropped natural hair, small gold hoop earrings catching the light. Worn leather boots on wet pavement. The camera slowly orbits from behind to her left side, revealing her profile — strong jaw, deep brown eyes with tired circles beneath, an expression of weary determination. She doesn't flinch. Sodium amber light from overhead lamps creates warm pools on the wet black pavement. Light fog curls at ankle level. Shallow depth of field — she is sharp, the background pier lights softly blurred. Dominant colors: deep navy, sodium amber, wet black, fog gray. Her boots on wet pavement — measured, deliberate footsteps. Distant water. Her breathing, steady and controlled. No music.",
+          "model": "sora-2-pro",
+          "size": "1280x720",
+          "seconds": 10,
+          "n": 1,
+          "audio": {
+            "ambient": "distant water, light wind",
+            "sfx": "measured deliberate footsteps on wet pavement, leather boots",
+            "dialogue": null,
+            "music_mood": null
+          },
+          "metadata": {
+            "shot_id": "shot_01_02",
+            "scene_id": "scene_01",
+            "character_ids": ["char_mara_okafor"],
+            "continuity_anchor": true,
+            "skill_version": "1.0.0",
+            "generation_intent": "character_intro",
+            "variant_rationale": "Pro for hero character introduction. Maximum quality for the audience's first impression of the protagonist. Camera orbit requires consistent face rendering.",
+            "sequential_shot_number": 2,
+            "continuity_notes": "Same pier location as shot_01_01. Same fog density, same sodium lighting. Mara approaches from the walkway side."
+          }
+        }
+      }
+    },
+    {
+      "id": "ex_03_dialogue_scene",
+      "name": "Dialogue Scene — Synced Audio (Pro)",
+      "complexity": "complex",
+      "variant_used": "sora-2-pro",
+      "generation_intent": "dialogue_scene",
+      "description": "A tense dialogue scene with synchronized speech and environmental audio. Pro for audio sync precision.",
+      "input": {
+        "shot": {
+          "shotType": "close-up",
+          "cameraMovement": "static, locked-off",
+          "description": "Mara confronts the informant. Tight on her face. She delivers the key line.",
+          "duration": 6
+        },
+        "character": {
+          "name": "Mara Okafor",
+          "physicalDescription": "Nigerian-British woman, mid 30s, close-cropped natural hair, strong jaw, gold hoop earrings, dark navy overcoat",
+          "emotionalState": "controlled anger, barely contained"
+        },
+        "scene": {
+          "location": "Parked car interior, fogged windows, dashboard lights",
+          "timeOfDay": "night",
+          "mood": "claustrophobic confrontation"
+        },
+        "dialogue": "You had seventy-two hours.",
+        "project": {
+          "genre": "crime drama",
+          "colorPalette": ["dashboard blue glow", "shadow black", "skin warm amber"]
+        }
+      },
+      "output": {
+        "prompt": "Static locked-off close-up, 85mm lens, shallow depth of field. A Nigerian-British woman in her mid-30s with close-cropped natural hair and small gold hoop earrings. Her strong jaw is set, eyes burning with controlled anger. She sits in the passenger seat of a parked car, fogged windows behind her blurring the outside world to nothing. Cool blue dashboard light illuminates one side of her face; the other falls into deep shadow. She looks directly at someone off-camera to her right. Her lips part and she says: 'You had seventy-two hours.' Her voice is low, measured, dangerous — barely above a whisper but cutting like a blade. A muscle in her jaw tightens after she speaks. Dominant colors: cool dashboard blue, deep shadow black, warm amber on her skin. The car engine idles. A faint tick of rain on the roof. The leather seat creaks as she leans forward slightly.\n\n[Variant: Sora 2 Pro | Duration: 6 seconds | Dialogue sync — short line, Pro for precise lip sync and audio quality]",
+        "json": {
+          "prompt": "Static locked-off close-up, 85mm lens, shallow depth of field. A Nigerian-British woman in her mid-30s with close-cropped natural hair and small gold hoop earrings. Her strong jaw is set, eyes burning with controlled anger. She sits in the passenger seat of a parked car, fogged windows behind her blurring the outside world. Cool blue dashboard light illuminates one side of her face; the other falls into deep shadow. She looks directly at someone off-camera to her right. Her lips part and she says: 'You had seventy-two hours.' Her voice is low, measured, barely above a whisper. A muscle in her jaw tightens after she speaks. Dominant colors: cool dashboard blue, deep shadow black, warm amber skin tones. The car engine idles. Faint tick of rain on the roof. Leather seat creaks as she leans forward slightly.",
+          "model": "sora-2-pro",
+          "size": "1280x720",
+          "seconds": 6,
+          "n": 1,
+          "audio": {
+            "ambient": "car engine idling, faint rain on roof",
+            "sfx": "leather seat creak",
+            "dialogue": "she says: You had seventy-two hours",
+            "music_mood": null
+          },
+          "metadata": {
+            "shot_id": "shot_07_03",
+            "scene_id": "scene_07",
+            "character_ids": ["char_mara_okafor"],
+            "continuity_anchor": false,
+            "skill_version": "1.0.0",
+            "generation_intent": "dialogue_scene",
+            "variant_rationale": "Pro required for dialogue sync. Short line (5 words) within Sora 2's text rendering comfort zone. Close-up demands highest quality face rendering.",
+            "sequential_shot_number": 3,
+            "continuity_notes": "Same car interior as shot_07_01 and shot_07_02. Mara wears same overcoat. Dashboard lighting unchanged."
+          }
+        }
+      }
+    },
+    {
+      "id": "ex_04_broll_physics",
+      "name": "B-Roll Insert — Physics and Materials (Standard)",
+      "complexity": "simple",
+      "variant_used": "sora-2",
+      "generation_intent": "b_roll",
+      "description": "A short physics-focused insert shot. No characters. Standard variant for cost efficiency — these are supplementary shots.",
+      "input": {
+        "shot": {
+          "shotType": "extreme close-up",
+          "cameraMovement": "static",
+          "description": "Rain hitting a puddle on the pier. Beautiful macro-style insert. Purely atmospheric.",
+          "duration": 4
+        },
+        "character": null,
+        "scene": {
+          "location": "Pier surface, puddle between wooden planks",
+          "timeOfDay": "night",
+          "weather": "rain beginning",
+          "mood": "contemplative, textural"
+        },
+        "project": {
+          "genre": "crime drama",
+          "colorPalette": ["black water", "amber reflection", "rain silver"]
+        }
+      },
+      "output": {
+        "prompt": "Static extreme close-up, macro lens, very shallow depth of field. A puddle between weathered wooden planks on the pier's surface. Rain droplets begin to fall — each one hitting the still black water and creating perfect expanding ripples that intersect with each other. The puddle reflects a distant sodium lamp as a smeared amber glow that fractures with each impact. Water beads on the rough wood grain beside the puddle. Dominant colors: black water, amber reflection, silver rain droplets. The patter of individual raindrops on wood and water. Each impact distinct, building gradually in frequency.\n\n[Variant: Sora 2 Standard | Duration: 4 seconds | B-roll insert — Standard is sufficient, physics-focused]",
+        "json": {
+          "prompt": "Static extreme close-up, macro lens, very shallow depth of field. A puddle between weathered wooden planks on a pier surface. Rain droplets begin to fall — each one hitting the still black water and creating perfect expanding ripples that intersect with each other. The puddle reflects a distant sodium lamp as a smeared amber glow that fractures with each droplet impact. Water beads on the rough wood grain beside the puddle. Dominant colors: black water, amber reflection, silver rain droplets. The patter of individual raindrops on wood and water, each impact distinct, building gradually in frequency.",
+          "model": "sora-2",
+          "size": "1280x720",
+          "seconds": 4,
+          "n": 2,
+          "audio": {
+            "ambient": null,
+            "sfx": "individual raindrops hitting wood and puddle water, building in frequency",
+            "dialogue": null,
+            "music_mood": null
+          },
+          "metadata": {
+            "scene_id": "scene_01",
+            "continuity_anchor": false,
+            "skill_version": "1.0.0",
+            "generation_intent": "b_roll",
+            "variant_rationale": "Standard for B-roll insert. Physics test for rain/water ripple simulation. Generating 2 variants to select best ripple quality.",
+            "sequential_shot_number": null
+          }
+        }
+      }
+    },
+    {
+      "id": "ex_05_image_to_video",
+      "name": "Image-to-Video — Animate a Still (Standard)",
+      "complexity": "simple",
+      "variant_used": "sora-2",
+      "generation_intent": "hero_shot",
+      "description": "Animating a still image generated in another tool (Flux 2 or Seedream). The prompt describes ONLY motion, not the image contents.",
+      "input": {
+        "shot": {
+          "shotType": "medium",
+          "cameraMovement": "slow push-in",
+          "description": "Animate the Mara character reference portrait — subtle life, not dramatic action",
+          "duration": 5
+        },
+        "character": {
+          "name": "Mara Okafor",
+          "note": "Using the Flux 2 Pro character reference as input_reference"
+        },
+        "scene": {
+          "location": "Same as reference image",
+          "mood": "bring the still portrait to life with subtle motion"
+        },
+        "reference_image": "mara_okafor_portrait_flux2.png"
+      },
+      "output": {
+        "prompt": "Slow push-in. Subject breathes naturally, her chest rising and falling subtly. A slight shift of her weight. Her eyes track slowly from left to center, as if noticing something. Wind moves a few strands of hair. The gold hoop earrings sway almost imperceptibly. Shallow depth of field, background stays soft. Ambient room tone, her quiet breathing.\n\n[Variant: Sora 2 Standard | Duration: 5 seconds | Image-to-video — motion only, do NOT re-describe the image. Input reference: mara_okafor_portrait_flux2.png]",
+        "json": {
+          "prompt": "Slow push-in. Subject breathes naturally, chest rising and falling subtly. A slight shift of weight. Her eyes track slowly from left to center, as if noticing something. Wind moves a few strands of hair. Gold hoop earrings sway almost imperceptibly. Ambient room tone, quiet breathing.",
+          "model": "sora-2",
+          "size": "1280x720",
+          "seconds": 5,
+          "input_reference": "mara_okafor_portrait_flux2.png",
+          "n": 2,
+          "audio": {
+            "ambient": "quiet room tone",
+            "sfx": "subtle breathing",
+            "dialogue": null,
+            "music_mood": null
+          },
+          "metadata": {
+            "character_ids": ["char_mara_okafor"],
+            "continuity_anchor": false,
+            "skill_version": "1.0.0",
+            "generation_intent": "hero_shot",
+            "variant_rationale": "Standard for testing animation quality before Pro. Image-to-video — prompt is intentionally short, describing only desired motion. Input reference provides all visual information."
+          }
+        }
+      }
+    },
+    {
+      "id": "ex_06_mars_lsp_complex",
+      "name": "MARS-LSP Timestamped — Multi-Beat Action (Pro)",
+      "complexity": "complex",
+      "variant_used": "sora-2-pro",
+      "generation_intent": "climax",
+      "description": "A complex multi-beat climax shot using MARS-LSP timestamped prompting for precise control over camera, action, and audio at specific moments. Pro only.",
+      "input": {
+        "shot": {
+          "shotType": "various — starts wide, ends close-up",
+          "cameraMovement": "crane down to handheld to static",
+          "description": "The confrontation on the pier. Mara arrives, sees the evidence, makes her decision. Three distinct beats in one shot.",
+          "duration": 15
+        },
+        "character": {
+          "name": "Mara Okafor",
+          "physicalDescription": "Nigerian-British woman, mid 30s, close-cropped natural hair, dark navy overcoat, gold hoop earrings",
+          "emotionalState": "evolving — cautious → shocked → resolved"
+        },
+        "scene": {
+          "location": "The pier from Scene 01, now with a manila envelope on a wooden crate under the sodium lamp",
+          "timeOfDay": "night, same as opening",
+          "weather": "rain has stopped, everything wet and glistening",
+          "mood": "revelation, turning point"
+        },
+        "project": {
+          "genre": "crime drama",
+          "colorPalette": ["sodium amber", "wet black", "manila tan", "skin warm"]
+        }
+      },
+      "output": {
+        "prompt": "[00:00] CAMERA: High crane shot looking down at the wet pier, 24mm, deep focus. SUBJECT: Mara walks slowly onto the pier from the walkway, small figure against the vast dark water. SND: Her boots on wet wood, water dripping from railings. DIR: Isolation, vulnerability.\n\n[00:05] CAMERA: Crane descends to eye level, transitioning to handheld as she approaches the crate. SUBJECT: Mara sees a manila envelope sitting on a wooden crate beneath the flickering sodium lamp. She stops. Her hand reaches out but doesn't touch it. SND: The sodium lamp buzzes. A chain clinks against a piling in the wind. DIR: Tension building, discovery.\n\n[00:10] CAMERA: Static close-up, 85mm, shallow depth of field. SUBJECT: Mara's face as she opens the envelope and looks at the contents. We don't see what's inside — only her reaction. Her eyes widen slightly. Then her jaw sets. A decision made. SND: Paper sliding from envelope. Her breathing changes — faster, then deliberately controlled. A single deep exhale. DIR: The turn. From shock to resolution. No music — the silence IS the score.\n\nDominant colors: sodium amber, wet black, manila tan, warm skin tones. No text on screen. No lens flares.\n\n[Variant: Sora 2 Pro | Duration: 15 seconds | MARS-LSP timestamped — climax scene, three beats requiring precise timing. Pro required for extended duration and complex choreography.]",
+        "json": {
+          "prompt": "[00:00] [CAMERA]: High crane shot looking down at the wet pier, 24mm wide-angle, deep focus\n        [SUBJECT]: A woman in a dark navy overcoat walks slowly onto the pier, small figure against vast dark water\n        [SND]: Boots on wet wood, water dripping from railings\n        [DIR]: Isolation, vulnerability\n\n[00:05] [CAMERA]: Crane descends to eye level, transitions to handheld as she approaches a wooden crate\n        [SUBJECT]: She sees a manila envelope on the crate beneath a flickering sodium lamp. She stops. Her hand reaches out but doesn't touch it\n        [SND]: Sodium lamp buzzing, chain clinking against a piling\n        [DIR]: Tension, discovery\n\n[00:10] [CAMERA]: Static close-up, 85mm lens, shallow depth of field\n        [SUBJECT]: Her face as she opens the envelope. We see only her reaction — eyes widen slightly, then jaw sets with determination. A decision made.\n        [SND]: Paper sliding from envelope. Breathing quickens then deliberately slows. Single deep exhale\n        [DIR]: The turn from shock to resolution. Silence is the score\n\nDominant colors: sodium amber, wet black, manila tan, warm skin tones. No text on surfaces, no lens flares.",
+          "model": "sora-2-pro",
+          "size": "1280x720",
+          "seconds": 15,
+          "n": 1,
+          "audio": {
+            "ambient": "water dripping, distant lapping against pilings",
+            "sfx": "boots on wet wood, sodium lamp buzz, chain clink, paper sliding from envelope, breathing",
+            "dialogue": null,
+            "music_mood": "silence — the absence of music is deliberate"
+          },
+          "metadata": {
+            "shot_id": "shot_15_01",
+            "scene_id": "scene_15",
+            "character_ids": ["char_mara_okafor"],
+            "continuity_anchor": true,
+            "skill_version": "1.0.0",
+            "generation_intent": "climax",
+            "variant_rationale": "Pro required for MARS-LSP timestamped prompting with 15-second duration. Three distinct beats require precise timing control. This is the film's turning point — maximum quality justified.",
+            "sequential_shot_number": 1,
+            "continuity_notes": "Same pier as scene_01 establishing shot. Same sodium lamp, same wet surfaces. Mara wears same overcoat from all previous scenes. NEW element: manila envelope on wooden crate."
+          }
+        }
+      }
+    }
+  ]
+}

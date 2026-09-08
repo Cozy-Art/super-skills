@@ -1,0 +1,262 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PixVerse V5.5 Video Generation Prompt Schema",
+  "description": "Schema for validating PixVerse V5.5 video generation prompts produced by this skill. Covers text-to-video, image-to-video, and effects pipelines.",
+  "type": "object",
+  "required": ["prompt", "model", "aspect_ratio", "quality", "duration"],
+  "properties": {
+    "prompt": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 2048,
+      "description": "Scene description in natural language. No special syntax. Subject MUST come first — PixVerse parses sequentially and gives early elements more weight. Include explicit motion verbs. Max 2,048 characters."
+    },
+    "negative_prompt": {
+      "type": ["string", "null"],
+      "minLength": 2,
+      "maxLength": 2048,
+      "description": "Comma-separated elements to suppress. Strongly recommended. Standard baseline: 'blurry, distorted faces, extra limbs, watermark, low quality, jerky motion, morphing, flickering'. Max 2,048 characters.",
+      "default": "blurry, distorted faces, extra limbs, watermark, low quality, jerky motion, morphing, flickering"
+    },
+    "model": {
+      "type": "string",
+      "enum": ["v3.5", "v4", "v4.5", "v5", "v5.5", "v5.6"],
+      "default": "v5.5",
+      "description": "PixVerse model version. Use 'v5.5' for standard production. 'v5.6' for latest improvements in motion clarity and lip sync. Camera movement presets (21 options) only available on v4/v4.5."
+    },
+    "aspect_ratio": {
+      "type": "string",
+      "enum": ["16:9", "9:16", "1:1", "3:4", "4:3"],
+      "default": "16:9",
+      "description": "Frame aspect ratio. 16:9 for widescreen/cinematic. 9:16 for vertical/mobile. 1:1 for square/social. 3:4 and 4:3 for standard formats."
+    },
+    "quality": {
+      "type": "string",
+      "enum": ["360p", "540p", "720p", "1080p"],
+      "default": "720p",
+      "description": "Output resolution. 360p = turbo/fast mode. 720p = balanced (supports all durations). 1080p = highest quality (max 8s duration). CRITICAL: 1080p cannot generate 10-second clips."
+    },
+    "duration": {
+      "type": "integer",
+      "enum": [5, 8, 10],
+      "default": 5,
+      "description": "Clip duration in seconds. 10s max at 720p or below. 8s max at 1080p. 5s for fastest generation and best quality."
+    },
+    "style": {
+      "type": ["string", "null"],
+      "enum": ["anime", "3d_animation", "clay", "comic", "cyberpunk", null],
+      "default": null,
+      "description": "Visual style preset. Omit (null) for photorealistic or non-preset aesthetics. Only use when the preset genuinely matches the project direction."
+    },
+    "motion_mode": {
+      "type": "string",
+      "enum": ["normal", "fast"],
+      "default": "normal",
+      "description": "'normal' = standard motion. 'fast' = increased speed and intensity. CONSTRAINT: 'fast' only works at 5-second duration and below 1080p."
+    },
+    "seed": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 2147483647,
+      "description": "Random seed for reproducibility. Lock the seed when a generation is 80% correct, then refine only the prompt. Same seed + same prompt + same settings = same output.",
+      "default": null
+    },
+    "generate_audio_switch": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable native audio generation: BGM (background music), SFX (sound effects), and dialogue with lip sync. Adds 20-30% processing time. V5.6 improves multi-character lip sync."
+    },
+    "generate_multi_clip_switch": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable multi-shot cinematic mode. Automatically breaks the scene into 1-3 camera shots (establishing, medium, close-up) with smooth transitions. Pacing adapts to content."
+    },
+    "thinking_type": {
+      "type": "string",
+      "enum": ["enabled", "disabled", "auto"],
+      "default": "auto",
+      "description": "Prompt optimization engine. 'enabled' = model rewrites and optimizes (best for simple prompts). 'disabled' = uses prompt exactly as written (best for precise control). 'auto' = model decides."
+    },
+    "camera_movement": {
+      "type": ["string", "null"],
+      "enum": [
+        null,
+        "horizontal_left",
+        "horizontal_right",
+        "pan_left",
+        "pan_right",
+        "whip_pan",
+        "vertical_up",
+        "vertical_down",
+        "crane_up",
+        "zoom_in",
+        "zoom_out",
+        "quickly_zoom_in",
+        "quickly_zoom_out",
+        "smooth_zoom_in",
+        "left_follow",
+        "right_follow",
+        "auto_camera",
+        "camera_rotation",
+        "robo_arm",
+        "super_dolly_out",
+        "hitchcock",
+        "fix_bg"
+      ],
+      "default": null,
+      "description": "Camera movement preset. 21 options available. CONSTRAINT: Only available on v4/v4.5 models. MUTUALLY EXCLUSIVE with template_id (effects). For v5.5, describe camera movement in the prompt text instead."
+    },
+    "template_id": {
+      "type": ["integer", "null"],
+      "description": "Effects template ID (1-46). For the effects pipeline. MUTUALLY EXCLUSIVE with camera_movement. Replaces V5's transition endpoint.",
+      "default": null
+    },
+    "generation_mode": {
+      "type": "string",
+      "enum": ["text-to-video", "image-to-video", "effects"],
+      "default": "text-to-video",
+      "description": "'text-to-video' = from prompt only. 'image-to-video' = animate a source image (prompt describes motion only). 'effects' = apply template effect to source image."
+    },
+    "source_image": {
+      "type": ["object", "null"],
+      "description": "Source image for image-to-video or effects mode.",
+      "default": null,
+      "properties": {
+        "img_id": {
+          "type": ["integer", "null"],
+          "description": "PixVerse image ID (from upload API). Required for I2V and effects modes.",
+          "default": null
+        },
+        "image_url": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "Local path or URL to the source image. For tracking — not sent directly to API (upload first to get img_id).",
+          "default": null
+        }
+      },
+      "additionalProperties": false
+    },
+    "frame_references": {
+      "type": ["object", "null"],
+      "description": "Start and/or end frame references for visual guidance. The AI interpolates motion between the two frames.",
+      "default": null,
+      "properties": {
+        "start_frame_url": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "URL or path to start frame image.",
+          "default": null
+        },
+        "end_frame_url": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "URL or path to end frame image. AI interpolates motion from start to end.",
+          "default": null
+        }
+      },
+      "additionalProperties": false
+    },
+    "audio_intent": {
+      "type": ["object", "null"],
+      "description": "Structured audio intent. Supplements the generate_audio_switch — tracks what kind of audio the director expects. Audio generation is automatic when the switch is on, but this helps validate output.",
+      "default": null,
+      "properties": {
+        "dialogue": {
+          "type": ["string", "null"],
+          "description": "Expected spoken dialogue. Should also be described in the main prompt for lip sync.",
+          "default": null
+        },
+        "sfx_expectation": {
+          "type": ["string", "null"],
+          "description": "Expected sound effects based on the scene content.",
+          "default": null
+        },
+        "music_mood": {
+          "type": ["string", "null"],
+          "description": "Expected background music mood/genre.",
+          "default": null
+        }
+      },
+      "additionalProperties": false
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Pipeline tracking metadata. Not sent to PixVerse API — used for internal tracking.",
+      "properties": {
+        "shot_id": {
+          "type": "string",
+          "description": "Shot identifier."
+        },
+        "scene_id": {
+          "type": "string",
+          "description": "Parent scene identifier."
+        },
+        "project_id": {
+          "type": "string",
+          "description": "Parent project identifier."
+        },
+        "skill_version": {
+          "type": "string",
+          "description": "SKILL version that generated this prompt.",
+          "const": "1.0"
+        },
+        "generation_timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When this prompt was generated."
+        },
+        "continuity_anchor": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether this shot serves as a visual reference for continuity."
+        },
+        "source_image_skill": {
+          "type": ["string", "null"],
+          "description": "If the source image was generated by another SKILL, note which one (e.g., 'ideogram-v3').",
+          "default": null
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "quality": { "const": "1080p" },
+          "duration": { "const": 10 }
+        },
+        "required": ["quality", "duration"]
+      },
+      "then": false,
+      "_comment": "1080p at 10 seconds is not supported — this combination is invalid."
+    },
+    {
+      "if": {
+        "properties": {
+          "motion_mode": { "const": "fast" },
+          "quality": { "const": "1080p" }
+        },
+        "required": ["motion_mode", "quality"]
+      },
+      "then": false,
+      "_comment": "Fast motion mode is not available at 1080p."
+    },
+    {
+      "if": {
+        "properties": {
+          "motion_mode": { "const": "fast" },
+          "duration": { "enum": [8, 10] }
+        },
+        "required": ["motion_mode", "duration"]
+      },
+      "then": false,
+      "_comment": "Fast motion mode only works at 5-second duration."
+    }
+  ],
+  "not": {
+    "required": ["camera_movement", "template_id"],
+    "_comment": "camera_movement and template_id are mutually exclusive."
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MiniMax H3 Structured Prompt Schema",
+  "description": "Schema for validating MiniMax H3 structured prompts produced by this skill. H3 is the only model in the video catalogue whose vendor documents a structured multi-section prompt format. NOTE: these sections are labelled prose blocks inside a single newline-delimited text string, not JSON keys on the API. This schema describes the composition surface; the sections are serialised in fixed order into the one `text` item the API accepts.",
+  "type": "object",
+  "required": ["mode", "spec", "settings"],
+  "additionalProperties": false,
+  "properties": {
+    "mode": {
+      "type": "string",
+      "enum": [
+        "text_to_video",
+        "image_to_video",
+        "last_frame",
+        "first_and_last_frame",
+        "reference_to_video"
+      ],
+      "description": "Selects which section set applies. reference_to_video uses all six sections with `detailed_description` as the main block; all other modes omit subject_definitions and retention_analysis and use `integrated_multimodal_description` instead. image_to_video, last_frame and first_and_last_frame are mutually exclusive with reference_to_video — first_frame/last_frame roles cannot be combined with any reference_* role."
+    },
+
+    "spec": {
+      "type": "object",
+      "description": "The six documented prose sections, in fixed order. Authoritative for the API call. NOTHING here is auto-synced from the prose rendering — if you revise one section, revise all.",
+      "additionalProperties": false,
+      "properties": {
+        "subject_definitions": {
+          "type": "array",
+          "description": "Section 1. Binds each <Subject N> token to its source assets. Required in reference_to_video, omitted otherwise.",
+          "items": {
+            "type": "object",
+            "required": ["token", "definition"],
+            "additionalProperties": false,
+            "properties": {
+              "token": {
+                "type": "string",
+                "pattern": "^<Subject [0-9]+>$",
+                "description": "Literal token form: angle brackets, capitalised type word, space, arabic numeral. e.g. \"<Subject 1>\""
+              },
+              "definition": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 800,
+                "description": "Prose binding the subject to its sources, e.g. \"<Subject 1> is the young woman in <Picture 1>, with long dark hair, a blue cardigan, and a thin silver necklace.\" A subject may draw different attributes from different sources."
+              },
+              "sources": {
+                "type": "array",
+                "description": "The reference tokens this subject draws from.",
+                "items": {
+                  "type": "string",
+                  "pattern": "^<(Picture|Video|Audio) [0-9]+>$"
+                }
+              },
+              "visual_retention": {
+                "type": "string",
+                "enum": ["fully_preserved", "partially_preserved", "attribute_transfer", "weak_reference"],
+                "description": "Fixed vocabulary. attribute_transfer specifically means characteristics moved to a DIFFERENT identifiable target subject — not 'loosely inspired by'. For a reference guiding only camera behaviour, weak_reference on a <Video N> is more accurate."
+              },
+              "audio_retention": {
+                "type": "string",
+                "enum": ["fully_copy", "partially_copy", "reference", "weak_reference"],
+                "description": "Fixed vocabulary, used when the subject draws voice timbre from an <Audio N>."
+              }
+            }
+          }
+        },
+
+        "summary": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 400,
+          "description": "Section 2. One or two sentences stating what the shot is."
+        },
+
+        "retention_analysis": {
+          "type": "string",
+          "maxLength": 1200,
+          "description": "Section 3. What must be preserved from each reference and what may change. Required in reference_to_video, omitted otherwise."
+        },
+
+        "detailed_description": {
+          "type": "string",
+          "minLength": 50,
+          "maxLength": 5000,
+          "description": "Section 4, and the main prose block in reference_to_video mode. Carries action, camera, setting, light and dialogue. Recommended length 350-500 English words on generation tasks. Camera cues ([pan], [zoom], [static]) go inline directly after the description they apply to. Shot markers ([Shot 1]) and timestamps (At 00:04.000,) are also inline. Dialogue lives ONLY here, inside <d>[Language] … </d> with (S1)/(S2) speaker IDs."
+        },
+
+        "integrated_multimodal_description": {
+          "type": "string",
+          "minLength": 50,
+          "maxLength": 5000,
+          "description": "Section 4 alternative. The main prose block in text_to_video, image_to_video, last_frame and first_and_last_frame modes. Same content rules as detailed_description. Exactly one of these two fields must be present."
+        },
+
+        "overall_soundscape": {
+          "type": "string",
+          "maxLength": 1000,
+          "description": "Section 5. Diegetic sound only — effects and ambience. Do NOT repeat dialogue lines here; they belong inside <d> in the main description, and duplicating them produces doubled audio."
+        },
+
+        "non_diegetic_music": {
+          "type": "string",
+          "maxLength": 600,
+          "description": "Section 6. Score, if any. Leave empty for unscored shots rather than inventing a bed."
+        }
+      }
+    },
+
+    "settings": {
+      "type": "object",
+      "description": "Suggested settings, kept strictly out of the prompt prose. resolution and duration are REQUIRED by the API with no defaults.",
+      "required": ["resolution", "duration"],
+      "additionalProperties": false,
+      "properties": {
+        "model": {
+          "type": "string",
+          "enum": ["MiniMax-H3"],
+          "default": "MiniMax-H3",
+          "description": "Sole enum value in the API."
+        },
+        "resolution": {
+          "type": "string",
+          "enum": ["768P", "2K"],
+          "description": "Required, no default. 768P is the base model's native output (short side 768px). 2K is produced by a separate H3-Regenerate-2K pass, not by the base model."
+        },
+        "duration": {
+          "type": "integer",
+          "minimum": 4,
+          "maximum": 15,
+          "description": "Required, no default. Integers only."
+        },
+        "ratio": {
+          "type": "string",
+          "default": "adaptive",
+          "description": "Must be explicit and non-adaptive for text_to_video. Forced to adaptive for image_to_video. Optional for reference_to_video."
+        }
+      }
+    },
+
+    "references": {
+      "type": "object",
+      "description": "Asset budget for reference_to_video. Combined ceiling is 12 files across all categories.",
+      "additionalProperties": false,
+      "properties": {
+        "images": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9,
+          "description": "Max 9. Each 256-5760px per side, aspect ratio between 2:5 and 5:2, max 30MB."
+        },
+        "videos": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3,
+          "description": "Max 3. Each 2-15s, combined not exceeding 15s. Max 50MB each."
+        },
+        "audio": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3,
+          "description": "Max 3, same duration rules as video. Max 15MB each. Audio CANNOT be the sole input — it must be paired with an image or video."
+        }
+      }
+    },
+
+    "notes": {
+      "type": "string",
+      "description": "Caveats, inference declarations, and routing recommendations — including recommending a different model where H3 is the wrong choice. Honesty lives here; do not bury limitations in prose."
+    }
+  }
+}

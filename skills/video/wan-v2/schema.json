@@ -1,0 +1,216 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WAN 2.5 Video Generation Prompt Schema",
+  "description": "Schema for validating WAN 2.5 video generation prompts produced by this skill.",
+  "type": "object",
+  "required": ["prompt", "resolution", "aspect_ratio", "duration"],
+  "properties": {
+    "prompt": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 2000,
+      "description": "Main scene/action description following the 4-Dimensional formula: Scene + Subject Action + Camera Movement + Audio/Dialogue. Keep under 200 words for reliable generation."
+    },
+    "negative_prompt": {
+      "type": "string",
+      "maxLength": 500,
+      "description": "Elements to exclude from generation. Keep under 50 words. Common terms: blurry, distorted, flickering, low quality, watermark, text overlay, static noise.",
+      "default": "blurry, distorted, flickering, low quality, watermark, static noise, jittery motion"
+    },
+    "resolution": {
+      "type": "string",
+      "enum": ["480P", "720P", "1080P"],
+      "default": "720P",
+      "description": "Output resolution. 480P recommended for best quality (then upscale). 720P for balanced. 1080P available but may introduce artifacts."
+    },
+    "aspect_ratio": {
+      "type": "string",
+      "enum": ["16:9", "9:16", "1:1"],
+      "default": "16:9",
+      "description": "Frame aspect ratio. 16:9 for widescreen/cinematic. 9:16 for vertical/mobile. 1:1 for square/social."
+    },
+    "duration": {
+      "type": "integer",
+      "enum": [5, 10],
+      "default": 5,
+      "description": "Clip duration in seconds. 5s recommended for best quality. 10s for continuous motion sequences only."
+    },
+    "seed": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "description": "Random seed for reproducibility. Use the same seed across shots in a scene for visual continuity. Null for random.",
+      "default": null
+    },
+    "enhance_prompt": {
+      "type": "boolean",
+      "default": true,
+      "description": "AI-powered prompt expansion. Set to true for short/simple prompts. Set to false when using detailed 4-Dimensional prompts for precise control."
+    },
+    "audio": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable native audio generation (voice, SFX, background music). Only available in WAN 2.5."
+    },
+    "guidance_scale": {
+      "type": "number",
+      "minimum": 1.0,
+      "maximum": 20.0,
+      "default": 6.0,
+      "description": "Prompt adherence strength. CRITICAL: Keep between 5.0-7.0. Values above 10 cause flickering. Values below 3 cause drift. 6.0 is the recommended default."
+    },
+    "sample_steps": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 40,
+      "default": 25,
+      "description": "Number of denoising steps. 20-30 recommended for quality. Lower for faster iteration. Higher for more detail."
+    },
+    "quality_mode": {
+      "type": "string",
+      "enum": ["fast", "balanced", "off"],
+      "default": "balanced",
+      "description": "Quality preset. 'fast' for quick previews. 'balanced' for general use. 'off' for best quality (slowest, recommended for hero shots)."
+    },
+    "generation_mode": {
+      "type": "string",
+      "enum": ["text-to-video", "image-to-video"],
+      "default": "text-to-video",
+      "description": "Generation mode. text-to-video creates from prompt only. image-to-video animates a source image (prompt should focus on motion/camera only)."
+    },
+    "source_image_url": {
+      "type": ["string", "null"],
+      "format": "uri",
+      "description": "URL or path to source image for image-to-video mode. Required when generation_mode is 'image-to-video'. Null for text-to-video.",
+      "default": null
+    },
+    "audio_description": {
+      "type": ["object", "null"],
+      "description": "Structured audio cues for audio-enabled generation. Only used when audio=true.",
+      "default": null,
+      "properties": {
+        "voice": {
+          "type": ["string", "null"],
+          "description": "Dialogue or voiceover description. Keep to short phrases (1-2 sentences).",
+          "default": null
+        },
+        "sfx": {
+          "type": ["string", "null"],
+          "description": "Sound effects matching on-screen actions. Be specific about timing and source.",
+          "default": null
+        },
+        "music": {
+          "type": ["string", "null"],
+          "description": "Background music description. Use genre + mood format (e.g., 'soft lo-fi jazz', 'tense orchestral strings').",
+          "default": null
+        }
+      },
+      "additionalProperties": false
+    },
+    "camera": {
+      "type": "object",
+      "description": "Structured camera movement data. This supplements the prompt text — the prompt should also contain camera instructions in natural language.",
+      "properties": {
+        "movement": {
+          "type": "string",
+          "enum": [
+            "static",
+            "dolly_in",
+            "dolly_out",
+            "pan_left",
+            "pan_right",
+            "tilt_up",
+            "tilt_down",
+            "push_in",
+            "pull_out",
+            "orbit",
+            "zoom_in",
+            "zoom_out"
+          ],
+          "default": "static",
+          "description": "Primary camera movement type."
+        },
+        "speed": {
+          "type": "string",
+          "enum": ["slow", "medium", "fast"],
+          "default": "medium",
+          "description": "Movement speed. Maps to prompt modifiers: slow='slowly/gently', medium='steadily', fast='quickly/aggressively'."
+        },
+        "intensity": {
+          "type": "string",
+          "enum": ["subtle", "moderate", "dramatic"],
+          "default": "moderate",
+          "description": "Movement intensity/amplitude. Subtle for barely perceptible motion, dramatic for sweeping moves."
+        }
+      },
+      "additionalProperties": false
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Pipeline tracking metadata. Not sent to WAN 2.5 API — used for internal tracking.",
+      "properties": {
+        "shot_id": {
+          "type": "string",
+          "description": "Shot identifier."
+        },
+        "scene_id": {
+          "type": "string",
+          "description": "Parent scene identifier."
+        },
+        "project_id": {
+          "type": "string",
+          "description": "Parent project identifier."
+        },
+        "skill_version": {
+          "type": "string",
+          "description": "SKILL version that generated this prompt.",
+          "const": "1.0"
+        },
+        "generation_timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When this prompt was generated."
+        },
+        "continuity_anchor": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether this shot serves as a visual reference for continuity."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "if": {
+    "properties": {
+      "generation_mode": { "const": "image-to-video" }
+    }
+  },
+  "then": {
+    "required": ["source_image_url"]
+  },
+  "examples": [
+    {
+      "prompt": "A rain-soaked alleyway in 1940s Shanghai at night, neon signs reflecting off wet cobblestones. A woman in a red qipao slowly turns to look over her shoulder. Slow dolly in from wide shot to medium close-up. Distant jazz music, rain pattering on awnings, muffled footsteps.",
+      "negative_prompt": "blurry, distorted, flickering, low quality, watermark, modern clothing, daylight",
+      "resolution": "720P",
+      "aspect_ratio": "16:9",
+      "duration": 5,
+      "guidance_scale": 6.0,
+      "sample_steps": 25,
+      "quality_mode": "off",
+      "enhance_prompt": false,
+      "audio": true,
+      "generation_mode": "text-to-video",
+      "audio_description": {
+        "voice": null,
+        "sfx": "Rain pattering on fabric awnings, muffled footsteps on wet stone",
+        "music": "Distant smoky jazz saxophone, muted and atmospheric"
+      },
+      "camera": {
+        "movement": "dolly_in",
+        "speed": "slow",
+        "intensity": "moderate"
+      }
+    }
+  ]
+}

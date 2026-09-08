@@ -1,0 +1,293 @@
+{
+  "model_versions": {
+    "standard": "Standard quality and speed",
+    "pro": "Enhanced quality and detail",
+    "fast": "Faster generation, slightly lower quality"
+  },
+  "platform": "MiniMax / hailuoai.video",
+  "region": "China-based with international access",
+  
+  "prompt_limits": {
+    "maximum_supported": "Up to 5000 characters",
+    "some_api_platforms": "~512 characters",
+    "practical_recommendation": "~2000 characters (~300-400 words)",
+    "optimal_length": "3-4 sentences in one paragraph",
+    "note": "Clarity trumps length—avoid overly long or conflicting instructions"
+  },
+  
+  "five_part_formula": {
+    "structure": "[Camera Shot + Motion] + [Subject + Description] + [Action] + [Scene + Description] + [Lighting/Style]",
+    "alternative": "Main Character + Environment + Changes to character/scene + Camera Movement + Video Style",
+    "required": [
+      "Subject description (who/what is in scene)",
+      "Action (what is happening)"
+    ],
+    "optional_but_recommended": [
+      "Camera movement instructions",
+      "Lighting/atmosphere details",
+      "Style/mood descriptors",
+      "Scene/environment context"
+    ]
+  },
+  
+  "resolution_and_duration": {
+    "resolution_options": ["768P", "1080P"],
+    "duration_options": [6, 10],
+    "matrix": {
+      "1080P": {
+        "6_seconds": true,
+        "10_seconds": false
+      },
+      "768P": {
+        "6_seconds": true,
+        "10_seconds": true
+      }
+    },
+    "optimal_duration": "4-6 seconds for maximum stability and character consistency",
+    "default_duration": 6,
+    "default_resolution": "768P"
+  },
+  
+  "camera_movement_syntax": {
+    "bracket_notation": true,
+    "single_movement": {
+      "format": "[Camera movement]",
+      "example": "[Pan left]"
+    },
+    "simultaneous_movements": {
+      "format": "[Movement1, Movement2]",
+      "example": "[Pan left, Truck right]"
+    },
+    "sequential_movements": {
+      "format": "Action A [Movement1], then Action B [Movement2]",
+      "example": "She enters [Pan right], then turns [Tilt down]"
+    }
+  },
+  
+  "available_camera_movements": {
+    "basic_movements": [
+      "Pan left",
+      "Pan right",
+      "Tilt up",
+      "Tilt down",
+      "Zoom in",
+      "Zoom out",
+      "Truck left",
+      "Truck right",
+      "Dolly in",
+      "Dolly out",
+      "Crane up",
+      "Crane down"
+    ],
+    "special_combinations": [
+      "Left circling",
+      "Right circling",
+      "Walking shot",
+      "Stage shot",
+      "Upward tilt",
+      "Downward tilt"
+    ]
+  },
+  
+  "api_parameters": {
+    "prompt": {
+      "type": "string",
+      "required": true,
+      "description": "Text description of desired video"
+    },
+    "image_url": {
+      "type": "string",
+      "required": false,
+      "description": "Reference image URL for first frame (image-to-video)"
+    },
+    "resolution": {
+      "type": "enum",
+      "options": ["768P", "1080P"],
+      "default": "768P"
+    },
+    "duration": {
+      "type": "integer",
+      "options": [6, 10],
+      "default": 6,
+      "note": "1080P only supports 6 seconds"
+    },
+    "enhance_prompt": {
+      "type": "boolean",
+      "default": true,
+      "description": "When enabled, AI automatically optimizes prompts. Disable for precise control."
+    },
+    "last_frame_image": {
+      "type": "string",
+      "required": false,
+      "description": "End frame URL for first/last frame interpolation"
+    }
+  },
+  
+  "image_input_specifications": {
+    "formats": ["JPG", "JPEG", "PNG", "WEBP"],
+    "aspect_ratio": "Between 2:5 and 5:2",
+    "minimum_resolution": "Short side > 300 pixels",
+    "maximum_file_size": "20MB",
+    "recommendations": [
+      "High-quality images for best results",
+      "Front-facing portraits work best for Subject Reference",
+      "Realistic human images better than stylized/anime",
+      "Match prompt actions to feasible movements from starting pose"
+    ]
+  },
+  
+  "subject_reference_feature": {
+    "description": "Single reference image maintains character consistency across all generated scenes",
+    "how_it_works": [
+      "Upload reference image of character",
+      "AI automatically detects facial features",
+      "Features maintained across all generations",
+      "Character face remains consistent throughout videos"
+    ],
+    "best_practices": [
+      "Use high-quality portrait images",
+      "Front-facing images produce best results",
+      "Realistic human images work better than stylized art",
+      "Add emotion keywords for better expression rendering"
+    ],
+    "limitations": [
+      "Hands can have issues when holding objects",
+      "Currently single-entity only (multi-entity in development)",
+      "Occasional low-quality faces or lighting artifacts",
+      "Works best with realistic styles vs anime/3D"
+    ]
+  },
+  
+  "the_4_6_second_rule": {
+    "recommendation": "Generate clips in 4-6 second increments for maximum stability",
+    "reasons": [
+      "Maximum temporal coherence (pixel consistency frame-to-frame)",
+      "Prevents character feature drift",
+      "Better environmental physics consistency",
+      "Aligns with commercial B-roll pacing",
+      "Higher per-frame fidelity"
+    ],
+    "temporal_trimming_workflow": "Generate 4-second clip, use middle 2 seconds where coherence peaks",
+    "longer_clips_issue": "Clips >6 seconds often experience drift in character features or physics"
+  },
+  
+  "enhance_prompt_option": {
+    "when_enabled": "AI automatically optimizes prompts for better generation quality",
+    "when_disabled": "Model follows instructions more strictly, precise control",
+    "recommendation": "Disable for technical requirements or specific camera control"
+  },
+  
+  "first_last_frame_control": {
+    "starting_frame": "Use image_url parameter",
+    "ending_frame": "Use last_frame_image parameter",
+    "functionality": "Model interpolates motion between specified frames",
+    "use_cases": [
+      "Control video trajectory",
+      "Ensure specific start and end states",
+      "Create smooth transitions"
+    ]
+  },
+  
+  "best_practices": {
+    "emphasize": [
+      "Simple, natural language describing scene clearly",
+      "Specific camera terms: handheld, dolly zoom, tracking shot",
+      "Mood words: hazy, electric, meditative, cinematic",
+      "Fabric, texture, motion when relevant",
+      "Prioritize subject/action so AI knows what should move",
+      "Motion adjectives: slow, steady, cinematic, subtle",
+      "4-6 second clips for maximum stability"
+    ],
+    "avoid": [
+      "Overly long prompts or conflicting instructions",
+      "Multiple unrelated scenes in one prompt",
+      "Vague prompts without clear subject definition",
+      "Fast zoom requests (use 'slow push-in' instead)",
+      "Expecting accurate text rendering",
+      "Sudden dramatic actions from static images",
+      "Complex hand poses or object holding",
+      "Clips longer than 6 seconds"
+    ]
+  },
+  
+  "common_mistakes": {
+    "vague_subject": {
+      "problem": "Random motion applied",
+      "solution": "Define subject motion explicitly"
+    },
+    "long_clips": {
+      "problem": "Character/scene drift",
+      "solution": "Generate 4-6 second clips"
+    },
+    "low_res_input": {
+      "problem": "Blurry results",
+      "solution": "Use high-quality reference images"
+    },
+    "no_lighting_spec": {
+      "problem": "Inconsistent visuals",
+      "solution": "Describe lighting explicitly"
+    },
+    "text_in_scene": {
+      "problem": "Garbled text",
+      "solution": "Avoid text; fix in post-production"
+    },
+    "complex_hand_poses": {
+      "problem": "Grip distortion",
+      "solution": "Avoid object-holding scenes"
+    }
+  },
+  
+  "model_strengths": {
+    "motion_realism": "Exceptional physics accuracy and natural movement",
+    "emotion_handling": "Strong facial expressions and emotional nuance",
+    "prompt_adherence": "Excellent - follows instructions precisely",
+    "character_consistency": "Strong with Subject Reference feature",
+    "temporal_coherence": "Excellent frame-to-frame consistency in 4-6s clips"
+  },
+  
+  "model_comparison": {
+    "vs_sora": {
+      "motion_realism": "Hailuo: Excellent, Sora: Good",
+      "prompt_accuracy": "Hailuo: Excellent, Sora: Good",
+      "max_clip_length": "Hailuo: 6-10s, Sora: 60s",
+      "character_consistency": "Hailuo: Strong, Sora: Limited"
+    },
+    "vs_runway_gen3": {
+      "motion_realism": "Hailuo: Excellent, Runway: High",
+      "prompt_accuracy": "Hailuo: Excellent, Runway: High",
+      "max_clip_length": "Hailuo: 6-10s, Runway: 120s",
+      "character_consistency": "Hailuo: Strong, Runway: Medium"
+    },
+    "vs_kling": {
+      "motion_realism": "Hailuo: Excellent, Kling: Medium",
+      "prompt_accuracy": "Hailuo: Excellent, Kling: Medium",
+      "max_clip_length": "Hailuo: 6-10s, Kling: 15s",
+      "character_consistency": "Hailuo: Strong (single ref), Kling: Good (4 refs)"
+    },
+    "ideal_use_case": "Social media content and commercial B-roll where 6-10 second clips with exceptional motion realism are needed"
+  },
+  
+  "output_specifications": {
+    "video_format": "MP4",
+    "frame_rate": "Not specified (likely 24-30fps)",
+    "watermark": "Varies by plan",
+    "audio": "Not natively supported (add in post-production)"
+  },
+  
+  "image_to_video_guidance": {
+    "when_using_reference_image": [
+      "AI already knows subject and scene",
+      "Focus prompt on camera movement and effects",
+      "Describe action/motion changes",
+      "Specify atmosphere and mood shifts"
+    ],
+    "tip": "Match prompt actions to what's feasible from starting image pose"
+  },
+  
+  "special_shot_combinations": {
+    "left_right_circling": "Camera moves in circular pattern around subject",
+    "walking_shot": "Follows subject walking with sideways movement",
+    "stage_shot": "Combines panning with zoom for dramatic effect",
+    "upward_downward_tilt": "Combines vertical movement with tilt"
+  }
+}
