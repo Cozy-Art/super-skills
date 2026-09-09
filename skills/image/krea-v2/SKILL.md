@@ -151,3 +151,7 @@ UI behaviour, not an API option.
 
 - **`examples.md`** — Annotated examples across both modes and all three tiers, including text
   rendering, style-reference work, and an image-to-image refinement.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

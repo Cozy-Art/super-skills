@@ -29,3 +29,5 @@ Human-facing build notes.
 - **Modes:** text-to-video, image-to-video, keyframe-to-video, modify (video-to-video), character-referenced
 
 ---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

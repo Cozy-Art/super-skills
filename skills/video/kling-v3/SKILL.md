@@ -189,3 +189,7 @@ from papers to face. Tense atmosphere.
 - Visual chain-of-thought reasoning
 - Better object consistency
 - Enhanced camera coherence
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

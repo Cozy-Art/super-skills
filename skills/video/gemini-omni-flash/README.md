@@ -168,3 +168,7 @@ not just a capability note.
    skill.
 5. **Launch date** (30 June 2026) is circumstantial — consistent with the model page's "last updated"
    and "Latest update: June 2026," but not stated. Not load-bearing.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

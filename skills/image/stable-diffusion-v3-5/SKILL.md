@@ -104,3 +104,7 @@ Load these when you need depth on a specific topic:
 - **`continuity-and-references.md`** — Seed-based reproducibility workflow, image-to-image mode with `prompt_strength` guidance, IP-Adapter for reference-image consistency (ipadapter_scale, style/character/object modes), ControlNet modules (Canny, Tile, Pose), LoRA fine-tuning on SD3.5 Medium, and multi-shot consistency strategies combining all tools.
 
 - **`examples.md`** — 7 fully annotated examples: text rendering, environmental portrait with neon text, dynamic action/cyberpunk, Art Nouveau illustration, complex fantasy portrait, caricature/3D cartoon, and product still life. Includes quick-start templates by content type and a pre-generation checklist.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

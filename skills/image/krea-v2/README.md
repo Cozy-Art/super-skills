@@ -183,3 +183,7 @@ images and anything where a project needs a coherent visual identity, it is a st
 4. **Moodboard internals** — the blog describes keywords and an "avoids" list; the developer doc exposes
    only `id` and `strength`. Whether those are authorable and whether they affect generation is worth
    checking before advising anyone to build one a particular way.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

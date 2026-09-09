@@ -137,3 +137,7 @@ Load these when you need depth on a specific topic:
 - **`continuity-and-references.md`** — Character consistency workflow (canonical reference creation, reuse pattern, seed locking), multi-reference architecture for series production (up to 9 references with role assignment), Create → Modify chain workflow, image-to-image layered editing with source + image_ref, multi-panel / storyboard generation, board context retention in the Luma App, and reference pricing breakdown.
 
 - **`examples.md`** — 7 fully annotated examples with complete JSON: simple cinematic landscape, character portrait with reference, multi-reference architecture (3 roles), manga style, text rendering on sign/surface, web-grounded real location, image modification. Includes quick-start templates and a pre-flight checklist.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

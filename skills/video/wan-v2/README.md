@@ -26,3 +26,5 @@ Human-facing build notes.
 - **Modes:** text-to-video, image-to-video, audio-enabled video
 
 ---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

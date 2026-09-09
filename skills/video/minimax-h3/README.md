@@ -161,3 +161,7 @@ the right choice for volume coverage where H3's reference system isn't needed.
 5. **Slug.** `minimax-h3` uses the real product ID — `MiniMax-H3` is the literal API model ID. Note
    this breaks family naming with `hailuo-v2`, which is named for the product line rather than the
    model. Deliberate.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

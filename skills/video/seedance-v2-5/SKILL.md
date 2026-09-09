@@ -222,3 +222,7 @@ words inside it.
 
 - **`examples.md`** — Annotated examples across all major task types, based on ByteDance's own
   documented patterns.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

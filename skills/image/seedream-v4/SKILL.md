@@ -228,3 +228,7 @@ Don't change the character's appearance and outfit.
 
 [Settings: Enable Sequence Mode, Max Image Count: 3]
 ```
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

@@ -9,7 +9,6 @@ Human-facing build notes.
 - **Skill Version:** 1.0
 - **Model:** Phota (PhotaLabs)
 - **Last Updated:** 2026-04-18
-- **Maintained By:** Visual Horizon Studio
 
 ## Resources
 
@@ -20,3 +19,5 @@ Human-facing build notes.
 - `schema.json` — JSON validation schema for Generate, Edit, and Enhance output formats
 
 ---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

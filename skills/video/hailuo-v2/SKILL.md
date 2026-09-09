@@ -158,3 +158,7 @@ She enters the room [Dolly forward], then turns to face the window [Pan right].
 - Default: Enabled (AI optimizes prompt)
 - Disabled: Strict prompt following for precise control
 - Recommendation: Disable for technical requirements
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

@@ -214,3 +214,7 @@ control, or commercial art direction. Supported by Seedream 5.0 Lite only.
 - Real-time web search retrieval (5.0 only)
 - Multi-step spatial reasoning
 - Native 2K–4K output pipeline
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

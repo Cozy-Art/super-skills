@@ -178,3 +178,7 @@ The core difference: identity is solved by the profile, not the prompt. This inv
 - Private per-person profile training
 - Built on Nano Banana / Gemini 3 Pro Image foundation
 - Founded by former Adobe researchers
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

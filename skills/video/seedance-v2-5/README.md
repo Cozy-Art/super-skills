@@ -221,3 +221,7 @@ Worth raising as an integration issue independently of this skill.
    `continuity-and-references.md` and `examples.md` all need updating together.
 5. **Slug.** `seedance-v2-5` per the agreed point-release convention. Sits alongside `seedance-v2`;
    both ship, and they are now genuinely complementary rather than one superseding the other.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

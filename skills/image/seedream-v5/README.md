@@ -9,7 +9,6 @@ Human-facing build notes.
 - **Skill Version:** 1.0
 - **Model Versions:** Seedream 5.0 Lite, Seedream 4.5
 - **Last Updated:** 2026-04-18
-- **Maintained By:** Visual Horizon Studio
 
 ## Resources
 
@@ -23,3 +22,5 @@ This skill includes comprehensive documentation and examples:
 - `schema.json` — JSON validation schema for both plain text and structured prompt output formats
 
 ---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

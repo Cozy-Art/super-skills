@@ -179,3 +179,7 @@ Pair every prompt with a settings line. See `parameters.md` for the full table.
 
 - **`examples.md`** — Annotated examples across all five modes, including multi-speaker dialogue, a
   split-source subject, and a full six-section structured output.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

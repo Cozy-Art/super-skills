@@ -132,3 +132,7 @@ Load these when you need depth on a specific topic:
 - **`continuity-and-consistency.md`** — Character consistency strategy (DNA Template, anchor image workflow, close-up reference technique), image-to-image / reference image workflows, style transfer patterns, seed-based reproducibility, batch generation for coherent variants, iterative editing strategy, and multi-scene storyboard setup.
 
 - **`examples.md`** — 7 fully annotated example prompts covering: photoreal editorial portrait, children's book character consistency, documentary landscape, text rendering (diner menu), UI mockup (mobile app), quiet still life, and multi-image virtual try-on compositing. Includes quick-start templates for the most common use cases.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

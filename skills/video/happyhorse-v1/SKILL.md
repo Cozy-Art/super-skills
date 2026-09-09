@@ -136,3 +136,7 @@ Load these when you need depth on a specific topic:
 - **`continuity-and-references.md`** — How to use seed-based reproducibility, I2V keyframing, frameImages first/last frame control, Reference-to-Video with 9 images, @element compositing, multi-shot sequencing, and the NL video-edit endpoint in depth.
 
 - **`examples.md`** — 7 annotated example prompts covering: simple T2V character shot, dialogue/lip-sync scene, environment/landscape, action sequence, camera movement focus, style/mood (3D cartoon), and multi-shot narrative. Each includes formula label and technique notes.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

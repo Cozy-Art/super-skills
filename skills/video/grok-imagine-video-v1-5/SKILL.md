@@ -169,3 +169,7 @@ unavailable. Plan continuity around reference images instead.
 
 - **`examples.md`** — Annotated examples across all five modes, including a reference-bound character
   with an assigned voice, an extension, and an edit.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

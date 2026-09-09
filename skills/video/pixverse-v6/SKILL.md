@@ -95,3 +95,7 @@ Load these when you need depth on a specific topic:
 - **`continuity-and-references.md`** — Multi-image character reference workflow (upload angles, API schema), multi-shot engine operation (descriptor repetition rules, vocabulary consistency), transition prompting for manual chaining, first/last frame interpolation, LipSync/TTS modes (syntax, character limit, multilingual), and video extension workflow.
 
 - **`examples.md`** — All 5 annotated example prompts: corporate headshot/walk, action/destruction, product commercial, anime character with Japanese dialogue/lip-sync, and multi-shot brand narrative. Includes quick-start templates by content type and a pre-generation checklist.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

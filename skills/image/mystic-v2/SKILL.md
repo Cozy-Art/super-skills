@@ -205,3 +205,7 @@ You are a prompt engineer specializing in Freepik Mystic 2.5, an advanced image 
 - Retouch: Selective editing
 - Video: Convert to AI video
 - Mockup: Product placement
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

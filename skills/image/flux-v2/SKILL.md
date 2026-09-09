@@ -335,3 +335,7 @@ For complex scenes with multiple subjects, Flux 2 natively understands JSON prom
 2. Include this as a reference image in every generation
 3. Keep camera/lens specifications identical across all prompts
 4. Use seed ranges (e.g., seeds 1000-1100) for subtle variation within consistency
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

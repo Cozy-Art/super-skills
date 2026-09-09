@@ -299,3 +299,7 @@ The Extend endpoint continues a generated video by analyzing the ending segment.
 ### Issue: Audio doesn't match visual content
 **Cause:** No dialogue or sound cues described in the prompt
 **Solution:** For dialogue, include the spoken words and delivery in the prompt: "she says 'welcome home' with a warm smile." For ambient sound, the audio engine generally matches visual content automatically. Ensure the visual scene has clear sound-producing elements.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

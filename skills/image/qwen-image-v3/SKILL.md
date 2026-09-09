@@ -155,3 +155,7 @@ The mode is determined by what you supply, not by a parameter.
 
 - **`examples.md`** — Annotated examples across both modes, including a text-rendering poster, a
   reproducible generation, and a multi-image fusion.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

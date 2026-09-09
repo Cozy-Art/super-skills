@@ -243,3 +243,7 @@ For maintaining character identity across multiple images:
 ### Issue: Changing one word doesn't change the output
 **Cause:** The concept isn't visually grounded — the model doesn't have a strong visual association
 **Solution:** Try multiple related synonyms and alternative phrasings. Use visual/facial cues instead of abstract descriptors. Sometimes rephrasing the entire sentence is more effective than swapping one word.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

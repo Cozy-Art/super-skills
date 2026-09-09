@@ -209,3 +209,7 @@ When using a source image:
 ### Issue: Camera won't stay still
 **Cause:** No explicit static camera instruction
 **Solution:** Add "static shot" or "fixed shot" explicitly in the prompt. WAN 2.5 defaults to some camera motion if not told otherwise.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

@@ -173,3 +173,7 @@ This SKILL targets the **Aurora** model (December 2024–present). Key differenc
 - X Premium: ~50 prompts every 2 hours
 - X Premium+: Higher limits
 - API: Pay-per-image, up to 10 per request
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

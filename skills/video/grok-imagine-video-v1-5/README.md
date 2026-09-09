@@ -189,3 +189,7 @@ the catalogue.
    capturing the available `voice_id` values into `parameters.md` before v1.1.
 6. **Aurora branding.** Aurora names an xAI *image* model, and nothing xAI publishes ties it to this
    video model. Treat any "runs on Aurora" claim about Grok Imagine Video as unsourced.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

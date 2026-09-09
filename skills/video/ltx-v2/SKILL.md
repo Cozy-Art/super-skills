@@ -97,3 +97,7 @@ Load these when you need depth on a specific topic:
 - **`continuity-and-references.md`** — I2V as primary consistency tool (supported formats, resolution by mode), first/last frame interpolation (2.3 Fast only), video chaining workflow for sequences beyond max duration, seed locking for cross-shot style continuity, LoRA fine-tuning (recommended config: size 16, lr 0.0002, 960×576@24fps), and the Grid Method for character consistency without LoRA training.
 
 - **`examples.md`** — 5 fully annotated example prompts: simple character moment (T2V), breaking news broadcast with dialogue (T2V), product orbit (I2V), atmospheric walkthrough with negative space, and multi-phase 20-second complex sequence. Includes quick-start templates by use case and a pre-generation checklist.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

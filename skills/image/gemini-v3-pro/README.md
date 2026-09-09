@@ -60,6 +60,7 @@ For maintaining consistency across shots:
 - **Model Version:** Gemini 3 Pro Image Preview (2024-2026)
 - **Aliases:** nano-banana
 - **Last Updated:** 2026-07-23 - Removed the mandated aspect-ratio/orientation sentence slot from the prompt formula; ratio/resolution now live only in Configuration notes, never in the prompt prose.
-- **Maintained By:** Visual Horizon Studio
 
 ---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

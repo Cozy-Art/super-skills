@@ -102,3 +102,7 @@ timing matters; LTX wins where duration >20s is needed.
    teaches the workflow without asserting bundle internals.
 4. **Slug.** `flux-v3-video` rather than the endpoint name (`flux-3-video`). If BFL ships a FLUX 3
    *image* model it would need its own skill, and the `-video` suffix keeps the two unambiguous.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

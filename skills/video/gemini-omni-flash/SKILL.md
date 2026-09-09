@@ -195,3 +195,7 @@ Very little to choose here, which is itself the point.
 
 - **`examples.md`** — Annotated examples across all four modes, including a timecoded mini-sequence, a
   single-take request, and a multi-turn conversational edit chain.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

@@ -295,3 +295,7 @@ For editing existing videos while maintaining character identity:
 ### Issue: Video extension quality drops
 **Cause:** Extending beyond the model's optimal clip length
 **Solution:** Keep primary clips at 5 seconds for best quality. Use keyframe extensions up to 9 seconds per segment. Never extend a single continuous generation beyond 30 seconds. For longer sequences, plan separate clips with matched visual anchors.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

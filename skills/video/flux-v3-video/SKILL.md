@@ -161,3 +161,7 @@ Load these when you need depth on a specific topic:
 
 - **`examples.md`** — Annotated example prompts across all four modes, including a dialogue scene, a
   keyframe-timed sequence, a multi-shot single generation, and a draft-to-enhance workflow.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

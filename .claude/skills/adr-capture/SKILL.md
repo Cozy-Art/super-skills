@@ -118,3 +118,7 @@ Those filenames are illustrative, not real files — number and name your own fr
 - Template: `<decisions>/_TEMPLATE.md`
 - Index: `<decisions>/INDEX.md`
 - Related skills: `code-documentation-standards` (for code-level comments), `project-docs` (for user-facing docs)
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

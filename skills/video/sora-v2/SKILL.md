@@ -310,3 +310,7 @@ Paper rustling, her breathing barely audible.
 3. **Refinement:** Tweak prompts, test timing, log what works
 4. **Final Render:** Promote winning concepts to Pro at 1080p
 5. **Post-Processing:** Edit in Premiere/DaVinci for stabilization, color grading, final audio mix
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

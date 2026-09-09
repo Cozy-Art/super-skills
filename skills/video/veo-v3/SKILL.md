@@ -180,3 +180,7 @@ extension is 720p-only. There is no path to a 4K minute.
 - Improved character consistency across shots
 - 1080p and 4K support (Veo 3 was 720p only)
 - Enhanced motion realism and physics
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

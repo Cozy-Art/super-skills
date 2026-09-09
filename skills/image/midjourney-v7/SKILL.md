@@ -103,3 +103,7 @@ character portrait:: background::-0.5    # Reduce background emphasis
 - Midjourney has strict content policy
 - No NSFW, violent, or copyrighted character reproductions
 - Banned artist names trigger content blocks
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

@@ -79,6 +79,7 @@ For scenes with multiple shots:
 - **Model Version:** Kling 3.0 / 3.0 Omni (Released Feb 4, 2026)
 - **Aliases:** kling3
 - **Last Updated:** 2026-02-11
-- **Maintained By:** Visual Horizon Studio
 
 ---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

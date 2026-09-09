@@ -73,3 +73,7 @@ Generate prompts as natural language paragraphs. For complex scenes requiring mu
 - `examples/environment-focused.md` - Location and atmosphere examples  
 - `examples/action-motion.md` - Dynamic scene examples
 - `examples/style-variations.md` - Artistic style and aesthetic examples
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

@@ -137,3 +137,7 @@ Load these when you need depth on a specific topic:
 - **`continuity-and-references.md`** — Character and style consistency across generations, how to chain clips with Reference-to-Video, the video-editing and video-extension patterns in depth, and how this maps onto a Continuity-Anchor–style production workflow.
 
 - **`examples.md`** — Seven annotated example prompts: simple T2V character shot, dialogue/lip-sync scene, environment/b-roll, product I2V, vertical social ad, reference-to-video continuity, and video editing/extension. Each includes the formula breakdown and technique notes.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

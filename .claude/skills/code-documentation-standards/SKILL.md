@@ -437,3 +437,7 @@ Look at these files as reference examples:
 ---
 
 **This skill is critical to project success. Apply it consistently.**
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

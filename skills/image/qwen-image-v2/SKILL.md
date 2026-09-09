@@ -115,3 +115,7 @@ Load these when you need depth on a specific topic:
 - **`continuity-and-editing.md`** — Seed-based reproducibility workflow, image-to-image reference with positional label syntax, multi-image reference community tips, supported reference modes (scene placement, outfit swap, pose transfer, style transfer), LoRA for character/style consistency (scale recommendations, Lightning LoRA), Next-Scene cinematic transition endpoint, ControlNet support (depth/edge/pose/sketch), and the unified 2.0 editing workflow.
 
 - **`examples.md`** — 7 fully annotated example prompts: simple photorealistic portrait, environment/landscape, poster with in-image text, product/e-commerce, infographic/slide, character scene with artistic style, and complex multi-character composite. Includes quick-start templates and a version-routing guide (which example requires 2.0 vs. works on v1/2512).
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly
