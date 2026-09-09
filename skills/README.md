@@ -54,18 +54,24 @@ Audio and 3D skills follow.
 
 ## Installing
 
-Copy any skill folder into your project's or user's skills directory:
+A skill is a **folder** containing `SKILL.md` — there is no `.skill` file format. Claude Code,
+Cursor and Codex all read that folder from disk; Claude's web and desktop apps take it as a zip.
+
+From the repo root:
 
 ```bash
-# project-level
-cp -r skills/video/veo-v3 .claude/skills/
-
-# or user-level, available in every project
-cp -r skills/video/veo-v3 ~/.claude/skills/
+./scripts/install.sh veo-v3              # Claude Code, every project
+./scripts/install.sh veo-v3 --cursor     # Cursor
+./scripts/install.sh veo-v3 --codex      # Codex
+./scripts/package.sh veo-v3              # → dist/veo-v3.zip, for claude.ai / ChatGPT
 ```
 
+Or copy it yourself — `cp -r skills/video/veo-v3 ~/.claude/skills/`. Note that Claude Code and
+Codex only look **one level deep**, so the skill folder goes in directly; the `image/` and
+`video/` category dirs do not come along. That is all `install.sh` is doing.
+
 The skill triggers on its own `description` — mention the model by name and it loads. Nothing
-else to wire up.
+else to wire up. Full per-tool instructions are in the [root README](../README.md#installing).
 
 ## What's in a skill
 
@@ -90,4 +96,4 @@ settings section.
 
 ---
 
-by **VisualMaintained  Horizon Studio**. MIT licensed — see [LICENSE](../LICENSE).
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly
