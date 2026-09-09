@@ -1,4 +1,9 @@
+
+<img width="1344" height="768" alt="video-frame3-2 83s" src="https://github.com/user-attachments/assets/218ab474-8145-4f9d-8eac-fba11b423d96" />
+
+
 # super-skills
+
 
 A growing collection of [agent skills](https://docs.anthropic.com/en/docs/agents-and-tools/agent-skills/overview) you can drop into your workflow—shared here under the **MIT License** so you can adopt, adapt, and use them in your own projects.
 
