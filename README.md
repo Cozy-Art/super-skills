@@ -1,6 +1,6 @@
 # super-skills
 
-A growing collection of [agent skills](https://docs.anthropic.com/en/docs/agents-and-tools/agent-skills/overview) you can drop into your workflow—shared here under the **MIT License** so you can adopt, adapt, and ship them in your own projects.
+A growing collection of [agent skills](https://docs.anthropic.com/en/docs/agents-and-tools/agent-skills/overview) you can drop into your workflow—shared here under the **MIT License** so you can adopt, adapt, and use them in your own projects.
 
 ## Why this repo exists
 

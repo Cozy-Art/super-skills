@@ -90,4 +90,4 @@ settings section.
 
 ---
 
-Maintained by **Visual Horizon Studio**. MIT licensed — see [LICENSE](../LICENSE).
+by **VisualMaintained  Horizon Studio**. MIT licensed — see [LICENSE](../LICENSE).
