@@ -28,7 +28,7 @@ Compare across the catalogue: `@Image1` (veo-v3, seedance-v2), `@Image 1` *with 
 
 ## Research corrections
 
-Research file: `MiniMax H3-prompt guide-aug11.md`. **The strongest file in the batch** — its
+Research file: `MiniMax H3-prompt guide-aug11.md`. **A strong file** — its
 load-bearing claims survive contact with MiniMax's API reference, OpenAPI schema, Hugging Face model
 card and two official prompt-writing guides.
 
@@ -73,8 +73,8 @@ cheaper tier.
 
 ## Capability findings
 
-**A documented structured prompt format — the only one in this set.** H3 is the sole model here whose vendor
-documents a structured prompt format: six named prose sections in fixed order (`subject_definitions`,
+**A documented structured prompt format.** MiniMax documents six named prose sections in fixed
+order (`subject_definitions`,
 `summary`, `retention_analysis`, `detailed_description`, `overall_soundscape`, `non_diegetic_music`).
 The body defines that shape and a `schema.json` ships alongside it.
 
@@ -92,7 +92,7 @@ must not contain it.
 The body states which fields are authoritative and that nothing auto-syncs between them.
 
 **Prompt-length cap: 7,000** — confirmed first-party **twice**, in the video generation guide and the API
-schema. One of only four models in this batch with a genuine vendor-published cap. The body teaches the
+schema — a genuine vendor-published cap, which is not a given. The body teaches the
 sweet spot separately (350–500 English words for the main block, MiniMax's own recommendation), per the
 C1 convention that the cap is a ceiling, not a target.
 
@@ -127,7 +127,7 @@ negation as untested — deliberately different guidance from the FLUX 3 skill, 
 
 **Reach for H3 when** identity must be carried across shots with per-attribute control. Its
 split-source subject definition — appearance from one asset, motion from another, voice from a third —
-is unique in the catalogue and is the reason to choose it.
+is the reason to choose it.
 
 **Route away when:**
 
@@ -161,3 +161,7 @@ the right choice for volume coverage where H3's reference system isn't needed.
 5. **Slug.** `minimax-h3` uses the real product ID — `MiniMax-H3` is the literal API model ID. Note
    this breaks family naming with `hailuo-v2`, which is named for the product line rather than the
    model. Deliberate.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

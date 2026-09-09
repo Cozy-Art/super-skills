@@ -81,6 +81,7 @@ LoRA support: Klein 4B Base and 9B Base variants
 - **Last Updated:** 2026-02-25
 - **Status:** production
 - **Category:** image-generation
-- **Maintainer:** Visual Horizon Studio
 
 ---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

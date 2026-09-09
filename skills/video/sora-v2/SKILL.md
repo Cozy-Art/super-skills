@@ -310,3 +310,14 @@ Paper rustling, her breathing barely audible.
 3. **Refinement:** Tweak prompts, test timing, log what works
 4. **Final Render:** Promote winning concepts to Pro at 1080p
 5. **Post-Processing:** Edit in Premiere/DaVinci for stabilization, color grading, final audio mix
+
+## Reference Files
+
+Load these when you need depth on a specific topic:
+
+- [schema.json](schema.json) — Output validation schema for the Sora 2 prompt object: required `prompt` and `model`, plus the Standard vs. Pro constraints.
+- [examples.json](examples.json) — Six annotated input/output pairs: establishing shot with physics (Standard), character introduction with audio (Pro), synced dialogue scene (Pro), b-roll materials insert (Standard), image-to-video still animation (Standard), and a MARS-LSP timestamped multi-beat action sequence (Pro).
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

@@ -9,7 +9,6 @@ Human-facing build notes.
 - **Skill Version:** 1.0
 - **Model:** Grok Aurora (`grok-imagine-image`)
 - **Last Updated:** 2026-04-18
-- **Maintained By:** Visual Horizon Studio
 
 ## Resources
 
@@ -44,3 +43,5 @@ Director's Notes: [Brief explanation of prompt decisions]
 ```
 
 ---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

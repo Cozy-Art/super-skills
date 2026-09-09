@@ -116,8 +116,8 @@ continuing through it. No dialogue.
 **Settings:** 8s · 9:16 · 720p
 
 **Technique notes:**
-- **Zero-indexed references.** `<IMAGE_REF_0>` is the *first* reference image. Every other
-  numbered-reference model in the catalogue starts at 1 — this one starts at 0
+- **Zero-indexed references.** `<IMAGE_REF_0>` is the *first* reference image. Numbered references
+  elsewhere start at 1 — this one starts at 0
 - **The declaration block mixes bases**, and that is Google's own convention: `@Image1` counts uploads
   from 1, `<IMAGE_REF_0>` counts references from 0. Both in one line
 - **Tag placement carries meaning** — `in the style of <IMAGE_REF_0>` binds that image to style,
@@ -159,7 +159,7 @@ Warmer light from the doorway. Keep everything else the same.
 - **`Keep everything else the same`** is Google's own documented preserve instruction. Worth using by
   default on anything but the most trivial edit
 - **Continuity is free here** — the subject persists because it is the same clip, not because it was
-  re-described. That is a different continuity model from every other skill in the catalogue
+  re-described. That is a different continuity model from re-describing the subject every time
 - ⚠️ **Requires the original to have been retained.** The fastest generation configuration silently
   disables editing — see `parameters.md`
 - Budget: each turn regenerates the clip at roughly $0.10/second. Four turns on an 8-second piece is

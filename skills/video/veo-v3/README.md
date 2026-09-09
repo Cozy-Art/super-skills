@@ -146,6 +146,7 @@ For scenes with multiple shots:
 - **Model Version:** Veo 3.1 (Released October 2025)
 - **Aliases:** veo3
 - **Last Updated:** 2026-02-11
-- **Maintained By:** Visual Horizon Studio
 
 ---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

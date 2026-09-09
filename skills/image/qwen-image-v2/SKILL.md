@@ -108,10 +108,14 @@ Lock `enable_prompt_expansion: false` during testing — the auto-rewrite featur
 
 Load these when you need depth on a specific topic:
 
-- **`parameters.md`** — Complete parameter tables for Qwen-Image v1/2512 (fal.ai), Qwen-Image-2.0 (fal.ai + DashScope), image size presets, sampler/scheduler recommendations for ComfyUI, CFG and shift parameter guidance, output formats, generation speed reference, supported task types, and pricing across all platforms.
+- **[parameters.md](parameters.md)** — Complete parameter tables for Qwen-Image v1/2512 (fal.ai), Qwen-Image-2.0 (fal.ai + DashScope), image size presets, sampler/scheduler recommendations for ComfyUI, CFG and shift parameter guidance, output formats, generation speed reference, supported task types, and pricing across all platforms.
 
-- **`best-practices.md`** — Front-loading discipline, what to emphasize (specific visual attributes, camera language, style anchors, mood), anti-pattern table with fixes, text rendering deep-dive, negative prompt strategy, consistency workflow, bilingual prompt guidance, and composition techniques by content type (portrait, landscape, poster, product, infographic, character).
+- **[best-practices.md](best-practices.md)** — Front-loading discipline, what to emphasize (specific visual attributes, camera language, style anchors, mood), anti-pattern table with fixes, text rendering deep-dive, negative prompt strategy, consistency workflow, bilingual prompt guidance, and composition techniques by content type (portrait, landscape, poster, product, infographic, character).
 
-- **`continuity-and-editing.md`** — Seed-based reproducibility workflow, image-to-image reference with positional label syntax, multi-image reference community tips, supported reference modes (scene placement, outfit swap, pose transfer, style transfer), LoRA for character/style consistency (scale recommendations, Lightning LoRA), Next-Scene cinematic transition endpoint, ControlNet support (depth/edge/pose/sketch), and the unified 2.0 editing workflow.
+- **[continuity-and-editing.md](continuity-and-editing.md)** — Seed-based reproducibility workflow, image-to-image reference with positional label syntax, multi-image reference community tips, supported reference modes (scene placement, outfit swap, pose transfer, style transfer), LoRA for character/style consistency (scale recommendations, Lightning LoRA), Next-Scene cinematic transition endpoint, ControlNet support (depth/edge/pose/sketch), and the unified 2.0 editing workflow.
 
-- **`examples.md`** — 7 fully annotated example prompts: simple photorealistic portrait, environment/landscape, poster with in-image text, product/e-commerce, infographic/slide, character scene with artistic style, and complex multi-character composite. Includes quick-start templates and a version-routing guide (which example requires 2.0 vs. works on v1/2512).
+- **[examples.md](examples.md)** — 7 fully annotated example prompts: simple photorealistic portrait, environment/landscape, poster with in-image text, product/e-commerce, infographic/slide, character scene with artistic style, and complex multi-character composite. Includes quick-start templates and a version-routing guide (which example requires 2.0 vs. works on v1/2512).
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

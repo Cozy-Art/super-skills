@@ -78,7 +78,6 @@ When generating prompts from structured scene records:
 - **Skill Version:** 1.0
 - **Model Version:** Mystic 2.5 (Standard/Flexible/Fluid) + API sub-models
 - **Last Updated:** 2026-02-11
-- **Maintained By:** Visual Horizon Studio
 
 ---
 
@@ -108,3 +107,5 @@ Character: @detective::80 (if LoRA trained)
 ```
 
 ---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

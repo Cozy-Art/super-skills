@@ -14,3 +14,7 @@ Human-facing build notes.
 - 6 example scenarios across mixed project types (concept art, title cards, character sheets, location scouts, product/prop design, storyboard frames)
 - Full JSON schema with validation
 - Optimized for structured asset pipeline integration
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

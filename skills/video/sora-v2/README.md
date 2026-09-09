@@ -63,6 +63,7 @@ Authorization: Bearer {API_TOKEN}
 - **Last Updated:** 2026-02-25
 - **Status:** production
 - **Category:** video-generation
-- **Maintainer:** Visual Horizon Studio
 
 ---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

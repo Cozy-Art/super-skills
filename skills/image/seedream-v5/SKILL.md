@@ -214,3 +214,18 @@ control, or commercial art direction. Supported by Seedream 5.0 Lite only.
 - Real-time web search retrieval (5.0 only)
 - Multi-step spatial reasoning
 - Native 2K–4K output pipeline
+
+## Reference Files
+
+Load these when you need depth on a specific topic:
+
+- [parameters.json](parameters.json) — Complete API specifications for both variants (Seedream 5.0 Lite and 4.5) across all platforms, including the 5.0-only reasoning and web-search capabilities.
+- [best-practices.md](best-practices.md) — The natural-language philosophy over keyword stacking, advanced optimization, troubleshooting, and 4.5 → 5.0 migration notes.
+- [examples-text-to-image.md](examples-text-to-image.md) — 15+ annotated text-to-image examples across the recurring example projects.
+- [examples-json-structured.md](examples-json-structured.md) — 10+ annotated JSON structured-prompt examples for multi-subject placement, per-element HEX color control, and commercial art direction, plus guidance on when to stay with plain text.
+- [examples-editing.md](examples-editing.md) — Example-based editing (5.0 Lite), reference-based generation, visual marker editing (4.5), multi-image generation with consistency, and compositing workflows.
+- [schema.json](schema.json) — Output validation schema for both output modes: plain text and JSON structured prompt, including the per-subject and structured-prompt object definitions.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

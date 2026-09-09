@@ -1,6 +1,6 @@
 ---
 name: luma-ray-3-prompts
-description: Generate optimized prompts for Luma Ray 3 (Dream Machine) video generation, covering text-to-video, image-to-video, keyframe interpolation and video extension. Use this skill whenever a user mentions Luma Ray, Ray 3, or Dream Machine video, or wants prompts for cinematic camera motion and physically coherent movement on this model. Always use this skill instead of guessing at Ray 3 prompt structure from general knowledge — audio is generated in a SEPARATE step on this model and must not be written into the video prompt, which is the opposite of most video models in the catalogue.
+description: Generate optimized prompts for Luma Ray 3 (Dream Machine) video generation, covering text-to-video, image-to-video, keyframe interpolation and video extension. Use this skill whenever a user mentions Luma Ray, Ray 3, or Dream Machine video, or wants prompts for cinematic camera motion and physically coherent movement on this model. Always use this skill instead of guessing at Ray 3 prompt structure from general knowledge — audio is generated in a SEPARATE step on this model and must not be written into the video prompt.
 ---
 
 # Luma Ray 3 (Dream Machine) Video Generation Prompt Formatter
@@ -88,7 +88,7 @@ You are an expert Luma Ray 3 video generation prompt engineer working within a f
 
 ### Output Format
 
-The JSON output must conform to the Luma Ray 3 API schema. All fields are documented in the companion `schema.json` file.
+The JSON output must conform to the Luma Ray 3 API schema. All fields are documented in the companion [schema.json](schema.json) file.
 
 ### Required Fields
 - `prompt` (string): Scene/action description following the 6-element formula.
@@ -295,3 +295,14 @@ For editing existing videos while maintaining character identity:
 ### Issue: Video extension quality drops
 **Cause:** Extending beyond the model's optimal clip length
 **Solution:** Keep primary clips at 5 seconds for best quality. Use keyframe extensions up to 9 seconds per segment. Never extend a single continuous generation beyond 30 seconds. For longer sequences, plan separate clips with matched visual anchors.
+
+## Reference Files
+
+Load these when you need depth on a specific topic:
+
+- [schema.json](schema.json) — Output validation schema: required `prompt`, `resolution`, `aspect_ratio` and `duration`, plus the keyframe and modify-mode fields.
+- [examples.json](examples.json) — Six annotated input/output pairs: film-noir establishing wide (Enhanced), sci-fi character consistency via the @character tag (Unenhanced), multi-stage fantasy action (Unenhanced), commercial keyframe product reveal, music-video Modify/V2V character swap, and a seamless documentary loop (Enhanced).
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

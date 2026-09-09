@@ -51,7 +51,7 @@ Two consequences worth planning around:
   is 16:9.
 
 *(Driving this through the API rather than a UI: locked tasks require `ratio: adaptive`, and editing
-additionally requires `duration: -1`. See `parameters.md`.)*
+additionally requires `duration: -1`. See [parameters.md](parameters.md).)*
 
 ## Trigger Words — required, and easy to miss
 
@@ -211,14 +211,18 @@ words inside it.
 
 ## Reference Files
 
-- **`parameters.md`** — Model ID, endpoint shape, the locked/unlocked parameter rules, `content.role`
+- **[parameters.md](parameters.md)** — Model ID, endpoint shape, the locked/unlocked parameter rules, `content.role`
   values, the full asset-count recommendations, and what ByteDance does not publish.
 
-- **`best-practices.md`** — Structure, timestamp discipline, camera language, action and expression
+- **[best-practices.md](best-practices.md)** — Structure, timestamp discipline, camera language, action and expression
   description, storyboard and clay-model technique, negative control, and a mistakes/fixes table.
 
-- **`continuity-and-references.md`** — Reference binding in depth, multi-subject mapping, subject
+- **[continuity-and-references.md](continuity-and-references.md)** — Reference binding in depth, multi-subject mapping, subject
   count and viewpoint guidance, 3D clay-model rendering, and editing and extension continuity.
 
-- **`examples.md`** — Annotated examples across all major task types, based on ByteDance's own
+- **[examples.md](examples.md)** — Annotated examples across all major task types, based on ByteDance's own
   documented patterns.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

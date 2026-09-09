@@ -150,9 +150,9 @@ from papers to face. Tense atmosphere.
 
 ## Related Files
 
-- `parameters.json` - Complete specifications: resolutions, durations, Elements limits, CFG scale
-- `best-practices.md` - Camera terminology, sequential action structuring, negative prompts
-- `examples/comprehensive-examples.md` - All categories: character consistency, multi-shot sequences, dialogue scenes, Elements workflows
+- [parameters.json](parameters.json) - Complete specifications: resolutions, durations, Elements limits, CFG scale
+- [best-practices.md](best-practices.md) - Camera terminology, sequential action structuring, negative prompts
+- [examples/comprehensive-examples.md](examples/comprehensive-examples.md) - All categories: character consistency, multi-shot sequences, dialogue scenes, Elements workflows
 
 ---
 
@@ -189,3 +189,7 @@ from papers to face. Tense atmosphere.
 - Visual chain-of-thought reasoning
 - Better object consistency
 - Enhanced camera coherence
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

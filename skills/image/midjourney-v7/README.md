@@ -76,6 +76,7 @@ Skip Draft Mode for:
 - **Model Version:** Midjourney v7 (Released April 2025, Default June 2025)
 - **Aliases:** midjourney7
 - **Last Updated:** 2026-07-23 - Removed all trailing `--` parameter generation (aspect ratio, stylize, quality, chaos, references); output is now pure descriptive prose. The director owns all Midjourney settings.
-- **Maintained By:** Visual Horizon Studio
 
 ---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

@@ -84,6 +84,7 @@ For scenes with multiple shots:
 - **Model Version:** MiniMax Hailuo 2.3 (Standard/Pro/Fast)
 - **Aliases:** hailuo2
 - **Last Updated:** 2026-02-11
-- **Maintained By:** Visual Horizon Studio
 
 ---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

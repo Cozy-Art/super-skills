@@ -126,3 +126,7 @@ Worth doing:
 ## Timely note
 
 Cloudflare's defaults change on **15 September 2026**: for new domains, new sites, and existing free-plan customers who haven't adjusted settings, Training and Agent crawlers are blocked by default on pages that display ads, while Search stays allowed. Mixed-purpose crawlers get evaluated under both policies. If the site is behind Cloudflare, check the dashboard rather than assuming robots.txt is in charge. Verify current state — this is a moving target and the date may now be past.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

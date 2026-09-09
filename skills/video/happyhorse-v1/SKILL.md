@@ -1,6 +1,6 @@
 ---
 name: happyhorse-1-0-prompts
-description: Generate optimized prompts for Alibaba's HappyHorse 1.0 video generation model — the #1 ranked model on Artificial Analysis Video Arena at launch (April 2026). Use this skill whenever a user mentions HappyHorse, Happy Horse, Alibaba video generation, or wants to generate video with native joint audio (dialogue, foley, ambient), multi-shot sequences (up to 5 shots per call), image-to-video animation, reference-to-video with up to 9 reference images, natural-language video editing, or 7-language lip-sync (English, Mandarin, Cantonese, Japanese, Korean, German, French). Also trigger for any prompt that involves T2V, I2V, R2V, or video-edit workflows on fal.ai, Runware, WaveSpeed, or Cloudflare AI targeting this model. Always use this skill — do not guess at HappyHorse prompt structure from general knowledge, as its token-economy rules and positional weighting are model-specific and counterintuitive.
+description: Generate optimized prompts for Alibaba's HappyHorse 1.0 video generation model — the top-ranked model on Artificial Analysis Video Arena at launch (April 2026). Use this skill whenever a user mentions HappyHorse, Happy Horse, Alibaba video generation, or wants to generate video with native joint audio (dialogue, foley, ambient), multi-shot sequences (up to 5 shots per call), image-to-video animation, reference-to-video with up to 9 reference images, natural-language video editing, or 7-language lip-sync (English, Mandarin, Cantonese, Japanese, Korean, German, French). Also trigger for any prompt that involves T2V, I2V, R2V, or video-edit workflows on fal.ai, Runware, WaveSpeed, or Cloudflare AI targeting this model. Always use this skill — do not guess at HappyHorse prompt structure from general knowledge, as its token-economy rules and positional weighting are model-specific and counterintuitive.
 ---
 
 # HappyHorse 1.0 Prompt Generator
@@ -129,10 +129,14 @@ Regenerating from scratch on every iteration is the #1 source of character and s
 
 Load these when you need depth on a specific topic:
 
-- **`parameters.md`** — All API parameters for T2V, I2V, R2V, video-edit, and Runware output format endpoints. Parameter tables, valid ranges, recommended combinations by use case, pricing, and output specs.
+- **[parameters.md](parameters.md)** — All API parameters for T2V, I2V, R2V, video-edit, and Runware output format endpoints. Parameter tables, valid ranges, recommended combinations by use case, pricing, and output specs.
 
-- **`best-practices.md`** — Detailed guidance on prompt economy, positional weighting, audio design, lip-sync, photorealism anti-clichés, East Asian scene writing, common mistakes table with fixes, and the iterative refinement workflow.
+- **[best-practices.md](best-practices.md)** — Detailed guidance on prompt economy, positional weighting, audio design, lip-sync, photorealism anti-clichés, East Asian scene writing, common mistakes table with fixes, and the iterative refinement workflow.
 
-- **`continuity-and-references.md`** — How to use seed-based reproducibility, I2V keyframing, frameImages first/last frame control, Reference-to-Video with 9 images, @element compositing, multi-shot sequencing, and the NL video-edit endpoint in depth.
+- **[continuity-and-references.md](continuity-and-references.md)** — How to use seed-based reproducibility, I2V keyframing, frameImages first/last frame control, Reference-to-Video with 9 images, @element compositing, multi-shot sequencing, and the NL video-edit endpoint in depth.
 
-- **`examples.md`** — 7 annotated example prompts covering: simple T2V character shot, dialogue/lip-sync scene, environment/landscape, action sequence, camera movement focus, style/mood (3D cartoon), and multi-shot narrative. Each includes formula label and technique notes.
+- **[examples.md](examples.md)** — 7 annotated example prompts covering: simple T2V character shot, dialogue/lip-sync scene, environment/landscape, action sequence, camera movement focus, style/mood (3D cartoon), and multi-shot narrative. Each includes formula label and technique notes.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

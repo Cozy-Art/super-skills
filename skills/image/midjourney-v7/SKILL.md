@@ -76,12 +76,12 @@ character portrait:: background::-0.5    # Reduce background emphasis
 
 ## Related Files
 
-- `parameters.json` - Complete parameter specifications, ranges, and defaults
-- `best-practices.md` - Detailed guidelines, common mistakes, and optimization strategies
-- `examples/character-focused.md` - Character consistency using Omni Reference
-- `examples/environment-focused.md` - Location and atmosphere prompts
-- `examples/action-motion.md` - Dynamic scenes and movement
-- `examples/style-variations.md` - Artistic styles and aesthetic approaches
+- [parameters.json](parameters.json) - Complete parameter specifications, ranges, and defaults
+- [best-practices.md](best-practices.md) - Detailed guidelines, common mistakes, and optimization strategies
+- [examples/character-focused.md](examples/character-focused.md) - Character consistency using Omni Reference
+- [examples/environment-focused.md](examples/environment-focused.md) - Location and atmosphere prompts
+- [examples/action-motion.md](examples/action-motion.md) - Dynamic scenes and movement
+- [examples/style-variations.md](examples/style-variations.md) - Artistic styles and aesthetic approaches
 
 ---
 
@@ -103,3 +103,7 @@ character portrait:: background::-0.5    # Reduce background emphasis
 - Midjourney has strict content policy
 - No NSFW, violent, or copyrighted character reproductions
 - Banned artist names trigger content blocks
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

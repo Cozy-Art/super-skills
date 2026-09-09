@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "MiniMax H3 Structured Prompt Schema",
-  "description": "Schema for validating MiniMax H3 structured prompts produced by this skill. H3 is the only model in the video catalogue whose vendor documents a structured multi-section prompt format. NOTE: these sections are labelled prose blocks inside a single newline-delimited text string, not JSON keys on the API. This schema describes the composition surface; the sections are serialised in fixed order into the one `text` item the API accepts.",
+  "description": "Schema for validating MiniMax H3 structured prompts produced by this skill. MiniMax documents a structured multi-section prompt format for H3. NOTE: these sections are labelled prose blocks inside a single newline-delimited text string, not JSON keys on the API. This schema describes the composition surface; the sections are serialised in fixed order into the one `text` item the API accepts.",
   "type": "object",
   "required": ["mode", "spec", "settings"],
   "additionalProperties": false,

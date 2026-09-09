@@ -51,8 +51,7 @@ The most distinctive thing H3 does. A subject can draw different attributes from
 walking motion comes from <Video 1>.
 ```
 
-This separates *who someone is* from *how they move*, which no other model in the catalogue does
-cleanly. Production uses:
+This separates *who someone is* from *how they move*, cleanly. Production uses:
 
 - **Identity from a still, performance from a clip** — cast from a photo, move from a reference take
 - **Identity from a still, voice from an audio clip** — pair with `<Audio N>`

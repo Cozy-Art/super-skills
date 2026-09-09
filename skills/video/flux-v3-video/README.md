@@ -84,7 +84,7 @@ tool it has.
 this today. Prefer `minimax-h3` (`<Subject N>` typed reference tokens), `seedance-v2-5` (`@Image 1`),
 or `veo-v3` (numbered reference images) when cross-shot identity is the requirement.
 
-**Against `ltx-v2`**, the other single-pass audio-video model in the catalogue: LTX requires a single
+**Against `ltx-v2`**, the other single-pass audio-video model here: LTX requires a single
 flowing paragraph and has no reference mechanism either, but no keyframe timing. FLUX 3 wins where
 timing matters; LTX wins where duration >20s is needed.
 
@@ -102,3 +102,7 @@ timing matters; LTX wins where duration >20s is needed.
    teaches the workflow without asserting bundle internals.
 4. **Slug.** `flux-v3-video` rather than the endpoint name (`flux-3-video`). If BFL ships a FLUX 3
    *image* model it would need its own skill, and the `-video` suffix keeps the two unambiguous.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

@@ -173,3 +173,17 @@ This SKILL targets the **Aurora** model (December 2024–present). Key differenc
 - X Premium: ~50 prompts every 2 hours
 - X Premium+: Higher limits
 - API: Pay-per-image, up to 10 per request
+
+## Reference Files
+
+Load these when you need depth on a specific topic:
+
+- [parameters.json](parameters.json) — Complete API specifications for `grok-imagine-image`: text-to-image and both editing modes, aspect ratios, batch limits, rate limits, and pricing.
+- [best-practices.md](best-practices.md) — The cinematic-default problem and when to lean into it versus fight it, style control, iterative refinement chains, and troubleshooting.
+- [examples-text-to-image.md](examples-text-to-image.md) — 16 annotated text-to-image examples across the recurring example projects.
+- [examples-editing.md](examples-editing.md) — 10 annotated examples for single-image editing via `image_url`, multi-image compositing with up to 3 sources via `image_urls`, conversational refinement, character consistency, and style transfer.
+- [schema.json](schema.json) — Output validation schema covering the text-to-image, single-image edit, and multi-image edit modes.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

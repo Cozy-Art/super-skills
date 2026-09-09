@@ -60,6 +60,7 @@ Content-Type: application/json
 - **Last Updated:** 2026-07-23 - Dropped "2.39:1 composition" from the "cinematic" style expansion so aspect ratio no longer leaks into prompt prose.
 - **Status:** production
 - **Category:** image-generation
-- **Maintainer:** Visual Horizon Studio
 
 ---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

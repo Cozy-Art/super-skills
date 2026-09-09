@@ -198,8 +198,7 @@ choice. This is the tool to reach for when a storyboard's looseness is unaccepta
 
 ## 3D clay-model reference
 
-The capability with no equivalent elsewhere in the catalogue. A previz pass supplies motion and camera
-while the look comes from references and prose.
+A previz pass supplies motion and camera while the look comes from references and prose.
 
 **State exactly which elements to take from the clay video:**
 

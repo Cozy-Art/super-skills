@@ -10,7 +10,7 @@ and video and returns short video with natively synchronized sound. Its distinct
 **conversational editing**: a generated clip can be refined across turns, each edit building on the
 last, without re-specifying the whole scene.
 
-It is also the most tightly bounded video model in the catalogue: **3 to 10 seconds, 720p, 24 fps,
+Its output envelope is tight and fixed: **3 to 10 seconds, 720p, 24 fps,
 landscape or portrait only.** Those limits are not settings to negotiate — they are the model.
 
 **This skill produces prompt text, not API calls.** The output goes to a person, who pastes it into
@@ -76,8 +76,8 @@ Written inline, in the position where the reference applies:
 in the style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking
 ```
 
-**Image references start from 0.** `<IMAGE_REF_0>` is the first reference image. This differs from
-every other numbered-reference model in the catalogue, which start at 1.
+**Image references start from 0.** `<IMAGE_REF_0>` is the first reference image. Numbered references
+elsewhere start at 1.
 
 ### Declaration blocks
 
@@ -128,7 +128,7 @@ corresponding way to specify a line.
 
 **Practical consequence:** treat Omni Flash as picture-plus-atmosphere. For a scene that needs specific
 spoken words, either generate the audio separately and lay it against this picture, or route to a model
-with documented dialogue support — see `README.md`.
+with documented dialogue support — see [README.md](README.md).
 
 ## Negation
 
@@ -183,15 +183,19 @@ Very little to choose here, which is itself the point.
 
 ## Reference Files
 
-- **`parameters.md`** — Model ID, the full option set, the retention behaviour that gates editing,
+- **[parameters.md](parameters.md)** — Model ID, the full option set, the retention behaviour that gates editing,
   pricing, regional restrictions, and an explicit list of documented non-capabilities.
 
-- **`best-practices.md`** — Single-take versus default multi-shot, timecode discipline, the six
+- **[best-practices.md](best-practices.md)** — Single-take versus default multi-shot, timecode discipline, the six
   descriptive dimensions Google's guidance implies, edit-prompt brevity, and a mistakes/fixes table.
 
-- **`continuity-and-references.md`** — Image role tags in depth, the zero-indexing trap, declaration
+- **[continuity-and-references.md](continuity-and-references.md)** — Image role tags in depth, the zero-indexing trap, declaration
   blocks, what conversational editing can and cannot carry, and holding a look across separate
   generations without a reference mechanism that persists.
 
-- **`examples.md`** — Annotated examples across all four modes, including a timecoded mini-sequence, a
+- **[examples.md](examples.md)** — Annotated examples across all four modes, including a timecoded mini-sequence, a
   single-take request, and a multi-turn conversational edit chain.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

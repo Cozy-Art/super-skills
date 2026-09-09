@@ -228,3 +228,14 @@ Don't change the character's appearance and outfit.
 
 [Settings: Enable Sequence Mode, Max Image Count: 3]
 ```
+
+## Reference Files
+
+Load these when you need depth on a specific topic:
+
+- [schema.json](schema.json) — Output validation schema for the Seedream 4.5 prompt object, with full parameter validation.
+- [examples.json](examples.json) — Six annotated input/output pairs: lead character portrait, cinematic environment with character, interior location reference, multi-view character sheet, key prop reference, and a visual-tone mood board.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

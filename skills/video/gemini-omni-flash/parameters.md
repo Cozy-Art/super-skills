@@ -23,7 +23,7 @@ pricing page, and the DeepMind model card.
 | Audio | Native, synchronized, generated with the frames |
 | Watermark | SynthID on all outputs, non-optional |
 
-This is the tightest output envelope of any video model in the catalogue. Nothing here is negotiable.
+The output envelope is tight and entirely fixed. Nothing here is negotiable.
 
 **Input data types:** Text, Image, Video (up to 10 s, for editing). **Output:** Video.
 

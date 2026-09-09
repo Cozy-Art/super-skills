@@ -244,9 +244,8 @@ their identity from an image.
 
 ## When to route elsewhere
 
-- **1080p or 4K output** — **Seedance 2.5 tops out at 720p.** Seedance 2.0 offers 1080p and 4K, as do
-  other models in the catalogue. This is the most likely reason to route away, and it is
-  counter-intuitive
+- **1080p or 4K output** — **Seedance 2.5 tops out at 720p.** Seedance 2.0 offers 1080p and 4K. This
+  is the most likely reason to route away, and it is counter-intuitive
 - **Per-attribute reference control** — `minimax-h3` draws appearance from one asset and motion from
   another *within a single subject definition*, with explicit retention markers. Seedance scopes
   references by sentence instead

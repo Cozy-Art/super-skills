@@ -97,7 +97,7 @@ When `generate_multi_clip_switch` is true, PixVerse automatically breaks the sce
 
 ### Output Format
 
-The JSON output must conform to the PixVerse V5.5 API schema. All fields are documented in the companion `schema.json` file.
+The JSON output must conform to the PixVerse V5.5 API schema. All fields are documented in the companion [schema.json](schema.json) file.
 
 ### Required Fields
 - `prompt` (string): Scene description, up to 2,048 characters. Subject first.
@@ -299,3 +299,14 @@ The Extend endpoint continues a generated video by analyzing the ending segment.
 ### Issue: Audio doesn't match visual content
 **Cause:** No dialogue or sound cues described in the prompt
 **Solution:** For dialogue, include the spoken words and delivery in the prompt: "she says 'welcome home' with a warm smile." For ambient sound, the audio engine generally matches visual content automatically. Ensure the visual scene has clear sound-producing elements.
+
+## Reference Files
+
+Load these when you need depth on a specific topic:
+
+- [schema.json](schema.json) — Output validation schema: required `prompt`, `model`, `aspect_ratio`, `quality` and `duration`, plus the resolution–duration constraint rules.
+- [examples.json](examples.json) — Six annotated input/output pairs: film-noir multi-shot establishing sequence with audio, sci-fi dialogue scene with lip sync, music-video image-to-video with a style preset, commercial multi-clip product shot with audio, fantasy fast-motion action, and a documentary start/end frame transition using thinking mode.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

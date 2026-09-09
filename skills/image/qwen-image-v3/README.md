@@ -233,3 +233,7 @@ improved text and layout work specifically.
    third-party platform.
 5. **Does `seed` reproduce reliably with `prompt_extend: false`?** Assumed, not tested. The whole
    reproducibility guidance rests on it.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

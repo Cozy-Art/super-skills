@@ -1,6 +1,6 @@
 ---
 name: gemini-3-pro-image-prompts
-description: Generate optimized prompts for Gemini 3 Pro Image, nicknamed Nano Banana Pro, Google's professional image model with multi-reference support, Google Search grounding and strong in-image text rendering. Use this skill whenever a user mentions Gemini 3 Pro Image, Nano Banana, or Nano Banana Pro, or wants prompts involving up to fourteen reference images, thinking-mode reasoning, or search-grounded generation of real-world subjects. Always use this skill instead of guessing at its prompt structure from general knowledge — references are described in natural language with no token syntax at all, which is unlike most models in the catalogue.
+description: Generate optimized prompts for Gemini 3 Pro Image, nicknamed Nano Banana Pro, Google's professional image model with multi-reference support, Google Search grounding and strong in-image text rendering. Use this skill whenever a user mentions Gemini 3 Pro Image, Nano Banana, or Nano Banana Pro, or wants prompts involving up to fourteen reference images, thinking-mode reasoning, or search-grounded generation of real-world subjects. Always use this skill instead of guessing at its prompt structure from general knowledge — references are described in natural language with no token syntax at all.
 ---
 
 # Gemini 3 Pro Image (Nano Banana Pro) - Prompt Generation Skill
@@ -67,9 +67,13 @@ Generate prompts as natural language paragraphs. For complex scenes requiring mu
 
 ## Related Files
 
-- `parameters.json` - Complete parameter specifications and valid values
-- `best-practices.md` - Detailed guidelines and common mistake fixes
-- `examples/character-focused.md` - Character consistency examples
-- `examples/environment-focused.md` - Location and atmosphere examples  
-- `examples/action-motion.md` - Dynamic scene examples
-- `examples/style-variations.md` - Artistic style and aesthetic examples
+- [parameters.json](parameters.json) - Complete parameter specifications and valid values
+- [best-practices.md](best-practices.md) - Detailed guidelines and common mistake fixes
+- [examples/character-focused.md](examples/character-focused.md) - Character consistency examples
+- [examples/environment-focused.md](examples/environment-focused.md) - Location and atmosphere examples  
+- [examples/action-motion.md](examples/action-motion.md) - Dynamic scene examples
+- [examples/style-variations.md](examples/style-variations.md) - Artistic style and aesthetic examples
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

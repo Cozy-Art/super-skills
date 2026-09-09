@@ -90,10 +90,14 @@ As the sequence continues, the subject turns toward the light."
 
 Load these when you need depth on a specific topic:
 
-- **`parameters.md`** — Complete API parameter table, Fast vs. Pro spec comparison, all resolution and aspect ratio options, audio generation behavior, FPS options, output formats, credit costs, and Fast vs. Pro decision framework with scenario table.
+- **[parameters.md](parameters.md)** — Complete API parameter table, Fast vs. Pro spec comparison, all resolution and aspect ratio options, audio generation behavior, FPS options, output formats, credit costs, and Fast vs. Pro decision framework with scenario table.
 
-- **`best-practices.md`** — Single paragraph format discipline, physical cues deep-dive with conversion table, camera vocabulary with intensity qualifiers, negative space rule, detail-to-scale matching, strengths and known limitations, iteration workflow (6-step), sequential phase prompting for extended clips, style anchoring, and troubleshooting table.
+- **[best-practices.md](best-practices.md)** — Single paragraph format discipline, physical cues deep-dive with conversion table, camera vocabulary with intensity qualifiers, negative space rule, detail-to-scale matching, strengths and known limitations, iteration workflow (6-step), sequential phase prompting for extended clips, style anchoring, and troubleshooting table.
 
-- **`continuity-and-references.md`** — I2V as primary consistency tool (supported formats, resolution by mode), first/last frame interpolation (2.3 Fast only), video chaining workflow for sequences beyond max duration, seed locking for cross-shot style continuity, LoRA fine-tuning (recommended config: size 16, lr 0.0002, 960×576@24fps), and the Grid Method for character consistency without LoRA training.
+- **[continuity-and-references.md](continuity-and-references.md)** — I2V as primary consistency tool (supported formats, resolution by mode), first/last frame interpolation (2.3 Fast only), video chaining workflow for sequences beyond max duration, seed locking for cross-shot style continuity, LoRA fine-tuning (recommended config: size 16, lr 0.0002, 960×576@24fps), and the Grid Method for character consistency without LoRA training.
 
-- **`examples.md`** — 5 fully annotated example prompts: simple character moment (T2V), breaking news broadcast with dialogue (T2V), product orbit (I2V), atmospheric walkthrough with negative space, and multi-phase 20-second complex sequence. Includes quick-start templates by use case and a pre-generation checklist.
+- **[examples.md](examples.md)** — 5 fully annotated example prompts: simple character moment (T2V), breaking news broadcast with dialogue (T2V), product orbit (I2V), atmospheric walkthrough with negative space, and multi-phase 20-second complex sequence. Includes quick-start templates by use case and a pre-generation checklist.
+
+---
+
+Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

@@ -1,8 +1,7 @@
 # Grok Imagine Video 1.5 — Continuity and References
 
-Grok Imagine Video draws one distinction more cleanly than almost any model in the catalogue: **who
-appears** and **what they sound like** are separate token systems, and neither substitutes for the
-other.
+Grok Imagine Video draws one distinction unusually cleanly: **who appears** and **what they sound
+like** are separate token systems, and neither substitutes for the other.
 
 ---
 
@@ -23,8 +22,7 @@ The person from <IMAGE_1> speaks to camera with the voice from <AUDIO_0>.
 a timbre from a fixed roster. Only `<IMAGE_N>` holds identity.
 
 This is the same trap that `kling-v3` documents at length, resolved correctly by the vendor here rather
-than needing to be untangled. Grok and `minimax-h3` are the two clearest examples in the catalogue of a
-model keeping the two layers genuinely separate.
+than needing to be untangled. Grok and `minimax-h3` both keep the two layers genuinely separate.
 
 ---
 

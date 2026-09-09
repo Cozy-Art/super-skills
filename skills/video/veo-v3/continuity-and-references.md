@@ -1,8 +1,8 @@
 # Veo 3.1 — Continuity and References
 
 **Read the first section before writing any prompt that involves a reference image.** Veo binds
-references differently from almost every other model in the catalogue, and the difference is the kind
-that produces confidently wrong output rather than an error.
+references in an unusual way, and the difference is the kind that produces confidently wrong output
+rather than an error.
 
 ---
 
