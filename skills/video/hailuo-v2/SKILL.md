@@ -113,9 +113,9 @@ She enters the room [Dolly forward], then turns to face the window [Pan right].
 
 ## Related Files
 
-- `parameters.json` - Complete specifications: resolutions, durations, camera movements, Subject Reference
-- `best-practices.md` - 4-6 second rule, temporal trimming, motion realism techniques
-- `examples/comprehensive-examples.md` - All categories: character consistency, emotion rendering, motion sequences
+- [parameters.json](parameters.json) - Complete specifications: resolutions, durations, camera movements, Subject Reference
+- [best-practices.md](best-practices.md) - 4-6 second rule, temporal trimming, motion realism techniques
+- [examples/comprehensive-examples.md](examples/comprehensive-examples.md) - All categories: character consistency, emotion rendering, motion sequences
 
 ---
 

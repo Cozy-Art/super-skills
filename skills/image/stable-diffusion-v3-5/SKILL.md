@@ -97,13 +97,13 @@ Use visual descriptions of medium, technique, and aesthetic instead.
 
 Load these when you need depth on a specific topic:
 
-- **`parameters.md`** — Complete API parameter tables for all three variants, CFG deep-dive with value table, inference steps recommendations, all 9 aspect ratios with pixel dimensions, resolution limits per variant, output formats, platform availability (Replicate, AWS Bedrock, ComfyUI, A1111), and SDXL → SD3.5 migration checklist.
+- **[parameters.md](parameters.md)** — Complete API parameter tables for all three variants, CFG deep-dive with value table, inference steps recommendations, all 9 aspect ratios with pixel dimensions, resolution limits per variant, output formats, platform availability (Replicate, AWS Bedrock, ComfyUI, A1111), and SDXL → SD3.5 migration checklist.
 
-- **`best-practices.md`** — Scene description ordering discipline, what to emphasize (materials/textures, lighting, camera terms, mood), what to avoid (weighting syntax, quality boosters, artist names, long negative prompts), common mistakes table with fixes, consistency strategies (seed locking, "prune it out" rule), style anchoring, and art style + subject compatibility notes.
+- **[best-practices.md](best-practices.md)** — Scene description ordering discipline, what to emphasize (materials/textures, lighting, camera terms, mood), what to avoid (weighting syntax, quality boosters, artist names, long negative prompts), common mistakes table with fixes, consistency strategies (seed locking, "prune it out" rule), style anchoring, and art style + subject compatibility notes.
 
-- **`continuity-and-references.md`** — Seed-based reproducibility workflow, image-to-image mode with `prompt_strength` guidance, IP-Adapter for reference-image consistency (ipadapter_scale, style/character/object modes), ControlNet modules (Canny, Tile, Pose), LoRA fine-tuning on SD3.5 Medium, and multi-shot consistency strategies combining all tools.
+- **[continuity-and-references.md](continuity-and-references.md)** — Seed-based reproducibility workflow, image-to-image mode with `prompt_strength` guidance, IP-Adapter for reference-image consistency (ipadapter_scale, style/character/object modes), ControlNet modules (Canny, Tile, Pose), LoRA fine-tuning on SD3.5 Medium, and multi-shot consistency strategies combining all tools.
 
-- **`examples.md`** — 7 fully annotated examples: text rendering, environmental portrait with neon text, dynamic action/cyberpunk, Art Nouveau illustration, complex fantasy portrait, caricature/3D cartoon, and product still life. Includes quick-start templates by content type and a pre-generation checklist.
+- **[examples.md](examples.md)** — 7 fully annotated examples: text rendering, environmental portrait with neon text, dynamic action/cyberpunk, Art Nouveau illustration, complex fantasy portrait, caricature/3D cartoon, and product still life. Includes quick-start templates by content type and a pre-generation checklist.
 
 ---
 

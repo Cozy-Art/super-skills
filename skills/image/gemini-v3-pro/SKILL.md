@@ -67,12 +67,12 @@ Generate prompts as natural language paragraphs. For complex scenes requiring mu
 
 ## Related Files
 
-- `parameters.json` - Complete parameter specifications and valid values
-- `best-practices.md` - Detailed guidelines and common mistake fixes
-- `examples/character-focused.md` - Character consistency examples
-- `examples/environment-focused.md` - Location and atmosphere examples  
-- `examples/action-motion.md` - Dynamic scene examples
-- `examples/style-variations.md` - Artistic style and aesthetic examples
+- [parameters.json](parameters.json) - Complete parameter specifications and valid values
+- [best-practices.md](best-practices.md) - Detailed guidelines and common mistake fixes
+- [examples/character-focused.md](examples/character-focused.md) - Character consistency examples
+- [examples/environment-focused.md](examples/environment-focused.md) - Location and atmosphere examples  
+- [examples/action-motion.md](examples/action-motion.md) - Dynamic scene examples
+- [examples/style-variations.md](examples/style-variations.md) - Artistic style and aesthetic examples
 
 ---
 

@@ -88,13 +88,13 @@ Every effective V6 prompt follows this structure:
 
 Load these when you need depth on a specific topic:
 
-- **`parameters.md`** — Complete API parameter tables (V6 WaveSpeed schema and legacy platform schema), all 20+ V6 cinematic lens controls, aspect ratio options, pricing table by resolution and audio, legacy `camera_movement` enum values, `motion_mode` and `quality` constraints, and V5.6 → V6 migration comparison.
+- **[parameters.md](parameters.md)** — Complete API parameter tables (V6 WaveSpeed schema and legacy platform schema), all 20+ V6 cinematic lens controls, aspect ratio options, pricing table by resolution and audio, legacy `camera_movement` enum values, `motion_mode` and `quality` constraints, and V5.6 → V6 migration comparison.
 
-- **`best-practices.md`** — Literal method deep-dive with comparison table, subject anchoring rules, motion and camera discipline (pace qualifiers, max 2 moves, handheld vs. gimbal), style vocabulary, thinking_type strategy, motion strength slider guidance, negative prompt library, known V6 limitations (crowd faces, facial close-ups, text rendering), and content filter workarounds.
+- **[best-practices.md](best-practices.md)** — Literal method deep-dive with comparison table, subject anchoring rules, motion and camera discipline (pace qualifiers, max 2 moves, handheld vs. gimbal), style vocabulary, thinking_type strategy, motion strength slider guidance, negative prompt library, known V6 limitations (crowd faces, facial close-ups, text rendering), and content filter workarounds.
 
-- **`continuity-and-references.md`** — Multi-image character reference workflow (upload angles, API schema), multi-shot engine operation (descriptor repetition rules, vocabulary consistency), transition prompting for manual chaining, first/last frame interpolation, LipSync/TTS modes (syntax, character limit, multilingual), and video extension workflow.
+- **[continuity-and-references.md](continuity-and-references.md)** — Multi-image character reference workflow (upload angles, API schema), multi-shot engine operation (descriptor repetition rules, vocabulary consistency), transition prompting for manual chaining, first/last frame interpolation, LipSync/TTS modes (syntax, character limit, multilingual), and video extension workflow.
 
-- **`examples.md`** — All 5 annotated example prompts: corporate headshot/walk, action/destruction, product commercial, anime character with Japanese dialogue/lip-sync, and multi-shot brand narrative. Includes quick-start templates by content type and a pre-generation checklist.
+- **[examples.md](examples.md)** — All 5 annotated example prompts: corporate headshot/walk, action/destruction, product commercial, anime character with Japanese dialogue/lip-sync, and multi-shot brand narrative. Includes quick-start templates by content type and a pre-generation checklist.
 
 ---
 

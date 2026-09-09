@@ -79,7 +79,7 @@ convention, nothing equivalent to the double-quote trigger on other models.
 
 **Practical consequence:** treat this as picture plus atmosphere plus voice *character*. For specific
 spoken words, generate the audio separately and lay it against this picture, or route to a model with
-documented dialogue support — see `README.md`.
+documented dialogue support — see [README.md](README.md).
 
 ## Prompt Length — write for the scene, not for brevity
 
@@ -157,17 +157,17 @@ unavailable. Plan continuity around reference images instead.
 
 ## Reference Files
 
-- **`parameters.md`** — Model ID and aliases, the full option set with real defaults, mode
+- **[parameters.md](parameters.md)** — Model ID and aliases, the full option set with real defaults, mode
   exclusivity, the edit and extension rules, pricing, and what xAI does not publish.
 
-- **`best-practices.md`** — Writing for the upsampler, token placement, camera and action language,
+- **[best-practices.md](best-practices.md)** — Writing for the upsampler, token placement, camera and action language,
   the audio layer, and a mistakes/fixes table.
 
-- **`continuity-and-references.md`** — Reference tokens in depth, the identity-versus-voice
+- **[continuity-and-references.md](continuity-and-references.md)** — Reference tokens in depth, the identity-versus-voice
   distinction, holding a character without a seed, and the resolution trade-off that reference mode
   imposes.
 
-- **`examples.md`** — Annotated examples across all five modes, including a reference-bound character
+- **[examples.md](examples.md)** — Annotated examples across all five modes, including a reference-bound character
   with an assigned voice, an extension, and an edit.
 
 ---

@@ -179,6 +179,16 @@ The core difference: identity is solved by the profile, not the prompt. This inv
 - Built on Nano Banana / Gemini 3 Pro Image foundation
 - Founded by former Adobe researchers
 
+## Reference Files
+
+Load these when you need depth on a specific topic:
+
+- [parameters.json](parameters.json) — Complete API specs, profile training requirements (30–50 photos), operating-mode definitions, and platform access tiers.
+- [best-practices.md](best-practices.md) — The inverted prompt paradigm (the profile carries identity, so the prompt carries the photographer's brief), profile training optimization, edit workflows, and identity-lock techniques.
+- [examples-generate.md](examples-generate.md) — 14 annotated Generate-mode examples across the recurring example projects, each spending zero words describing the subject's appearance.
+- [examples-edit-enhance.md](examples-edit-enhance.md) — 10 annotated examples for Edit mode (expression fixes, lighting adjustment, group compositing, memory rescue) and zero-prompt Enhance mode.
+- [schema.json](schema.json) — Output validation schema for Generate, Edit, and Enhance output, with the `mode` enum and identity-preserving profile references.
+
 ---
 
 Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

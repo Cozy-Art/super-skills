@@ -336,6 +336,13 @@ For complex scenes with multiple subjects, Flux 2 natively understands JSON prom
 3. Keep camera/lens specifications identical across all prompts
 4. Use seed ranges (e.g., seeds 1000-1100) for subtle variation within consistency
 
+## Reference Files
+
+Load these when you need depth on a specific topic:
+
+- [schema.json](schema.json) — Output validation schema for the Flux 2 prompt object: required `prompt` and `variant` fields, the per-variant enums, and the JSON structured-prompt shape.
+- [examples.json](examples.json) — Six annotated input/output pairs across the family: character reference lead portrait (Pro), cinematic storyboard wide (Max), typography-heavy evidence board (Flex), fast concept variations (Klein 9B), identity preservation across scenes (Kontext), and a complex multi-subject JSON structured prompt (Pro).
+
 ---
 
 Built & Maintained by Jason Cozy @ Visual Horizon Studio • MIT License • Please use responsibly

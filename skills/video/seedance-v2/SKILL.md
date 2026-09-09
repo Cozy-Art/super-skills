@@ -119,7 +119,7 @@ Default to `@Image1`, `@Video1`, `@Audio1` — this is what shows up in ByteDanc
 
 ## Suggested Settings
 
-Pair every prompt with a short settings line. Typical range across tools (see `parameters.md` for the full table and provider variation):
+Pair every prompt with a short settings line. Typical range across tools (see [parameters.md](parameters.md) for the full table and provider variation):
 
 - **Resolution:** 480p or 720p baseline; some tools expose 1080p or higher — take it if offered, it doesn't change the prompt
 - **Duration:** `auto` (model decides) or 4–15 seconds; a few tools advertise longer
@@ -130,13 +130,13 @@ Pair every prompt with a short settings line. Typical range across tools (see `p
 
 Load these when you need depth on a specific topic:
 
-- **`parameters.md`** — Full settings reference across providers (fal.ai baseline plus BytePlus/Volcano Engine and reseller variants), resolution × aspect-ratio pixel tables, endpoint names for context, and where the documented ceilings genuinely disagree.
+- **[parameters.md](parameters.md)** — Full settings reference across providers (fal.ai baseline plus BytePlus/Volcano Engine and reseller variants), resolution × aspect-ratio pixel tables, endpoint names for context, and where the documented ceilings genuinely disagree.
 
-- **`best-practices.md`** — Deep guidance on the six-block formula, camera language, lighting/style vocabulary, dialogue and lip-sync mechanics, what to avoid with a mistakes/fixes table, and the iterative refinement workflow (generate 2–3 variants, adjust one block at a time).
+- **[best-practices.md](best-practices.md)** — Deep guidance on the six-block formula, camera language, lighting/style vocabulary, dialogue and lip-sync mechanics, what to avoid with a mistakes/fixes table, and the iterative refinement workflow (generate 2–3 variants, adjust one block at a time).
 
-- **`continuity-and-references.md`** — Character and style consistency across generations, how to chain clips with Reference-to-Video, the video-editing and video-extension patterns in depth, and how this maps onto a Continuity-Anchor–style production workflow.
+- **[continuity-and-references.md](continuity-and-references.md)** — Character and style consistency across generations, how to chain clips with Reference-to-Video, the video-editing and video-extension patterns in depth, and how this maps onto a Continuity-Anchor–style production workflow.
 
-- **`examples.md`** — Seven annotated example prompts: simple T2V character shot, dialogue/lip-sync scene, environment/b-roll, product I2V, vertical social ad, reference-to-video continuity, and video editing/extension. Each includes the formula breakdown and technique notes.
+- **[examples.md](examples.md)** — Seven annotated example prompts: simple T2V character shot, dialogue/lip-sync scene, environment/b-roll, product I2V, vertical social ad, reference-to-video continuity, and video editing/extension. Each includes the formula breakdown and technique notes.
 
 ---
 

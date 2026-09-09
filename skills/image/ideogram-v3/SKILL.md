@@ -78,7 +78,7 @@ You are an expert Ideogram 3 prompt engineer working within a film production pi
 
 ### Output Format
 
-The JSON output must conform to the Ideogram 3 API schema. All fields are documented in the companion `schema.json` file.
+The JSON output must conform to the Ideogram 3 API schema. All fields are documented in the companion [schema.json](schema.json) file.
 
 ### Required Fields
 - `prompt` (string): The image description. Image Summary MUST be the first sentence. Max ~150 words.
@@ -243,6 +243,13 @@ For maintaining character identity across multiple images:
 ### Issue: Changing one word doesn't change the output
 **Cause:** The concept isn't visually grounded — the model doesn't have a strong visual association
 **Solution:** Try multiple related synonyms and alternative phrasings. Use visual/facial cues instead of abstract descriptors. Sometimes rephrasing the entire sentence is more effective than swapping one word.
+
+## Reference Files
+
+Load these when you need depth on a specific topic:
+
+- [schema.json](schema.json) — Output validation schema: required `prompt` and `aspect_ratio`, the full aspect-ratio enum from 1:3 to 3:1, and the Style Reference / Character Reference field constraints.
+- [examples.json](examples.json) — Six annotated input/output pairs across project types: film-noir title card with typography, sci-fi character portrait for a video pipeline, fantasy location concept art, neon music-video storyboard frame, commercial product/prop design with text, and a documentary location scout reference.
 
 ---
 

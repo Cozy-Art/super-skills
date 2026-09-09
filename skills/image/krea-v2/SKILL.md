@@ -140,16 +140,16 @@ UI behaviour, not an API option.
 
 ## Reference Files
 
-- **`parameters.md`** — Every documented field with its real enum and default, the two places Krea's
+- **[parameters.md](parameters.md)** — Every documented field with its real enum and default, the two places Krea's
   own pages conflict, tier pricing, aspect-ratio pixel dimensions, and the open-weight checkpoints.
 
-- **`best-practices.md`** — Prose construction, when to reach for a slider instead of an adjective,
+- **[best-practices.md](best-practices.md)** — Prose construction, when to reach for a slider instead of an adjective,
   creativity-level selection, text rendering, image-to-image strength, and a mistakes/fixes table.
 
-- **`continuity-and-references.md`** — How to hold a look without any in-prompt reference mechanism,
+- **[continuity-and-references.md](continuity-and-references.md)** — How to hold a look without any in-prompt reference mechanism,
   the three attachment types compared, moodboards versus style references, and LoRA styles.
 
-- **`examples.md`** — Annotated examples across both modes and all three tiers, including text
+- **[examples.md](examples.md)** — Annotated examples across both modes and all three tiers, including text
   rendering, style-reference work, and an image-to-image refinement.
 
 ---

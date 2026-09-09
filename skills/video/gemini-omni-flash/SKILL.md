@@ -128,7 +128,7 @@ corresponding way to specify a line.
 
 **Practical consequence:** treat Omni Flash as picture-plus-atmosphere. For a scene that needs specific
 spoken words, either generate the audio separately and lay it against this picture, or route to a model
-with documented dialogue support — see `README.md`.
+with documented dialogue support — see [README.md](README.md).
 
 ## Negation
 
@@ -183,17 +183,17 @@ Very little to choose here, which is itself the point.
 
 ## Reference Files
 
-- **`parameters.md`** — Model ID, the full option set, the retention behaviour that gates editing,
+- **[parameters.md](parameters.md)** — Model ID, the full option set, the retention behaviour that gates editing,
   pricing, regional restrictions, and an explicit list of documented non-capabilities.
 
-- **`best-practices.md`** — Single-take versus default multi-shot, timecode discipline, the six
+- **[best-practices.md](best-practices.md)** — Single-take versus default multi-shot, timecode discipline, the six
   descriptive dimensions Google's guidance implies, edit-prompt brevity, and a mistakes/fixes table.
 
-- **`continuity-and-references.md`** — Image role tags in depth, the zero-indexing trap, declaration
+- **[continuity-and-references.md](continuity-and-references.md)** — Image role tags in depth, the zero-indexing trap, declaration
   blocks, what conversational editing can and cannot carry, and holding a look across separate
   generations without a reference mechanism that persists.
 
-- **`examples.md`** — Annotated examples across all four modes, including a timecoded mini-sequence, a
+- **[examples.md](examples.md)** — Annotated examples across all four modes, including a timecoded mini-sequence, a
   single-take request, and a multi-turn conversational edit chain.
 
 ---

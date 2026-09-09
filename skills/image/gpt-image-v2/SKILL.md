@@ -125,13 +125,13 @@ Dress the subject from Image 1 using the jacket from Image 2. Apply Image 3's li
 
 Load these when you need depth on a specific topic:
 
-- **`parameters.md`** — Complete API parameter tables for both generation and edit endpoints, all `size` values, quality/cost matrix, resolution constraints, rate limits, output formats, pricing, and API code examples (Python).
+- **[parameters.md](parameters.md)** — Complete API parameter tables for both generation and edit endpoints, all `size` values, quality/cost matrix, resolution constraints, rate limits, output formats, pricing, and API code examples (Python).
 
-- **`best-practices.md`** — Anti-slop rules, composition techniques by content type (editorial, product, UI, people), common mistakes table with fixes, syntax rules, living artist moderation avoidance, session noise bug workarounds, and the edit-over-regenerate discipline.
+- **[best-practices.md](best-practices.md)** — Anti-slop rules, composition techniques by content type (editorial, product, UI, people), common mistakes table with fixes, syntax rules, living artist moderation avoidance, session noise bug workarounds, and the edit-over-regenerate discipline.
 
-- **`continuity-and-consistency.md`** — Character consistency strategy (DNA Template, anchor image workflow, close-up reference technique), image-to-image / reference image workflows, style transfer patterns, seed-based reproducibility, batch generation for coherent variants, iterative editing strategy, and multi-scene storyboard setup.
+- **[continuity-and-consistency.md](continuity-and-consistency.md)** — Character consistency strategy (DNA Template, anchor image workflow, close-up reference technique), image-to-image / reference image workflows, style transfer patterns, seed-based reproducibility, batch generation for coherent variants, iterative editing strategy, and multi-scene storyboard setup.
 
-- **`examples.md`** — 7 fully annotated example prompts covering: photoreal editorial portrait, children's book character consistency, documentary landscape, text rendering (diner menu), UI mockup (mobile app), quiet still life, and multi-image virtual try-on compositing. Includes quick-start templates for the most common use cases.
+- **[examples.md](examples.md)** — 7 fully annotated example prompts covering: photoreal editorial portrait, children's book character consistency, documentary landscape, text rendering (diner menu), UI mockup (mobile app), quiet still life, and multi-image virtual try-on compositing. Includes quick-start templates for the most common use cases.
 
 ---
 

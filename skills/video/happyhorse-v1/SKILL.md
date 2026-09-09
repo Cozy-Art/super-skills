@@ -129,13 +129,13 @@ Regenerating from scratch on every iteration is the #1 source of character and s
 
 Load these when you need depth on a specific topic:
 
-- **`parameters.md`** — All API parameters for T2V, I2V, R2V, video-edit, and Runware output format endpoints. Parameter tables, valid ranges, recommended combinations by use case, pricing, and output specs.
+- **[parameters.md](parameters.md)** — All API parameters for T2V, I2V, R2V, video-edit, and Runware output format endpoints. Parameter tables, valid ranges, recommended combinations by use case, pricing, and output specs.
 
-- **`best-practices.md`** — Detailed guidance on prompt economy, positional weighting, audio design, lip-sync, photorealism anti-clichés, East Asian scene writing, common mistakes table with fixes, and the iterative refinement workflow.
+- **[best-practices.md](best-practices.md)** — Detailed guidance on prompt economy, positional weighting, audio design, lip-sync, photorealism anti-clichés, East Asian scene writing, common mistakes table with fixes, and the iterative refinement workflow.
 
-- **`continuity-and-references.md`** — How to use seed-based reproducibility, I2V keyframing, frameImages first/last frame control, Reference-to-Video with 9 images, @element compositing, multi-shot sequencing, and the NL video-edit endpoint in depth.
+- **[continuity-and-references.md](continuity-and-references.md)** — How to use seed-based reproducibility, I2V keyframing, frameImages first/last frame control, Reference-to-Video with 9 images, @element compositing, multi-shot sequencing, and the NL video-edit endpoint in depth.
 
-- **`examples.md`** — 7 annotated example prompts covering: simple T2V character shot, dialogue/lip-sync scene, environment/landscape, action sequence, camera movement focus, style/mood (3D cartoon), and multi-shot narrative. Each includes formula label and technique notes.
+- **[examples.md](examples.md)** — 7 annotated example prompts covering: simple T2V character shot, dialogue/lip-sync scene, environment/landscape, action sequence, camera movement focus, style/mood (3D cartoon), and multi-shot narrative. Each includes formula label and technique notes.
 
 ---
 

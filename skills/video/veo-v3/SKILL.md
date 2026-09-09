@@ -34,7 +34,7 @@ kind** — not `@Image1`, not `<IMAGE_1>`, not a bare ordinal. References bind t
 prose.
 
 Writing `@Image1` into a Veo prompt either renders as literal text in the video or is silently
-ignored. Describe the character; do not point at the image. See `continuity-and-references.md`.
+ignored. Describe the character; do not point at the image. See [continuity-and-references.md](continuity-and-references.md).
 
 ### Core Principles
 
@@ -129,7 +129,7 @@ beats listing what should not.
 ## Suggested Settings
 
 Pair every prompt with a settings line. Never put these in the prompt text. Full table in
-`parameters.md`.
+[parameters.md](parameters.md).
 
 - **Resolution:** `720p` · `1080p` · `4k` — and this decides the duration, see below
 - **Duration:** `4` · `6` · `8` seconds. **4s and 6s exist only at 720p.** 1080p and 4K are 8s only,
@@ -146,12 +146,12 @@ extension is 720p-only. There is no path to a 4K minute.
 
 ## Reference Files
 
-- `parameters.md` — Every documented parameter with its real enum and default, the resolution/duration
+- [parameters.md](parameters.md) — Every documented parameter with its real enum and default, the resolution/duration
   coupling, extension limits and the two-day storage window, and what Google does not publish
-- `continuity-and-references.md` — How identity actually binds on this model, why there is no in-prompt
+- [continuity-and-references.md](continuity-and-references.md) — How identity actually binds on this model, why there is no in-prompt
   token, and the locked-description + same-references + fixed-seed workflow
-- `best-practices.md` — The five-part formula in depth, cinematography vocabulary, audio techniques
-- `examples.md` — 17 annotated prompts across character, environment, action, style, audio and the
+- [best-practices.md](best-practices.md) — The five-part formula in depth, cinematography vocabulary, audio techniques
+- [examples.md](examples.md) — 17 annotated prompts across character, environment, action, style, audio and the
   special techniques (first/last frame, timestamp prompting), plus quick-start templates
 
 ---

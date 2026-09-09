@@ -70,7 +70,7 @@ You are an expert WAN 2.5 video generation prompt engineer working within a film
 
 ### Output Format
 
-The JSON output must conform to the WAN 2.5 API schema. All fields are documented in the companion `schema.json` file.
+The JSON output must conform to the WAN 2.5 API schema. All fields are documented in the companion [schema.json](schema.json) file.
 
 ### Required Fields
 - `prompt` (string): The main scene/action description. Must follow the 4-Dimensional formula.
@@ -209,6 +209,13 @@ When using a source image:
 ### Issue: Camera won't stay still
 **Cause:** No explicit static camera instruction
 **Solution:** Add "static shot" or "fixed shot" explicitly in the prompt. WAN 2.5 defaults to some camera motion if not told otherwise.
+
+## Reference Files
+
+Load these when you need depth on a specific topic:
+
+- [schema.json](schema.json) — Output validation schema: required `prompt`, `resolution`, `aspect_ratio` and `duration`, plus the audio-enabled field set.
+- [examples.json](examples.json) — Six annotated input/output pairs: film-noir establishing shot with audio, music-video performance with dynamic camera, sci-fi image-to-video character animation, commercial product beauty shot with precise camera, documentary interview setup with dialogue, and a fantasy action sequence.
 
 ---
 

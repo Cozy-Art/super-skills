@@ -117,7 +117,7 @@ At 00:04.000, …
 ## Structured Output
 
 In full-reference mode H3 uses six named prose sections **in this fixed order**. This is the structure
-`schema.json` describes.
+[schema.json](schema.json) describes.
 
 | # | Section | Carries |
 |---|---|---|
@@ -154,7 +154,7 @@ be combined with any `reference_*` role. Mixing them fails.
 
 ## Suggested Settings
 
-Pair every prompt with a settings line. See `parameters.md` for the full table.
+Pair every prompt with a settings line. See [parameters.md](parameters.md) for the full table.
 
 - **Resolution:** `768P` or `2K` — **required, no default.** 768P is the base model's native output; 2K
   comes from a separate regeneration pass
@@ -165,19 +165,19 @@ Pair every prompt with a settings line. See `parameters.md` for the full table.
 
 ## Reference Files
 
-- **`parameters.md`** — Every documented parameter with its real enum and default, reference-asset
+- **[parameters.md](parameters.md)** — Every documented parameter with its real enum and default, reference-asset
   limits and file caps, the two-stage 768P→2K path, pricing including per-asset input billing, and
   what MiniMax does not publish.
 
-- **`best-practices.md`** — Section-by-section guidance on the six-part structure, camera and timing
+- **[best-practices.md](best-practices.md)** — Section-by-section guidance on the six-part structure, camera and timing
   cue placement, dialogue mechanics across multiple speakers, retention-marker selection, and a
   mistakes/fixes table.
 
-- **`continuity-and-references.md`** — Subject definition in depth, drawing appearance and motion from
+- **[continuity-and-references.md](continuity-and-references.md)** — Subject definition in depth, drawing appearance and motion from
   different sources, holding identity across generations, and the three-layer distinction applied to
   real production cases.
 
-- **`examples.md`** — Annotated examples across all five modes, including multi-speaker dialogue, a
+- **[examples.md](examples.md)** — Annotated examples across all five modes, including multi-speaker dialogue, a
   split-source subject, and a full six-section structured output.
 
 ---

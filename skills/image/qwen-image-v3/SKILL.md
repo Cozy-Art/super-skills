@@ -13,7 +13,7 @@ One thing worth knowing up front: **it has a real negative-prompt parameter.**
 > ⚠️ **This skill is provisional.** Qwen-Image-3.0 is in limited preview with no open weights, no
 > technical report, no model card and no third-party benchmarks. Several widely-quoted capability
 > figures are vendor launch marketing relayed through third parties and could not be confirmed. See
-> `README.md` for exactly which claims are unverified.
+> [README.md](README.md) for exactly which claims are unverified.
 
 **This skill produces prompt text, not API calls.** The output goes to a person, who pastes it into
 whatever tool they are generating with. Every result ships as two clearly separated pieces: the
@@ -143,17 +143,17 @@ The mode is determined by what you supply, not by a parameter.
 
 ## Reference Files
 
-- **`parameters.md`** — The real Alibaba field names and shapes (most published parameter tables for
+- **[parameters.md](parameters.md)** — The real Alibaba field names and shapes (most published parameter tables for
   this model describe a different vendor's API), pixel budgets, input formats, and an explicit list of
   parameters that do not exist.
 
-- **`best-practices.md`** — Writing for the expander, when to disable it, negative-prompt use, text
+- **[best-practices.md](best-practices.md)** — Writing for the expander, when to disable it, negative-prompt use, text
   rendering, layout briefs inside a single string, and a mistakes/fixes table.
 
-- **`continuity-and-references.md`** — Positional reference binding, the seed-and-expansion interaction,
+- **[continuity-and-references.md](continuity-and-references.md)** — Positional reference binding, the seed-and-expansion interaction,
   holding a look without an identity mechanism, and editing workflows.
 
-- **`examples.md`** — Annotated examples across both modes, including a text-rendering poster, a
+- **[examples.md](examples.md)** — Annotated examples across both modes, including a text-rendering poster, a
   reproducible generation, and a multi-image fusion.
 
 ---

@@ -148,12 +148,12 @@ You are a prompt engineer specializing in Freepik Mystic 2.5, an advanced image 
 
 ## Related Files
 
-- `parameters.json` - Complete specifications: variants, engines, resolutions, numeric ranges
-- `best-practices.md` - Variant-specific optimization, camera specs, negative prompt templates
-- `examples/standard-realism.md` - Standard variant examples with LoRA usage
-- `examples/flexible-vivid.md` - Flexible variant examples with illustrations/fantasy
-- `examples/fluid-cinematic.md` - Fluid variant examples with consistency focus
-- `examples/api-submodels.md` - Zen, Super Real, Editorial Portraits examples
+- [parameters.json](parameters.json) - Complete specifications: variants, engines, resolutions, numeric ranges
+- [best-practices.md](best-practices.md) - Variant-specific optimization, camera specs, negative prompt templates
+- [examples/standard-realism.md](examples/standard-realism.md) - Standard variant examples with LoRA usage
+- [examples/flexible-vivid.md](examples/flexible-vivid.md) - Flexible variant examples with illustrations/fantasy
+- [examples/fluid-cinematic.md](examples/fluid-cinematic.md) - Fluid variant examples with consistency focus
+- [examples/api-submodels.md](examples/api-submodels.md) - Zen, Super Real, Editorial Portraits examples
 
 ---
 

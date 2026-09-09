@@ -130,13 +130,13 @@ Output URLs expire after **1 hour** — download promptly.
 
 Load these when you need depth on a specific topic:
 
-- **`parameters.md`** — Complete API parameter table, all 9 aspect ratios, style preset constraints (manga portrait-only rule), model tier pricing with reference image surcharge table, validation rules, output specifications, failure codes, SDK support, web platform credit pricing, and Photon → Uni-1.1 migration guide.
+- **[parameters.md](parameters.md)** — Complete API parameter table, all 9 aspect ratios, style preset constraints (manga portrait-only rule), model tier pricing with reference image surcharge table, validation rules, output specifications, failure codes, SDK support, web platform credit pricing, and Photon → Uni-1.1 migration guide.
 
-- **`best-practices.md`** — Prompt depth guidance, weak-vs-strong comparison table, what to emphasize (named aesthetics, camera language, cultural visual traditions, lighting specifics), what to avoid, positive prompting deep-dive with conversion examples, seed strategy, web search grounding guidance, multi-constraint discipline, and the Create → Modify workflow chain.
+- **[best-practices.md](best-practices.md)** — Prompt depth guidance, weak-vs-strong comparison table, what to emphasize (named aesthetics, camera language, cultural visual traditions, lighting specifics), what to avoid, positive prompting deep-dive with conversion examples, seed strategy, web search grounding guidance, multi-constraint discipline, and the Create → Modify workflow chain.
 
-- **`continuity-and-references.md`** — Character consistency workflow (canonical reference creation, reuse pattern, seed locking), multi-reference architecture for series production (up to 9 references with role assignment), Create → Modify chain workflow, image-to-image layered editing with source + image_ref, multi-panel / storyboard generation, board context retention in the Luma App, and reference pricing breakdown.
+- **[continuity-and-references.md](continuity-and-references.md)** — Character consistency workflow (canonical reference creation, reuse pattern, seed locking), multi-reference architecture for series production (up to 9 references with role assignment), Create → Modify chain workflow, image-to-image layered editing with source + image_ref, multi-panel / storyboard generation, board context retention in the Luma App, and reference pricing breakdown.
 
-- **`examples.md`** — 7 fully annotated examples with complete JSON: simple cinematic landscape, character portrait with reference, multi-reference architecture (3 roles), manga style, text rendering on sign/surface, web-grounded real location, image modification. Includes quick-start templates and a pre-flight checklist.
+- **[examples.md](examples.md)** — 7 fully annotated examples with complete JSON: simple cinematic landscape, character portrait with reference, multi-reference architecture (3 roles), manga style, text rendering on sign/surface, web-grounded real location, image modification. Includes quick-start templates and a pre-flight checklist.
 
 ---
 

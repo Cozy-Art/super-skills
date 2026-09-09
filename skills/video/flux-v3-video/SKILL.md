@@ -95,7 +95,7 @@ BFL states Omni Reference for images and video is coming but not shipped.
 
 Until it does, continuity across shots comes from disciplined description: write the character's
 description once, reuse it verbatim in every prompt, and prefer one longer multi-shot generation over
-several short ones whenever the shots need to match. See `continuity-and-references.md`.
+several short ones whenever the shots need to match. See [continuity-and-references.md](continuity-and-references.md).
 
 ## Multi-Shot Inside One Generation
 
@@ -127,7 +127,7 @@ the catalogue, and it is vendor-endorsed here.
 
 ## Suggested Settings
 
-Pair every prompt with a short settings line. See `parameters.md` for the full table.
+Pair every prompt with a short settings line. See [parameters.md](parameters.md) for the full table.
 
 - **Mode:** `t2v` · `i2v` · `v2v` · `draft_enhance`
 - **Duration:** `auto` (default) or 5–20 seconds
@@ -147,19 +147,19 @@ finishing: it is much cheaper to find the shot in draft and enhance once.
 
 Load these when you need depth on a specific topic:
 
-- **`parameters.md`** — Full settings reference: every documented parameter with its real enum and
+- **[parameters.md](parameters.md)** — Full settings reference: every documented parameter with its real enum and
   default, keyframe timing syntax, the draft/enhance bundle, safety tolerance, and what BFL does *not*
   publish (there is no stated prompt-length cap).
 
-- **`best-practices.md`** — Prose shape and ordering, shot vocabulary that works versus thematic
+- **[best-practices.md](best-practices.md)** — Prose shape and ordering, shot vocabulary that works versus thematic
   vocabulary that doesn't, the three audio layers in depth, dialogue and lip-sync mechanics, the
   in-prompt negation pattern, and a mistakes/fixes table.
 
-- **`continuity-and-references.md`** — Why `keyframes` are not references, how to hold a character
+- **[continuity-and-references.md](continuity-and-references.md)** — Why `keyframes` are not references, how to hold a character
   across shots without a reference mechanism, multi-shot single-generation technique, and the
   workarounds to use until Omni Reference ships.
 
-- **`examples.md`** — Annotated example prompts across all four modes, including a dialogue scene, a
+- **[examples.md](examples.md)** — Annotated example prompts across all four modes, including a dialogue scene, a
   keyframe-timed sequence, a multi-shot single generation, and a draft-to-enhance workflow.
 
 ---
