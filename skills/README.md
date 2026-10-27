@@ -1,7 +1,7 @@
 # Model prompting skills
 
-Agent Skills that teach a model how to write prompts for a specific image, video or audio
-generation model — the syntax it actually parses, the parameters it actually exposes, and the
+Agent Skills that teach a model how to write prompts for a specific image, video, audio, 3D
+or world generation model — the syntax it actually parses, the parameters it actually exposes, and the
 traps that look like features.
 
 Each skill is researched against **first-party vendor documentation**. Where a widely repeated
@@ -9,39 +9,46 @@ claim turned out to be wrong, the correction is recorded in that skill's `README
 source. That file is the receipts, not filler — several of these models are surrounded by
 confident third-party guidance that is simply invented.
 
-## Video (16)
+## Video (19)
 
 | Skill | Model | Vendor |
 |---|---|---|
 | [`veo-v3`](video/veo-v3) | Veo 3.1 | Google DeepMind |
 | [`sora-v2`](video/sora-v2) | Sora 2 (Standard + Pro) | OpenAI |
+| [`kling-v4`](video/kling-v4) | Kling 4 | Kuaishou |
 | [`kling-v3`](video/kling-v3) | Kling 3.0 | Kuaishou |
 | [`seedance-v2`](video/seedance-v2) | Seedance 2.0 | ByteDance |
 | [`seedance-v2-5`](video/seedance-v2-5) | Seedance 2.5 | ByteDance |
+| [`ltx-v2-3`](video/ltx-v2-3) | LTX-2.3 Fast & Pro | Lightricks |
 | [`ltx-v2`](video/ltx-v2) | LTX-2 Fast & Pro | Lightricks |
 | [`minimax-h3`](video/minimax-h3) | MiniMax H3 | MiniMax |
 | [`hailuo-v2`](video/hailuo-v2) | Hailuo 2.3 | MiniMax |
 | [`flux-v3-video`](video/flux-v3-video) | FLUX 3 Video | Black Forest Labs |
 | [`gemini-omni-flash`](video/gemini-omni-flash) | Gemini Omni Flash | Google |
 | [`grok-imagine-video-v1-5`](video/grok-imagine-video-v1-5) | Grok Imagine Video 1.5 | xAI |
+| [`grok-imagine-video-v1-5-lite`](video/grok-imagine-video-v1-5-lite) | Grok Imagine Video 1.5 Lite | xAI |
 | [`luma-ray-v3`](video/luma-ray-v3) | Ray 3 (Dream Machine) | Luma AI |
 | [`pixverse-v5`](video/pixverse-v5) | PixVerse V5.5 | PixVerse |
 | [`pixverse-v6`](video/pixverse-v6) | PixVerse V6 | PixVerse |
 | [`wan-v2`](video/wan-v2) | WAN 2.5 | Alibaba |
 | [`happyhorse-v1`](video/happyhorse-v1) | HappyHorse 1.0 | HappyHorse |
 
-## Image (15)
+## Image (21)
 
 | Skill | Model | Vendor |
 |---|---|---|
+| [`midjourney-v8`](image/midjourney-v8) | Midjourney V8 (8.1 / 8.2) | Midjourney |
 | [`midjourney-v7`](image/midjourney-v7) | Midjourney v7 | Midjourney |
 | [`gpt-image-v2`](image/gpt-image-v2) | GPT Image 2 | OpenAI |
+| [`nano-banana-v2-1`](image/nano-banana-v2-1) | Nano Banana 2.1 | Google |
 | [`gemini-v3-pro`](image/gemini-v3-pro) | Gemini 3 Pro Image (Nano Banana Pro) | Google |
+| [`flux-v3`](image/flux-v3) | FLUX 3 Image | Black Forest Labs |
 | [`flux-v2`](image/flux-v2) | FLUX.2 (Pro, Max, Flex, Klein, Kontext) | Black Forest Labs |
 | [`ideogram-v3`](image/ideogram-v3) | Ideogram 3.0 | Ideogram |
 | [`seedream-v5`](image/seedream-v5) | Seedream 5.0 Lite | ByteDance |
 | [`seedream-v4`](image/seedream-v4) | Seedream 4.5 | ByteDance |
 | [`qwen-image-v3`](image/qwen-image-v3) | Qwen-Image 3.0 | Alibaba |
+| [`qwen-image-v2-1`](image/qwen-image-v2-1) | Qwen-Image 2.1 | Alibaba |
 | [`qwen-image-v2`](image/qwen-image-v2) | Qwen-Image 2.0 | Alibaba |
 | [`stable-diffusion-v3-5`](image/stable-diffusion-v3-5) | Stable Diffusion 3.5 | Stability AI |
 | [`luma-uni-v1`](image/luma-uni-v1) | Uni-1.1 | Luma AI |
@@ -49,8 +56,33 @@ confident third-party guidance that is simply invented.
 | [`grok-aurora-v1`](image/grok-aurora-v1) | Grok Image (Aurora) | xAI |
 | [`mystic-v2`](image/mystic-v2) | Mystic 2.5 | Freepik |
 | [`phota-v1`](image/phota-v1) | Phota | PhotaLabs |
+| [`recraft-v4`](image/recraft-v4) | Recraft V4 / V4.1 | Recraft |
+| [`magnific-one-v1`](image/magnific-one-v1) | Magnific One | Magnific |
 
-Audio and 3D skills follow.
+## Audio (7)
+
+| Skill | Model | Vendor |
+|---|---|---|
+| [`elevenlabs-v4`](audio/elevenlabs-v4) | Eleven v4 / v4 Turbo (speech + dialogue) | ElevenLabs |
+| [`fish-audio-v2`](audio/fish-audio-v2) | Fish Audio S2.1-Pro + Drama 3 | Fish Audio |
+| [`drama-v3`](audio/drama-v3) | Fish Audio Drama 3 (dedicated: scenes, revision, open checkpoint) | Fish Audio |
+| [`grok-voice-v3`](audio/grok-voice-v3) | Grok Voice 3.0 (real-time voice agents) | xAI |
+| [`suno-v6`](audio/suno-v6) | Suno v6 (v6 / wild / mini) | Suno |
+| [`sonilo-v1-1`](audio/sonilo-v1-1) | Sonilo v1.1 + Sound Effects 1.0 | Sonilo |
+| [`yue-v2`](audio/yue-v2) | YuE2 (lyrics-to-song, open weights) | M-A-P |
+
+## 3D (2)
+
+| Skill | Model | Vendor |
+|---|---|---|
+| [`meshy-v7`](3d/meshy-v7) | Meshy 7.1 | Meshy |
+| [`tripo-p1`](3d/tripo-p1) | Tripo Smart Mesh P1.0 | Tripo |
+
+## World (1)
+
+| Skill | Model | Vendor |
+|---|---|---|
+| [`world-labs-atlas`](world/world-labs-atlas) | Atlas + Marble 2 beta tasks | World Labs |
 
 ## Installing
 
@@ -67,8 +99,8 @@ From the repo root:
 ```
 
 Or copy it yourself — `cp -r skills/video/veo-v3 ~/.claude/skills/`. Note that Claude Code and
-Codex only look **one level deep**, so the skill folder goes in directly; the `image/` and
-`video/` category dirs do not come along. That is all `install.sh` is doing.
+Codex only look **one level deep**, so the skill folder goes in directly; the category dirs (`image/`,
+`video/`, `audio/`, `3d/`, `world/`) do not come along. That is all `install.sh` is doing.
 
 The skill triggers on its own `description` — mention the model by name and it loads. Nothing
 else to wire up. Full per-tool instructions are in the [root README](../README.md#installing).

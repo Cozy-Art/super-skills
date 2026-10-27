@@ -33,11 +33,11 @@ Every strong prompt should include:
 | **Location** | Specific environment with atmosphere | "modern glass-walled office with city skyline visible through windows" |
 | **Composition** | Shot type, camera, lens | "medium shot, 35mm lens, shallow depth of field" |
 | **Lighting** | Quality, direction, color temperature | "soft diffused daylight mixed with warm interior lighting" |
-| **Style** | Aesthetic, medium, mood | "photorealistic, professional and inspiring mood, 16:9 landscape" |
+| **Style** | Medium/rendering, aesthetic, mood — always stated, never left to default | "[your medium, e.g. ink illustration / watercolor / photographic], [mood]" |
 
 ### Complete Example Applying All Six:
 ```
-Create a photorealistic medium shot of a confident businesswoman in her 40s with 
+Create a [your medium] medium shot of a confident businesswoman in her 40s with 
 silver-streaked black hair and warm brown eyes. She is presenting to a boardroom, 
 gesturing toward an unseen screen. Set in a modern glass-walled office with city 
 skyline visible through windows. Illuminated by soft diffused daylight mixed with 
@@ -128,12 +128,12 @@ and vintage leather armchairs near a fireplace
 
 #### Method 1: Multi-Turn Conversation (Most Reliable)
 
-Use Gemini's 1-million-token context window:
+Keep the whole sequence in one conversation thread:
 
 ```
 TURN 1:
 Create a character: A young woman with curly red hair, freckles, and green eyes 
-wearing a vintage denim jacket. Photorealistic portrait, soft natural lighting.
+wearing a vintage denim jacket. [Your medium] portrait, soft natural lighting.
 
 TURN 2:
 Show the same character from the previous image, now sitting at a café reading 
@@ -165,7 +165,7 @@ Image 1 while adopting the painterly aesthetic of Image 2.
 - Use high-resolution, well-lit images
 - Front-facing photos work best for facial consistency
 - Realistic human images > stylized/anime for character work
-- Combine up to 5 human references and 6 object references
+- Combine up to 5 character, 6 object and 3 style references
 
 ---
 
@@ -211,7 +211,7 @@ the text. Clean lines, earthy brown and cream color palette, professional brandi
 
 ---
 
-### Google Search Grounding (Gemini 3 Pro Exclusive)
+### Google Search Grounding
 
 For real-time information visualization:
 
@@ -228,7 +228,7 @@ Infographic style, blue and white color scheme.
 - Product information that changes frequently
 - Trending topic illustrations
 
-**Configuration Required:** Enable `tools=[{"google_search": {}}]` in API config
+**Configuration Required:** Enable `tools=[{"type": "google_search"}]`
 
 ---
 
@@ -236,7 +236,7 @@ Infographic style, blue and white color scheme.
 
 ### Portrait Photography
 ```
-[Action verb] a [photorealistic/stylized] [close-up/medium/full-body] portrait 
+[Action verb] a [medium/style — stated explicitly] [close-up/medium/full-body] portrait 
 of [subject with 8+ specific characteristics]. [Subject action or expression]. 
 Set in [specific location]. Illuminated by [detailed lighting]. Shot with 
 [camera/lens]. [Aspect ratio]. Mood: [emotional tone].

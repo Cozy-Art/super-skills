@@ -73,7 +73,7 @@ portrait, 3:4 orientation. Mood: cozy, intimate, peaceful.
 ```
 
 ### Configuration Notes
-- **Method:** Multi-turn conversation mode (leverages 1M token context)
+- **Method:** Multi-turn conversation mode (one continuous thread)
 - **Resolution:** 2K for all scenes
 - **Preservation Strategy:** Explicit feature references + "same character from previous image"
 

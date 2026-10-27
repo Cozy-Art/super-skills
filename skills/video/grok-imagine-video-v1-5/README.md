@@ -2,7 +2,51 @@
 
 Human-facing build notes.
 
-**Built:** 2026-08-11 · **Skill version:** 1.0 · **Model:** Grok Imagine Video 1.5 (xAI), released 30 May 2026
+**Built:** 2026-08-11 · **Skill version:** 1.0 (updated 2026-10-19) · **Model:** Grok Imagine Video 1.5 (xAI), released 30 May 2026
+
+---
+
+## Update — 2026-10-19
+
+Fact refresh against current first-party xAI docs. Craft and structure unchanged; the old notes below
+are kept as the build record (where they conflict with this section, this section wins).
+
+| Was | Now | Source |
+|---|---|---|
+| xAI documents no way to script speech; "do not write a line in quotes" | 1.5 *"generates lip-synced speech"*; xAI's examples write lines as speaker + quoted text — `Sam: "I took the job in Berlin. We could leave in March."`, `She says: "Welcome to my dream living room."` Example usage, not a formal rule. Skill now scripts dialogue in quotes, attributed and placed | https://docs.x.ai/developers/model-capabilities/video/overview, https://docs.x.ai/developers/model-capabilities/video/reference-to-video |
+| Index base ambiguous; default `<IMAGE_1>` | **Zero-based, stated:** *"starting at `<IMAGE_0>` for the first image"*; with a pinned first frame, *"it takes `<IMAGE_0>` and your reference images start at `<IMAGE_1>`"*. Showcase prompt now reads `the model from <IMAGE_0> … the shirt from <IMAGE_1>`. All examples renumbered | https://docs.x.ai/developers/model-capabilities/video/reference-to-video |
+| Reference images: no published cap; "7" is folklore | **Up to 14** on 1.5; **7** on classic `grok-imagine-video` | reference-to-video page; overview capability table |
+| Voices: preset `voice_id` only; uploads impossible | `reference_audios` entries take `voice_id` **or** `url` (audio clip ≤ 15 s), max 3. xAI's guide says own-audio voice references are *"available to trusted partners"* on request — field exists, access is gated | https://docs.x.ai/developers/rest-api-reference/inference/videos, reference-to-video page |
+| Flat $0.08/s at every resolution; "no cost argument for drafting low" | **$0.08 / $0.14 / $0.25 per second** at 480p / 720p / 1080p, plus $0.01 per input image | https://docs.x.ai/developers/pricing |
+| No `last_frame` / `keyframes` | `last_frame` pins the last frame; up to **4** `keyframes` `{image, timestamp_s}`, strictly inside the clip, 1/3-s grid; same image as `image` and `last_frame` = loop. Any of these makes the request reference-to-video (720p cap) | reference-to-video page; https://docs.x.ai/developers/model-capabilities/video/image-to-video |
+| `image` + `reference_images` → 400; modes mutually exclusive | On 1.5 they combine: `image` with references/voices/last frame/keyframes is reference-to-video with that image as the pinned first frame | https://docs.x.ai/developers/model-capabilities/video/generation, image-to-video page |
+| 1080p for T2V/I2V | **Native** 1080p for T2V/I2V on 1.5 (Lite only upscales 720p) | overview; image-to-video page |
+| Image-to-video: overriding the ratio stretches the image | *"The output always matches the still's aspect ratio; `aspect_ratio` is ignored."* | overview |
+| 7 aspect ratios | Adds `21:9` and `5:2` | REST videos reference |
+| Extend listed as a 1.5 mode | Edit **and** extend are classic `grok-imagine-video` only (overview: "Not supported" on 1.5). Extend source 2–15 s, adds 2–10 s (default 6) | overview; https://docs.x.ai/developers/model-capabilities/video/extension |
+| Upsampler | Still documented: `text_tokens` *"consumed by the prompt-rewriting (upsampler) LLM"* | REST videos reference |
+| Audio on/off | `generate_audio=False` is shown in the generation guide (SDK); not in the REST request schema reviewed | generation page; REST videos reference |
+
+Re-confirmed unchanged: duration 1–15 s default 8; 480p default; reference-to-video ≤ 720p, ≤ 15 s;
+edit keeps source duration ≤ 8.7 s and resolution ≤ 720p; no `seed`, no negative-prompt field; prompt
+length ceiling exists but is unpublished.
+
+Removed: the "routing away for scripted dialogue" example (now obsolete), replaced with a two-character
+dialogue example; added a keyframed example (8 examples total).
+
+**Still unverified**
+- REST field name for audio off (`generate_audio` per SDK usage only).
+- Whether own-audio `url` voice references work on a standard account (schema yes; guide says trusted
+  partners).
+- Whether keyframe / last-frame images can be addressed by `<IMAGE_N>` tokens — undocumented; the skill
+  does not tag them.
+- Whether classic `grok-imagine-video` still rejects `image` + `reference_images` together.
+- Model aliases (`-preview`, `-2026-05-30`), preset voice roster, rate limits — not re-fetched.
+- Negation behaviour, upsampler bypass — still undocumented.
+
+**Hosted-route note:** some platforms expose this model with tighter limits than xAI's API — e.g.
+fewer reference images (7), no references at 1080p, or no references alongside a start frame. Those
+are route limits, not model limits; the interface wins.
 
 ---
 
