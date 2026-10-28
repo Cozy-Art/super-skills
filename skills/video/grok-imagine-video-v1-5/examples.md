@@ -1,6 +1,6 @@
 # Grok Imagine Video 1.5 — Example Prompts
 
-Annotated examples across all five modes, drawn from the recurring example projects.
+Annotated examples across the modes, drawn from the recurring example projects.
 
 Note the prompt lengths. These are deliberately not short — see `best-practices.md` on writing for the
 upsampler.
@@ -39,16 +39,17 @@ underneath.
 ## Example 2 — Reference-bound character with assigned voice
 
 **Project:** *Neon Pulse* · **Mode:** reference-to-video
-**References:** `<IMAGE_1>` dancer portrait, `<IMAGE_2>` jacket detail · `<AUDIO_0>` preset voice
+**References:** `<IMAGE_0>` dancer portrait, `<IMAGE_1>` jacket detail · `<AUDIO_0>` preset voice
 
 **Prompt:**
 ```
-The dancer from <IMAGE_1> stands under a dead neon sign on wet asphalt,
-wearing the jacket from <IMAGE_2> over black trousers. She looks up at the
+The dancer from <IMAGE_0> stands under a dead neon sign on wet asphalt,
+wearing the jacket from <IMAGE_1> over black trousers. She looks up at the
 sign as it cuts out, then speaks to camera with the voice from <AUDIO_0>,
-half to herself. Handheld low angle, slow drift left, the only remaining
-light spilling from an open doorway camera-right. Rain on asphalt, a
-transformer buzz cutting to silence, a distant bassline continuing under it.
+half to herself: "Every light on this street owes me money." Handheld low
+angle, slow drift left, the only remaining light spilling from an open
+doorway camera-right. Rain on asphalt, a transformer buzz cutting to
+silence, a distant bassline continuing under it.
 ```
 
 **Settings:** 8s · **720p** · 9:16
@@ -56,12 +57,12 @@ transformer buzz cutting to silence, a distant bassline continuing under it.
 **Technique notes:**
 - **Angle brackets, not `@`.** The `@Image1` form circulates widely and appears nowhere in xAI's
   documentation
-- **Each token sits beside what it governs** — `<IMAGE_1>` on the person, `<IMAGE_2>` on the jacket.
+- **Each token sits beside what it governs** — `<IMAGE_0>` on the person, `<IMAGE_1>` on the jacket.
   Collecting them at the front would lose the scoping
-- **`<AUDIO_0>` selects a voice, not a script.** The prompt describes *manner* — "half to herself" —
-  because there is no way to specify words. Writing a quoted line here would do nothing
+- **Zero-based.** The first attached reference is `<IMAGE_0>` — xAI's stated convention
+- **`<AUDIO_0>` selects the voice; the quoted line is the script.** Delivery — "half to herself" — sits
+  outside the quotes as prose. One short line suits an 8-second clip
 - **720p is forced.** Reference mode caps there; this shot trades resolution for identity binding
-- If the references don't bind, try `<IMAGE_0>` — xAI's docs are inconsistent about the base
 
 ---
 
@@ -78,21 +79,21 @@ Locked-off framing otherwise, no reframing. A crystalline chime, then a soft
 low room tone settling behind it.
 ```
 
-**Settings:** 5s · 1080p · **aspect ratio inherited from the source image**
+**Settings:** 5s · 1080p · aspect ratio set by the source image
 
 **Technique notes:**
 - The source image carries the product exactly, so the prompt **never redescribes the bottle**
-- **Do not override the aspect ratio.** Image-to-video inherits the source image's ratio, and
-  overriding it *stretches* rather than crops
-- **1080p available** — image-to-video keeps the top tier, unlike reference mode
+- **Crop the source to the delivery ratio first.** Image-to-video ignores `aspect_ratio` — the
+  output always matches the source image
+- **Native 1080p available** — image-to-video keeps the top tier, unlike reference mode
 - Minimal specific motion; five seconds holds one highlight travel
 
 ---
 
 ## Example 4 — Extension
 
-**Project:** *Stellar Drift* · **Mode:** extend
-**Source:** approved 10-second corridor clip
+**Project:** *Stellar Drift* · **Mode:** extend (classic `grok-imagine-video`)
+**Source:** approved 10-second corridor clip generated on 1.5
 
 **Prompt:**
 ```
@@ -112,6 +113,7 @@ semitone and steadies.
 - Short and continuation-focused; the source supplies everything else
 - "The camera holds where it is" prevents a new move at the join
 - Continues from the **last frame**. There is no frame-selection option
+- Extension runs on classic `grok-imagine-video` — 1.5 does not extend
 
 ---
 
@@ -146,7 +148,7 @@ label, the highlight travel and the camera movement unchanged.
 ```
 Two viable approaches, and the trade-off is unusual on this model:
 
-A) Reference-to-video with <IMAGE_1> bound to the approved queen portrait.
+A) Reference-to-video with <IMAGE_0> bound to the approved queen portrait.
    Identity matches other shots exactly. CAPS AT 720p.
 
 B) Text-to-video at 1080p, with the queen described in prose reusing the
@@ -160,7 +162,7 @@ than a softer queen.
 For an isolated establishing or insert shot where she is small in frame,
 B is the better trade.
 
-No cost dimension either way: $0.08/second at every resolution.
+Cost: A runs at $0.14/second (720p), B at $0.25/second (1080p).
 ```
 
 **Technique notes:**
@@ -169,40 +171,58 @@ No cost dimension either way: $0.08/second at every resolution.
 
 ---
 
-## Example 7 — Routing away
+## Example 7 — Two-character dialogue with assigned voices
 
-**Project:** *Iron Crown* · **Scenario:** the council scene, two characters exchanging lines
+**Project:** *Iron Crown* · **Mode:** reference-to-video
+**References:** `<IMAGE_0>` queen portrait, `<IMAGE_1>` chancellor portrait, `<IMAGE_2>` council
+chamber · `<AUDIO_0>`, `<AUDIO_1>` preset voices
 
-**Notes field:**
+**Prompt:**
 ```
-Grok Imagine Video cannot deliver this scene as written.
-
-<AUDIO_0> and <AUDIO_1> can assign two distinct preset voices, and <IMAGE_1>
-and <IMAGE_2> can bind both characters' appearances. But xAI documents NO
-mechanism for specifying what a voice says. Assigning a voice does not
-assign words, and there is no quoted-line convention on this model.
-
-Options:
-
-1. Route the scene to minimax-h3 (<d>[Language] … </d> with (S1)/(S2)
-   speaker IDs), flux-v3-video (quoted lines), or seedance-v2-5. All three
-   document a dialogue trigger.
-
-2. Keep Grok for the picture and generate the dialogue with a dedicated
-   voice model, laying the audio against it in the edit. Viable, but it
-   forfeits native lip-sync.
-
-Recommend option 1.
-
-Grok remains the right tool for the reaction shots and coverage in this
-scene, where presence matters and specific words do not.
+In the council chamber from <IMAGE_2>, the queen from <IMAGE_0> sits at the
+head of the long table, the chancellor from <IMAGE_1> standing at her right.
+Wide shot, then a cut over his shoulder onto her face. The chancellor, with
+the voice from <AUDIO_1>, says stiffly: "The northern lords will not wait
+for spring." The queen, with the voice from <AUDIO_0>, answers without
+looking up: "Then they will wait for me." Candlelight from the table,
+cold daylight from the high windows behind her. Fire crackling, a chair
+creaking, otherwise silence.
 ```
+
+**Settings:** 10s · **720p** · 16:9
 
 **Technique notes:**
-- The dialogue gap is the most likely reason to route away from this model, and the easiest to
-  discover too late — native audio *and* voice assignment both exist, which makes it look like
-  scripted speech should work
-- Note the last line: routing away from part of a scene is not routing away from the model
+- **Each line attributed and placed** — speaker named, token-bound, and given a delivery note before
+  the quotes, so the lip-sync lands on the right face
+- **Voice paired to speaker explicitly.** `<AUDIO_0>`/`<AUDIO_1>` are numbered independently of the
+  images; the prompt says which voice belongs to whom
+- **Two short lines for 10 seconds.** xAI's own four-line exchange runs 15 seconds
+- The shot direction ("wide shot, then a cut over his shoulder") follows xAI's own dialogue example
+
+---
+
+## Example 8 — Keyframed seasons
+
+**Project:** *Shadows of Ashford* · **Mode:** reference-to-video (pinned frames)
+**Inputs:** `image` spring oak · `keyframes` summer, autumn, winter oak at 3 s, 6 s, 9 s
+
+**Prompt:**
+```
+The oak on the hill moves through the year: blossom falls away into dense
+summer green, the canopy burns amber and sheds, and the first snow settles
+on bare branches. Locked-off wide, clouds racing overhead, the light cooling
+with each season. Birdsong thinning to wind, then a muffled winter hush.
+```
+
+**Settings:** 12s · 720p · 16:9 · keyframes at 3 / 6 / 9 s
+
+**Technique notes:**
+- **The pins carry the pictures; the prompt carries the journey.** No pinned frame is re-described —
+  only the transitions, camera and sound
+- **Locked off** keeps every pinned composition reachable
+- Keyframe timestamps sit strictly inside the clip and at least 1/3 s apart; they are inputs, not prompt
+  text
+- Any pinned frame caps the request at 720p
 
 ---
 
@@ -212,10 +232,11 @@ scene, where presence matters and specific words do not.
 |---|---|---|
 | Imagined scene, top resolution | Text-to-video | 1080p available |
 | Fixed opening image | Image-to-video | 1080p; inherits source ratio |
-| Character bound from a reference | Reference-to-video | **Caps at 720p** |
-| Character *and* a distinct voice | Reference-to-video with `<AUDIO_N>` | Voice ≠ script |
-| Continuing an approved clip | Extend | `duration` is the **addition**; range 2–10 |
-| Changing an approved clip | Edit | Inherits then caps at 8.7s / 720p |
-| Specific spoken lines | **Route elsewhere** | No scripting mechanism |
+| Character bound from a reference | Reference-to-video | **Caps at 720p**; tokens from `<IMAGE_0>` |
+| Character *and* a distinct voice | Reference-to-video with `<AUDIO_N>` | Voice picks timbre; quoted line is the script |
+| Specific spoken lines | Any mode — quoted, attributed lines | Lip-synced; keep lines short |
+| Exact start/end/mid frames | `image` / `last_frame` / `keyframes` | Up to 4 keyframes; caps at 720p |
+| Continuing an approved clip | Extend (classic model) | `duration` is the **addition**; range 2–10 |
+| Changing an approved clip | Edit (classic model) | Inherits then caps at 8.7s / 720p |
 | Reproducible from a seed | **Route elsewhere** | No `seed` parameter |
-| More than three identities | **Route elsewhere** | Three is what xAI demonstrates |
+| More than 14 references or 3 voices | **Route elsewhere** | 1.5's ceilings |

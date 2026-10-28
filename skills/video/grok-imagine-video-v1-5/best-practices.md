@@ -33,16 +33,20 @@ sound. Stop when you have specified the shot, not when you hit a word count.
 Put each reference token beside the thing it governs. xAI's own example:
 
 ```
-the model from <IMAGE_1> walks in from the back of the shot … they wear the
-shirt from <IMAGE_2> and black flared jeans
+the model from <IMAGE_0> walks in from the back of the shot … they wear the
+shirt from <IMAGE_1> and black flared jeans
 ```
 
-`<IMAGE_1>` scopes to the person. `<IMAGE_2>` scopes to the shirt. Collecting both at the front —
-`using <IMAGE_1> and <IMAGE_2>, a model walks in wearing a shirt` — loses the scoping and leaves the
+`<IMAGE_0>` scopes to the person. `<IMAGE_1>` scopes to the shirt. Collecting both at the front —
+`using <IMAGE_0> and <IMAGE_1>, a model walks in wearing a shirt` — loses the scoping and leaves the
 upsampler to guess which image governs which element.
 
 **Angle brackets, not `@`.** The `@Image1` form appears nowhere in xAI's documentation and will be read
-as ordinary text. See `README.md` for where that claim came from.
+as ordinary text.
+
+**Zero-based.** The first reference image is `<IMAGE_0>`. If a first frame is also pinned, it takes
+`<IMAGE_0>` and references start at `<IMAGE_1>`. With many references (up to 14), give each token a
+short role phrase — "the sofa from `<IMAGE_4>`" — so nothing is left for the upsampler to assign.
 
 ---
 
@@ -81,25 +85,32 @@ Rain on asphalt, a transformer buzz cutting out, a distant bassline
 continuing under it.
 ```
 
-### Voice, but not script
+### Voice and script — two separate jobs
 
-`<AUDIO_0>` through `<AUDIO_2>` select **preset voices** from xAI's roster, supplied as
-`reference_audios: [{"voice_id": "…"}]`. They control *how a speaker sounds*.
+`<AUDIO_0>` through `<AUDIO_2>` select a voice — a preset `voice_id` from xAI's roster, or an uploaded
+clip where your account allows it. They control *how a speaker sounds*. The **words** go in double
+quotes, attributed to a speaker — xAI's own convention, with lip-sync:
 
 ```
-The person from <IMAGE_1> speaks to camera with the voice from <AUDIO_0>.
+The person from <IMAGE_0> speaks to camera with the voice from <AUDIO_0>.
+She says: "Welcome to my dream living room."
 ```
 
-**There is no documented way to specify what they say.** No quoted-line convention, no scripting
-syntax. Assigning a voice does not assign words.
+```
+Sam: "I took the job in Berlin. We could leave in March."
+Lena: "We? You didn't even ask me."
+```
 
-**Handle it one of two ways:**
+**Practical rules:**
 
-- Describe the *manner* of speech and accept unspecified content — works for background presence,
-  a figure talking at a distance, someone mid-sentence as the shot begins
-- Generate the audio elsewhere and lay it against this picture
-
-Do not write a line in quotes expecting it to be spoken. That convention belongs to other models.
+- **Attribute every line** — by name, by token-bound description, or by screen position — so the
+  lip-sync lands on the right face
+- **Keep lines short.** xAI's four-line exchange fills 15 seconds; at the 8-second default, budget one
+  or two short lines
+- **Delivery is prose** — "quietly, without looking up" — beside the line, not inside the quotes
+- **Pair voice and speaker explicitly** when more than one voice is attached: "Sam, with the voice
+  from `<AUDIO_0>`" — the numbering alone does not say who is who
+- xAI shows this as example usage, not a formal rule; there is no tag syntax
 
 ---
 
@@ -144,39 +155,59 @@ So binding a character from reference images **costs you the top resolution tier
 where identity is already well-described in prose, text-to-video at 1080p may beat reference-to-video
 at 720p. For a shot where identity must match, reference mode wins regardless.
 
-There is no cost argument either way — pricing is $0.08/second at every resolution.
+Cost runs the other way too: 1080p is $0.25/second against $0.14 at 720p, so the reference-mode cap
+is also the cheaper tier.
 
 ---
+
+## Pinned frames — prompt the journey, not the pins
+
+`image`, `last_frame` and up to four `keyframes` pin exact images; the model fills the rest. The
+prompt's job changes: **don't re-describe what is pinned — describe how the clip gets from one pin to
+the next.**
+
+```
+The oak sways in a spring breeze, blossoms giving way to full green leaves,
+then the canopy turns amber and sheds, and snow settles on bare branches.
+Locked-off wide, the light cooling with each season. Wind through leaves
+thinning to a low winter hush.
+```
+
+- Order the beats in the sequence the pins impose
+- Keep camera behaviour compatible with every pinned frame — a pin at a wide shot rules out a push-in
+  that never comes back
+- For a loop (same image both ends), write motion that returns: "drifts out and settles back"
 
 ## Mistakes and fixes
 
 | Symptom | Cause | Fix |
 |---|---|---|
-| Reference tokens ignored | `@Image1` form used | Angle brackets: `<IMAGE_1>` |
+| Reference tokens ignored | `@Image1` form used | Angle brackets: `<IMAGE_0>` |
 | Wrong image governs wrong element | Tokens collected at the front | Place each token beside what it governs |
-| References not binding at all | Index base | Try `<IMAGE_0>` — xAI's docs are inconsistent |
+| References off by one | 1-based tokens, or a pinned first frame not counted | Zero-based: first reference is `<IMAGE_0>`; with a pinned first frame, references start at `<IMAGE_1>` |
 | Result generic despite a short prompt | Upsampler filling gaps | Specify camera, light, setting explicitly |
 | Actions compressed or dropped | Too many beats | One primary action per clip |
-| Request returns 400 | `image` and `reference_images` both sent | Modes are mutually exclusive |
-| Output lower resolution than expected | Reference mode caps at 720p | Use text-to-video or image-to-video for 1080p |
-| Image stretched in image-to-video | Aspect ratio overridden | Inherit the source image's ratio |
+| Start frame didn't stay a "style" reference | `image` + references pins the first frame on 1.5 | Put style images in `reference_images`, not `image` |
+| Output lower resolution than expected | References, voices, last frame or keyframes cap at 720p | Use text-to-video or image-to-video for 1080p |
+| Wrong aspect ratio in image-to-video | `aspect_ratio` is ignored there | Crop the source image to the delivery ratio |
+| Keyframe rejected | Timestamp at 0, at `duration`, or two on one 1/3-s slot | Strictly inside the clip, ≥ 1/3 s apart |
 | Extension came out longer than expected | `duration` is the **added** portion | 10s source + `duration: 5` = 15s total |
 | Extension rejected at 12 seconds | Extension range is 2–10, not 1–15 | Different range from generation |
 | Edit output shorter than expected | Edit inherits source duration | 4s in, 4s out — capped at 8.7s |
-| Spoken words don't match the script | No scripting mechanism exists | Voice tokens select timbre only |
+| Line spoken by the wrong character | Line not attributed | Name or place the speaker before each quoted line |
+| Dialogue rushed or cut | Too many lines for the duration | One or two short lines per 8 s |
 | Cannot reproduce a result | No `seed` parameter | Use reference images for continuity |
 
 ---
 
 ## Iterating
 
-**Iterate at 480p for speed, not cost** — pricing is per second regardless of resolution, so the only
-saving is time-to-result.
+**Iterate at 480p for speed and cost** — $0.08/second against $0.25 at 1080p.
 
 **Change one element at a time.** With an upsampler between your prompt and the model, changing three
 things at once makes attribution impossible — you cannot tell whether the improvement came from your
 edit or from the rewrite.
 
 **Test reference bindings early and short.** Confirm identities land before committing to a
-15-second generation. And confirm the index base on the first attempt — that one ambiguity accounts for
-most "the reference did nothing" reports.
+15-second generation. And count the tokens against what is actually attached — a pinned first frame
+shifts every reference up by one.

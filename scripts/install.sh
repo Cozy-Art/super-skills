@@ -3,7 +3,7 @@
 # install.sh — install super-skills into any tool that reads the SKILL.md format.
 #
 # A skill is a folder containing SKILL.md. Claude Code and Codex only discover
-# skills ONE LEVEL DEEP, so the category dirs (skills/image, skills/video) cannot
+# skills ONE LEVEL DEEP, so the category dirs (skills/image, skills/video, skills/audio, ...) cannot
 # be copied wholesale — this script flattens them into the target skills dir.
 #
 # Usage: scripts/install.sh [<skill>...] [options]

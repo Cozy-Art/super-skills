@@ -7,9 +7,18 @@ description: Generate optimized prompts for Gemini 3 Pro Image, nicknamed Nano B
 
 ## Model Overview
 
-Gemini 3 Pro Image Preview (nicknamed "Nano Banana Pro") is Google's professional-grade native image generation model designed for high-quality asset production with advanced features like multi-reference support, Google Search grounding, and sophisticated text rendering capabilities.
+Gemini 3 Pro Image (nicknamed "Nano Banana Pro") is Google's professional-grade native image generation model designed for high-quality asset production with advanced features like multi-reference support, Google Search grounding, and sophisticated text rendering capabilities. Generally available since 2026-05-28.
 
-**Model ID:** `gemini-3-pro-image-preview`
+**Model ID:** `gemini-3-pro-image` (the old `gemini-3-pro-image-preview` ID was shut down 2026-06-25)
+
+### Which Nano Banana?
+
+| Name | Model ID | Pick it for |
+|---|---|---|
+| **Nano Banana Pro** (this skill) | `gemini-3-pro-image` | Heaviest reasoning, studio finish, dense text; 5 character + 6 object + 3 style references |
+| Nano Banana 2.1 | `gemini-nano-banana-2.1` | Default everyday model: faster and cheaper, panoramas, 4 character + 10 object references — use its own skill |
+| Nano Banana 2 Lite | `gemini-3.1-flash-lite-image` | Lowest latency/cost, 1K only, object references only |
+| Nano Banana 2 | `gemini-3.1-flash-image` | Deprecated — use 2.1 |
 
 ---
 
@@ -39,11 +48,11 @@ The mood is [emotional tone]. [Any text to render in "quotes"].
 
 ### Special Capabilities to Leverage
 
-- **Multi-reference support**: Up to 14 reference images (5 humans, 6 objects)
+- **Multi-reference support**: Up to 14 reference images — up to 6 object, 5 character and 3 style references
 - **Google Search grounding**: Real-time information integration for current events/data
 - **Advanced text rendering**: Excellent typographic accuracy with quoted text
-- **Thinking mode**: Automatic reasoning for complex compositions
-- **Resolution options**: 1K (fast), 2K (balanced), 4K (maximum quality)
+- **Thinking mode**: Always on (it cannot be turned off) — the model plans complex compositions and may draft up to two interim "thought" images before the final
+- **Resolution options**: 1K (default), 2K, 4K
 
 ### Output Format
 
